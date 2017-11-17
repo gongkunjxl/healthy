@@ -9,25 +9,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <title>健康网站首页</title>
 <!--   <link rel="stylesheet" href="static/css/bootstrap.min.css"> -->
   <link rel="stylesheet" href="static/layui/css/layui.css">
+  <link rel="stylesheet" href="static/css/index-page.css">
   <script type="text/javascript" src="static/layui/layui.js"></script>
 </head>
 <body>
-<div style="height: 130px;width: 100%; background-color: #1792CD;">
-  <div class="layui-container">
-    <img src="static/images/head_logo.png" style="height: 60px; margin-top: 10px; "  alt="logo">
-    <ul class="layui-nav" style="height: 60px; background-color:#1792CD;"  lay-filter="">
-      <li class="layui-nav-item layui-this" ><a href="main/message" style="font-weight: 300; color: #fff;">首页&nbsp;&nbsp;&nbsp;&nbsp;|</a></li>
-      <li class="layui-nav-item"><a href="" style="font-weight: 300; color: #fff;">慢性疾病&nbsp;&nbsp;&nbsp;&nbsp;|</a></li>
-      <li class="layui-nav-item"><a href="" style="font-weight: 300; color: #fff;">健康生活方式&nbsp;&nbsp;&nbsp;&nbsp;|</a></li>
-      <li class="layui-nav-item"><a href="" style="font-weight: 300; color: #fff;">健康专家库&nbsp;&nbsp;&nbsp;&nbsp;|</a></li>
+<div class="nav">
+  <div class="container">
+    <img class="headerimg" src="static/images/head_logo.png"   alt="logo">
+  </div>
+  <div class="container">
+    <ul class="nav2">
+        <li class="layui-breadcrumb" lay-separator="|" style="top: 100px;">
+          <a href="">首页</a>
+          <a href="">慢性疾病</a>
+          <a href="">健康生活方式</a>
+          <a href="">健康科普专家库</a>
+        </li>
+    </ul>
 
-     <!-- 右边导航 -->
-      <li class="layui-nav-item" style="float: right;"><a href="" style="font-weight: 300; color: #fff;">幻灯&nbsp;&nbsp;&nbsp;&nbsp;|</a></li>
-      <li class="layui-nav-item" style="float: right;"><a href="" style="font-weight: 300; color: #fff;">文章&nbsp;&nbsp;&nbsp;&nbsp;|</a></li>
-      <li class="layui-nav-item" style="float: right;"><a href="" style="font-weight: 300; color: #fff;">音频&nbsp;&nbsp;&nbsp;&nbsp;|</a></li>
-      <li class="layui-nav-item" style="float: right;"><a href="" style="font-weight: 300; color: #fff;">视频&nbsp;&nbsp;&nbsp;&nbsp;|</a></li>
-    </ul> 
-
+    <ul class="nav3">
+      <li class="layui-breadcrumb" lay-separator="|">
+          <a href="">视频</a>
+          <a href="">音频</a>
+          <a href="">文章</a>
+          <a href="">幻灯</a>
+      </li>
+    </ul>
   </div>
 </div>
 
