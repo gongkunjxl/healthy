@@ -151,9 +151,46 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						
 					</div>
 					<div style="width: 35%; float: left; margin-left: 5%; height: 120px;">
-						<p style="line-height: 35px; text-decoration: underline; font-style: oblique; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;"><a href="#">查看更多 </a></p>
-						<p style="line-height: 35px; text-decoration: underline; font-style: oblique; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;"><a href="#">查看更多 </a></p>
-						<p style="line-height: 35px; text-decoration: underline; font-style: oblique; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;"><a href="#">查看更多 </a></p>
+						<p class="weixinAudio">
+							<audio src="sound/sound1.mp3" id="media" width="1" height="1" preload></audio>
+							<span id="audio_area" class="db audio_area">
+							<span class="audio_wrp db">
+							<span class="audio_play_area">
+								<i class="icon_audio_default"></i>
+								<i class="icon_audio_playing"></i>
+				            </span>
+							<span id="audio_length" class="audio_length tips_global">1:07</span>
+							<span id="audio_progress" class="progress_bar" style="width: 0%;"></span>
+							</span>
+							</span>
+						</p>
+						<p class="weixinAudio">
+							<audio src="sound/sound2.mp3" id="media" width="1" height="1" preload></audio>
+							<span id="audio_area" class="db audio_area">
+							<span class="audio_wrp db">
+							<span class="audio_play_area">
+								<i class="icon_audio_default"></i>
+								<i class="icon_audio_playing"></i>
+				            </span>
+							<span id="audio_length" class="audio_length tips_global">1:07</span>
+							<span id="audio_progress" class="progress_bar" style="width: 0%;"></span>
+							</span>
+							</span>
+						</p>
+						<p class="weixinAudio">
+							<audio src="sound/sound2.mp3" id="media" width="1" height="1" preload></audio>
+							<span id="audio_area" class="db audio_area">
+							<span class="audio_wrp db">
+							<span class="audio_play_area">
+								<i class="icon_audio_default"></i>
+								<i class="icon_audio_playing"></i>
+				            </span>
+							<span id="audio_length" class="audio_length tips_global">1:07</span>
+							<span id="audio_progress" class="progress_bar" style="width: 0%;"></span>
+							</span>
+							</span>
+						</p>
+
 					</div>
 		    	</div>
 		    </div>	
@@ -219,3 +256,30 @@ layui.use(['layer', 'form'], function(){
  
 });
 </script> 
+<!-- 调用音频 -->
+<!-- <script type="text/javascript">
+	$('.weixinAudio').weixinAudio({
+		autoplay:'false',
+		src:'sound/sound.mp3',
+	});
+
+	</script> -->
+<script type="text/javascript">
+	// 修改了返回的对象,以前的无法接收
+	var weixinAudioObj = $('.weixinAudio').weixinAudio();
+	// 添加单一播放的逻辑
+	$('.weixinAudio').on('click',function(event) {
+	    var $this = $(this);
+	    var currentIndex = $this.index();
+	    // 遍历所有对象，找到非当前点击，执行pause()方法;
+	    $.each(weixinAudioObj,function(i, el) {
+	        if(i != 'weixinAudio'+currentIndex){
+	            el.pause();
+	        }
+	    });
+	});
+</script>
+
+
+
+

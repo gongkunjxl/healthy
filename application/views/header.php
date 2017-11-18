@@ -13,6 +13,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <script type="text/javascript" src="static/layui/layui.js"></script>
 <!-- 视频 -->
   <script type="text/javascript" src="static/js/html5media.min.js"></script>
+<!-- 音频 -->
+  <script type="text/javascript" src="static/js/jquery-2.1.4.js"></script>
+  <script type="text/javascript" src="static/js/weixinAudio.js"></script>
 </head>
 <body>
 <div class="nav">
