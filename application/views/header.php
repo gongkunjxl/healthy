@@ -11,6 +11,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <link rel="stylesheet" href="static/layui/css/layui.css">
   <link rel="stylesheet" href="static/css/index-page.css">
   <script type="text/javascript" src="static/layui/layui.js"></script>
+<!-- 视频 -->
+  <script type="text/javascript" src="static/js/html5media.min.js"></script>
 </head>
 <body>
 <div class="nav">
@@ -33,6 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <a href="">音频</a>
           <a href="">文章</a>
           <a href="">幻灯</a>
+          <a href="">其他</a>
       </li>
     </ul>
   </div>

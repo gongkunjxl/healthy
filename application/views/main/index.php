@@ -72,7 +72,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			    		<ul>
 			    			<li><a href="#">情绪管理</a></li>
 			    			<li><a href="#">智慧选择</a></li>
-			    			<li><a href="#">高血压</a></li>
 			    			<li><a href="#">吃动平衡</a></li>
 			    			<li><a href="#">膳食平衡</a></li>
 			    		</ul>
@@ -98,11 +97,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    	<!-- 内容 -->
 		    	<div class="index-video-content">
 					<div class="index-video-item" >
-						<img src="static/images/image1.png"/>
+						<!-- <img src="static/images/image1.png"/> -->
+						<video  controls preload style="background-color: black"> 
+							<source src="vedio/movie.mp4"></source>
+						</video>
+
 						<p><a href="#">管理胆固醇预防心梗演讲</a></p>
 					</div>
 					<div class="index-video-item">
-						<img src="static/images/image2.png"/>
+						<!-- <img src="static/images/image2.png"/> -->
+						<video  controls preload style="background-color: black"> 
+							<source src="vedio/movie.mp4"></source>
+						</video>
 						<p><a href="#">管理好胆固醇、预防心梗</a></p>
 					</div>
 		    	</div>
