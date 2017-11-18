@@ -68,6 +68,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 
 <div id="container">
+	<?php echo base_url(); ?>
+
 	<h1>Welcome to CodeIgniter!</h1>
 
 	<div id="body">

@@ -25,4 +25,20 @@ class Main extends CI_Controller {
 		$this->load->view('welcome_message');
 	}
 
+	//视频链接
+	public function video()
+	{
+		$data['title'] ='video';
+		$this->load->view('header');
+		$this->load->view('video/video');
+		$this->load->view('footer');
+	}
 }
+
+
+
+
+
+
+
+

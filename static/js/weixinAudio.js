@@ -123,7 +123,7 @@
 					seconds = self.getAudioSeconds(time),
 					audioTime = minutes + ":" + seconds;
 					self.$audio_length.text(audioTime);
-	                if(isNaN(duration)){
+	                if(isNaN(time)){
 	                    self.updateTotalTime();
 	                }
 	            }, 100);

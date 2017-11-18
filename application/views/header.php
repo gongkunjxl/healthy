@@ -2,25 +2,25 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <!DOCTYPE html>
-<html>
+<html >
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>健康网站首页</title>
 <!--   <link rel="stylesheet" href="static/css/bootstrap.min.css"> -->
-  <link rel="stylesheet" href="static/layui/css/layui.css">
-  <link rel="stylesheet" href="static/css/index-page.css">
-  <script type="text/javascript" src="static/layui/layui.js"></script>
+  <link rel="stylesheet" href="/static/layui/css/layui.css">
+  <link rel="stylesheet" href="/static/css/index-page.css">
+  <script type="text/javascript" src="/static/layui/layui.js"></script>
 <!-- 视频 -->
-  <script type="text/javascript" src="static/js/html5media.min.js"></script>
+  <script type="text/javascript" src="/static/js/html5media.min.js"></script>
 <!-- 音频 -->
-  <script type="text/javascript" src="static/js/jquery-2.1.4.js"></script>
-  <script type="text/javascript" src="static/js/weixinAudio.js"></script>
+  <script type="text/javascript" src="/static/js/jquery-2.1.4.js"></script>
+  <script type="text/javascript" src="/static/js/weixinAudio.js"></script>
 </head>
 <body>
 <div class="nav">
   <div class="container">
-    <img class="headerimg" src="static/images/head_logo.png"   alt="logo">
+    <img class="headerimg" src="/static/images/head_logo.png"   alt="logo">
   </div>
   <div class="container">
     <ul class="nav2">
@@ -34,7 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <ul class="nav3">
       <li class="layui-breadcrumb" lay-separator="|">
-          <a href="">视频</a>
+          <a href="/main/video">视频</a>
           <a href="">音频</a>
           <a href="">文章</a>
           <a href="">幻灯</a>
