@@ -369,6 +369,15 @@
         .layui-breadcrumb a {
             color: #FFFFFF!important;
         }
+        /*分割线颜色*/
+        .layui-box{
+            color: #fff !important;
+        }
+        /*覆盖的hover*/
+        .layui-breadcrumb a:hover{
+            color: black !important;
+        }
+
 
         .content-search {
             height: 180px;
@@ -445,3 +454,8 @@
             left: 0px;
             text-align: left;
         }
+
+
+
+
+

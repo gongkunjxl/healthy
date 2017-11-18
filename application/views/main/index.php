@@ -48,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
     </form>
 </div>  
-<div class="container">
+<div class="layui-container">
     <div class="layui-row ">
     	<!-- 左边 -->
     	<div class="layui-col-md3" style="height: auto; padding: 1px;">
