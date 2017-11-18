@@ -16,6 +16,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- 音频 -->
   <script type="text/javascript" src="/static/js/jquery-2.1.4.js"></script>
   <script type="text/javascript" src="/static/js/weixinAudio.js"></script>
+
+  <script type="text/javascript" src="static/js/jquery-3.2.1.min.js"></script>
 </head>
 <body>
 <div class="nav">
@@ -38,6 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <a href="">音频</a>
           <a href="">文章</a>
           <a href="">幻灯</a>
+          <a href="">图片</a>
           <a href="">其他</a>
       </li>
     </ul>

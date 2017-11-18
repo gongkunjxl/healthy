@@ -15,7 +15,7 @@ class Main extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('header');
-		$this->load->view('main/index');
+		$this->load->view('main/article');
 		$this->load->view('footer');
 	}
 	//测试跳转
@@ -31,6 +31,11 @@ class Main extends CI_Controller {
 		$data['title'] ='video';
 		$this->load->view('header');
 		$this->load->view('video/video');
+		$this->load->view('footer');
+	}
+	public function chronic_disease(){
+		$this->load->view('header');
+		$this->load->view("main/chronic_disease");
 		$this->load->view('footer');
 	}
 }

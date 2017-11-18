@@ -89,111 +89,55 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<!-- 中间 -->
 		<div class="layui-col-md6" style="height:auto; overflow:hidden;">
 		  	<!-- 视频 -->
-			<div class="index-video">
-		    	<div class="index-video-title">
-		    		<p>视频&nbsp;&nbsp;(354)</p>
-		    		<a href="#">more</a>
-		    	</div>
-		    	<!-- 内容 -->
-		    	<div class="index-video-content">
-					<div class="index-video-item" >
-						<!-- <img src="/static/images/image1.png"/> -->
-						<video poster="/static/images/image1.png"  controls preload  style="background-color: black"> 
-							<source src="/vedio/movie.mp4"></source>
-						</video>
+			<div>
+				<p style="text-align: center;font-size: 23px;color:#1792CD;"><b>慢性疾病</b></p>
+			</div>
 
-						<p><a href="#">管理胆固醇预防心梗演讲</a></p>
+			<div>
+				<!-- 内容 -->
+		    	<div style="width: 100%;margin-top: 3px;">
+					<div class="quick-detail-item" onmouseover="javascript:addHeight(this);" onmouseleave="javascript:decreaseHeight(this);" onclick="">
+						<div class="clarity">
+							<p style="font-size: 16px;text-align: center; height: 100%;line-height:40px">高血脂</p>
+							<p style="font-size: 16px;text-align: center; height: 100%;line-height:40px">高血脂详细介绍</p>
+						</div>
 					</div>
-					<div class="index-video-item">
-						<!-- <img src="/static/images/image2.png"/> -->
-						<video  poster="/static/images/image2.png" controls preload style="background-color: black"> 
-							<source src="/vedio/movie.mp4"></source>
-						</video>
-						<p><a href="#">管理好胆固醇、预防心梗</a></p>
+					<div class="quick-detail-item" onmouseover="javascript:addHeight(this);" onmouseleave="javascript:decreaseHeight(this);" onclick="">
+						<div class="clarity">
+							<p style="font-size: 16px;text-align: center; height: 100%;line-height:40px">高血压</p>
+							<p style="font-size: 16px;text-align: center; height: 100%;line-height:40px">高血压介绍</p>
+						</div>
 					</div>
-		    	</div>
-		    </div>			    
 
-		    <!-- 文章 -->
-		    <div class="index-article">
-		    	<div class="index-article-title">
-		    		<p>文章&nbsp;&nbsp;(547)</p>
-		    		<a href="#">more</a>
-		    	</div>
-		    	<!-- 文章-->
-		    	<div class="index-article-content">
-					<div class="index-article-item">
-						<p><a href="#">1.胆固醇小知识 </a></p>
-						<p><a href="#">2.管理胆固醇预防心梗 </a></p>
-						<p><a href="#">3.关于胆固醇你知道多少？ </a></p>
-						<p><a href="#">4.胆固醇摄入量不在设限，可以放心吃了么?胆固醇摄入量不在设限，可以放心吃了么? </a></p>
+					<div class="quick-detail-item" onmouseover="javascript:addHeight(this);" onmouseleave="javascript:decreaseHeight(this);" onclick="">
+						<div class="clarity">
+							<p style="font-size: 16px;text-align: center; height: 100%;line-height:40px">脑卒中</p>
+							<p style="font-size: 16px;text-align: center; height: 100%;line-height:40px">脑卒中介绍</p>
+						</div>
 					</div>
-					<div class="article-item-more">
-						<p><a href="#">查看更多 </a></p>
-						<p><a href="#">查看更多 </a></p>
-						<p><a href="#">查看更多 </a></p>
-						<p><a href="#">查看更多 </a></p>
-					</div>
-		    	</div>
-		    </div>	
-		    <!-- 音频 -->
-		    <div class="index-voice">
-		    	<div class="index-voice-title">
-		    		<p>音频&nbsp;&nbsp;(147)</p>
-		    		<a href="#">more</a>
-		    	</div>
-		    	<!-- 文章-->
-		    	<div class="index-voice-content">
-					<div class="index-voice-item">
-						<p><a href="#">1.胆固醇小知识 </a></p>
-						<p><a href="#">2.管理胆固醇预防心梗 </a></p>
-						<p><a href="#">3.关于胆固醇你知道多少？ </a></p>
-						
-					</div>
-					<div style="width: 35%; float: left; margin-left: 5%; height: 120px;">
-						<p class="weixinAudio">
-							<audio src="sound/sound1.mp3" id="media" width="1" height="1" preload></audio>
-							<span id="audio_area" class="db audio_area">
-							<span class="audio_wrp db">
-							<span class="audio_play_area">
-								<i class="icon_audio_default"></i>
-								<i class="icon_audio_playing"></i>
-				            </span>
-							<span id="audio_length" class="audio_length tips_global">1:07</span>
-							<span id="audio_progress" class="progress_bar" style="width: 0%;"></span>
-							</span>
-							</span>
-						</p>
-						<p class="weixinAudio">
-							<audio src="sound/sound2.mp3" id="media" width="1" height="1" preload></audio>
-							<span id="audio_area" class="db audio_area">
-							<span class="audio_wrp db">
-							<span class="audio_play_area">
-								<i class="icon_audio_default"></i>
-								<i class="icon_audio_playing"></i>
-				            </span>
-							<span id="audio_length" class="audio_length tips_global">1:07</span>
-							<span id="audio_progress" class="progress_bar" style="width: 0%;"></span>
-							</span>
-							</span>
-						</p>
-						<p class="weixinAudio">
-							<audio src="sound/sound2.mp3" id="media" width="1" height="1" preload></audio>
-							<span id="audio_area" class="db audio_area">
-							<span class="audio_wrp db">
-							<span class="audio_play_area">
-								<i class="icon_audio_default"></i>
-								<i class="icon_audio_playing"></i>
-				            </span>
-							<span id="audio_length" class="audio_length tips_global">1:07</span>
-							<span id="audio_progress" class="progress_bar" style="width: 0%;"></span>
-							</span>
-							</span>
-						</p>
 
+					<div class="quick-detail-item" onmouseover="javascript:addHeight(this);" onmouseleave="javascript:decreaseHeight(this);" onclick="">
+						<div class="clarity">
+							<p style="font-size: 16px;text-align: center; height: 100%;line-height:40px">糖尿病</p>
+							<p style="font-size: 16px;text-align: center; height: 100%;line-height:40px">糖尿病介绍</p>
+						</div>
+					</div>
+
+					<div class="quick-detail-item" onmouseover="javascript:addHeight(this);" onmouseleave="javascript:decreaseHeight(this);" onclick="">
+						<div class="clarity">
+							<p style="font-size: 16px;text-align: center; height: 100%;line-height:40px">心梗</p>
+							<p style="font-size: 16px;text-align: center; height: 100%;line-height:40px">心梗介绍</p>
+						</div>
+					</div>
+
+					<div class="quick-detail-item" onmouseover="javascript:addHeight(this);" onmouseleave="javascript:decreaseHeight(this);" onclick="">
+						<div class="clarity">
+							<p style="font-size: 16px;text-align: center; height: 100%;line-height:40px">......</p>
+							<p style="font-size: 16px;text-align: center; height: 100%;line-height:40px">......</p>
+						</div>
 					</div>
 		    	</div>
-		    </div>	
+			</div>	
 	  	</div>
 
 	  	<!-- 右边登录-->
@@ -240,7 +184,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    		<p>相关链接</p>
 		    	</div>
 		    	<div class="index-link-content">
-			    	<img src="/static/images/lianjie.png">
+			    	<img src="static/images/lianjie.png">
 		    	</div>	
 		    </div>
 	  	</div>
@@ -248,6 +192,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
 </div>
 <script>
+
+$(function(){
+     $(".quick-detail-item").onmouseover(function() {    // 单击div元素
+         $(this).find('.clarity').css('height','100%');    // 使用children('li')获取div下的li元素，然后设置颜色为red即红色
+     });
+
+     $(".quick-detail-item").onmouseleave(function() {    // 单击div元素
+         $(this).find('.clarity').css('height','22%');    // 使用children('li')获取div下的li元素，然后设置颜色为red即红色
+     });
+ });
+function addHeight(obj){
+	$(obj).find('.clarity').addClass('after-clarity');
+	$(obj).find('.clarity').removeClass('clarity');
+	$($(obj).find('.after-clarity').children()[0]).hide();
+	$($(obj).find('.after-clarity').children()[1]).show();
+
+}
+
+function decreaseHeight(obj){
+	$(obj).find('.after-clarity').addClass('clarity');
+	$(obj).find('.after-clarity').removeClass('after-clarity');
+	$($(obj).find('.clarity').children()[1]).hide();
+	$($(obj).find('.clarity').children()[0]).show();
+}
+
 //一般直接写在一个js文件中
 layui.use(['layer', 'form'], function(){
   var layer = layui.layer
@@ -255,30 +224,3 @@ layui.use(['layer', 'form'], function(){
  
 });
 </script> 
-<!-- 调用音频 -->
-<!-- <script type="text/javascript">
-	$('.weixinAudio').weixinAudio({
-		autoplay:'false',
-		src:'sound/sound.mp3',
-	});
-
-	</script> -->
-<script type="text/javascript">
-	// 修改了返回的对象,以前的无法接收
-	var weixinAudioObj = $('.weixinAudio').weixinAudio();
-	// 添加单一播放的逻辑
-	$('.weixinAudio').on('click',function(event) {
-	    var $this = $(this);
-	    var currentIndex = $this.index();
-	    // 遍历所有对象，找到非当前点击，执行pause()方法;
-	    $.each(weixinAudioObj,function(i, el) {
-	        if(i != 'weixinAudio'+currentIndex){
-	            el.pause();
-	        }
-	    });
-	});
-</script>
-
-
-
-
