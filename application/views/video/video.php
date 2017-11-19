@@ -96,8 +96,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    	</div>
 		    	<!-- 内容 -->
 		    	<div class="video-content">
-					<div class="video-item" >
-						<!-- <img src="/static/images/image1.png"/> -->
+					<div class="video-item" id="video-item">
 						<video poster="/static/images/image1.png" controls preload style="background-color: black"> 
 							<source src="/vedio/movie.mp4"></source>
 						</video>
@@ -119,64 +118,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			    </div>
 
 			    <!-- <ul class="flow-default" style="height: 300px;" id="LAY_demo2"></ul> -->
-			    <ul class="flow-default" id="LAY_video1">
-			    	<li >
+			    <ul class="flow-default" id="LAY_video">
+			     <!-- <a class="apointer">
+			    	<li id="video" onclick="videoClick('sound.mp4');" value="sound.mp4">
+			    		<img class="title-image" src="/static/images/image2.png" value="100">
+			    		<p>管理胆固醇演讲管理胆固醇演讲管理胆固醇演讲管理胆固醇演讲</p>
+			    		<p class="font-set"> 播放: 100</p>
+			    		<p class="font-set"> 上传日期: 2017.11.12</p>			    
+			    	</li>
+			    </a> -->
+			  <!--   <a class="apointer">
+			    	 <li id="video">
 			    		<img class="title-image" src="/static/images/image2.png">
 			    		<p>管理胆固醇演讲管理胆固醇演讲管理胆固醇演讲管理胆固醇演讲</p>
 			    		<p class="font-set"> 播放: 100</p>
 			    		<p class="font-set"> 上传日期: 2017.11.12</p>			    
 			    	</li>
-			    	 <li >
+			    </a> -->
+			<!--     <a class="apointer">
+			    	 <li id="video">
 			    		<img class="title-image" src="/static/images/image2.png">
 			    		<p>管理胆固醇演讲管理胆固醇演讲管理胆固醇演讲管理胆固醇演讲</p>
 			    		<p class="font-set"> 播放: 100</p>
 			    		<p class="font-set"> 上传日期: 2017.11.12</p>			    
 			    	</li>
-			    	 <li >
-			    		<img class="title-image" src="/static/images/image2.png">
-			    		<p>管理胆固醇演讲管理胆固醇演讲管理胆固醇演讲管理胆固醇演讲</p>
-			    		<p class="font-set"> 播放: 100</p>
-			    		<p class="font-set"> 上传日期: 2017.11.12</p>			    
-			    	</li>
+			    </a> -->
 
 			    </ul>
 		    </div>
-
-		  
-		   <!--  <div class="index-login">
-		    	<div class="index-login-title">
-		    		<p>用户登录</p>
-		    	</div>
-		    	<div class="index-login-content">
-			    	<form class="layui-form" action="">
-					  	<div class="layui-form-item">
-						    <div class="layui-input-block" style="width: 60%; margin-left: 10%;">
-						       <input type="text" class="login-input" name="username" required  lay-verify="required" placeholder="用户名" autocomplete="off" class="layui-input">
-						    </div>
-					
-						    <div class="layui-input-block" style="width: 60%; margin-left: 10%; margin-top: 20px;">
-						       <input type="text" class="login-input" name="username" required  lay-verify="required" placeholder="密码" autocomplete="off" class="layui-input">
-						    </div>
-					  	</div>
-
-					
-						<div class="layui-form-item" style="margin-top: 30px; ">
-						  	<div class="layui-inline" >
-							    <div class="layui-input-block" style="margin-left: 5px;">
-							     	<button class="layui-btn layui-btn-primary login-btn">&nbsp;&nbsp;登录&nbsp;&nbsp;</button>
-							    </div>
-							</div>
-							<div class="layui-inline" >
-							    <div class="layui-input-block" style="margin-left:5px;">
-							     	<label class="layui-btn layui-btn-primary forget-pwd"><a href="#">忘记密码</a></label>
-							    </div>
-							</div>
-					    </div>
-					</form>
-					<p class="register"><a href="#" >新用户注册</a></p>
-		    	</div>	
-		    </div> -->
-
 		 
 
     </div>
@@ -205,7 +174,14 @@ layui.use('flow', function(){
 	      setTimeout(function(){
 	        var lis = [];
 	        for(var i = 0; i < 6; i++){
-	          lis.push('<li><img style="width: 120px; height:60px; margin-left:20px;" lay-src="/static/images/image2.png"></li>')
+	         	var litem='<a class="apointer"><li onclick="videoClick(\'sound.mp4\');" id="video" value="sound.mp4">\
+	         	<img class="title-image" src="/static/images/image2.png" value="100">\
+	         	<p>管理胆固醇演讲管理胆固醇演讲管理胆固醇演讲管理胆固醇演讲</p>\
+	         	<p class="font-set"> 播放: 100</p>\
+	         	<p class="font-set"> 上传日期: 2017.11.12</p>\
+	         	</li></a>';
+			  // var litem='<a href="#"><li><img style="width:100px; height:60px;" lay-src="http://s17.mogucdn.com/p2/161011/upload_279h87jbc9l0hkl54djjjh42dc7i1_800x480.jpg?v='+ ( (page-1)*6 + i + 1 ) +'"></li></a>'
+	          lis.push(litem);
 	        }
 	        next(lis.join(''), page < 6); //假设总页数为 6
 	      }, 500);
@@ -214,7 +190,31 @@ layui.use('flow', function(){
 });
 </script>
 
+<script type="text/javascript">
+	function videoClick(value)
+	{
+		// alert(value);
+		// 删除
+       	document.getElementById("video-item").innerHTML="";
 
+       	// add
+       	document.getElementById("video-item").innerHTML='<video poster="/static/images/image2.png" controls preload style="background-color: black">\
+       			<source src="/vedio/movie.mp4"></source></video>\
+       			<p>这个真的好难</p>';
+       	// alert(document.getElementById("video-item").innerHTML);
+	}
+	// $("ul li").on("click",function(){      //只需要找到你点击的是哪个ul里面的就行
+
+ //     alert($(this).text());
+ //       // alert($(this).attr("img",$(this).val()));
+ //       // alert($(this).attr("value"));
+ //       //删除div 
+ //       // var video=document.getElementById("video-item"); 
+ //       // video.remove('video','p');
+
+ //     // alert($(this).arrt("value"));
+ // });
+</script>
 
 
 

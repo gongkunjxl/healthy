@@ -116,6 +116,9 @@
 .video-list .flow-default .font-set{
 	font-size: 10px;
 }
+.video-list .apointer{
+	cursor:pointer;
+}
 
 
 
