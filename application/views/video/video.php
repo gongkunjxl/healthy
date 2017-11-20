@@ -98,7 +98,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    	<div class="video-content">
 					<div class="video-item" id="video-item">
 						<video poster="/static/images/image1.png" controls preload style="background-color: black"> 
-							<source src="/vedio/movie.mp4"></source>
+							<source src="/video/movie.mp4"></source>
 						</video>
 						<p>管理胆固醇预防心梗演讲</p>
 					</div>
@@ -199,7 +199,7 @@ layui.use('flow', function(){
 
        	// add
        	document.getElementById("video-item").innerHTML='<video poster="/static/images/image2.png" controls preload style="background-color: black">\
-       			<source src="/vedio/movie.mp4"></source></video>\
+       			<source src="/video/movie.mp4"></source></video>\
        			<p>这个真的好难</p>';
        	// alert(document.getElementById("video-item").innerHTML);
 	}
