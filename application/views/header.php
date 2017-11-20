@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <script type="text/javascript" src="/static/js/jquery-2.1.4.js"></script>
   <script type="text/javascript" src="/static/js/weixinAudio.js"></script>
 
-  <script type="text/javascript" src="static/js/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/static/js/jquery-3.2.1.min.js"></script>
 </head>
 <body>
 <div class="nav">
