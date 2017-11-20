@@ -15,7 +15,7 @@ class Main extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('header');
-		$this->load->view('main/article');
+		$this->load->view('main/index');
 		$this->load->view('footer');
 	}
 	//测试跳转

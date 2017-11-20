@@ -98,7 +98,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    	<div class="index-video-content">
 					<div class="index-video-item" >
 						<!-- <img src="/static/images/image1.png"/> -->
-						<video poster="/static/images/image1.png"  controls preload  style="background-color: black"> 
+						<video poster="/static/images/image1.png"   controls preload "> 
 							<source src="/vedio/movie.mp4"></source>
 						</video>
 
@@ -106,7 +106,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 					<div class="index-video-item">
 						<!-- <img src="/static/images/image2.png"/> -->
-						<video  poster="/static/images/image2.png" controls preload style="background-color: black"> 
+						<video  poster="/static/images/image2.png" controls preload "> 
 							<source src="/vedio/movie.mp4"></source>
 						</video>
 						<p><a href="#">管理好胆固醇、预防心梗</a></p>
