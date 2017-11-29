@@ -1,45 +1,89 @@
 
 html{-webkit-text-size-adjust:none;}
-.nav{height:105px;background:#009ACD;}
-.headerimg {
-    height: 60px; 
-    margin-top: 10px; 
-    margin-left: 5%;
+.nav{height:100px;background:#009ACD; border: 0.1px;padding: 0.1px;}
+.nav .logo{
+    height: 50px; 
+    margin-top: 20px; 
+    width: 25%;
+    float: left;
+}
+.nav .layui-nav{
+    width: 50%;
+    background-color:#009ACD; 
+    margin-top: 40px;
+    height: 50px;
+    float: left;
+}
+.nav .layui-nav .layui-nav-item{
+    padding-right: 5%;
 }
 
-.clarity{
+.nav .layui-nav a{
+    font-size: 15px;
+    color: #fff;
+}
+.nav .right-nav{
+    width: 180px;
+    height: 60px;
+    margin-top: 40px;
+    float: right;
+    /*background-color: #AAFAFA;*/
+}
+/*.nav .right-nav .login-register{
+    width: 180px;
+    float: right;
+}*/
+
+.nav .right-nav  .login-icon{
+    margin-top: 5px;
+    width: 30px;
+    height: 30px;
+    float: left;
+}
+.nav .right-nav  .login-word{
+    margin-top: 10px;
+    font-size: 16px;
+    padding-left: 20px;
+    float: left;
+    width: 120px;
+}
+.nav .right-nav .login-word a{
+    color: #fff;
+}
+
+/*.clarity{
     width: 100%;
     height: 44px; 
     margin-top: 65%;
-    background-color: rgba(12, 177, 204, 0.5);/* IE9、标准浏览器、IE6和部分IE7内核的浏览器(如QQ浏览器)会读懂 */
+    background-color: rgba(12, 177, 204, 0.5); IE9、标准浏览器、IE6和部分IE7内核的浏览器(如QQ浏览器)会读懂 
 }
 
 .after-clarity{
     width: 100%;
     height: 220px; 
-    background-color: rgba(12, 177, 204, 0.5);/* IE9、标准浏览器、IE6和部分IE7内核的浏览器(如QQ浏览器)会读懂 */
-}
+    background-color: rgba(12, 177, 204, 0.5);  IE9、标准浏览器、IE6和部分IE7内核的浏览器(如QQ浏览器)会读懂 
+}*/
 
-.after-clarity p{
+/*.after-clarity p{
     color: #FFFFFF;
 }
 
 .clarity p{
     color: #FFFFFF;
 }
-@media \0screen\,screen\9 {/* 只支持IE6、7、8 */
+@media \0screen\,screen\9 {
   .clarity{
         background-color:#000000;
         filter:Alpha(opacity=50);
-        position:static; /* IE6、7、8只能设置position:static(默认属性) ，否则会导致子元素继承Alpha值 */
-        *zoom:1; /* 激活IE6、7的haslayout属性，让它读懂Alpha */
+        position:static; 
+        *zoom:1; 
   }
   .clarity p{
-        position: relative;/* 设置子元素为相对定位，可让子元素不继承Alpha值 */
+        position: relative;
   }  
-}
+}*/
 
-.quick-detail-item {
+/*.quick-detail-item {
     background: url(../images/image2.png) center no-repeat;
     background-size: cover; 
     width: 48%; 
@@ -153,11 +197,11 @@ html{-webkit-text-size-adjust:none;}
     width: 50%; 
     float: left; 
     /*margin-left: 5%; */
-    height: 190px;
+  /*  height: 190px;
     border: 0.1px;
-}
+}*/
 /*video*/
-.index-video-item video
+/*.index-video-item video
 {
     width: 86% ;
     margin-left: 7%;
@@ -408,28 +452,16 @@ html{-webkit-text-size-adjust:none;}
     text-align: center;
     height: 25px;
 }
-        .nav2
-        {
-            position:relative;
-            margin-left: 5%;
-            top: 5px;
-            float: left;
-        }
-        .nav3
-        {
-            position:relative;
-            top: 5px;
-            float: right;
-        }
+      
         .layui-breadcrumb a {
             color: #FFFFFF!important;
-        }
+        }*/
         /*分割线颜色*/
-        .layui-box{
+       /* .layui-box{
             color: #fff !important;
-        }
+        }*/
         /*覆盖的hover*/
-        .layui-breadcrumb a:hover{
+     /*   .layui-breadcrumb a:hover{
             color: black !important;
         }
 
@@ -509,10 +541,10 @@ html{-webkit-text-size-adjust:none;}
             margin-left: 0px;
             left: 0px;
             text-align: left;
-        }
+        }*/
 
 /*音频样式*/
-    .db {
+  /*  .db {
             display: block;
         }
         .weixinAudio {
@@ -540,7 +572,7 @@ html{-webkit-text-size-adjust:none;}
             overflow: hidden;
             height: 25px;
             /*padding: 12px 20px 12px 12px;*/
-        }
+   /*     }
 
         .audio_play_area {
             float: left;
@@ -630,7 +662,7 @@ html{-webkit-text-size-adjust:none;}
             }
         }
 
-
+*/
 
 
 

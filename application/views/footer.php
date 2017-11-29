@@ -1,6 +1,6 @@
-<div style="height: 40px;width: 100%;"></div>
+<!-- <div style="height: 40px;width: 100%;"></div>
 <div class="footer">
 	<p>关于我们:</p>
-</div>
+</div> -->
 </body>
 </html>
