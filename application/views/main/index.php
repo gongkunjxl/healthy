@@ -42,8 +42,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</select>
 		</div>
 	</div>
+</div>
 
 	<!-- expert -->
+<div class="index-back">
+  <div class="layui-container" >
 	<div class="index-expert">
 		<div class="expert-title">
 			<img src="/static/images/expert-title.png">
@@ -90,8 +93,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 			</div>
 		</div>
-	</div>
-
+	 </div>
+   </div>
+</div>
+<div class="layui-container" >
 	<!-- video -->
 	<div class="video-title">
 		<img src="/static/images/video-title.png">
@@ -100,72 +105,211 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="video-line"></div>
 	<div class="video-content">
 		<div class="content">
-			<video poster="/static/images/image1.png"   controls preload "> 
-			<source src="/video/movie1.mp4"></source>
-
+			<div class="video-show">
+				<video poster="/static/images/image1.png"   controls preload "> 
+					<source src="/video/movie1.mp4"></source>
+				</video>
+			</div>
+			<div class="video-label">
+				<h3>管理胆固醇预防心梗讲座</h3>
+				<span class="left-label">慢性病</span>
+				<span class="right-label">1350人观看</span>
+			</div>
 		</div>
 		<div class="content">
-			<video poster="/static/images/image2.png"   controls preload "> 
-			<source src="/video/movie2.mp4"></source>
+			<div class="video-show">
+				<video poster="/static/images/image2.png"   controls preload "> 
+					<source src="/video/movie2.mp4"></source>
+				</video>
+			</div>
+			<div class="video-label">
+				<h3>管理胆固醇预防心梗讲座</h3>
+				<span class="left-label">慢性病</span>
+				<span class="right-label">1350人观看</span>
+			</div>
 		</div>
 		<div class="content">
-			<video poster="/static/images/image1.png"   controls preload "> 
-			<source src="/video/movie1.mp4"></source>
+			<div class="video-show">
+				<video poster="/static/images/image1.png"   controls preload "> 
+					<source src="/video/movie1.mp4"></source>
+				</video>
+			</div>
+			<div class="video-label">
+				<h3>管理胆固醇预防心梗讲座</h3>
+				<span class="left-label">慢性病</span>
+				<span class="right-label">1350人观看</span>
+			</div>
 		</div>
 	</div>
 
+	<!--  文章 -->
+	<div class="article-title">
+		<img src="/static/images/article-title.png">
+		<h1>精品文章</h1>
+	</div>
+	<div class="article-line"></div>
+	<div class="article-content">
+		<div class="article-left">
+			<div class="article-label">
+				<div class="radius">●</div>
+				<p><a href="#">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
+			</div>
+			<div class="article-label">
+				<div class="radius">●</div>
+				<p><a href="#">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
+			</div>
+			<div class="article-label">
+				<div class="radius">●</div>
+				<p><a href="#">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
+			</div>
+			<div class="article-label">
+				<div class="radius">●</div>
+				<p><a href="#">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
+			</div>
+		</div>
 
+		<div class="article-right">
+			<div class="article-label">
+				<div class="radius">●</div>
+				<p><a href="#">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
+			</div>
+			<div class="article-label">
+				<div class="radius">●</div>
+				<p><a href="#">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
+			</div>
+			<div class="article-label">
+				<div class="radius">●</div>
+				<p><a href="#">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
+			</div>
+			<div class="article-label">
+				<div class="radius">●</div>
+				<p><a href="#">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
+			</div>
+		</div>
+	</div>
+	<!-- audio -->
+	<div class="audio-title">
+		<img src="/static/images/audio-title.png">
+		<h1>专家音频</h1>
+	</div>
+	<div class="audio-line"></div>
+	<div class="audio-content">
+		<div class="content">
+			<div class="content-show">
+				<div class="audio-btn" >
+					<div class="off" onclick="audio.changeClass(this,'media1')">
+						<audio loop="loop" src="/audio/audio2.mp3" id="media1" preload="preload"></audio>
+					</div>
+				 </div>
+				 <p>刘小光教授讲解讲述秋冬季节疾病预防注意事项小光教授讲解讲述秋冬季节疾病预防注意事项</p>
+			</div>
+		</div>
+		<div class="content">
+			<div class="content-show">
+				<div class="audio-btn" >
+					<div class="off" onclick="audio.changeClass(this,'media2')">
+						<audio loop="loop" src="/audio/audio1.mp3" id="media2" preload="preload"></audio>
+					</div>
+				 </div>
+				 <p>刘小光教授讲解讲述秋冬季节疾病预防注意事项小光教授讲解讲述秋冬季节疾病预防注意事项</p>
+			</div>
+		</div>
+		<div class="content">
+			<div class="content-show">
+				<div class="audio-btn" >
+					<div class="off" onclick="audio.changeClass(this,'media3')">
+						<audio loop="loop" src="/audio/audio2.mp3" id="media3" preload="preload"></audio>
+					</div>
+				 </div>
+				 <p>刘小光教授讲解讲述秋冬季节疾病预防注意事项小光教授讲解讲述秋冬季节疾病预防注意事项</p>
+			</div>
+		</div>
+		<div class="content">
+			<div class="content-show">
+				<div class="audio-btn" >
+					<div class="off" onclick="audio.changeClass(this,'media4')">
+						<audio loop="loop" src="/audio/audio1.mp3" id="media4" preload="preload"></audio>
+					</div>
+				 </div>
+				 <p>刘小光教授讲解讲述秋冬季节疾病预防注意事项小光教授讲解讲述秋冬季节疾病预防注意事项</p>
+			</div>
+		</div>
+		<div class="content">
+			<div class="content-show">
+				<div class="audio-btn" >
+					<div class="off" onclick="audio.changeClass(this,'media5')">
+						<audio loop="loop" src="/audio/audio2.mp3" id="media5" preload="preload"></audio>
+					</div>
+				 </div>
+				 <p>刘小光教授讲解讲述秋冬季节疾病预防注意事项小光教授讲解讲述秋冬季节疾病预防注意事项</p>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- picture -->
+	<div class="picture-title">
+		<img src="/static/images/picture-title.png">
+		<h1>精选图片</h1>
+	</div>
+	<div class="picture-line"></div>
+	<div class="picture-content">
+		<div class="content">
+			<div class="content-show">
+				
+			</div>
+		</div>
+		<div class="content">
+			<div class="content-show">
+				
+			</div>
+		</div>
+		<div class="content">
+			<div class="content-show">
+				
+			</div>
+		</div>
+		<div class="content">
+			<div class="content-show">
+				
+			</div>
+		</div>
+	</div>
+
+	<!-- powerpoint -->
+	<div class="point-title">
+		<img src="/static/images/point-title.png">
+		<h1>幻灯片</h1>
+	</div>
+	<div class="point-line"></div>
+	<div class="point-content">
+		<div class="content">
+			<div class="content-show">
+				
+			</div>
+		</div>
+		<div class="content">
+			<div class="content-show">
+				
+			</div>
+		</div>
+		<div class="content">
+			<div class="content-show">
+				
+			</div>
+		</div>
+	</div>
+
+	<!-- about us -->
+	<div class="about-title">
+		<img src="/static/images/about-title.png">
+		<h1>关于我们</h1>
+	</div>
 
 </div>
 <div style="width: 100%; height: 500px;"></div>
 
-<!-- <div class="content-search">
-    <form class="layui-form search-form" action="">
-            <input class="search-input" type="text" name="title" autocomplete="off" placeholder="请输入您要搜索的关键词" />
 
-            <div style="height: 15px"></div>
-
-            <div class="layui-form-item">
-                <div class="layui-inline">
-                    <div class="layui-input-inline"  style="width: 120px;">
-                        <select name="modules" lay-verify="required" lay-search="">
-                            <option value="">主题</option>
-                            <option value="1">layer</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="layui-inline">
-                    <div class="layui-input-inline search-form-item"  style="width: 120px; margin-left: 20px;">
-                        <select name="modules" lay-verify="required" lay-search="">
-                            <option value="">类型</option>
-                            <option value="1">layer</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="layui-inline">
-                    <div class="layui-input-inline" style="width: 120px; margin-left: 20px;">
-                        <select name="modules" lay-verify="required" lay-search="">
-                            <option value="">语言</option>
-                            <option value="1">layer</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="layui-inline">
-                    <div class="layui-input-inline" style="width: 120px; margin-left: 20px;">
-                        <select name="modules" lay-verify="required" lay-search="">
-                            <option value="">制作省市</option>
-                            <option value="1">layer</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="layui-inline">
-                    <div class="layui-input-inline" style="width: 120px; margin-left: 20px;">
-                        <button class="layui-icon" style="width: 115px; height: 38px;" lay-submit="" lay-filter="search">&#xe615; 搜索</button>
-                    </div>
-                </div>
-            </div>
-    </form>
-</div>  --> 
 
 <script>
 //一般直接写在一个js文件中
@@ -175,5 +319,37 @@ layui.use(['layer', 'form'], function(){
  
 });
 </script>
+<!-- audio -->
+<script>
+	var audio = {
+		changeClass: function (target,id) {
+	       	var className = $(target).attr('class');
+	       	var ids = document.getElementById(id);
+	       	(className == 'on')
+	           	? $(target).removeClass('on').addClass('off')
+	           	: $(target).removeClass('off').addClass('on');
+	       	(className == 'on')
+	           	? ids.pause()
+	           	: ids.play();
+	   	},
+		play:function(){
+			document.getElementById('media').play();
+		}
+	}
+	// audio.play();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
