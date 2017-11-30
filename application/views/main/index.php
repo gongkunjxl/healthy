@@ -68,8 +68,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 			<div class="content">
 				<div class="img-border">
-					<!-- <img src="/static/images/header.jpg"> -->
-					<img src="">
+					<img src="/static/images/header.jpg">
+					<!-- <img src=""> -->
 				</div>
 				<div class="word">
 					<div class="name-title">
