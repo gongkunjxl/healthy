@@ -256,22 +256,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="picture-content">
 		<div class="content">
 			<div class="content-show">
-				
+				<a href="#"><img src="/picture/pic_1.png">
+				<div class="label-word">
+					<p>冬季养生知识</p>
+				</div>
+				</a>
 			</div>
 		</div>
 		<div class="content">
 			<div class="content-show">
-				
+				<a href="#"><img src="/picture/pic_2.png">
+				<div class="label-word">
+					<p>冬季养生知识</p>
+				</div>
+				</a>
 			</div>
 		</div>
 		<div class="content">
 			<div class="content-show">
-				
+				<a href="#"><img src="/picture/pic_3.png">
+				<div class="label-word">
+					<p>冬季养生知识</p>
+				</div>
+				</a>
 			</div>
 		</div>
 		<div class="content">
 			<div class="content-show">
-				
+				<a href="#"><img src="/picture/pic_1.png">
+				<div class="label-word">
+					<p>冬季养生知识</p>
+				</div>
+				</a>
 			</div>
 		</div>
 	</div>
@@ -305,12 +321,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<img src="/static/images/about-title.png">
 		<h1>关于我们</h1>
 	</div>
+	<div class="about-line"></div>
+	<div class="about-content">
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;中华预防医学健康传播分会、中华医学心血管病分会、国家心血管病中心防治资讯部、中华疾病预防控制中心慢病z红心、中国心血管健康联盟5加专业机构联合发布《“管理胆固醇、防心梗”核心提示》、呼吁公众及高危人群从监测血脂、管理“坏胆固醇”、识别心梗前兆等方面入手、防止心梗的发生。</p>
+	</div>
 
 </div>
-<div style="width: 100%; height: 500px;"></div>
-
-
-
 <script>
 //一般直接写在一个js文件中
 layui.use(['layer', 'form'], function(){

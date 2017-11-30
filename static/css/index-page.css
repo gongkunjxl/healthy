@@ -385,7 +385,7 @@ html{-webkit-text-size-adjust:none;}
 .audio-content{
     height: 200px;
     width: 100%;
-    background-color: #F5F5F5;
+    /*background-color: #F5F5F5;*/
 }
 .audio-content .content{
     width: 20%;
@@ -400,7 +400,7 @@ html{-webkit-text-size-adjust:none;}
     height: 200px;
     border:0.1px;
     padding: 0.1px;
-    background-color: #fff0f5;
+    /*background-color: #fff0f5;*/
 }
 .audio-content .content .content-show p{
     margin-top: 50px;
@@ -506,23 +506,58 @@ html{-webkit-text-size-adjust:none;}
 }
 .picture-content{
     height: 200px;
+    margin-top: 30px;
     width: 100%;
-    background-color: #F5F5F5;
+    /*background-color: #F5F5F5;*/
 }
 .picture-content .content{
     width: 25%;
     height: 200px;
-    padding:0;
-    margin:0;
+    padding:0.1px;
     float: left;
 }
 .picture-content .content .content-show{
     width: 80%;
     margin-left: 10%;
     height: 200px;
-    background-color: #fff0f5;
+    border:0.1px;
+    padding: 0.1px;
+    /*background-color: #fff0f5;*/
 }
-
+.picture-content .content .content-show a:hover{
+    text-decoration: none;
+}
+.picture-content .content .content-show a:hover .label-word {
+    background-color: #117C72;
+    width: 98%;
+}
+.picture-content .content .content-show a:hover > img{
+    height: 158px;
+    width: 98%;
+}
+.picture-content .content .content-show img{
+    height: 160px;
+    width: 100%;
+}
+.picture-content .content .content-show .label-word{
+    height: 30px;
+    width: 100%;
+    background-color: #117CA1;
+    border:0.1px;
+}
+.picture-content .content .content-show .label-word p{
+    padding-top: 5px;
+    width: 80%;
+    margin-left: 10%;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    overflow : hidden;
+    text-overflow: ellipsis;
+    word-wrap: normal;
+    white-space: nowrap;
+}
 
 /*powe point*/
 .point-title{
@@ -590,222 +625,55 @@ html{-webkit-text-size-adjust:none;}
     padding-left: 15px;
     float: left;
 }
+.about-line{
+    margin-top: 15px;
+    width: 96%;
+    height: 1.5px;
+    margin-left: 3%;
+    background-color: #009ACD;
+}
+.about-content{
+    margin-top: 30px;
+    height: auto;
+    width: 95%;
+    margin-left: 3%;
+    font-weight: 400;
+    text-align: left;
+}
+.about-content p{
+    font-size: 16px;
+    line-height: 30px;
+    text-align: left;
+    word-break: break-all;
+}
 
+/*footer*/
+.footer{
+    width: 100%;
+    height: 200px;
+    background-color: #009ACD;
+    border:0.1px;
+    margin-top: 180px;
+    padding: 0;
+}
+.footer .layui-container .footer-content{
+    width: 30%;
+    margin-left: 3%;
+    height: 200px;
+    float: left;
+    padding: 0.1px;
+    /*background-color: #fff0f5;*/
+}
+.footer .layui-container .footer-content ul{
+    text-align: left;
+    margin-left: 5%;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 300;
+    color: #fff;
+    line-height: 30px;
+}
 
-
-
-
-/*
-
-      
-        .layui-breadcrumb a {
-            color: #FFFFFF!important;
-        }*/
-        /*分割线颜色*/
-       /* .layui-box{
-            color: #fff !important;
-        }*/
-        /*覆盖的hover*/
-     /*   .layui-breadcrumb a:hover{
-            color: black !important;
-        }
-
-
-        .content-search {
-            height: 250px;
-            top: 100px;
-            margin: 20px auto;
-            background-color: #E8E8E8;
-            text-align: center;
-            align-self: center;
-
-        }
-
-        .search-input {
-            width: 45%;
-            height: 38px;
-            margin:10px auto;
-            margin-top: 90px;
-            border: 1px solid #eee;
-        }
-
-        .site-tree {
-            border: 1px solid #eee;
-            width: 90%;
-            font-size: 14px;
-            background-color: #FFFFFF;
-            margin:0px auto;
-            margin-top: 30px;
-            min-height: 500px;
-            height: 100%; 
-            padding-bottom: 60px;
-        }
-
-        .site-tree .layui-tree li a em {
-            font-size: 12px;
-            color: #bbb;
-            padding-right: 5px;
-            font-style: normal;
-        }
-
-        .site-tree-noicon {
-            width: 220px;
-            height: 32px;
-        }
-
-        .container {
-            padding-right: 15px;
-            padding-left: 15px;
-            margin-right: auto;
-            margin-left: auto;
-        }
-        @media (min-width: 768px) {
-            .container {
-                width: 750px;
-            }
-        }
-        @media (min-width: 992px) {
-            .container {
-                width: 970px;
-            }
-        }
-        @media (min-width: 1200px) {
-            .container {
-                width: 1170px;
-            }
-        }
-        .container-fluid {
-            padding-right: 15px;
-            padding-left: 15px;
-            margin-right: auto;
-            margin-left: auto;
-        }
-        .content-title {
-            font-size: 14px;
-            background-color: #009acd;
-            margin-left: 0px;
-            left: 0px;
-            text-align: left;
-        }*/
-
-/*音频样式*/
-  /*  .db {
-            display: block;
-        }
-        .weixinAudio {
-            line-height: 1.5;
-            padding-bottom: 5px;
-        }
-
-        .audio_area {
-            display: inline-block;
-            width: 80%;
-            vertical-align: top;
-            margin: 0px 1px 0px 0;
-            font-size: 0;
-            position: relative;
-            font-weight: 400;
-            text-decoration: none;
-            -ms-text-size-adjust: none;
-            -webkit-text-size-adjust: none;
-            text-size-adjust: none;
-        }
-
-        .audio_wrp {
-            border: 1.5px solid #ebebeb;
-            background-color: #fcfcfc;
-            overflow: hidden;
-            height: 25px;
-            /*padding: 12px 20px 12px 12px;*/
-   /*     }
-
-        .audio_play_area {
-            float: left;
-            margin: 5px 22px 10px 5px;
-            font-size: 0;
-           /* width: 18px;
-            height: 20px;*/
-      /*  }
-
-        .playing .audio_play_area .icon_audio_default {
-            display: block;
-        }
-
-        .audio_play_area .icon_audio_default {
-            background: transparent url(../images/iconloop.png) no-repeat 0 0;
-            width: 18px;
-            height: 20px;
-            vertical-align: middle;
-            display: inline-block;
-            -webkit-background-size: 54px 25px;
-            background-size: 54px 25px;
-            background-position: -36px center;
-        }
-
-        .audio_play_area .icon_audio_playing {
-            background: transparent url(../images/iconloop.png) no-repeat 0 0;
-            width: 18px;
-            height: 20px;
-            vertical-align: middle;
-            display: inline-block;
-            -webkit-background-size: 54px 25px;
-            background-size: 54px 25px;
-            -webkit-animation: audio_playing 1s infinite;
-            background-position: 0px center;
-            display: none;
-        }
-
-        .audio_area .pic_audio_default {
-            display: none;
-            width: 18px;
-        }
-
-        .audio_area .audio_length {
-            float: right;
-            font-size: 14px;
-            margin-top: 5px;
-            padding-right: 10px;
-            color: #8c8c8c;
-        }
-
-
-        .audio_area .audio_title {
-            font-weight: 400;
-            font-size: 17px;
-            margin-top: -2px;
-            margin-bottom: -3px;
-            width: auto;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            word-wrap: normal;
-        }
-
-        .playing .audio_play_area .icon_audio_default {
-            display: none;
-        }
-
-        .playing .audio_play_area .icon_audio_playing {
-            display: inline-block;
-        }
-
-        @-webkit-keyframes audio_playing {
-            30% {
-                background-position: 0px center;
-            }
-            31% {
-                background-position: -18px center;
-            }
-            61% {
-                background-position: -18px center;
-            }
-            61.5% {
-                background-position: -36px center;
-            }
-            100% {
-                background-position: -36px center;
-            }
-        }*/
 
 
 
