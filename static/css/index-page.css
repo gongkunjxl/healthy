@@ -27,13 +27,7 @@ html{-webkit-text-size-adjust:none;}
     height: 60px;
     margin-top: 40px;
     float: right;
-    /*background-color: #AAFAFA;*/
 }
-/*.nav .right-nav .login-register{
-    width: 180px;
-    float: right;
-}*/
-
 .nav .right-nav  .login-icon{
     margin-top: 5px;
     width: 30px;
@@ -50,6 +44,194 @@ html{-webkit-text-size-adjust:none;}
 .nav .right-nav .login-word a{
     color: #fff;
 }
+/*search*/
+
+.index-search{
+    height: 90px;
+    border: 0.1;
+    padding: 0;
+    background-color: #ffffff;
+}
+.index-search .search-bar{
+    width: 75%;
+    margin-left: 15%;
+    height: 40px;
+    margin-top: 20px;
+}
+.index-search .search-bar .search-input{
+    border: 2px;
+    margin-left: 0;
+    width: 80%;
+    float: left;
+}
+/*.index-search .search-bar .sub-button
+{
+    width: 80px;
+    height: 38px;
+    background-color: #009ACD;
+    border: 0;
+    padding: 0;
+}
+*/
+.index-search .search-option{
+    width: 75%;
+    margin-left: 15%;
+    margin-top: 10px;
+    height: 40px;
+}
+.index-search .search-option label{
+    width: 35px;
+    float: left;
+    font-size: 14px;
+    margin-top: 3px;
+    color: #009ACD;
+}
+.index-search .search-option select{
+ /*   appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;*/
+    margin-left: 20px;
+    height: 26px;
+    width: 70px;
+    font-size: 12px;
+    border:solid 1px #009ACD;
+    float: left;
+}
+
+/*expert*/
+.index-expert{
+    height: 290px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #EBEBEB;
+}
+.index-expert .expert-title{
+    width: 100%;
+    height: 90px;
+}
+.index-expert .expert-title img{
+    margin-top:30px;
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin-left: 3%;
+}
+.index-expert .expert-title h1{
+    width: 60%;
+    margin-top:35px;
+    height: 40px;
+    font-size: 26px;
+    padding-left: 15px;
+    float: left;
+}
+/*expert content*/
+.index-expert .expert-content{
+    height: 200px;
+    width: 100%;
+}
+.index-expert .expert-content .content{
+    height: 160px;
+    width: 30%;
+    float: left;
+    margin-left: 3%;
+    /*background-color: #fff0f5;*/
+}
+.index-expert .expert-content .content .img-border{
+    width: 110px;
+    height: 110px;
+    border-radius:110px;
+    float: right;
+    background-color: #fff; 
+    margin-right: 25px;
+}
+.index-expert .expert-content .content .img-border img{
+    width: 90px;
+    height: 90px;
+    border-radius:90px;
+    margin:10px 10px;
+    background-color: #009ACD; 
+    border:0;
+}
+.index-expert .expert-content .content .word{
+    width: 100%;
+    background-color: #fff;
+    margin-top: 40px;
+    height: 120px;
+}
+.index-expert .expert-content .content .word .name-title{
+    width: 70%;
+    height: 120px;
+    padding: 0.1px;
+}
+.index-expert .expert-content .content .word .name-title h2{
+    margin-left: 30px;
+    font-size: 22px;
+    margin-top: 20px;
+    padding-top: 0.1px;
+    padding-bottom: 5px;
+}
+.index-expert .expert-content .content .word .name-title p{
+    margin-top: 5px;
+    font-size: 16px;
+    margin-left: 30px;
+    font-weight: 400;
+}
+
+/*video*/
+.video-title{
+    margin-top: 80px;
+    width: 100%;
+    height: 40px;
+}
+.video-title img{
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin-left: 3%;
+}
+.video-title h1{
+    width: 60%;
+    margin-top:5px;
+    height: 40px;
+    font-size: 26px;
+    padding-left: 15px;
+    float: left;
+}
+.video-line{
+    margin-top: 15px;
+    width: 97%;
+    height: 1.5px;
+    margin-left: 3%;
+    background-color: #009ACD;
+}
+.video-content{
+    width: 100%;
+    height: 280px;
+    margin-top: 30px;
+    background-color: #F5F5F5;
+}
+.video-content .content{
+    height: 100%;
+    width: 30%;
+    float: left;
+    margin-left: 3%;
+    /*background-color: #fff0f5;*/
+    padding: 0.1px;
+}
+.video-content .content video{
+    height: 200px;
+    width: 100%;
+    padding: 0;
+    background-color: black;
+}
+
+
+
+/*.index-search .search-option select option{
+    font-size: 14px;
+}*/
+
 
 /*.clarity{
     width: 100%;
@@ -580,7 +762,7 @@ html{-webkit-text-size-adjust:none;}
             font-size: 0;
            /* width: 18px;
             height: 20px;*/
-        }
+      /*  }
 
         .playing .audio_play_area .icon_audio_default {
             display: block;
@@ -660,9 +842,8 @@ html{-webkit-text-size-adjust:none;}
             100% {
                 background-position: -36px center;
             }
-        }
+        }*/
 
-*/
 
 
 

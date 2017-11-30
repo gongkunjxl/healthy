@@ -7,14 +7,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>健康网站首页</title>
-<!--   <link rel="stylesheet" href="static/css/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="static/css/bootstrap.min.css">
   <link rel="stylesheet" href="/static/layui/css/layui.css">
   <script type="text/javascript" src="/static/layui/layui.js"></script>
-
   <link rel="stylesheet" href="/static/css/index-page.css">
 
 <!-- 视频 -->
-  <!-- <script type="text/javascript" src="/static/js/html5media.min.js"></script> -->
+  <script type="text/javascript" src="/static/js/html5media.min.js"></script>
 <!-- 音频 -->
   <!-- <script type="text/javascript" src="/static/js/jquery-2.1.4.js"></script>
   <script type="text/javascript" src="/static/js/weixinAudio.js"></script>
