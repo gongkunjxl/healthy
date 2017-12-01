@@ -1,11 +1,57 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
- <link rel="stylesheet" href="/static/layui/css/layui.css">
- <script type="text/javascript" src="/static/layui/layui.js"></script>
+<!--  <link rel="stylesheet" href="/static/layui/css/layui.css">
+ <script type="text/javascript" src="/static/layui/layui.js"></script> -->
  <body>
 <div class="layui-container">
 	<?php echo var_dump($data); ?>
+	<!-- form 参数传递和url参数传递完成 -->
+	<div style="height: 50px; width: 100%;"></div>
+	 <form class="layui-form" action="/main/testDemo" method="post" id="regForm" enctype="multipart/form-data">
+		  <div class="layui-form-item">
+		    <label class="layui-form-label">单行输入框</label>
+		    <div class="layui-input-block">
+		      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+		    </div>
+		  </div>
+		  <div class="layui-form-item">
+		    <label class="layui-form-label">验证必填项</label>
+		    <div class="layui-input-block">
+		      <input type="text" name="username" lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+		    </div>
+		  </div>
+
+		    <div class="layui-form-item">
+			    <button class="layui-btn" lay-submit="" >提交</button>
+			</div>
+	 </form>
+
+	 <!-- ajax数据请求测试 -->
+	 <div style="width: 100%; height: 20px;"></div>
+	 <button class="layui-btn layui-btn-normal" onclick="getData();">TestAjax</button>
+
+	 <!-- 文件和图片的上传 -->
+	 <div style="width: 100%; height: 30px;"></div>
+	 <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+	  <legend>上传多张图片</legend>
+	</fieldset>
+ 
+	<div class="layui-upload">
+	  <button type="button" class="layui-btn" id="picupload">多图片选择</button> 
+	  <blockquote class="layui-elem-quote layui-quote-nm" style="margin-top: 10px;">
+	    预览图：
+	    <div class="layui-upload-list" style="height: 200px;" id="picshow"></div>
+	 </blockquote>
+	 <button type="button" class="layui-btn" id="upbutton">开始上传</button>
+	</div>
+
+
+
+	<div style="width: 100%; height: 300px;"></div>
+
+
+
 
 
 
@@ -26,6 +72,39 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		  <img layer-pid="图片id，可以不写" layer-src="/picture/pic_04.png" src="/picture/pic_04.png" alt="图片名">
 	</div> -->
 </div>
+<!-- file upload -->
+<script type="text/javascript">
+layui.use('upload', function(){
+  var $ = layui.jquery
+  ,upload = layui.upload;
+
+  upload.render({
+    elem: '#picupload'
+    ,url: '/api/uploadMutiPic'
+    ,auto: false
+    ,multiple: true
+    ,bindAction: '#upbutton'
+    ,choose: function(obj){
+      //预读本地文件示例，不支持ie8
+      obj.preview(function(index, file, result){
+        	$('#picshow').append('<img src="'+ result +'" alt="'+ file.name +'" style="height:120px; width:120px; margin-left:30px; float:left" >')
+      });
+    }
+    ,done: function(res){
+    	alert("upload over");
+      //上传完毕
+    }
+  });
+
+});
+
+
+
+</script>
+
+
+
+
 <script>
 layui.use('layer', function(){ //独立版的layer无需执行这一句
 	layer.photos({
@@ -36,7 +115,29 @@ layui.use('layer', function(){ //独立版的layer无需执行这一句
 });
 </script>
 
+<script type="text/javascript">
+	function getData()
+	{
+		var api_url = '<?php echo $data["api_url"];?>' + 'api/ajaxdemo';
+		$.ajax({
+               url: '/api/ajaxDemo',
+               type: "post",
+               dataType: 'json',
+               data: {
+                	action: 'getdata',
+                    telephone: '1238688'
+                },
+                success: function(data) {
+                  	// alert(data.postdata);
+                  	alert(JSON.stringify(data));
+            	},
+            	error: function(res){
+            		alert("ajax error");
+            	}
+         })
+	}
 
+</script>
 
 
 

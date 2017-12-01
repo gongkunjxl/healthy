@@ -19,18 +19,26 @@ class Main extends MY_Controller {
 		$this->load->view('footer');
 	}
 
-	// 图片预览
+	// 测试函数
 	public function testdemo($pic_id=1)
 	{
+		//测试全局变量和model
 		$data = array(
 		    'title' => 'My Title',
 		    'heading' => 'My Heading',
 		    'message' => 'My Message',
 		    'pic_id' => $pic_id,
-		    'url' => $this->per_page
+		    'api_url' => $this->api_url,
+		    'url' => $this->per_page,
+		    'data'=> $this->Common->testModel()
 		);
+		if($_POST){
+			$postinfo= $this->Common->html_filter_array($_POST);
+			$data['postinfo']=$postinfo;
+		}
+
 		$data['data']=$data;
-		// $this->load->view('header');
+		$this->load->view('header');
 		$this->load->view('main/testdemo',$data);
 		// $this->load->view('footer');
 	}

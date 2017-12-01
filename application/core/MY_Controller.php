@@ -14,18 +14,22 @@ if (!defined('BASEPATH'))exit('No direct script access allowed');
 
 class MY_Controller extends CI_Controller {
 
-	//此处定义全局变量 
+	//global variables
 	public $per_page = '10'; 
+	public $api_url = '';
     
     public function __construct() {
         parent::__construct();
         // $this->per_page = $this->config->item('per_page');
         // 加载model和其他类库
-       	$this->load->helper('url_helper');
+       	$this->load->helper(array('form', 'url'));
+       	$this->load->model('Common');
+       	$this->api_url = base_url();
         // $this->load->model(array("Common","Quguoren"));
 		
      }
-	
+
+     //other global functions
 	
 }
 ?>
