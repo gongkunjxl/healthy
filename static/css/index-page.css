@@ -180,7 +180,7 @@ html{-webkit-text-size-adjust:none;}
 }
 .index-expert .expert-content .content .word .name-title p{
     margin-top: 5px;
-    font-size: 16px;
+    font-size: 14px;
     margin-left: 30px;
     font-weight: 400;
 }
@@ -523,6 +523,9 @@ html{-webkit-text-size-adjust:none;}
     border:0.1px;
     padding: 0.1px;
     /*background-color: #fff0f5;*/
+}.picture-content .content .content-show a{
+    text-decoration: none;
+    cursor: pointer;
 }
 .picture-content .content .content-show a:hover{
     text-decoration: none;

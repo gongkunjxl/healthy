@@ -18,12 +18,31 @@ class Main extends CI_Controller {
 		$this->load->view('main/index');
 		$this->load->view('footer');
 	}
+
+	// 图片预览
+	public function picture($pic_id=1)
+	{
+		$data = array(
+		    'title' => 'My Title',
+		    'heading' => 'My Heading',
+		    'message' => 'My Message',
+		    'pic_id' => $pic_id
+		);
+		$data['data']=$data;
+		// $this->load->view('header');
+		$this->load->view('main/picshow',$data);
+		// $this->load->view('footer');
+	}
+
+
 	//测试跳转
 	public function message()
 	{
 		$data['title']='message';
 		$this->load->view('welcome_message');
 	}
+
+
 
 	//视频链接
 	public function video()

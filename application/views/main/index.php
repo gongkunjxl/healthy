@@ -252,8 +252,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="picture-line"></div>
 	<div class="picture-content">
 		<div class="content">
-			<div class="content-show">
-				<a href="#"><img src="/picture/pic_1.png">
+			<div class="content-show" id="layer-photos-show1">
+				<a>
+					<img src="/picture/pic_1.png">
+					<img style="display: none;" src="/picture/pic_01.png">
+					<img style="display: none;" src="/picture/pic_02.png">
 				<div class="label-word">
 					<p>冬季养生知识</p>
 				</div>
@@ -261,8 +264,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 		</div>
 		<div class="content">
-			<div class="content-show">
-				<a href="#"><img src="/picture/pic_2.png">
+			<div class="content-show" id="layer-photos-show2">
+				<a>
+					<img src="/picture/pic_2.png">
+					<img style="display: none;" src="/picture/pic_03.png">
+					<img style="display: none;" src="/picture/pic_04.png">
 				<div class="label-word">
 					<p>冬季养生知识</p>
 				</div>
@@ -270,8 +276,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 		</div>
 		<div class="content">
-			<div class="content-show">
-				<a href="#"><img src="/picture/pic_3.png">
+			<div class="content-show" id="layer-photos-show3">
+				<a>
+					<img src="/picture/pic_3.png">
+					<img style="display: none;" src="/picture/pic_06.png">
+					<img style="display: none;" src="/picture/pic_05.png">
 				<div class="label-word">
 					<p>冬季养生知识</p>
 				</div>
@@ -279,14 +288,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 		</div>
 		<div class="content">
-			<div class="content-show">
-				<a href="#"><img src="/picture/pic_1.png">
+			<div class="content-show" id="layer-photos-show4">
+				<a>
+					<img src="/picture/pic_1.png">
+					<img style="display: none;" src="/picture/pic_01.png">
+					<img style="display: none;" src="/picture/pic_02.png">
 				<div class="label-word">
 					<p>冬季养生知识</p>
 				</div>
 				</a>
 			</div>
 		</div>
+
 	</div>
 
 	<!-- powerpoint -->
@@ -322,6 +335,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="about-content">
 		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;中华预防医学健康传播分会、中华医学心血管病分会、国家心血管病中心防治资讯部、中华疾病预防控制中心慢病z红心、中国心血管健康联盟5加专业机构联合发布《“管理胆固醇、防心梗”核心提示》、呼吁公众及高危人群从监测血脂、管理“坏胆固醇”、识别心梗前兆等方面入手、防止心梗的发生。</p>
 	</div>
+<!-- 	 <div id="layer-photos-demo" >
+		  <img layer-pid="图片id，可以不写" layer-src="/picture/pic_01.png" src="/picture/pic_01.png" alt="图片名">
+		  <img layer-pid="图片id，可以不写" layer-src="/picture/pic_02.png" src="/picture/pic_02.png" alt="图片名">
+		  <img layer-pid="图片id，可以不写" layer-src="/picture/pic_03.png" src="/picture/pic_03.png" alt="图片名">
+		  <img layer-pid="图片id，可以不写" layer-src="/picture/pic_04.png" src="/picture/pic_04.png" alt="图片名">
+	</div> -->
+
 
 </div>
 <script>
@@ -351,6 +371,41 @@ layui.use(['layer', 'form'], function(){
 	}
 	// audio.play();
 </script>
+<script>
+	// var piclayer = {
+	// 	changeClass: function (target,id) {
+	// 		id='#'+id;
+	//     	alert(id);
+	// 		layui.use('layer', function(){ //独立版的layer无需执行这一句
+	// 			alert(id);
+	// 			layer.photos({
+	// 			  photos: id
+	// 			  ,anim: 5 	//0-6的选择，指定弹出图片动画类型，默认随机（请注意，3.0之前的版本用shift参数）
+	// 			});		
+	// 	   });
+	//    	}
+	// }
+layui.use('layer', function(){ //独立版的layer无需执行这一句
+	layer.photos({
+	  photos: '#layer-photos-show1'
+	  ,anim: 5 	//0-6的选择，指定弹出图片动画类型，默认随机（请注意，3.0之前的版本用shift参数）
+	});
+	layer.photos({
+	  photos: '#layer-photos-show2'
+	  ,anim: 5 	//0-6的选择，指定弹出图片动画类型，默认随机（请注意，3.0之前的版本用shift参数）
+	});
+	layer.photos({
+	  photos: '#layer-photos-show3'
+	  ,anim: 5 	//0-6的选择，指定弹出图片动画类型，默认随机（请注意，3.0之前的版本用shift参数）
+	});
+	layer.photos({
+	  photos: '#layer-photos-show4'
+	  ,anim: 5 	//0-6的选择，指定弹出图片动画类型，默认随机（请注意，3.0之前的版本用shift参数）
+	});
+		
+			
+});
+</script>
 
 <!-- <script>
 layui.use('layer', function(){ //独立版的layer无需执行这一句
@@ -363,9 +418,6 @@ layui.use('layer', function(){ //独立版的layer无需执行这一句
 		
 });
 </script> -->
-
-
-
 
 
 
