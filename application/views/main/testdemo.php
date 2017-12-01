@@ -5,6 +5,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  <script type="text/javascript" src="/static/layui/layui.js"></script>
  <body>
 <div class="layui-container">
+	<?php echo var_dump($data); ?>
+
+
+
+
 	<!-- <div class="layui-carousel" id="picplay" style="margin:150px auto;"> -->
 	  <!-- <div carousel-item=""> -->
 	   <!--  <div><img src="/picture/pic_01.png"></div>
@@ -14,12 +19,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    <div><img src="/picture/pic_05.png"></div>
 	    <div><img src="/picture/pic_06.png"></div> -->
 	  <!-- </div> -->
-	  <div id="layer-photos-demo" class="layer-photos-demo">
+	  <!-- <div id="layer-photos-demo" class="layer-photos-demo">
 		  <img layer-pid="图片id，可以不写" layer-src="/picture/pic_01.png" src="/picture/pic_01.png" alt="图片名">
 		  <img layer-pid="图片id，可以不写" layer-src="/picture/pic_02.png" src="/picture/pic_02.png" alt="图片名">
 		  <img layer-pid="图片id，可以不写" layer-src="/picture/pic_03.png" src="/picture/pic_03.png" alt="图片名">
 		  <img layer-pid="图片id，可以不写" layer-src="/picture/pic_04.png" src="/picture/pic_04.png" alt="图片名">
-	</div>
+	</div> -->
 </div>
 <script>
 layui.use('layer', function(){ //独立版的layer无需执行这一句

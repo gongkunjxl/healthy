@@ -1,13 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Main extends CI_Controller {
+class Main extends MY_Controller {
 
 	public function __construct() {
         parent::__construct();
         //在此处加载model 自定义也可以
         //$this->load->database();
- 		$this->load->helper('url_helper');
+ 		// $this->load->helper('url_helper');
 
     }
 
@@ -20,17 +20,18 @@ class Main extends CI_Controller {
 	}
 
 	// 图片预览
-	public function picture($pic_id=1)
+	public function testdemo($pic_id=1)
 	{
 		$data = array(
 		    'title' => 'My Title',
 		    'heading' => 'My Heading',
 		    'message' => 'My Message',
-		    'pic_id' => $pic_id
+		    'pic_id' => $pic_id,
+		    'url' => $this->per_page
 		);
 		$data['data']=$data;
 		// $this->load->view('header');
-		$this->load->view('main/picshow',$data);
+		$this->load->view('main/testdemo',$data);
 		// $this->load->view('footer');
 	}
 

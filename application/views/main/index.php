@@ -341,7 +341,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		  <img layer-pid="图片id，可以不写" layer-src="/picture/pic_03.png" src="/picture/pic_03.png" alt="图片名">
 		  <img layer-pid="图片id，可以不写" layer-src="/picture/pic_04.png" src="/picture/pic_04.png" alt="图片名">
 	</div> -->
-
+	<div style="height: 100px; margin-top:40px;width: 100%; background-color: #F5F5F5;border: 1px;padding: 0.1px;">
+		<a style="margin-top: 50px; margin-left: 60px;" href="/main/testdemo">测试按钮</a>
+	</div>
 
 </div>
 <script>
