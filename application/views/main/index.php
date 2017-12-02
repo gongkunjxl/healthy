@@ -344,8 +344,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div style="height: 100px; margin-top:40px;width: 100%; background-color: #F5F5F5;border: 1px;padding: 0.1px;">
 		<a style="margin-top: 50px; margin-left: 60px;" href="/main/testdemo">测试按钮</a>
 	</div>
-
+	<div style="height: 100px; margin-top:40px;width: 100%; background-color: #F5F5F5;border: 1px;padding: 0.1px;">
+		<a style="margin-top: 50px; margin-left: 60px;" href="/backend/index">后台测试</a>
+	</div>
 </div>
+
+
 <script>
 //一般直接写在一个js文件中
 layui.use(['layer', 'form'], function(){

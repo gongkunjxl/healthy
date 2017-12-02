@@ -25,6 +25,7 @@ class MY_Controller extends CI_Controller {
        	$this->load->helper(array('form', 'url'));
        	$this->load->model('Common');
        	$this->api_url = base_url();
+       	$this->load->database();
         // $this->load->model(array("Common","Quguoren"));
 		
      }
