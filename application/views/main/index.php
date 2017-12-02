@@ -415,7 +415,7 @@ layui.use('layer', function(){ //独立版的layer无需执行这一句
 	  util.fixbar({
 	    bar1: '&#xe642'
 	    ,bar2: false
-	    ,css: {right: 50, bottom: 100}
+	    ,css: {right: 50, bottom: 250}
 	    ,bgcolor: '#009ACD'
 	    ,click: function(type){
 	      
