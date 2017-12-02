@@ -408,6 +408,21 @@ layui.use('layer', function(){ //独立版的layer无需执行这一句
 			
 });
 </script>
+<!-- the flex -->
+<script type="text/javascript">
+	 layui.use('util', function(){
+	  var util = layui.util;  //固定块
+	  util.fixbar({
+	    bar1: '&#xe642'
+	    ,bar2: false
+	    ,css: {right: 50, bottom: 100}
+	    ,bgcolor: '#009ACD'
+	    ,click: function(type){
+	      
+	    }
+	  });
+	});
+</script>
 
 <!-- <script>
 layui.use('layer', function(){ //独立版的layer无需执行这一句

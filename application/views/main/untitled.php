@@ -72,8 +72,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		  <img layer-pid="图片id，可以不写" layer-src="/picture/pic_04.png" src="/picture/pic_04.png" alt="图片名">
 	</div> -->
 </div>
-
-
 <!-- file upload -->
 <script type="text/javascript">
 layui.use('upload', function(){
@@ -100,9 +98,13 @@ layui.use('upload', function(){
 
 });
 
+
+
 </script>
 
-<!-- 图片放大 -->
+
+
+
 <script>
 layui.use('layer', function(){ //独立版的layer无需执行这一句
 	layer.photos({
@@ -113,7 +115,6 @@ layui.use('layer', function(){ //独立版的layer无需执行这一句
 });
 </script>
 
-<!-- js post data -->
 <script type="text/javascript">
 	function getData()
 	{
@@ -139,21 +140,21 @@ layui.use('layer', function(){ //独立版的layer无需执行这一句
 </script>
 
 <script type="text/javascript">
- layui.use('util', function(){
-  var util = layui.util;  //固定块
+layui.use('util', function(){
+  var util = layui.util;
+  
+  //执行
   util.fixbar({
-    bar1: '&#xe642'
-    ,bar2: false
-    ,css: {right: 50, bottom: 100}
-    ,bgcolor: '#009ACD'
+    bar1: true
     ,click: function(type){
-      
+      console.log(type);
+      if(type === 'bar1'){
+        alert('点击了bar1')
+      }
     }
   });
 });
-  
 </script>
-
 
 <!-- <script>
 layui.use(['carousel', 'form'], function(){
