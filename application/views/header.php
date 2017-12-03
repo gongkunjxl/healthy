@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <dd><a href="javascript:;">心血管疾病</a></dd>
           </dl>
         </li>
-        <li class="layui-nav-item" style="margin-left: 2%;">
+        <li class="layui-nav-item" style="margin-left: 1%;">
           <a href="">健康生活方式</a>
         </li>
     </ul>
