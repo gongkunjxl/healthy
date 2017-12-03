@@ -7,10 +7,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<form class="layui-form" action="">
 			  <div class="layui-form-item">
 			    <div class="layui-input-block search-input">
-			      <input type="text" style="border:1.5px solid #009ACD; " name="title" required  lay-verify="required" placeholder="本站共收录2000份科普材料" autocomplete="off" class="layui-input">
+			      <input type="text" style="border:1.5px solid #009ACD;border-radius:0px;" name="title" required  lay-verify="required" placeholder="本站共收录2000份科普材料" autocomplete="off" class="layui-input">
 			    </div>
 			    <div class="layui-input-inline" style="width: 80px;">
-                        <button class="layui-icon" style="width: 80px; height: 38px; font-size: 14px;background-color: #009ACD;border: 0;" lay-submit="" lay-filter="search">&#xe615;&nbsp;&nbsp;搜索</button>
+                        <button  style="width: 80px; height: 38px; font-size: 14px;background-color: #009ACD;border: 0;border-radius:0px;" lay-submit="" lay-filter="search"><i class="layui-icon" style="margin-right:7px;">&#xe615;</i>搜索</button>
                 </div>
 			  </div>
 			</form>
@@ -98,6 +98,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="video-title">
 		<img src="/static/images/video-title.png">
 		<h1>视频讲座</h1>
+		<p><a href="#">more >></a></p>
 	</div>
 	<div class="video-line"></div>
 	<div class="video-content">
@@ -143,6 +144,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="article-title">
 		<img src="/static/images/article-title.png">
 		<h1>精品文章</h1>
+		<p><a href="#" style="margin-top: 5px;color: #009ACD">more >></a></p>
 	</div>
 	<div class="article-line"></div>
 	<div class="article-content">
@@ -188,6 +190,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="audio-title">
 		<img src="/static/images/audio-title.png">
 		<h1>专家音频</h1>
+		<p><a href="#" style="margin-top: 5px;color: #009ACD">more >></a></p>
 	</div>
 	<div class="audio-line"></div>
 	<div class="audio-content">
@@ -198,7 +201,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<audio loop="loop" src="/audio/audio2.mp3" id="media1" preload="preload"></audio>
 					</div>
 				 </div>
-				 <p>刘小光教授讲解讲述秋冬季节疾病预防注意事项小光教授讲解讲述秋冬季节疾病预防注意事项</p>
+				 <p class="pcalss1">刘小光教授讲解讲述秋冬季节疾病预防注意事项小光教授讲解讲述秋冬季节疾病预防注意事项</p>
+				 <div class="label-detail" style="display: none;overflow: right;white-space:nowrap;">刘小光教授讲解讲述秋冬季节疾病预防注意事项小光教授讲解讲述秋冬季节疾病预防注意事项</div>
 			</div>
 		</div>
 		<div class="content">
@@ -208,7 +212,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<audio loop="loop" src="/audio/audio1.mp3" id="media2" preload="preload"></audio>
 					</div>
 				 </div>
-				 <p>刘小光教授讲解讲述秋冬季节疾病预防注意事项小光教授讲解讲述秋冬季节疾病预防注意事项</p>
+				 <p class="pcalss1">刘小光教授讲解讲述秋冬季节疾病预防注意事项小光教授讲解讲述秋冬季节疾病预防注意事项</p>
 			</div>
 		</div>
 		<div class="content">
@@ -218,7 +222,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<audio loop="loop" src="/audio/audio2.mp3" id="media3" preload="preload"></audio>
 					</div>
 				 </div>
-				 <p>刘小光教授讲解讲述秋冬季节疾病预防注意事项小光教授讲解讲述秋冬季节疾病预防注意事项</p>
+				 <p class="pcalss1">刘小光教授讲解讲述秋冬季节疾病预防注意事项小光教授讲解讲述秋冬季节疾病预防注意事项</p>
 			</div>
 		</div>
 		<div class="content">
@@ -228,7 +232,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<audio loop="loop" src="/audio/audio1.mp3" id="media4" preload="preload"></audio>
 					</div>
 				 </div>
-				 <p>刘小光教授讲解讲述秋冬季节疾病预防注意事项小光教授讲解讲述秋冬季节疾病预防注意事项</p>
+				 <p class="pcalss1">刘小光教授讲解讲述秋冬季节疾病预防注意事项小光教授讲解讲述秋冬季节疾病预防注意事项</p>
 			</div>
 		</div>
 		<div class="content">
@@ -238,7 +242,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<audio loop="loop" src="/audio/audio2.mp3" id="media5" preload="preload"></audio>
 					</div>
 				 </div>
-				 <p>刘小光教授讲解讲述秋冬季节疾病预防注意事项小光教授讲解讲述秋冬季节疾病预防注意事项</p>
+				 <p class="pcalss1">刘小光教授讲解讲述秋冬季节疾病预防注意事项小光教授讲解讲述秋冬季节疾病预防注意事项</p>
 			</div>
 		</div>
 
@@ -248,6 +252,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="picture-title">
 		<img src="/static/images/picture-title.png">
 		<h1>精选图片</h1>
+		<p><a href="#" style="margin-top: 5px;color: #009ACD">more >></a></p>
 	</div>
 	<div class="picture-line"></div>
 	<div class="picture-content">
@@ -306,23 +311,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="point-title">
 		<img src="/static/images/point-title.png">
 		<h1>幻灯片</h1>
+		<p><a href="#" style="margin-top: 5px;color: #009ACD">more >></a></p>
 	</div>
 	<div class="point-line"></div>
 	<div class="point-content">
 		<div class="content">
-			<div class="content-show">
-				
-			</div>
+			<video ishivideo="true" autoplay="true" isrotate="false" autoHide="true">
+			            <source src="http://www.html5videoplayer.net/videos/madagascar3.mp4" type="video/mp4">
+			        </video>
 		</div>
 		<div class="content">
-			<div class="content-show">
-				
-			</div>
+			<video ishivideo="true" autoplay="true" isrotate="false" autoHide="true">
+			            <source src="http://www.html5videoplayer.net/videos/madagascar3.mp4" type="video/mp4">
+			        </video>
 		</div>
 		<div class="content">
-			<div class="content-show">
-				
-			</div>
+			<video ishivideo="true" autoplay="true" isrotate="false" autoHide="true">
+			            <source src="http://www.html5videoplayer.net/videos/madagascar3.mp4" type="video/mp4">
+			        </video>
 		</div>
 	</div>
 
@@ -426,6 +432,58 @@ layui.use('layer', function(){ //独立版的layer无需执行这一句
 	    }
 	  });
 	});
+
+	 suspendLayer($('.pcalss1'));
+	 function suspendLayer(obj) {
+	 	var width = $('.content-show')[0].offsetWidth; 
+	 	obj.each(function(){ 
+	 		var text = $(this).text();
+	 		var length =  text.length;
+	 		 if (width > length){
+	 		 	//$(this).text(text.substring(0, length-5) + "...");
+	 		 	var current = $(this);
+	 		 	$(this).on("mouseover", function () {  
+	 		 			$(this).removeClass('pcalss1');
+	 		 			$(this).addClass('pcalss2');
+		                //$(this).parent('.content-show').find(".label-detail").show();
+		                //var informDiv = $(this).parent('.content-show').find(".label-detail");  
+		            }).on("mouseout", function (event) { 
+		            	$(this).removeClass('pcalss2');
+	 		 			$(this).addClass('pcalss1'); 
+		            	/*var informDiv = $(this).parent('.content-show').find(".label-detail");
+				    	var evt = event || window.event;
+						var x=evt.pageX;    
+				        var y=evt.pageY;  
+						var divx1 = informDiv.offset().left;    
+						var divy1 = informDiv.offset().top;   
+						var divx2 = informDiv.offset().left + informDiv.width();    
+						var divy2 = informDiv.offset().top + informDiv.height(); 
+				        
+						if( x < divx1 || x > divx2 || y < divy1 || y > divy2){    
+							$(this).parent('.content-show').find(".label-detail").hide();  
+						}*/
+		            });
+
+	 		 } 
+	 	 });
+		
+		 //$($(obj).children()[0]).hide();
+		 //$($(obj).children()[1]).show(); 
+    }
+
+    $(document).ready(function () {
+            $(".MALL").hide();
+            $(".title").mouseover(function (e) {
+                $(".MALL").css({"position":"absolute","top":e.pageY+5,"left":e.pageX+5}).show();
+            });
+            $(".title").mousemove(function (e) {
+                $(this).next(".MALL").css({ "color": "fff", "position": "absolute", "opacity": "0.7", "background-color": "666", "top": e.pageY + 5, "left": e.pageX + 5 });
+            });
+            $(".title").mouseout(function () {
+                $(this).next(".MALL").hide();
+            });
+        });  
+
 </script>
 
 <!-- <script>
@@ -438,6 +496,23 @@ layui.use('layer', function(){ //独立版的layer无需执行这一句
 	});
 		
 });
+
+$(this).parent('.content-show').find(".label-detail").on("mouseover", function () {  
+		                $(this).parent('.content-show').find(".label-detail").show();  
+		            }).on("mouseout", function (event) {  
+		            	var informDiv = $(this).parent('.content-show').find(".label-detail");
+				    	var evt = event || window.event;
+						var x=evt.pageX;    
+				        var y=evt.pageY;  
+						var divx1 = informDiv.offset().left;    
+						var divy1 = informDiv.offset().top;   
+						var divx2 = informDiv.offset().left + informDiv.width();    
+						var divy2 = informDiv.offset().top + informDiv.height(); 
+								        
+						if( x < divx1 || x > divx2 || y < divy1 || y > divy2){    
+							$(this).parent('.content-show').find(".label-detail").hide();  
+						}
+		            });
 </script> -->
 
 
