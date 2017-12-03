@@ -35,6 +35,33 @@ class Main extends MY_Controller {
 		if($_POST){
 			$postinfo= $this->Common->html_filter_array($_POST);
 			$data['postinfo']=$postinfo;
+
+			// $where=array('id' => '10');
+			// $sql_data=$this->Common->get_all($this->user_table,$where);
+			$select_field='id,username,nickname';
+			// $sql_data=$this->Common->get_one($this->user_table,$where,$select_field);
+			// $where=array();
+			$start=0;	
+			$like=array('nickname' => '张');
+			$orderby='id';
+			//$sql_data=$this->Common->get_limit_order( $this->user_table, $where, $start,$this->per_page,'ctime','DESC',$like);
+			
+			// $where=array('id' => '100','offPrice'=>'200');
+			// $sql_data=$this->Common->delete($this->user_table,$where);
+			// $where=array('id' => '100');
+			$up_data=array('offPrice' => '300','weixin'=>'gongkun');
+			// $sql_data=$this->Common->update($this->user_table,$where,$up_data);
+
+			$insert_data=array('username' => '18910111135','password'=>'123456','nickname'=>'fuck123','user_type'=>'2','weixin'=>'gongkun123','if_check'=>'0');
+			// $sql_data = $this->Common->add($this->user_table,$insert_data);
+			$where=array();
+			// $sql_data = $this->Common->get_count($this->user_table,$where,$like);
+
+			// $sql_data = $this->Common->save($this->user_table,$insert_data);
+
+			
+
+			$data['sql_data'] = $sql_data;
 		}
 
 		$data['data']=$data;

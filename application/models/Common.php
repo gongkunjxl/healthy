@@ -30,6 +30,159 @@ class Common extends CI_Model
 		return $array;
 	}
 
+    /*
+        * get all the data (where)  by gongkun
+    */
+    public function get_all($table, $where=array())
+    {
+        if(!empty($where)){
+            $this->db->where($where);
+        }
+        $select_field='*';
+        $this->db->select($select_field);
+        $query = $this->db->get($table);
+        if($query){
+            return $query->result_array();
+        }else{
+            return '';
+        }
+    }
+
+    /*
+        * get one data by (where,filed) by gongkun
+    */
+    public function get_one($table,$where=array(),$select_field='*')
+    {
+        if(!empty($where)){
+            $this->db->where($where);
+        }
+        $this->db->select($select_field);
+        $query = $this->db->get($table);
+        if($query){
+            return $query->row_array();
+        }else{
+            return '';
+        }
+    }
+
+     /*
+        * get one data by (where,filed) by gongkun used for search and limit pages
+    */
+    function get_limit_order( $table='',$where=array(),$start=0,$limit=10,$orderby='id',$order_type='desc',$like = array())
+    {
+      
+        if( !empty($table) ){   
+            $this->db->from($table);
+            $this->db->where($where);   
+            if( $like )
+            {
+                $this->db->like($like);
+            }               
+            if( $limit )
+            {
+                $this->db->limit($limit,$start);
+            }
+            $this->db->order_by($orderby,$order_type);                      
+            $query = $this->db->get();
+            return $query->result_array();
+        }else{
+            return '';
+        }
+    }
+    /*
+        *delete data form table by gongkun
+    */
+    function delete($table, $where=array() )
+    {
+        if( !empty($where) )
+        {
+            $res = $this->db->delete($table, $where);
+            return $res;
+        }
+        else{
+            return false;
+        }
+    }
+
+    /*
+        *get the num of results by gongkun
+    */
+    function get_count( $table ,$where,$like = array()){
+        if( !empty($where) )
+            $this->db->where($where);
+        if( $like )
+        {
+            $this->db->like($like );
+        }       
+        $this->db->from($table);
+        return $this->db->count_all_results();
+    }
+
+    /*
+        * update table  by gongkun
+    */
+    function update( $table, $where=array(),$data=array())
+    {
+        $this->db->where($where );
+        
+        $res = $this->db->update($table,$data); 
+        
+        return $res;
+    }
+
+    /*
+        * insert data  by gongkun (不会判断数据是否重复)
+    */
+    function add( $table, $data )
+    {
+        $res = $this->db->insert($table, $data);
+        $res = $this->db->insert_id();
+        return $res;
+    }    
+
+     /*
+        * insert data  by gongkun (先判断数据是否重复 不重复则插入)
+    */ 
+    function save( $table, $data )
+    {
+        $res = $this->get_count($table, $data);
+        if($res<=0){
+            // $data['ctime'] = time();
+            $res = $this->db->insert($table, $data);
+        
+            $res = $this->db->insert_id();
+        
+            return $res;
+        }else{
+            return 0;
+        }
+        
+    }
+     /*
+        * select data by sql language  gongkun (通过纯sql语句执行操作 传入操作类型)  
+    */
+    function get_sql($sql, $action='')
+    {
+        $query = $this->db->query($sql);
+        if( $action == 'update' || $action == 'insert' )
+        {
+            return $query;
+        }
+        else
+        {
+            return $query->result_array();
+        }
+    }
 
 }
 ?>
+
+
+
+
+
+
+
+
+
+

@@ -1,9 +1,9 @@
 <?php
 /*
 *
-* 作者：杨国良
+* 作者：gongkun
 *
-* 创建日期：2015年10月4日10:45:12
+* 创建日期：2017年12月1日
 *
 * 目的：超类，公共方法
 *
@@ -17,6 +17,9 @@ class MY_Controller extends CI_Controller {
 	//global variables
 	public $per_page = '10'; 
 	public $api_url = '';
+
+  //mysql table
+  public $user_table = 'hea_user';
     
     public function __construct() {
         parent::__construct();

@@ -6,6 +6,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  <body>
 <div class="layui-container">
 	<?php echo var_dump($data); ?>
+
+	 <!-- <?php //echo $data['sql_data'][0]['nickname'];?>  -->
+	<!-- <?php //echo $data['sql_data']['nickname'];?> -->
+
 	<!-- form 参数传递和url参数传递完成 -->
 	<div style="height: 50px; width: 100%;"></div>
 	 <form class="layui-form" action="/main/testDemo" method="post" id="regForm" enctype="multipart/form-data">
