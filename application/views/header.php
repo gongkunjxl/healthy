@@ -10,17 +10,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <link rel="stylesheet" href="static/css/bootstrap.min.css">
   <link rel="stylesheet" href="/static/layui/css/layui.css">
   <link rel="stylesheet" href="/static/video/assets/hivideo.css">
-  <script type="text/javascript" src="/static/layui/layui.js"></script>
   <link rel="stylesheet" href="/static/css/index-page.css">
+  <script type="text/javascript" src="/static/layui/layui.js"></script>
+  <script type="text/javascript" src="/static/js/jquery-3.2.1.min.js"></script>
 
 <!-- 视频 -->
   <script type="text/javascript" src="/static/js/html5media.min.js"></script>
-<!-- 音频 -->
-  <!-- <script type="text/javascript" src="/static/js/jquery-2.1.4.js"></script>
-  <script type="text/javascript" src="/static/js/weixinAudio.js"></script>
- -->
-  <script type="text/javascript" src="/static/js/jquery-3.2.1.min.js"></script>
+<!-- ppt -->
   <script type="text/javascript" src="/static/video/hivideo.js"></script>
+<!-- pdf show -->
+ <script type="text/javascript" src="/static/js/pdfobject.js"></script>
+
+
 <style type="text/css">
         .main-wrap{
             margin: 0 auto;

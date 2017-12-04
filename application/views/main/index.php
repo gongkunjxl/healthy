@@ -352,6 +352,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 	<div style="height: 100px; margin-top:40px;width: 100%; background-color: #F5F5F5;border: 1px;padding: 0.1px;">
 		<a style="margin-top: 50px; margin-left: 60px;" href="/backend/index">后台测试</a>
+		<a style="margin-top: 50px; margin-left: 60px;" href="/main/article">文章页面</a>
 	</div>
 </div>
 

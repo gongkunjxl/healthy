@@ -19,6 +19,13 @@ class Main extends MY_Controller {
 		$this->load->view('footer');
 	}
 
+	public function article()
+	{
+		$this->load->view('header');
+		$this->load->view('article/article');
+		$this->load->view('footer');
+	}
+
 	// 测试函数
 	public function testdemo($pic_id=1)
 	{
@@ -59,7 +66,7 @@ class Main extends MY_Controller {
 
 			// $sql_data = $this->Common->save($this->user_table,$insert_data);
 
-			
+
 
 			$data['sql_data'] = $sql_data;
 		}
