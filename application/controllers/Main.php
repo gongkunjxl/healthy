@@ -92,7 +92,7 @@ class Main extends MY_Controller {
 	{
 		$data['title'] ='video';
 		$this->load->view('header');
-		$this->load->view('video/video');
+		$this->load->view('main/video');
 		$this->load->view('footer');
 	}
 	public function chronic_disease(){
