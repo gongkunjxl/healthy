@@ -349,10 +349,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div> -->
 	<div style="height: 100px; margin-top:40px;width: 100%; background-color: #F5F5F5;border: 1px;padding: 0.1px;">
 		<a style="margin-top: 50px; margin-left: 60px;" href="/main/testdemo">测试按钮</a>
+		<a style="margin-top: 50px; margin-left: 60px;" href="/backend/index">后台测试</a>
 	</div>
 	<div style="height: 100px; margin-top:40px;width: 100%; background-color: #F5F5F5;border: 1px;padding: 0.1px;">
-		<a style="margin-top: 50px; margin-left: 60px;" href="/backend/index">后台测试</a>
-		<a style="margin-top: 50px; margin-left: 60px;" href="/main/video">文章页面</a>
+		<a style="margin-top: 50px; margin-left: 60px;" href="/main/expert">专家页面</a>
+		<a style="margin-top: 50px; margin-left: 60px;" href="/main/article">文章列表</a>
+		<a style="margin-top: 50px; margin-left: 60px;" href="/main/articleInfo">文章详情</a>
+		<a style="margin-top: 50px; margin-left: 60px;" href="/main/audio">音频列表</a>
+		<a style="margin-top: 50px; margin-left: 60px;" href="/main/video">视频详情</a>
 	</div>
 </div>
 

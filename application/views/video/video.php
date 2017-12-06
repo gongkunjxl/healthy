@@ -1,96 +1,65 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
+<link rel="stylesheet" href="/static/css/video-page.css">
 <div class="layui-container">
-	<div class="index-search">
-		<div class="search-bar">
-			<form class="layui-form" action="">
-			  <div class="layui-form-item">
-			    <div class="layui-input-block search-input">
-			      <input type="text" style="border:1.5px solid #009ACD;border-radius:0px;" name="title" required  lay-verify="required" placeholder="本站共收录2000份科普材料" autocomplete="off" class="layui-input">
+    <div class="layui-row ">
+		<!-- ledt-->
+		<div class="layui-col-md8">		
+		  	<!-- 视频 -->
+			<div class="video-video">
+		    	<div class="video-title">
+		    		<h2>刘教授讲解冬季保暖技巧</h2>
+		    	</div>	
+		    	<!-- 内容 -->
+		    	<div class="video-content">
+					<div class="video-item" id="video-item">
+						<video poster="/static/images/image1.png" controls preload style="background-color: black"> 
+							<source src="/video/movie1.mp4"></source>
+						</video>
+					</div>
+		    	</div>
+		    </div>			    
+	  	</div>
+
+	  	<!-- 右边列表-->
+	  	<div class="layui-col-md4">  
+	  		<div class="video-list">
+		  		<div class="video-title">
+			    	<p >相关推荐</p>
 			    </div>
-			    <div class="layui-input-inline" style="width: 80px;">
-                        <button  style="width: 80px; height: 38px; font-size: 14px;background-color: #009ACD;border: 0;border-radius:0px;" lay-submit="" lay-filter="search"><i class="layui-icon" style="margin-right:7px;">&#xe615;</i>搜索</button>
-                </div>
-			  </div>
-			</form>
-		</div>
-		<!-- 选择 -->
-		<div class="search-option">
-			<label>选项:</label>
-			<select id="theme">
-				<option value="">主题</option>
-				<option value="1">主题1</option>
-				<option value="2">主题2</option>
-				<option value="3">主题3</option>
-			</select>
-			<select id="type">
-				<option value="">类型</option>
-				<option value="1">慢性病</option>
-				<option value="2">心脏病</option>
-				<option value="3">冠心病</option>
-			</select>
-			<select id="language">
-				<option value="">语言</option>
-				<option value="1">中文</option>
-				<option value="2">English</option>
-			</select>
-			<select id="language" style="width: 80px;">
-				<option value="">制作省份</option>
-				<option value="1">北京</option>
-				<option value="2">广州</option>
-			</select>
-		</div>
-	</div>
+			    <ul class="flow-default" id="LAY_video">
+			     <!-- <a class="apointer">
+			    	<li id="video" onclick="videoClick('sound.mp4');" value="sound.mp4">
+			    		<img class="title-image" src="/static/images/image2.png" value="100">
+			    		<p>管理胆固醇演讲管理胆固醇演讲管理胆固醇演讲管理胆固醇演讲</p>
+			    		<p class="font-set"> 播放: 100</p>
+			    		<p class="font-set"> 上传日期: 2017.11.12</p>			    
+			    	</li>
+			    </a> -->
+			  <!--   <a class="apointer">
+			    	 <li id="video">
+			    		<img class="title-image" src="/static/images/image2.png">
+			    		<p>管理胆固醇演讲管理胆固醇演讲管理胆固醇演讲管理胆固醇演讲</p>
+			    		<p class="font-set"> 播放: 100</p>
+			    		<p class="font-set"> 上传日期: 2017.11.12</p>			    
+			    	</li>
+			    </a> -->
+			<!--     <a class="apointer">
+			    	 <li id="video">
+			    		<img class="title-image" src="/static/images/image2.png">
+			    		<p>管理胆固醇演讲管理胆固醇演讲管理胆固醇演讲管理胆固醇演讲</p>
+			    		<p class="font-set"> 播放: 100</p>
+			    		<p class="font-set"> 上传日期: 2017.11.12</p>			    
+			    	</li>
+			    </a> -->
+
+			    </ul>
+		    </div>
+    </div>
 </div>
-
-<div class="layui-container" >
-	<!-- video -->
-	<div class="video-title">
-		<h2>慢性疾病</h2>
-	</div>
-	<div class="video-line"></div>
-	<div class="video-content">
-		<div class="content">
-			<div class="video-show">
-				<video poster="/static/images/image1.png"   controls preload "> 
-					<source src="/video/movie1.mp4"></source>
-				</video>
-			</div>
-			<div class="video-label">
-				<h3>管理胆固醇预防心梗讲座</h3>
-				<span class="left-label">慢性病</span>
-				<span class="right-label">1350人观看</span>
-			</div>
-		</div>
-		<div class="content">
-			<div class="video-show">
-				<video poster="/static/images/image2.png"   controls preload "> 
-					<source src="/video/movie2.mp4"></source>
-				</video>
-			</div>
-			<div class="video-label">
-				<h3>管理胆固醇预防心梗讲座</h3>
-				<span class="left-label">慢性病</span>
-				<span class="right-label">1350人观看</span>
-			</div>
-		</div>
-		<div class="content">
-			<div class="video-show">
-				<video poster="/static/images/image1.png"   controls preload "> 
-					<source src="/video/movie1.mp4"></source>
-				</video>
-			</div>
-			<div class="video-label">
-				<h3>管理胆固醇预防心梗讲座</h3>
-				<span class="left-label">慢性病</span>
-				<span class="right-label">1350人观看</span>
-			</div>
-		</div>
-	</div>
 </div>
-
-
+<div style="clear: both;"></div>
 <script>
 //一般直接写在一个js文件中
 layui.use(['layer', 'form'], function(){
@@ -167,6 +136,29 @@ layui.use('layer', function(){ //独立版的layer无需执行这一句
 	    }
 	  });
 	});
+	function videoClick(value)
+	{
+		// alert(value);
+		// 删除
+       	document.getElementById("video-item").innerHTML="";
+
+       	// add
+       	document.getElementById("video-item").innerHTML='<video poster="/static/images/image2.png" controls preload style="background-color: black">\
+       			<source src="/video/movie2.mp4"></source></video>\
+       			<p>这个真的好难</p>';
+       	// alert(document.getElementById("video-item").innerHTML);
+	}
+	// $("ul li").on("click",function(){      //只需要找到你点击的是哪个ul里面的就行
+
+ //     alert($(this).text());
+ //       // alert($(this).attr("img",$(this).val()));
+ //       // alert($(this).attr("value"));
+ //       //删除div 
+ //       // var video=document.getElementById("video-item"); 
+ //       // video.remove('video','p');
+
+ //     // alert($(this).arrt("value"));
+ // });
 </script>
 
 

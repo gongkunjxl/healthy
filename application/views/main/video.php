@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
+<link rel="stylesheet" href="/static/css/video-list-page.css">
 <div class="layui-container">
 	<div class="index-search">
 		<div class="search-bar">

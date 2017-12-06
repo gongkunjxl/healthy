@@ -11,8 +11,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <link rel="stylesheet" href="/static/layui/css/layui.css">
   <link rel="stylesheet" href="/static/video/assets/hivideo.css">
   <link rel="stylesheet" href="/static/css/index-page.css">
+
   <link rel="stylesheet" href="/static/css/video-page-condition.css">
-  <link rel="stylesheet" href="/static/css/video-page.css">
   <script type="text/javascript" src="/static/layui/layui.js"></script>
   <script type="text/javascript" src="/static/js/jquery-3.2.1.min.js"></script>
 

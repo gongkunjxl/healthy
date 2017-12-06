@@ -1,45 +1,50 @@
+body{background-color: #EBEBEB;}
+
 .video-video {
-    height: auto; 
-    background-color: #F5F5F5; 
+	margin-top: 30px;
+    height: 600px; 
+    background-color: #fff; 
     overflow:hidden; 
     padding: 0.1px;
     border: 0.1px;
     padding-bottom: 20px;
 }
-.video-video .video-title
-{
+.video-video .video-title{
+	margin: 0;
+	padding: 0;
 	width: 100%;
 	height: 30px;  
-    background-color: #1792CD; 
-    padding: 0.1px; 
-    border: 0.1px;
 }
-.video-video .video-title p{
-	margin-left: 10px;
-    margin-top: 7px; 
-    font-size: 12px; 
-    color: #fff; 
-    font-weight: 400;
+.video-video .video-title h2{
+	margin-left: 30px;
+    margin-top: 10px; 
+    font-size: 20px;
+    font-weight:500; 
+    letter-spacing: 2px;
     width:100%; 
-    float: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow:ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
 }
+
 .video-video .video-content
 {
+	padding: 0;
+	margin-top: 10px;
 	width: 100%;
-	margin-top: 20px;
-	height: 350px;
-	overflow: hidden;
+	height: 500px;
 }
 .video-video .video-content .video-item {
-    width: 90%; 
-    float: left; 
-    margin-left: 5%; 
-    height: 300px;
+    width: 100%; 
+    height: 500px;
 }
 .video-video .video-content .video-item video
 {
-	height: 300px;
-	width: 100%;
+	height: 500px;
+	width: 98%;
+	margin-left: 1%;
 	background-color: black;
 }
 .video-video .video-content .video-item p
@@ -57,26 +62,30 @@
     color: #1792CD;
 }
 
+/*left  video list*/
 .video-list
 {
-	width: 75%;
-    margin-left: 15%; 
-    height: 100%; 
-    background-color: #F5F5F5; 
+	width: 80%;
+    margin-left: 10%; 
+    height: 600px; 
+    background-color: #fff; 
     padding-bottom: 20px;
+    margin-top: 30px;
 }
 .video-list .video-title
 {
+	margin: 0 auto;
 	width: 100%;
-	height: 30px;  
+	height: 40px;
     background-color: #1792CD; 
     padding: 0.1px; 
     border: 0.1px;
 }
 .video-list .video-title p{
-	margin-left: 10px;
     margin-top: 7px; 
-    font-size: 12px; 
+    font-size: 18px; 
+    letter-spacing: 5px;
+    text-align: center;
     color: #fff; 
     font-weight: 400;
     width:100%; 
@@ -84,114 +93,42 @@
 }
 .video-list .flow-default
 {
-	height: 350px; 
-	margin-top: 15px; 
+	height: 500px; 
+	margin-top: 20px; 
 	overflow: auto;
 	border: 0.1px;
 	padding: 0.1px;
 }
 .video-list .flow-default li
 {
-	height: 70px;
+	height: 100px;
 	border-bottom: 0.3px solid #1792CD;
-	padding-top: 5px;
+	padding-top: 10px;
 }
 
 .video-list .flow-default .title-image{
-	width: 80px; 
-	height:60px; 
+	width: 100px; 
+	height:80px; 
 	margin-left:5px;
 	padding-right: 10px;
 	float: left;
 }
 .video-list .flow-default li p{
 	padding-right: 5px; 
-	line-height: 20px; 
-	font-size: 12px;
+	line-height: 24px; 
+	font-size: 14px;
 	color: #1792CD;
 	overflow: hidden;
 	white-space: nowrap;
     text-overflow: ellipsis;
 }
 .video-list .flow-default .font-set{
-	font-size: 10px;
+	font-size: 12px;
 }
 .video-list .apointer{
 	cursor:pointer;
 }
 
-.video-detail-line{
-    margin-top: 20px;
-    width: 96%;
-    height: 1.5px;
-    margin-left: 3%;
-    background-color: #bfcace;
-}
-
-.video-list-content{
-    width: 100%;
-    height: 150px;
-    margin-top: 20px;
-    /*background-color: #F5F5F5;*/
-}
-.video-list-content .content{
-    height: 100%;
-    width: 35%;
-    float: left;
-    margin-left: 5%;
-    /*background-color: #fff0f5;*/
-    padding: 0.1px;
-}
-.video-list-content .content .video-show{
-    height: 100%;
-    width: 50%;
-    float: left;
-}
-.video-list-content .content .video-show video{
-    height: 100%;
-    width: 100%;
-    background-color: black;
-}
-.video-list-content .content .video-label{
-    padding-top:10px;
-    height: 100%;
-    width: 50%;
-    float: right;
-}
-.video-list-content .content .video-label h2{
-    font-size: 16px;
-    width: 90%;
-    margin-left: 10px;
-    font-weight: 500;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    word-wrap: normal;
-}
-.video-list-content .content .video-label .left-label{
-    font-size: 14px;
-    width: 40%;
-    margin-top: 10px;
-    margin-left: 10px;
-    font-weight: 400;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    word-wrap: normal;
-    float: left;
-}
-.video-list-content .content .video-label .right-label{
-    font-size: 14px;
-    width: 40%;
-    margin-top: 10px;
-    text-align: center;
-    font-weight: 400;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    word-wrap: normal;
-    float: right;
-}
 
 
 
