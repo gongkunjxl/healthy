@@ -1,7 +1,7 @@
  <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-<link rel="stylesheet" href="/static/css/article-page.css">
+<link rel="stylesheet" href="/static/css/audio-page.css">
 <div class="layui-container">
 	<div class="index-search">
 		<div class="search-bar">
@@ -47,102 +47,123 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 <div class="layui-container">
-	<div class="article-title">
+	<div class="audio-title">
 		<h2>慢性疾病</h2>
 	</div>
 
 	<!-- content -->
- 	<div class="article-content">
- 		<div class="article-show">
- 		  <a href="#">
+ 	<div class="audio-content">
+ 		<div class="audio-show">
  			<div class="content-show">
- 				<img src="/static/images/pdf-logo.png">
+ 				<!-- <img src="/static/images/audio-logo.png"> -->
+ 				<div class="audio-btn" >
+					<div class="off" onclick="audio.changeClass(this,'media1')">
+						<audio loop="loop" src="/audio/audio2.mp3" id="media1" preload="preload"></audio>
+					</div>
+				</div>
  				<div class="show-right">
  					<h3>慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座</h3>
  					<p>刘晓燕 教授</p>
  					<span class="left-date">2017-11-30</span>
- 					<span class="right-date">1121人阅读</span>
+ 					<span class="right-date">1121次播放</span>
  				</div>
  			</div>
- 		  </a>
  		</div>
- 		<div class="article-show">
- 		  <a href="#">
+ 		<div class="audio-show">
  			<div class="content-show">
- 				<img src="/static/images/pdf-logo.png">
+ 				<!-- <img src="/static/images/audio-logo.png"> -->
+ 				<div class="audio-btn" >
+					<div class="off" onclick="audio.changeClass(this,'mediaw')">
+						<audio loop="loop" src="/audio/audio1.mp3" id="mediaw" preload="preload"></audio>
+					</div>
+				</div>
  				<div class="show-right">
  					<h3>慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座</h3>
  					<p>刘晓燕 教授</p>
  					<span class="left-date">2017-11-30</span>
- 					<span class="right-date">1121人阅读</span>
+ 					<span class="right-date">1121次播放</span>
  				</div>
  			</div>
- 		  </a>
  		</div>
- 		<div class="article-show">
- 		  <a href="#">
+ 		<div class="audio-show">
  			<div class="content-show">
- 				<img src="/static/images/pdf-logo.png">
+ 				<!-- <img src="/static/images/audio-logo.png"> -->
+ 				<div class="audio-btn" >
+					<div class="off" onclick="audio.changeClass(this,'media1')">
+						<audio loop="loop" src="/audio/audio2.mp3" id="media1" preload="preload"></audio>
+					</div>
+				</div>
  				<div class="show-right">
  					<h3>慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座</h3>
  					<p>刘晓燕 教授</p>
  					<span class="left-date">2017-11-30</span>
- 					<span class="right-date">1121人阅读</span>
+ 					<span class="right-date">1121次播放</span>
  				</div>
  			</div>
- 		  </a>
  		</div>
- 		<div class="article-show">
- 		  <a href="#">
+ 		<div class="audio-show">
  			<div class="content-show">
- 				<img src="/static/images/pdf-logo.png">
+ 				<!-- <img src="/static/images/audio-logo.png"> -->
+ 				<div class="audio-btn" >
+					<div class="off" onclick="audio.changeClass(this,'media1')">
+						<audio loop="loop" src="/audio/audio2.mp3" id="media1" preload="preload"></audio>
+					</div>
+				</div>
  				<div class="show-right">
  					<h3>慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座</h3>
  					<p>刘晓燕 教授</p>
  					<span class="left-date">2017-11-30</span>
- 					<span class="right-date">1121人阅读</span>
+ 					<span class="right-date">1121次播放</span>
  				</div>
  			</div>
- 		  </a>
  		</div>
- 		<div class="article-show">
- 		  <a href="#">
+ 		<div class="audio-show">
  			<div class="content-show">
- 				<img src="/static/images/pdf-logo.png">
+ 				<!-- <img src="/static/images/audio-logo.png"> -->
+ 				<div class="audio-btn" >
+					<div class="off" onclick="audio.changeClass(this,'media1')">
+						<audio loop="loop" src="/audio/audio2.mp3" id="media1" preload="preload"></audio>
+					</div>
+				</div>
  				<div class="show-right">
  					<h3>慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座</h3>
  					<p>刘晓燕 教授</p>
  					<span class="left-date">2017-11-30</span>
- 					<span class="right-date">1121人阅读</span>
+ 					<span class="right-date">1121次播放</span>
  				</div>
  			</div>
- 		  </a>
  		</div>
- 		<div class="article-show">
- 		  <a href="#">
+ 		<div class="audio-show">
  			<div class="content-show">
- 				<img src="/static/images/pdf-logo.png">
+ 				<!-- <img src="/static/images/audio-logo.png"> -->
+ 				<div class="audio-btn" >
+					<div class="off" onclick="audio.changeClass(this,'media1')">
+						<audio loop="loop" src="/audio/audio2.mp3" id="media1" preload="preload"></audio>
+					</div>
+				</div>
  				<div class="show-right">
  					<h3>慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座</h3>
  					<p>刘晓燕 教授</p>
  					<span class="left-date">2017-11-30</span>
- 					<span class="right-date">1121人阅读</span>
+ 					<span class="right-date">1121次播放</span>
  				</div>
  			</div>
- 		  </a>
  		</div>
- 		<div class="article-show">
- 		  <a href="#">
+ 		<div class="audio-show">
  			<div class="content-show">
- 				<img src="/static/images/pdf-logo.png">
+ 				<!-- <img src="/static/images/audio-logo.png"> -->
+ 				<div class="audio-btn" >
+					<div class="off" onclick="audio.changeClass(this,'media1')">
+						<audio loop="loop" src="/audio/audio2.mp3" id="media1" preload="preload"></audio>
+					</div>
+				</div>
  				<div class="show-right">
  					<h3>慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座</h3>
  					<p>刘晓燕 教授</p>
  					<span class="left-date">2017-11-30</span>
- 					<span class="right-date">1121人阅读</span>
+ 					<span class="right-date">1121次播放</span>
  				</div>
  			</div>
- 		  </a>
  		</div>
 
  	</div>
@@ -150,7 +171,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 
 <div style="clear: both;"> </div>
-
+<!-- audio -->
+<script>
+	var audio = {
+		changeClass: function (target,id) {
+	       	var className = $(target).attr('class');
+	       	var ids = document.getElementById(id);
+	       	(className == 'on')
+	           	? $(target).removeClass('on').addClass('off')
+	           	: $(target).removeClass('off').addClass('on');
+	       	(className == 'on')
+	           	? ids.pause()
+	           	: ids.play();
+	   	},
+		play:function(){
+			document.getElementById('media').play();
+		}
+	}
+	// audio.play();
+</script>
 
 
 

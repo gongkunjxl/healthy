@@ -19,10 +19,42 @@ class Main extends MY_Controller {
 		$this->load->view('footer');
 	}
 
+	//expert
+	public function expert()
+	{
+		$this->load->view('header');
+		$this->load->view('expert/expert');
+		$this->load->view('footer');
+	}
+	//audio
+	public function audio()
+	{
+		$this->load->view('header');
+		$this->load->view('audio/audio');
+		$this->load->view('footer');	
+	}
+
+	//video
+	public function video()
+	{
+		$this->load->view('header');
+		$this->load->view('video/video');
+		$this->load->view('footer');	
+	}
+
+	//article
 	public function article()
 	{
 		$this->load->view('header');
 		$this->load->view('article/article');
+		$this->load->view('footer');
+	}
+
+	//articleInfo
+	public function articleInfo()
+	{
+		$this->load->view('header');
+		$this->load->view('article/articleInfo');
 		$this->load->view('footer');
 	}
 
@@ -85,16 +117,6 @@ class Main extends MY_Controller {
 		$this->load->view('welcome_message');
 	}
 
-
-
-	//视频链接
-	public function video()
-	{
-		$data['title'] ='video';
-		$this->load->view('header');
-		$this->load->view('video/video');
-		$this->load->view('footer');
-	}
 	public function chronic_disease(){
 		$this->load->view('header');
 		$this->load->view("main/chronic_disease");
