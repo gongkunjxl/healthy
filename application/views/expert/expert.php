@@ -140,12 +140,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  </div>
 
 </div>
-
-
-
 <div style="width: 100%; height: 1px; clear: both;"></div>
+<div id="pageNavi" style="text-align: center;margin-top: 50px; "></div>
 
-
+<script type="text/javascript">
+	layui.use(['laypage', 'layer'], function(){
+	  var laypage = layui.laypage
+	  ,layer = layui.layer;
+	 
+	  
+	  //总页数大于页码总数
+	  laypage.render({
+	    elem: 'pageNavi'
+	    ,count: 100 //数据总数
+	    ,groups: 7
+	    ,limit: 10
+	    ,jump: function(obj){
+	      console.log(obj)
+	    }
+	  });
+	  
+	});
+</script>
 
 
 

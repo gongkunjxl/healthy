@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>健康网站首页</title>
-  <link rel="stylesheet" href="static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
   <link rel="stylesheet" href="/static/layui/css/layui.css">
   <link rel="stylesheet" href="/static/video/assets/hivideo.css">
   <link rel="stylesheet" href="/static/css/index-page.css">
@@ -45,14 +45,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <img class="logo" src="/static/images/head_logo.png"   alt="logo">
     <ul class="layui-nav">
         <li class="layui-nav-item">
-          <a href="">首页</a>
+          <a href="/main/index">首页</a>
         </li>
         <li class="layui-nav-item" style="padding-right:10px;">
           <a href="article">慢性疾病</a>
           <dl class="layui-nav-child">
-            <dd><a href="javascript:;">高血压</a></dd>
-            <dd><a href="javascript:;">糖尿病</a></dd>
-            <dd><a href="javascript:;">心血管疾病</a></dd>
+            <dd style="line-height: 36px;"><a href="javascript:;">高血压</a></dd>
+            <dd style="line-height: 36px;"><a href="javascript:;">糖尿病</a></dd>
+            <dd style="line-height: 36px;"><a href="javascript:;">心血管疾病</a></dd>
           </dl>
         </li>
         <li class="layui-nav-item" style="margin-left: 1%;">

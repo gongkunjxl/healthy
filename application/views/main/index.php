@@ -49,8 +49,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div class="layui-container" >
 	<div class="index-expert">
 		<div class="expert-title">
+			<a href="/main/expert">
 			<img src="/static/images/expert-title.png">
 			<h1>科普专家</h1>
+			</a>
+			<!-- <p><a href="#">more >></a></p> -->
 		</div>
 		<div class="expert-content">
 			<div class="content">
@@ -98,7 +101,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="video-title">
 		<img src="/static/images/video-title.png">
 		<h1>视频讲座</h1>
-		<p><a href="#">more >></a></p>
+		<p><a href="/main/video">more >></a></p>
 	</div>
 	<div class="video-line"></div>
 	<div class="video-content">
@@ -356,6 +359,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<a style="margin-top: 50px; margin-left: 60px;" href="/main/article">文章列表</a>
 		<a style="margin-top: 50px; margin-left: 60px;" href="/main/articleInfo">文章详情</a>
 		<a style="margin-top: 50px; margin-left: 60px;" href="/main/audio">音频列表</a>
+		<a style="margin-top: 50px; margin-left: 60px;" href="/main/video_list">视频列表</a>
 		<a style="margin-top: 50px; margin-left: 60px;" href="/main/videoInfo">视频详情</a>
 	</div>
 </div>

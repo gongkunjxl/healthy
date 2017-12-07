@@ -34,7 +34,15 @@ class Main extends MY_Controller {
 		$this->load->view('footer');	
 	}
 
-	//video
+	//视频链接
+	public function video()
+	{
+		$data['title'] ='video';
+		$this->load->view('header');
+		$this->load->view('video/video');
+		$this->load->view('footer');
+	}
+	//video info
 	public function videoInfo()
 	{
 		$this->load->view('header');
@@ -126,14 +134,7 @@ class Main extends MY_Controller {
 	// 	$this->load->view('footer');
 	// }
 
-	//视频链接
-	public function video_list()
-	{
-		$data['title'] ='video';
-		$this->load->view('header');
-		$this->load->view('main/video');
-		$this->load->view('footer');
-	}
+	
 
 	public function chronic_disease(){
 		$this->load->view('header');
