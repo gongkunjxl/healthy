@@ -1,0 +1,48 @@
+/*include login and register css*/
+.login-show{
+	width: 80%;
+	margin-top: 100px;
+	margin-left: 10%;
+	height: 400px;
+	background-color: #fff;
+	border:2px solid #EBEBEB;
+	padding: 0.1px;
+}
+.login-show h1{
+	font-size: 26px;
+	font-weight: 400;
+	text-align: center;
+	margin-top: 50px;
+	color: #009ACD;
+	letter-spacing: 3px;
+}
+.login-show .login-content{
+	width: 380px;
+	height: 200px;
+	margin:50px auto;
+}
+.login-show .login-content .layui-form-label{
+	background-color: #EBEBEB;
+}
+.login-show .login-content .layui-input-block{
+ 	margin-left: 80px; 
+ 	width: 300px;
+}
+
+/*注册*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

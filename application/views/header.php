@@ -67,7 +67,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </ul>
     <div class="right-nav">
         <img  class="login-icon" src="/static/images/login.png">
-        <span class="login-word"><a href="#">登陆</a><label>|</label><a href="#">注册</a></span>
+        <span class="login-word"><a href="/main/login">登陆</a><label>|</label><a href="#">注册</a></span>
     </div>
 
   </div>
