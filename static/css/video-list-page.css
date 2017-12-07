@@ -1,0 +1,73 @@
+
+.video-detail-line{
+    margin-top: 20px;
+    width: 96%;
+    height: 1.5px;
+    margin-left: 3%;
+    background-color: #bfcace;
+}
+
+.video-list-content{
+    width: 100%;
+    height: 150px;
+    margin-top: 20px;
+    /*background-color: #F5F5F5;*/
+}
+.video-list-content .content{
+    height: 100%;
+    width: 35%;
+    float: left;
+    margin-left: 5%;
+    /*background-color: #fff0f5;*/
+    padding: 0.1px;
+}
+.video-list-content .content .video-show{
+    height: 100%;
+    width: 50%;
+    float: left;
+}
+.video-list-content .content .video-show video{
+    height: 100%;
+    width: 100%;
+    background-color: black;
+}
+.video-list-content .content .video-label{
+    padding-top:10px;
+    height: 100%;
+    width: 50%;
+    float: right;
+}
+.video-list-content .content .video-label h2{
+    font-size: 16px;
+    width: 90%;
+    margin-left: 10px;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+.video-list-content .content .video-label .left-label{
+    font-size: 14px;
+    width: 40%;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-weight: 400;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    float: left;
+}
+.video-list-content .content .video-label .right-label{
+    font-size: 14px;
+    width: 40%;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: 400;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    float: right;
+}

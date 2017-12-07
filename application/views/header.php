@@ -11,8 +11,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <link rel="stylesheet" href="/static/layui/css/layui.css">
   <link rel="stylesheet" href="/static/video/assets/hivideo.css">
   <link rel="stylesheet" href="/static/css/index-page.css">
+
+  <link rel="stylesheet" href="/static/css/video-page-condition.css">
   <script type="text/javascript" src="/static/layui/layui.js"></script>
   <script type="text/javascript" src="/static/js/jquery-3.2.1.min.js"></script>
+
+<script type="text/javascript" src="/static/js/many-condition.js"></script> 
 
 <!-- 视频 -->
   <script type="text/javascript" src="/static/js/html5media.min.js"></script>
@@ -44,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <a href="">首页</a>
         </li>
         <li class="layui-nav-item" style="padding-right:10px;">
-          <a href="javascript:;">慢性疾病</a>
+          <a href="article">慢性疾病</a>
           <dl class="layui-nav-child">
             <dd><a href="javascript:;">高血压</a></dd>
             <dd><a href="javascript:;">糖尿病</a></dd>
