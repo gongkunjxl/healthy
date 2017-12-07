@@ -78,168 +78,189 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<!-- video -->
 	
 	<div class="video-list-content">
-		<div class="content" style="">
-			<div class="video-show">
-				<video poster="/static/images/image1.png"   controls preload "> 
-					<source src="/video/movie1.mp4"></source>
-				</video>
-			</div>
-			<div class="video-label">
-				<h2>管理胆固醇预防心梗讲座</h2>
-				<div style="margin-top: 20px;margin-left: 12px;">XX教授</div>
-				<div>
-					<p class="left-label">2017-11-11</p>
-					<p class="right-label">1350人观看</p>
+		<a href="/main/videoinfo">
+			<div class="content">
+				<div class="video-show">
+					<video poster="/static/images/image1.png"   controls preload "> 
+						<source src="/video/movie1.mp4"></source>
+					</video>
+				</div>
+				<div class="video-label">
+					<h2>管理胆固醇预防心梗讲座</h2>
+					<div class="author">张教授</p></div>
+					<div>
+						<p class="left-label">2017-11-11</p>
+						<p class="right-label">1350人观看</p>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="content" style="margin-left: 10%;">
-			<div class="video-show">
-				<video poster="/static/images/image1.png"   controls preload "> 
-					<source src="/video/movie1.mp4"></source>
-				</video>
-			</div>
-			<div class="video-label">
-				<h2>管理胆固醇预防心梗讲座</h2>
-				<div style="margin-top: 20px;margin-left: 12px;margin-right: 1px;">XX教授</div>
-				<div>
-					<p class="left-label">2017-11-11</p>
-					<p class="right-label">1350人观看</p>
+		</a>
+		
+		<a href="/main/videoinfo">
+			<div class="content">
+				<div class="video-show">
+					<video poster="/static/images/image1.png"   controls preload "> 
+						<source src="/video/movie1.mp4"></source>
+					</video>
+				</div>
+				<div class="video-label">
+					<h2>管理胆固醇预防心梗讲座</h2>
+					<div class="author">张教授</p></div>
+					<div>
+						<p class="left-label">2017-11-11</p>
+						<p class="right-label">1350人观看</p>
+					</div>
 				</div>
 			</div>
-		</div>
+		</a>
 	</div>
 	<div class="video-detail-line"></div>
 	<div class="video-list-content">
-		<div class="content" style="">
-			<div class="video-show">
-				<video poster="/static/images/image1.png"   controls preload "> 
-					<source src="/video/movie1.mp4"></source>
-				</video>
-			</div>
-			<div class="video-label">
-				<h2>管理胆固醇预防心梗讲座</h2>
-				<div style="margin-top: 20px;margin-left: 12px;">XX教授</div>
-				<div>
-					<p class="left-label">2017-11-11</p>
-					<p class="right-label">1350人观看</p>
+		<a href="/main/videoinfo">
+			<div class="content">
+				<div class="video-show">
+					<video poster="/static/images/image1.png"   controls preload "> 
+						<source src="/video/movie1.mp4"></source>
+					</video>
+				</div>
+				<div class="video-label">
+					<h2>管理胆固醇预防心梗讲座</h2>
+					<div class="author">张教授</p></div>
+					<div>
+						<p class="left-label">2017-11-11</p>
+						<p class="right-label">1350人观看</p>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="content" style="margin-left: 10%;">
-			<div class="video-show">
-				<video poster="/static/images/image1.png"   controls preload "> 
-					<source src="/video/movie1.mp4"></source>
-				</video>
-			</div>
-			<div class="video-label">
-				<h2>管理胆固醇预防心梗讲座</h2>
-				<div style="margin-top: 20px;margin-left: 12px;margin-right: 1px;">XX教授</div>
-				<div>
-					<p class="left-label">2017-11-11</p>
-					<p class="right-label">1350人观看</p>
+		</a>
+		<a href="/main/videoinfo">
+			<div class="content">
+				<div class="video-show">
+					<video poster="/static/images/image1.png"   controls preload "> 
+						<source src="/video/movie1.mp4"></source>
+					</video>
+				</div>
+				<div class="video-label">
+					<h2>管理胆固醇预防心梗讲座</h2>
+					<div class="author">张教授</p></div>
+					<div>
+						<p class="left-label">2017-11-11</p>
+						<p class="right-label">1350人观看</p>
+					</div>
 				</div>
 			</div>
-		</div>
+		</a>
 	</div>
 	<div class="video-detail-line"></div>
 	<div class="video-list-content">
-		<div class="content" style="">
-			<div class="video-show">
-				<video poster="/static/images/image1.png"   controls preload "> 
-					<source src="/video/movie1.mp4"></source>
-				</video>
-			</div>
-			<div class="video-label">
-				<h2>管理胆固醇预防心梗讲座</h2>
-				<div style="margin-top: 20px;margin-left: 12px;">XX教授</div>
-				<div>
-					<p class="left-label">2017-11-11</p>
-					<p class="right-label">1350人观看</p>
+		<a href="/main/videoinfo">
+			<div class="content">
+				<div class="video-show">
+					<video poster="/static/images/image1.png"   controls preload "> 
+						<source src="/video/movie1.mp4"></source>
+					</video>
+				</div>
+				<div class="video-label">
+					<h2>管理胆固醇预防心梗讲座</h2>
+					<div class="author">张教授</p></div>
+					<div>
+						<p class="left-label">2017-11-11</p>
+						<p class="right-label">1350人观看</p>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="content" style="margin-left: 10%;">
-			<div class="video-show">
-				<video poster="/static/images/image1.png"   controls preload "> 
-					<source src="/video/movie1.mp4"></source>
-				</video>
-			</div>
-			<div class="video-label">
-				<h2>管理胆固醇预防心梗讲座</h2>
-				<div style="margin-top: 20px;margin-left: 12px;margin-right: 1px;">XX教授</div>
-				<div>
-					<p class="left-label">2017-11-11</p>
-					<p class="right-label">1350人观看</p>
+		</a>
+		<a href="/main/videoinfo">
+			<div class="content">
+				<div class="video-show">
+					<video poster="/static/images/image1.png"   controls preload "> 
+						<source src="/video/movie1.mp4"></source>
+					</video>
+				</div>
+				<div class="video-label">
+					<h2>管理胆固醇预防心梗讲座</h2>
+					<div class="author">张教授</p></div>
+					<div>
+						<p class="left-label">2017-11-11</p>
+						<p class="right-label">1350人观看</p>
+					</div>
 				</div>
 			</div>
-		</div>
+		</a>
 	</div>
 	<div class="video-detail-line"></div>
 	<div class="video-list-content">
-		<div class="content" style="">
-			<div class="video-show">
-				<video poster="/static/images/image1.png"   controls preload "> 
-					<source src="/video/movie1.mp4"></source>
-				</video>
-			</div>
-			<div class="video-label">
-				<h2>管理胆固醇预防心梗讲座</h2>
-				<div style="margin-top: 20px;margin-left: 12px;">XX教授</div>
-				<div>
-					<p class="left-label">2017-11-11</p>
-					<p class="right-label">1350人观看</p>
+		<a href="/main/videoinfo">
+			<div class="content">
+				<div class="video-show">
+					<video poster="/static/images/image1.png"   controls preload "> 
+						<source src="/video/movie1.mp4"></source>
+					</video>
+				</div>
+				<div class="video-label">
+					<h2>管理胆固醇预防心梗讲座</h2>
+					<div class="author">张教授</p></div>
+					<div>
+						<p class="left-label">2017-11-11</p>
+						<p class="right-label">1350人观看</p>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="content" style="margin-left: 10%;">
-			<div class="video-show">
-				<video poster="/static/images/image1.png"   controls preload "> 
-					<source src="/video/movie1.mp4"></source>
-				</video>
-			</div>
-			<div class="video-label">
-				<h2>管理胆固醇预防心梗讲座</h2>
-				<div style="margin-top: 20px;margin-left: 12px;margin-right: 1px;">XX教授</div>
-				<div>
-					<p class="left-label">2017-11-11</p>
-					<p class="right-label">1350人观看</p>
+		</a>
+		<a href="/main/videoinfo">
+			<div class="content">
+				<div class="video-show">
+					<video poster="/static/images/image1.png"   controls preload "> 
+						<source src="/video/movie1.mp4"></source>
+					</video>
+				</div>
+				<div class="video-label">
+					<h2>管理胆固醇预防心梗讲座</h2>
+					<div class="author">张教授</p></div>
+					<div>
+						<p class="left-label">2017-11-11</p>
+						<p class="right-label">1350人观看</p>
+					</div>
 				</div>
 			</div>
-		</div>
+		</a>
 	</div>
 	<div class="video-detail-line"></div>
 	<div class="video-list-content">
-		<div class="content" style="">
-			<div class="video-show">
-				<video poster="/static/images/image1.png"   controls preload "> 
-					<source src="/video/movie1.mp4"></source>
-				</video>
-			</div>
-			<div class="video-label">
-				<h2>管理胆固醇预防心梗讲座</h2>
-				<div style="margin-top: 20px;margin-left: 12px;">XX教授</div>
-				<div>
-					<p class="left-label">2017-11-11</p>
-					<p class="right-label">1350人观看</p>
+		<a href="/main/videoinfo">
+			<div class="content">
+				<div class="video-show">
+					<video poster="/static/images/image1.png"   controls preload "> 
+						<source src="/video/movie1.mp4"></source>
+					</video>
+				</div>
+				<div class="video-label">
+					<h2>管理胆固醇预防心梗讲座</h2>
+					<div class="author">张教授</p></div>
+					<div>
+						<p class="left-label">2017-11-11</p>
+						<p class="right-label">1350人观看</p>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="content" style="margin-left: 10%;">
-			<div class="video-show">
-				<video poster="/static/images/image1.png"   controls preload "> 
-					<source src="/video/movie1.mp4"></source>
-				</video>
-			</div>
-			<div class="video-label">
-				<h2>管理胆固醇预防心梗讲座</h2>
-				<div style="margin-top: 20px;margin-left: 12px;margin-right: 1px;">XX教授</div>
-				<div>
-					<p class="left-label">2017-11-11</p>
-					<p class="right-label">1350人观看</p>
+		</a>
+		<a href="/main/videoinfo">
+			<div class="content">
+				<div class="video-show">
+					<video poster="/static/images/image1.png"   controls preload "> 
+						<source src="/video/movie1.mp4"></source>
+					</video>
+				</div>
+				<div class="video-label">
+					<h2>管理胆固醇预防心梗讲座</h2>
+					<div class="author">张教授</p></div>
+					<div>
+						<p class="left-label">2017-11-11</p>
+						<p class="right-label">1350人观看</p>
+					</div>
 				</div>
 			</div>
-		</div>
+		</a>
 	</div>
 	
 </div>
