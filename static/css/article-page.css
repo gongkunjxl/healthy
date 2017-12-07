@@ -13,7 +13,7 @@ html{-webkit-text-size-adjust:none;}
     font-size: 20px;
     font-weight: 500;
     margin-left: 40px;
-    margin-top: 10px;
+    margin-top: 15px;
     width: 100px;
     float: left;
 } 
@@ -66,7 +66,7 @@ html{-webkit-text-size-adjust:none;}
     background-color: #fff;
 }
 .article-content .article-show .content-show .show-right h3{
-    padding-top: 5px;
+    padding-top: 10px;
     font-size: 20px;
     font-weight: 300;
     overflow: hidden;

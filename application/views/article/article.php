@@ -1,6 +1,7 @@
  <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
+<!-- <link rel="stylesheet" href="/static/css/video-list-page.css"> -->
 <link rel="stylesheet" href="/static/css/article-page.css">
 <div class="layui-container">
 	<div class="index-search">
@@ -51,10 +52,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<h2>慢性疾病</h2>
 	</div>
 
+	<ul class="select" style="margin-left: 8%;"> 
+        <li class="select-list"> 
+            <dl id="select1"> 
+                <dt><b>分类：</b></dt> 
+                <dd class="select-all selected"><a href="#">冠心病</a></dd> 
+                <dd><a href="#">高血压</a></dd> 
+                <dd><a href="#">心脏病</a></dd> 
+                <dd><a href="#">糖尿病</a></dd> 
+  				<dd><a href="#">高血压</a></dd>
+            </dl> 
+        </li> 
+        <li class="select-list" style="margin-top: 20px;"> 
+            <dl id="select2"> 
+                <dt><b>属性：</b></dt> 
+                <dd class="select-all selected"><a href="#">视频</a></dd> 
+                <dd><a href="#">文章</a></dd> 
+                <dd><a href="#">图片</a></dd> 
+                <dd><a href="#">音频</a></dd> 
+                <dd><a href="#">幻灯片</a></dd> 
+            </dl> 
+        </li> 
+    </ul> 
 	<!-- content -->
  	<div class="article-content">
  		<div class="article-show">
- 		  <a href="#">
+ 		  <a href="/main/articleinfo">
  			<div class="content-show">
  				<img src="/static/images/pdf-logo.png">
  				<div class="show-right">
@@ -67,7 +90,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  		  </a>
  		</div>
  		<div class="article-show">
- 		  <a href="#">
+ 		  <a href="/main/articleinfo">
  			<div class="content-show">
  				<img src="/static/images/pdf-logo.png">
  				<div class="show-right">
@@ -80,7 +103,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  		  </a>
  		</div>
  		<div class="article-show">
- 		  <a href="#">
+ 		  <a href="/main/articleinfo">
  			<div class="content-show">
  				<img src="/static/images/pdf-logo.png">
  				<div class="show-right">
@@ -93,7 +116,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  		  </a>
  		</div>
  		<div class="article-show">
- 		  <a href="#">
+ 		  <a href="/main/articleinfo">
  			<div class="content-show">
  				<img src="/static/images/pdf-logo.png">
  				<div class="show-right">
@@ -106,7 +129,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  		  </a>
  		</div>
  		<div class="article-show">
- 		  <a href="#">
+ 		  <a href="/main/articleinfo">
  			<div class="content-show">
  				<img src="/static/images/pdf-logo.png">
  				<div class="show-right">
@@ -119,7 +142,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  		  </a>
  		</div>
  		<div class="article-show">
- 		  <a href="#">
+ 		  <a href="/main/articleinfo">
  			<div class="content-show">
  				<img src="/static/images/pdf-logo.png">
  				<div class="show-right">
@@ -132,7 +155,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  		  </a>
  		</div>
  		<div class="article-show">
- 		  <a href="#">
+ 		  <a href="/main/articleinfo">
  			<div class="content-show">
  				<img src="/static/images/pdf-logo.png">
  				<div class="show-right">
@@ -150,11 +173,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 
 <div style="clear: both;"> </div>
+<div id="pageNavi" style="text-align: center;margin-top: 50px;"></div>
+<script>
+//一般直接写在一个js文件中
+layui.use(['layer', 'form'], function(){
+  var layer = layui.layer
+  ,form = layui.form;
+ 
+});
+</script>
 
+<!-- the page -->
+<script type="text/javascript">
 
-
-
-
+	layui.use(['laypage', 'layer'], function(){
+	  var laypage = layui.laypage
+	  ,layer = layui.layer;
+	 
+	  
+	  //总页数大于页码总数
+	  laypage.render({
+	    elem: 'pageNavi'
+	    ,count: 100 //数据总数
+	    ,groups: 7
+	    ,limit: 10
+	    ,jump: function(obj){
+	      console.log(obj)
+	    }
+	  });
+	  
+	});
+</script>
 
 
 

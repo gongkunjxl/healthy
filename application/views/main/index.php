@@ -147,7 +147,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="article-title">
 		<img src="/static/images/article-title.png">
 		<h1>精品文章</h1>
-		<p><a href="#" style="margin-top: 5px;color: #009ACD">more >></a></p>
+		<p><a href="/main/article" style="margin-top: 5px;color: #009ACD">more >></a></p>
 	</div>
 	<div class="article-line"></div>
 	<div class="article-content">
@@ -193,7 +193,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="audio-title">
 		<img src="/static/images/audio-title.png">
 		<h1>专家音频</h1>
-		<p><a href="#" style="margin-top: 5px;color: #009ACD">more >></a></p>
+		<p><a href="/main/audio" style="margin-top: 5px;color: #009ACD">more >></a></p>
 	</div>
 	<div class="audio-line"></div>
 	<div class="audio-content">
