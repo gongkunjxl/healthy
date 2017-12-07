@@ -35,10 +35,10 @@ class Main extends MY_Controller {
 	}
 
 	//video
-	public function video()
+	public function videoInfo()
 	{
 		$this->load->view('header');
-		$this->load->view('video/video');
+		$this->load->view('video/videoinfo');
 		$this->load->view('footer');	
 	}
 

@@ -356,7 +356,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<a style="margin-top: 50px; margin-left: 60px;" href="/main/article">文章列表</a>
 		<a style="margin-top: 50px; margin-left: 60px;" href="/main/articleInfo">文章详情</a>
 		<a style="margin-top: 50px; margin-left: 60px;" href="/main/audio">音频列表</a>
-		<a style="margin-top: 50px; margin-left: 60px;" href="/main/video">视频详情</a>
+		<a style="margin-top: 50px; margin-left: 60px;" href="/main/videoInfo">视频详情</a>
 	</div>
 </div>
 
