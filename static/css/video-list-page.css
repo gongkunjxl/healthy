@@ -1,6 +1,6 @@
 
 .video-detail-line{
-    margin-top: 20px;
+    margin-top: 15px;
     width: 96%;
     height: 1.5px;
     margin-left: 3%;
@@ -26,8 +26,8 @@
 
 .video-list-content{
     width: 100%;
-    height: 150px;
-    margin-top: 30px;
+    height: 130px;
+    margin-top: 25px;
     /*background-color: #F5F5F5;*/
 }
 .video-list-content .content{
@@ -40,7 +40,7 @@
 }
 .video-list-content .content .video-show{
     height: 100%;
-    width: 50%;
+    width: 45%;
     float: left;
 }
 .video-list-content .content .video-show video{
@@ -55,10 +55,11 @@
     float: right;
 }
 .video-list-content .content .video-label h2{
+    vertical-align: middle;
     font-size: 16px;
     width: 90%;
-    margin-left: 10px;
-    font-weight: 500;
+    margin-left: 15px;
+    font-weight: 200;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -67,9 +68,9 @@
 .video-list-content .content .video-label .left-label{
     font-size: 14px;
     width: 40%;
-    margin-top: 10px;
-    margin-left: 10px;
-    font-weight: 400;
+    margin-top: 11px;
+    margin-left: 15px;
+    font-weight: 200;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -81,10 +82,16 @@
     width: 40%;
     margin-top: 10px;
     text-align: center;
-    font-weight: 400;
+    font-weight: 200;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     word-wrap: normal;
     float: right;
+}
+
+.video-list-content .content .video-label .author{
+    margin-top: 25px;
+    margin-left: 17px;
+    margin-right: 1px;
 }
