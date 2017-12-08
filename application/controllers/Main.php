@@ -28,10 +28,10 @@ class Main extends MY_Controller {
 	}
 
 	//login
-	public function login()
+	public function register()
 	{
 		$this->load->view('header');
-		$this->load->view('user/login');
+		$this->load->view('user/register');
 		$this->load->view('footer');
 	}
 

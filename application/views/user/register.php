@@ -4,12 +4,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- <link rel="stylesheet" href="/static/css/video-list-page.css"> -->
 <link rel="stylesheet" href="/static/css/user-page.css">
 <div class="layui-container">
-	<div class="login-show">
-		<h1>中国健康知识科普网欢迎您</h1>
-		<div class="login-content">
+	<div class="register-show">
+		<h1>欢迎注册中国健康知识科普网</h1>
+		<div class="register-content">
 			<form class="layui-form" action="">
 			  <div class="layui-form-item">
-			    <label class="layui-form-label">用户名</label>
+			    <label class="layui-form-label">昵称</label>
 			    <div class="layui-input-block">
 			     	 <input type="tel" name="phone" lay-verify="required|phone" autocomplete="off" placeholder="请输入手机号" class="layui-input">
 			    </div>
