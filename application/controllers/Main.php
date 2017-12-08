@@ -90,6 +90,16 @@ class Main extends MY_Controller {
 		$this->load->view('footer');
 	}
 
+	//picture info
+	public function pictureInfo()
+	{
+		$this->load->view('header');
+		$this->load->view('picture/pictureInfo');
+		$this->load->view('footer');
+
+	}
+
+
 	// 测试函数
 	public function testdemo($pic_id=1)
 	{

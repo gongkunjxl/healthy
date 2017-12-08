@@ -154,38 +154,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="article-left">
 			<div class="article-label">
 				<div class="radius">●</div>
-				<p><a href="#">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
+				<p><a href="/main/articleinfo">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
 			</div>
 			<div class="article-label">
 				<div class="radius">●</div>
-				<p><a href="#">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
+				<p><a href="/main/articleinfo">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
 			</div>
 			<div class="article-label">
 				<div class="radius">●</div>
-				<p><a href="#">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
+				<p><a href="/main/articleinfo">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
 			</div>
 			<div class="article-label">
 				<div class="radius">●</div>
-				<p><a href="#">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
+				<p><a href="/main/articleinfo">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
 			</div>
 		</div>
 
 		<div class="article-right">
 			<div class="article-label">
 				<div class="radius">●</div>
-				<p><a href="#">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
+				<p><a href="/main/articleinfo">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
 			</div>
 			<div class="article-label">
 				<div class="radius">●</div>
-				<p><a href="#">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
+				<p><a href="/main/articleinfo">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
 			</div>
 			<div class="article-label">
 				<div class="radius">●</div>
-				<p><a href="#">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
+				<p><a href="/main/articleinfo">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
 			</div>
 			<div class="article-label">
 				<div class="radius">●</div>
-				<p><a href="#">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
+				<p><a href="/main/articleinfo">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
 			</div>
 		</div>
 	</div>
@@ -317,7 +317,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<p><a href="#" style="margin-top: 5px;color: #009ACD">more >></a></p>
 	</div>
 	<div class="point-line"></div>
-	<div class="point-content">
+	<div class="point-content" style="margin-top: 30px;">
 		<div class="content">
 			<video ishivideo="true" autoplay="true" isrotate="false" autoHide="true">
 			            <source src="http://www.html5videoplayer.net/videos/madagascar3.mp4" type="video/mp4">
@@ -361,6 +361,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<a style="margin-top: 50px; margin-left: 60px;" href="/main/audio">音频列表</a>
 		<a style="margin-top: 50px; margin-left: 60px;" href="/main/video_list">视频列表</a>
 		<a style="margin-top: 50px; margin-left: 60px;" href="/main/videoInfo">视频详情</a>
+		<a style="margin-top: 50px; margin-left: 60px;" href="/main/pictureInfo">图片详情</a>
+		
 	</div>
 </div>
 
