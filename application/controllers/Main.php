@@ -27,12 +27,20 @@ class Main extends MY_Controller {
 		$this->load->view('footer');
 	}
 
-	//login
+	//register
 	public function register()
 	{
 		$this->load->view('header');
 		$this->load->view('user/register');
 		$this->load->view('footer');
+	}
+
+	//forgetPass
+	public function forgetPass()
+	{
+		$this->load->view('header');
+		$this->load->view('user/forget');
+		$this->load->view('footer');	
 	}
 
 	//expert

@@ -28,8 +28,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 				<div class="layui-inline">
 			      <div class="layui-input-inline" style="width: 230px;">
-			        <a  href="#" class="layui-btn layui-btn-primary" style="float: right;  border:0">忘记密码?</a>
-			         <a  href="#" class="layui-btn layui-btn-primary" style="float: right;  border:0">免费注册</a>
+			        <a  href="/main/forgetPass" class="layui-btn layui-btn-primary" style="float: right;  border:0">忘记密码?</a>
+			         <a  href="/main/register" class="layui-btn layui-btn-primary" style="float: right;  border:0">免费注册</a>
 			      </div>
 			    </div>
 			  </div>
