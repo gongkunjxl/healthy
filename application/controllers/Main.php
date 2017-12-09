@@ -50,6 +50,14 @@ class Main extends MY_Controller {
 		$this->load->view('expert/expert');
 		$this->load->view('footer');
 	}
+	//expert info
+	public function expertInfo()
+	{
+		$this->load->view('header');
+		$this->load->view('expert/expertInfo');
+		$this->load->view('footer');
+	}
+
 	//audio
 	public function audio()
 	{

@@ -56,6 +56,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<!-- <p><a href="#">more >></a></p> -->
 		</div>
 		<div class="expert-content">
+		   <a href="/main/expertInfo">
 			<div class="content">
 				<div class="img-border">
 					<img src="/static/images/header.jpg">
@@ -68,6 +69,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 				</div>
 			</div>
+		   </a>
+		   <a href="/main/expertInfo">
 			<div class="content">
 				<div class="img-border">
 					<img src="/static/images/header.jpg">
@@ -80,6 +83,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 				</div>
 			</div>
+		   </a>
+		   <a href="/main/expertInfo">
 			<div class="content">
 				<div class="img-border">
 					<img src="/static/images/header.jpg">
@@ -92,6 +97,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 				</div>
 			</div>
+		  </a>
+
 		</div>
 	 </div>
    </div>
@@ -356,6 +363,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 	<div style="height: 100px; margin-top:40px;width: 100%; background-color: #F5F5F5;border: 1px;padding: 0.1px;">
 		<a style="margin-top: 50px; margin-left: 60px;" href="/main/expert">专家页面</a>
+		<a style="margin-top: 50px; margin-left: 60px;" href="/main/expertInfo">专家详情</a>
 		<a style="margin-top: 50px; margin-left: 60px;" href="/main/article">文章列表</a>
 		<a style="margin-top: 50px; margin-left: 60px;" href="/main/articleInfo">文章详情</a>
 		<a style="margin-top: 50px; margin-left: 60px;" href="/main/audio">音频列表</a>
