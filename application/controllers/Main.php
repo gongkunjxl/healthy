@@ -27,14 +27,6 @@ class Main extends MY_Controller {
 		$this->load->view('footer');
 	}
 
-	//login
-	public function login()
-	{
-		$this->load->view('header');
-		$this->load->view('user/login');
-		$this->load->view('footer');
-	}
-
 	//expert
 	public function expert()
 	{
