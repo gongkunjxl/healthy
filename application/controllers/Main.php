@@ -187,6 +187,9 @@ class Main extends MY_Controller {
 	public function message()
 	{
 		$tmp_data['title']='message';
+		$accessKeyId="111";
+		$accessKeySecret="333";
+
 		$data['data']=$tmp_data;
 		$this->load->view('header');
 		$this->load->view('main/message',$data);
