@@ -26,7 +26,8 @@ class MY_Controller extends CI_Controller {
         // $this->per_page = $this->config->item('per_page');
         // 加载model和其他类库
        	$this->load->helper(array('form', 'url'));
-       	$this->load->model(array('Common','SmsDemo'));
+       	$this->load->model('Common');
+        $this->load->model('SmsDemo');
        	$this->api_url = base_url();
        	$this->load->database();
         // $this->load->model(array("Common","Quguoren"));
