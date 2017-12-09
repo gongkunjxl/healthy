@@ -163,8 +163,11 @@ class Main extends MY_Controller {
 	//测试跳转
 	public function message()
 	{
-		$data['title']='message';
-		$this->load->view('welcome_message');
+		$tmp_data['title']='message';
+		$data['data']=$tmp_data;
+		$this->load->view('header');
+		$this->load->view('main/message',$data);
+		$this->load->view('footer');
 	}
 
 	// //视频链接
