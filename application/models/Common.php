@@ -1,5 +1,5 @@
 <?php
-
+date_default_timezone_set("Asia/Shanghai");
 class Common extends CI_Model 
 {
 	public $title;
@@ -110,7 +110,7 @@ class Common extends CI_Model
     function get_count( $table ,$where,$like = array()){
         if( !empty($where) )
             $this->db->where($where);
-        if( $like )
+        if($like)
         {
             $this->db->like($like );
         }       
@@ -133,7 +133,7 @@ class Common extends CI_Model
     /*
         * insert data  by gongkun (不会判断数据是否重复)
     */
-    function add( $table, $data )
+    function add( $table, $data=array() )
     {
         $res = $this->db->insert($table, $data);
         $res = $this->db->insert_id();
@@ -143,15 +143,13 @@ class Common extends CI_Model
      /*
         * insert data  by gongkun (先判断数据是否重复 不重复则插入)
     */ 
-    function save( $table, $data )
+    function save( $table, $data=array() )
     {
         $res = $this->get_count($table, $data);
         if($res<=0){
             // $data['ctime'] = time();
             $res = $this->db->insert($table, $data);
-        
             $res = $this->db->insert_id();
-        
             return $res;
         }else{
             return 0;

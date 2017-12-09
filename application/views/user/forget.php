@@ -21,9 +21,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				       	<input type="text" name="number" lay-verify="required|number" autocomplete="off" class="layui-input">
 				    </div>
 				</div>
-				 <div class="layui-inline" style="width: 120px; margin-top: -5px;">
+				 <div class="layui-inline" style="width: 120px;">
 				    <div class="layui-input-block" style="width: 100px; margin-left: 0;">
-				       	 <button class="layui-btn" id="veryCode" onclick="getCode(this)" style="background-color: #009ACD">获取验证码</button>
+				       	 <label class="layui-btn" id="veryCode" onclick="getCode(this)" style="background-color: #009ACD; padding: 0 10px">获取验证码</label>
 				    </div>
 				</div>
 			</div>
