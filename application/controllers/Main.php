@@ -98,6 +98,15 @@ class Main extends MY_Controller {
 		$this->load->view('footer');
 	}
 
+	//picture
+	public function picture()
+	{
+		$this->load->view('header');
+		$this->load->view('picture/picture');
+		$this->load->view('footer');
+
+	}
+
 	//picture info
 	public function pictureInfo()
 	{
@@ -107,7 +116,21 @@ class Main extends MY_Controller {
 
 	}
 
+	public function powerpoint()
+	{
+		$this->load->view('header');
+		$this->load->view('powerpoint/powerpoint');
+		$this->load->view('footer');
 
+	}
+
+	public function powerpointInfo()
+	{
+		$this->load->view('header');
+		$this->load->view('powerpoint/powerpointinfo');
+		$this->load->view('footer');
+
+	}
 	// 测试函数
 	public function testdemo($pic_id=1)
 	{

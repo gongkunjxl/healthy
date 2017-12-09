@@ -1,0 +1,193 @@
+/* 图片详情 */
+
+html body{margin:0; padding: 0;}
+.ppt-title-show{
+    height: 40px;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 30px;
+    background-color: #EBEBEB;
+}
+.ppt-title-show h2{
+    padding-top: 10px;
+    margin-left: 20px;
+    font-size: 20px;
+    font-weight: 500;
+    color: #009ACD;
+}
+/*content*/
+.ppt-content-show{
+    height: 500px;
+    margin-top: 20px;
+    width: 90%;
+    margin-left: 5%;
+    border:2px solid #EBEBEB;
+}
+.ppt-content-show .left-pre{
+    width: 20%;
+    height: 500px;
+    float: left;
+    margin: 0 auto;
+    vertical-align: middle;
+    text-align: center;
+    /*background-color: #009ACD;*/
+}
+.ppt-content-show .left-pre img{
+    width: 60%;
+    max-width: 60px;
+    height: 100px;
+    margin-top: 200px;
+    cursor: pointer;
+}
+
+.ppt-content-show .mid-content{
+    width: 60%;
+    height: 500px;
+    float: left;
+    /*background-color: #EBEBEB;*/
+    margin:0 auto;
+    text-align: center;
+}
+.ppt-content-show .mid-content .ppt-show{
+    height: 500px; 
+    width: 100%;
+    display: table-cell; 
+    vertical-align:middle; 
+}
+
+.ppt-content-show .mid-content .ppt-show img{
+    vertical-align:middle;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+}
+.ppt-content-show .right-pre{
+    width: 20%;
+    height: 500px;
+    float: left;
+    margin: 0 auto;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+}
+.ppt-content-show .right-pre img{
+    width: 60%;
+    max-width: 60px;
+    height: 100px;
+    margin-top: 200px;
+}
+
+/* bottom */
+
+.ppt-content-bottom{
+    width: 90%;
+    margin-top: 20px;
+    height: 200px;
+    margin-left: 5%;
+    border:2px solid #EBEBEB;   
+}
+.ppt-content-bottom .left-title{
+    width: 10%;
+    height: 100%;
+    border-right: 2px solid #EBEBEB;
+    float: left;
+}
+.ppt-content-bottom .left-title h2{
+    font-size: 24px;
+    width: 30px;
+    font-weight: 500;
+    margin: 0 auto;
+    text-align: center;
+    color: #009ACD;
+    margin-top: 40px;
+
+}
+.ppt-content-bottom .mid-content{
+    width: 80%;
+    height: 100%;
+    float: left;
+}
+.ppt-content-bottom .mid-content a{
+    cursor: pointer;
+}
+.ppt-content-bottom .mid-content a:hover img{
+    width: 98%;
+    margin-left: 1%;
+
+}
+.ppt-content-bottom .mid-content a:hover .title{
+    width: 98%;
+    margin-left: 1%;
+    background-color: #8B8878;
+} 
+.ppt-content-bottom .mid-content .ppt-show{
+    width: 30%;
+    margin-top: 20px;
+    height: 160px;
+    min-width: 200px;
+    margin-left: 3%;
+    float: left;
+    border: 0.1px;
+    overflow: hidden;
+    position: relative;
+}
+.ppt-content-bottom .mid-content .ppt-show img{
+    width: 100%;
+    max-height: 100%;
+}
+.ppt-content-bottom .mid-content .ppt-show .title{
+    height: 35px;
+    width: 100%;
+    z-index: 200;
+    bottom: 0;
+    background-color: #009ACD;
+    display: block;
+    position: absolute;
+}
+.ppt-content-bottom .mid-content .ppt-show .title h3{
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    width: 90%;
+    margin-left: 5%;
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow:ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+
+
+.ppt-content-bottom .right-button{
+    width: 10%;
+    height: 100%;
+    margin: 0 auto;
+    text-align: center;
+    float: left;
+}
+.ppt-content-bottom .right-button img{
+    height: 100px;
+    width: 40px;
+    margin:50px auto;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

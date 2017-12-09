@@ -363,15 +363,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<a style="margin-top: 50px; margin-left: 60px;" href="/main/message">短信测试</a>
 	</div>
 	<div style="height: 100px; margin-top:40px;width: 100%; background-color: #F5F5F5;border: 1px;padding: 0.1px;">
-		<a style="margin-top: 50px; margin-left: 60px;" href="/main/expert">专家页面</a>
-		<a style="margin-top: 50px; margin-left: 60px;" href="/main/expertInfo">专家详情</a>
-		<a style="margin-top: 50px; margin-left: 60px;" href="/main/article">文章列表</a>
-		<a style="margin-top: 50px; margin-left: 60px;" href="/main/articleInfo">文章详情</a>
-		<a style="margin-top: 50px; margin-left: 60px;" href="/main/audio">音频列表</a>
-		<a style="margin-top: 50px; margin-left: 60px;" href="/main/video_list">视频列表</a>
-		<a style="margin-top: 50px; margin-left: 60px;" href="/main/videoInfo">视频详情</a>
-		<a style="margin-top: 50px; margin-left: 60px;" href="/main/pictureInfo">图片详情</a>
-		
+		<a style="margin-top: 50px; margin-left: 10px;" href="/main/expert">专家页面</a>
+		<a style="margin-top: 50px; margin-left: 50px;" href="/main/expertInfo">专家详情</a>
+		<a style="margin-top: 50px; margin-left: 50px;" href="/main/article">文章列表</a>
+		<a style="margin-top: 50px; margin-left: 50px;" href="/main/articleInfo">文章详情</a>
+		<a style="margin-top: 50px; margin-left: 50px;" href="/main/audio">音频列表</a>
+		<a style="margin-top: 50px; margin-left: 50px;" href="/main/video_list">视频列表</a>
+		<a style="margin-top: 50px; margin-left: 50px;" href="/main/videoInfo">视频详情</a>
+		<a style="margin-top: 50px; margin-left: 50px;" href="/main/picture">图片列表</a>
+		<a style="margin-top: 50px; margin-left: 50px;" href="/main/pictureInfo">图片详情</a>
+		<a style="margin-top: 50px; margin-left: 50px;" href="/main/powerpoint">ppt列表</a>
+		<a style="margin-top: 50px; margin-left: 50px;" href="/main/powerpointInfo">ppt详情</a>
 	</div>
 </div>
 
