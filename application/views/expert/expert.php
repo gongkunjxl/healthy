@@ -52,93 +52,107 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<h2>科普专家</h2>
 		<span class="instrt">(注：本次排名以名字姓氏首字母排序)</span>
 	</div>
-  <div class="expert-show">
-  	<div class="expert-content">
-		<div class="img-border">
-			<img src="/static/images/header.jpg">
-		</div>
-		<div class="word">
-			<div class="name-title">
-			<h2>朱晓燕</h2>
-			<p>内科主任医师</p>
-			<p>武汉同济医学院</p>
+  	<div class="expert-show">
+	  	<a href=/main/expertInfo>
+		  	<div class="expert-content">
+				<div class="img-border">
+					<img src="/static/images/header.jpg">
+				</div>
+				<div class="word">
+					<div class="name-title">
+					<h2>周又芳</h2>
+					<p>内科主任医师</p>
+					<p>武汉同济医学院</p>
+					</div>
+				</div>
 			</div>
-		</div>
-	</div>
-	<div class="expert-content">
-		<div class="img-border">
-			<img src="/static/images/header.jpg">
-		</div>
-		<div class="word">
-			<div class="name-title">
-			<h2>朱晓燕</h2>
-			<p>内科主任医师</p>
-			<p>武汉同济医学院</p>
+	    </a>
+	    <a href=/main/expertInfo>
+		  	<div class="expert-content">
+				<div class="img-border">
+					<img src="/static/images/header.jpg">
+				</div>
+				<div class="word">
+					<div class="name-title">
+					<h2>周又芳</h2>
+					<p>内科主任医师</p>
+					<p>武汉同济医学院</p>
+					</div>
+				</div>
 			</div>
-		</div>
-	</div>
-	<div class="expert-content">
-		<div class="img-border">
-			<img src="/static/images/header.jpg">
-		</div>
-		<div class="word">
-			<div class="name-title">
-			<h2>朱晓燕</h2>
-			<p>内科主任医师</p>
-			<p>武汉同济医学院</p>
+	    </a>
+	    <a href=/main/expertInfo>
+		  	<div class="expert-content">
+				<div class="img-border">
+					<img src="/static/images/header.jpg">
+				</div>
+				<div class="word">
+					<div class="name-title">
+					<h2>周又芳</h2>
+					<p>内科主任医师</p>
+					<p>武汉同济医学院</p>
+					</div>
+				</div>
 			</div>
-		</div>
-	</div>
-	<div class="expert-content">
-		<div class="img-border">
-			<img src="/static/images/header.jpg">
-		</div>
-		<div class="word">
-			<div class="name-title">
-			<h2>朱晓燕</h2>
-			<p>内科主任医师</p>
-			<p>武汉同济医学院</p>
+	    </a>
+	    <a href=/main/expertInfo>
+		  	<div class="expert-content">
+				<div class="img-border">
+					<img src="/static/images/header.jpg">
+				</div>
+				<div class="word">
+					<div class="name-title">
+					<h2>周又芳</h2>
+					<p>内科主任医师</p>
+					<p>武汉同济医学院</p>
+					</div>
+				</div>
 			</div>
-		</div>
-	</div>
-	<div class="expert-content">
-		<div class="img-border">
-			<img src="/static/images/header.jpg">
-		</div>
-		<div class="word">
-			<div class="name-title">
-			<h2>朱晓燕</h2>
-			<p>内科主任医师</p>
-			<p>武汉同济医学院</p>
+	    </a>
+	    <a href=/main/expertInfo>
+		  	<div class="expert-content">
+				<div class="img-border">
+					<img src="/static/images/header.jpg">
+				</div>
+				<div class="word">
+					<div class="name-title">
+					<h2>周又芳</h2>
+					<p>内科主任医师</p>
+					<p>武汉同济医学院</p>
+					</div>
+				</div>
 			</div>
-		</div>
-	</div>
-	<div class="expert-content">
-		<div class="img-border">
-			<img src="/static/images/header.jpg">
-		</div>
-		<div class="word">
-			<div class="name-title">
-			<h2>朱晓燕</h2>
-			<p>内科主任医师</p>
-			<p>武汉同济医学院</p>
+	    </a>
+	    <a href=/main/expertInfo>
+		  	<div class="expert-content">
+				<div class="img-border">
+					<img src="/static/images/header.jpg">
+				</div>
+				<div class="word">
+					<div class="name-title">
+					<h2>周又芳</h2>
+					<p>内科主任医师</p>
+					<p>武汉同济医学院</p>
+					</div>
+				</div>
 			</div>
-		</div>
-	</div>
-	<div class="expert-content">
-		<div class="img-border">
-			<img src="/static/images/header.jpg">
-		</div>
-		<div class="word">
-			<div class="name-title">
-			<h2>朱晓燕</h2>
-			<p>内科主任医师</p>
-			<p>武汉同济医学院</p>
+	    </a>
+	    <a href=/main/expertInfo>
+		  	<div class="expert-content">
+				<div class="img-border">
+					<img src="/static/images/header.jpg">
+				</div>
+				<div class="word">
+					<div class="name-title">
+					<h2>周又芳</h2>
+					<p>内科主任医师</p>
+					<p>武汉同济医学院</p>
+					</div>
+				</div>
 			</div>
-		</div>
-	</div>	
- </div>
+	    </a>
 
+  	</div>
 </div>
 <div style="width: 100%; height: 1px; clear: both;"></div>
 <div id="pageNavi" style="text-align: center;margin-top: 50px; "></div>

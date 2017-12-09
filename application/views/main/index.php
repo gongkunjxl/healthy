@@ -56,6 +56,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<!-- <p><a href="#">more >></a></p> -->
 		</div>
 		<div class="expert-content">
+		   <a href="/main/expertInfo">
 			<div class="content">
 				<div class="img-border">
 					<img src="/static/images/header.jpg">
@@ -68,6 +69,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 				</div>
 			</div>
+		   </a>
+		   <a href="/main/expertInfo">
 			<div class="content">
 				<div class="img-border">
 					<img src="/static/images/header.jpg">
@@ -80,6 +83,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 				</div>
 			</div>
+		   </a>
+		   <a href="/main/expertInfo">
 			<div class="content">
 				<div class="img-border">
 					<img src="/static/images/header.jpg">
@@ -92,6 +97,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 				</div>
 			</div>
+		  </a>
+
 		</div>
 	 </div>
    </div>
@@ -154,38 +161,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="article-left">
 			<div class="article-label">
 				<div class="radius">●</div>
-				<p><a href="#">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
+				<p><a href="/main/articleinfo">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
 			</div>
 			<div class="article-label">
 				<div class="radius">●</div>
-				<p><a href="#">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
+				<p><a href="/main/articleinfo">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
 			</div>
 			<div class="article-label">
 				<div class="radius">●</div>
-				<p><a href="#">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
+				<p><a href="/main/articleinfo">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
 			</div>
 			<div class="article-label">
 				<div class="radius">●</div>
-				<p><a href="#">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
+				<p><a href="/main/articleinfo">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
 			</div>
 		</div>
 
 		<div class="article-right">
 			<div class="article-label">
 				<div class="radius">●</div>
-				<p><a href="#">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
+				<p><a href="/main/articleinfo">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
 			</div>
 			<div class="article-label">
 				<div class="radius">●</div>
-				<p><a href="#">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
+				<p><a href="/main/articleinfo">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
 			</div>
 			<div class="article-label">
 				<div class="radius">●</div>
-				<p><a href="#">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
+				<p><a href="/main/articleinfo">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
 			</div>
 			<div class="article-label">
 				<div class="radius">●</div>
-				<p><a href="#">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
+				<p><a href="/main/articleinfo">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
 			</div>
 		</div>
 	</div>
@@ -317,7 +324,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<p><a href="#" style="margin-top: 5px;color: #009ACD">more >></a></p>
 	</div>
 	<div class="point-line"></div>
-	<div class="point-content">
+	<div class="point-content" style="margin-top: 30px;">
 		<div class="content">
 			<video ishivideo="true" autoplay="true" isrotate="false" autoHide="true">
 			            <source src="http://www.html5videoplayer.net/videos/madagascar3.mp4" type="video/mp4">
@@ -355,12 +362,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<a style="margin-top: 50px; margin-left: 60px;" href="/backend/index">后台测试</a>
 	</div>
 	<div style="height: 100px; margin-top:40px;width: 100%; background-color: #F5F5F5;border: 1px;padding: 0.1px;">
-		<a style="margin-top: 50px; margin-left: 60px;" href="/main/expert">专家页面</a>
-		<a style="margin-top: 50px; margin-left: 60px;" href="/main/article">文章列表</a>
-		<a style="margin-top: 50px; margin-left: 60px;" href="/main/articleInfo">文章详情</a>
-		<a style="margin-top: 50px; margin-left: 60px;" href="/main/audio">音频列表</a>
-		<a style="margin-top: 50px; margin-left: 60px;" href="/main/video_list">视频列表</a>
-		<a style="margin-top: 50px; margin-left: 60px;" href="/main/videoInfo">视频详情</a>
+		<a style="margin-top: 50px; margin-left: 10px;" href="/main/expert">专家页面</a>
+		<a style="margin-top: 50px; margin-left: 50px;" href="/main/expertInfo">专家详情</a>
+		<a style="margin-top: 50px; margin-left: 50px;" href="/main/article">文章列表</a>
+		<a style="margin-top: 50px; margin-left: 50px;" href="/main/articleInfo">文章详情</a>
+		<a style="margin-top: 50px; margin-left: 50px;" href="/main/audio">音频列表</a>
+		<a style="margin-top: 50px; margin-left: 50px;" href="/main/video_list">视频列表</a>
+		<a style="margin-top: 50px; margin-left: 50px;" href="/main/videoInfo">视频详情</a>
+		<a style="margin-top: 50px; margin-left: 50px;" href="/main/picture">图片列表</a>
+		<a style="margin-top: 50px; margin-left: 50px;" href="/main/pictureInfo">图片详情</a>
+		<a style="margin-top: 50px; margin-left: 50px;" href="/main/powerpoint">ppt列表</a>
+		<a style="margin-top: 50px; margin-left: 50px;" href="/main/powerpointInfo">ppt详情</a>
 	</div>
 </div>
 

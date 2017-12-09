@@ -7,6 +7,7 @@
 	background-color: #fff;
 	border:2px solid #EBEBEB;
 	padding: 0.1px;
+	border-radius: 10px;
 }
 .login-show h1{
 	font-size: 26px;
@@ -31,8 +32,37 @@
 
 /*注册*/
 
+.register-show{
+	width: 80%;
+	margin-top: 20px;
+	margin-left: 10%;
+	height: 500px;
+	background-color: #fff;
+	border:2px solid #EBEBEB;
+	padding: 0.1px;
+	border-radius: 10px;
+}
+.register-show h1{
+	font-size: 26px;
+	font-weight: 400;
+	text-align: center;
+	margin-top: 30px;
+	color: #009ACD;
+	letter-spacing: 3px;
+}
 
-
+.register-show .register-content{
+	width: 380px;
+	height: 200px;
+	margin:30px auto;
+}
+.register-show .register-content .layui-form-label{
+	background-color: #EBEBEB;
+}
+.register-show .register-content .layui-input-block{
+ 	margin-left: 80px; 
+ 	width: 300px;
+}
 
 
 

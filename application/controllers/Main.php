@@ -27,6 +27,22 @@ class Main extends MY_Controller {
 		$this->load->view('footer');
 	}
 
+	//register
+	public function register()
+	{
+		$this->load->view('header');
+		$this->load->view('user/register');
+		$this->load->view('footer');
+	}
+
+	//forgetPass
+	public function forgetPass()
+	{
+		$this->load->view('header');
+		$this->load->view('user/forget');
+		$this->load->view('footer');	
+	}
+
 	//expert
 	public function expert()
 	{
@@ -34,6 +50,14 @@ class Main extends MY_Controller {
 		$this->load->view('expert/expert');
 		$this->load->view('footer');
 	}
+	//expert info
+	public function expertInfo()
+	{
+		$this->load->view('header');
+		$this->load->view('expert/expertInfo');
+		$this->load->view('footer');
+	}
+
 	//audio
 	public function audio()
 	{
@@ -74,6 +98,39 @@ class Main extends MY_Controller {
 		$this->load->view('footer');
 	}
 
+	//picture
+	public function picture()
+	{
+		$this->load->view('header');
+		$this->load->view('picture/picture');
+		$this->load->view('footer');
+
+	}
+
+	//picture info
+	public function pictureInfo()
+	{
+		$this->load->view('header');
+		$this->load->view('picture/pictureInfo');
+		$this->load->view('footer');
+
+	}
+
+	public function powerpoint()
+	{
+		$this->load->view('header');
+		$this->load->view('powerpoint/powerpoint');
+		$this->load->view('footer');
+
+	}
+
+	public function powerpointInfo()
+	{
+		$this->load->view('header');
+		$this->load->view('powerpoint/powerpointinfo');
+		$this->load->view('footer');
+
+	}
 	// 测试函数
 	public function testdemo($pic_id=1)
 	{
