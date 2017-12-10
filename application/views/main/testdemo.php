@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="layui-container">
 	<?php echo var_dump($data); ?>
 
-	 <!-- <?php //echo $data['sql_data'][0]['nickname'];?>  -->
+	 <!-- <?php //echo $data['sql_data']['nickname'];?>  -->
 	<!-- <?php //echo $data['sql_data']['nickname'];?> -->
 
 	<!-- form 参数传递和url参数传递完成 -->
