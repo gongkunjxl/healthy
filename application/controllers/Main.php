@@ -103,17 +103,38 @@ class Main extends MY_Controller {
 	}
 
 	//expert
-	public function expert()
+	public function expert($page=1)
 	{
+		//get the expert
+		$page=$page;
+    	$where=array();
+    	$start=intval($page-1)*10;
+    	$orderby='ctime';
+    	$order_type='desc';
+    	$select_field='id,name,title,address';
+    	$data=$this->Common->get_limit_order( $this->expert_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);		
+    	$re_data['data']= $data;
+
 		$this->load->view('header');
-		$this->load->view('expert/expert');
+		$this->load->view('expert/expert',$re_data);
 		$this->load->view('footer');
 	}
 	//expert info
-	public function expertInfo()
+	public function expertInfo($id=0)
 	{
+		$where=array('id' => $id);
+		$data=$this->Common->get_one($this->expert_table,$where);
+		$data['work']=str_replace("\n","<br>",$data['work']);  //换行
+		$data['work']=str_replace(" ","&nbsp;",$data['work']);  //空格
+		$data['introduce']=str_replace("\n","<br>",$data['introduce']);  //换行
+		$data['introduce']=str_replace(" ","&nbsp;",$data['introduce']);  //空格
+		$data['study']=str_replace("\n","<br>",$data['study']);  //换行
+		$data['study']=str_replace(" ","&nbsp;",$data['study']);  //空格
+		$data['education']=str_replace("\n","<br>",$data['education']);  //换行
+		$data['education']=str_replace(" ","&nbsp;",$data['education']);  //空格
+		$re_data['data']=$data;
 		$this->load->view('header');
-		$this->load->view('expert/expertInfo');
+		$this->load->view('expert/expertInfo',$re_data);
 		$this->load->view('footer');
 	}
 

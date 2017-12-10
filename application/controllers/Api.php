@@ -91,6 +91,24 @@ class Api extends MY_Controller {
         echo json_encode($data);
     }
 
+    /*
+     *  get the expert
+    */
+    public function expert($page=1)
+    {
+        $page=$page;
+        if($_POST){
+            $postinfo= $this->Common->html_filter_array($_POST);
+            $page = $postinfo['page'];
+        }
+        $where=array();
+        $start=intval($page-1)*10;
+        $orderby='ctime';
+        $order_type='desc';
+        $data=$this->Common->get_limit_order( $this->expert_table,$where,$start,$this->per_page,$orderby,$order_type);
+        $re_data['data']=$data;
+        echo json_encode($re_data);
+    }
 
 
     // upload mutiple picture
@@ -112,6 +130,8 @@ class Api extends MY_Controller {
 		echo json_encode($return);
 	}
 }
+
+
 
 
 

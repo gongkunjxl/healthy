@@ -49,14 +49,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div class="layui-container" >
 	<div class="index-expert">
 		<div class="expert-title">
-			<a href="/main/expert">
+			<a href="/main/expert/1">
 			<img src="/static/images/expert-title.png">
 			<h1>科普专家</h1>
 			</a>
 			<!-- <p><a href="#">more >></a></p> -->
 		</div>
 		<div class="expert-content">
-		   <a href="/main/expertInfo">
+		   <a href="/main/expertInfo/2">
 			<div class="content">
 				<div class="img-border">
 					<img src="/static/images/header.jpg">
@@ -70,7 +70,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 			</div>
 		   </a>
-		   <a href="/main/expertInfo">
+		   <a href="/main/expertInfo/3">
 			<div class="content">
 				<div class="img-border">
 					<img src="/static/images/header.jpg">
@@ -84,7 +84,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 			</div>
 		   </a>
-		   <a href="/main/expertInfo">
+		   <a href="/main/expertInfo/4">
 			<div class="content">
 				<div class="img-border">
 					<img src="/static/images/header.jpg">

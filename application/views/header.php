@@ -1,8 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 // $username = $_SESSION['username'];
-$userid = $_SESSION['userid'];
-$nickname = $_SESSION['nickname'];
+if(isset($_SESSION['userid']) && $_SESSION['userid']>0){
+   $userid = $_SESSION['userid'];
+    $nickname = $_SESSION['nickname'];
+}else{
+  $userid=0; 
+}
 ?>
 <!DOCTYPE html>
 <html >
@@ -87,7 +91,6 @@ $nickname = $_SESSION['nickname'];
       <?php endif;?>
 
     </div>
-
   </div>
 </div>
 

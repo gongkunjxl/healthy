@@ -45,15 +45,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 </div>
 
-
 <!-- title -->
 <div class="layui-container">
 	<div class="expert-title">
 		<h2>科普专家</h2>
 		<span class="instrt">(注：本次排名以名字姓氏首字母排序)</span>
 	</div>
+	<!-- <?php //var_dump($data); ?> -->
   	<div class="expert-show">
-	  	<a href=/main/expertInfo>
+  	  <?php if(count($data)>0): ?>
+  	  	<?php foreach($data as $value ):?>
+		  	<a href=/main/expertInfo/<?php echo $value['id']; ?>>
+			  	<div class="expert-content">
+					<div class="img-border">
+						<img src="/static/images/header.jpg">
+					</div>
+					<div class="word">
+						<div class="name-title">
+						<h2><?php echo $value['name']; ?></h2>
+						<p><?php echo $value['title']; ?></p>
+						<p><?php echo $value['address']; ?></p>
+						</div>
+					</div>
+				</div>
+		    </a>
+		<?php endforeach; ?>
+	<?php else:?>
+		<h1> NO expert more</h1>
+	<?php endif; ?>
+	   <!--  <a href=/main/expertInfo>
 		  	<div class="expert-content">
 				<div class="img-border">
 					<img src="/static/images/header.jpg">
@@ -67,90 +87,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 			</div>
 	    </a>
-	    <a href=/main/expertInfo>
-		  	<div class="expert-content">
-				<div class="img-border">
-					<img src="/static/images/header.jpg">
-				</div>
-				<div class="word">
-					<div class="name-title">
-					<h2>周又芳</h2>
-					<p>内科主任医师</p>
-					<p>武汉同济医学院</p>
-					</div>
-				</div>
-			</div>
-	    </a>
-	    <a href=/main/expertInfo>
-		  	<div class="expert-content">
-				<div class="img-border">
-					<img src="/static/images/header.jpg">
-				</div>
-				<div class="word">
-					<div class="name-title">
-					<h2>周又芳</h2>
-					<p>内科主任医师</p>
-					<p>武汉同济医学院</p>
-					</div>
-				</div>
-			</div>
-	    </a>
-	    <a href=/main/expertInfo>
-		  	<div class="expert-content">
-				<div class="img-border">
-					<img src="/static/images/header.jpg">
-				</div>
-				<div class="word">
-					<div class="name-title">
-					<h2>周又芳</h2>
-					<p>内科主任医师</p>
-					<p>武汉同济医学院</p>
-					</div>
-				</div>
-			</div>
-	    </a>
-	    <a href=/main/expertInfo>
-		  	<div class="expert-content">
-				<div class="img-border">
-					<img src="/static/images/header.jpg">
-				</div>
-				<div class="word">
-					<div class="name-title">
-					<h2>周又芳</h2>
-					<p>内科主任医师</p>
-					<p>武汉同济医学院</p>
-					</div>
-				</div>
-			</div>
-	    </a>
-	    <a href=/main/expertInfo>
-		  	<div class="expert-content">
-				<div class="img-border">
-					<img src="/static/images/header.jpg">
-				</div>
-				<div class="word">
-					<div class="name-title">
-					<h2>周又芳</h2>
-					<p>内科主任医师</p>
-					<p>武汉同济医学院</p>
-					</div>
-				</div>
-			</div>
-	    </a>
-	    <a href=/main/expertInfo>
-		  	<div class="expert-content">
-				<div class="img-border">
-					<img src="/static/images/header.jpg">
-				</div>
-				<div class="word">
-					<div class="name-title">
-					<h2>周又芳</h2>
-					<p>内科主任医师</p>
-					<p>武汉同济医学院</p>
-					</div>
-				</div>
-			</div>
-	    </a>
+	    -->
 
   	</div>
 </div>
