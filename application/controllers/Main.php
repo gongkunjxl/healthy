@@ -14,6 +14,9 @@ class Main extends MY_Controller {
     //主页
 	public function index()
 	{
+		if(!isset($_SESSION['userid'])){
+			$_SESSION['userid']=0;
+		}
 		$this->load->view('header');
 		$this->load->view('main/index');
 		$this->load->view('footer');
@@ -22,9 +25,28 @@ class Main extends MY_Controller {
 	//login
 	public function login()
 	{
+		if($_POST){
+			$postinfo= $this->Common->html_filter_array($_POST);
+			$where=array('username' => $postinfo['phone'],'password' => $postinfo['password']);
+			$rep=$this->Common->get_one($this->user_table,$where);
+			if(count($rep)>0){
+				$_SESSION['userid']=$rep['id'];
+				$_SESSION['username']=$rep['username'];
+				$_SESSION['nickname']=$rep['nickname'];
+				redirect('main/index');
+			}
+		}
 		$this->load->view('header');
 		$this->load->view('user/login');
 		$this->load->view('footer');
+	}
+	//logout
+	public function logout()
+	{
+		$_SESSION['userid']=0;
+		$_SESSION['username'] = '';
+		$_SESSION['nickname']='';
+		redirect('main/index');
 	}
 
 	//register
@@ -36,6 +58,9 @@ class Main extends MY_Controller {
 			$add_data=array('username' => $postinfo['phone'],'nickname' => $postinfo['username'],'password' => $postinfo['password'],'ctime' =>$time);
 			$rep=$this->Common->add($this->user_table,$add_data);
 			if($rep>0){
+				$_SESSION['userid']=$rep;
+				$_SESSION['username']=$postinfo['phone'];
+				$_SESSION['nickname']=$postinfo['username'];
 				redirect('main/index');
 				// $data['postinfo']=$postinfo;
 				// $this->load->view('header');
@@ -45,6 +70,27 @@ class Main extends MY_Controller {
 		}
 		$this->load->view('header');
 		$this->load->view('user/register');
+		$this->load->view('footer');
+	}
+
+	//forget password
+	public function forget()
+	{
+		if($_POST){
+			$postinfo= $this->Common->html_filter_array($_POST);
+			$time=time();
+			$updae_data=array('username' => $postinfo['phone'],'nickname' => $postinfo['username'],'password' => $postinfo['password'],'ctime' =>$time);
+			$rep=$this->Common->update($this->user_table,$updae_data);
+			if($rep>0){
+				redirect('main/index');
+				// $data['postinfo']=$postinfo;
+				// $this->load->view('header');
+				// $this->load->view('main/testdemo',$data);
+				// $this->load->view('footer');
+			}
+		}
+		$this->load->view('header');
+		$this->load->view('user/forget');
 		$this->load->view('footer');
 	}
 
@@ -152,6 +198,7 @@ class Main extends MY_Controller {
 		    'title' => 'My Title',
 		    'heading' => 'My Heading',
 		    'message' => 'My Message',
+		    'username' => $_SESSION['username'],
 		    'pic_id' => $pic_id,
 		    'api_url' => $this->api_url,
 		    'url' => $this->per_page,

@@ -124,9 +124,7 @@ class Common extends CI_Model
     function update( $table, $where=array(),$data=array())
     {
         $this->db->where($where );
-        
         $res = $this->db->update($table,$data); 
-        
         return $res;
     }
 

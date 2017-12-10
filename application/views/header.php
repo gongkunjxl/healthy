@@ -1,5 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+// $username = $_SESSION['username'];
+$userid = $_SESSION['userid'];
+$nickname = $_SESSION['nickname'];
 ?>
 <!DOCTYPE html>
 <html >
@@ -64,10 +67,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
              <dd style="line-height: 36px;"><a href="javascript:;">心血管疾病</a></dd>
           </dl>
         </li>
+
+        <!-- the login -->
+
     </ul>
     <div class="right-nav">
-        <img  class="login-icon" src="/static/images/login.png">
+      <?php if($userid>0):?>
+        <ul class="layui-nav" style="margin-top: 0;width: 100%;">
+           <li class="layui-nav-item" style="max-width: 180px;">
+              <a style="margin-right: 20px; max-width: 150px; overflow: hidden; white-space:nowrap;"><img src="/static/images/header_1.jpg" class="layui-nav-img"><?php echo $nickname; ?></a>
+              <dl class="layui-nav-child">
+                <dd><a href="#" style="line-height: 36px;">修改信息</a></dd>
+                <dd><a href="/main/logout" style="line-height: 36px;">退 出</a></dd>
+              </dl>
+          </li>
+        </ul>
+      <?php else:?>
         <span class="login-word"><a href="/main/login">登陆</a><label>|</label><a href="/main/register">注册</a></span>
+      <?php endif;?>
+
     </div>
 
   </div>

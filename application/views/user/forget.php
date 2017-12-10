@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="register-show">
 		<h1>密码找回页面</h1>
 		<div class="register-content">
-			<form class="layui-form" action="">
+			<form class="layui-form" action="/main/forget" method="post" id="regForm" enctype="multipart/form-data">
 			  <div class="layui-form-item">
 			    <label class="layui-form-label">手机号</label>
 			    <div class="layui-input-block">
@@ -80,35 +80,132 @@ function settime(obj) {
 		settime(obj) }
 		,1000) 
 }
+//verfy phone  status: 200代表手机号未注册  100已经注册
+function veryPhone(phoneNum)
+{	
+	var data={
+		phoneNum: phoneNum,
+	};
+	var re_status=100;
+	$.ajax({
+		url: '/api/veryPhone',
+		type: 'post',
+		dataType:'json',
+		async: false,
+		data: data,
+		success: function (data) {
+		 	re_status = data.status;
+		 	// alert(JSON.stringify(data));
+		},
+		error: function(data) {
+	      	alert("Sorry error");
+		}
+	});
+	return re_status;
+}
+
+// get verify code 200:success  100:failed
+function getVercode(phoneNum)
+{
+	var data={
+		phoneNum: phoneNum,
+	};
+	var re_status=100;
+	$.ajax({
+		url: '/api/getVeryCode',
+		type: 'post',
+		dataType:'json',
+		async: false,
+		data: data,
+		success: function (data) {
+		 	re_status = data.status;
+		},
+		error: function(data) {
+	      	alert("Sorry error");
+		}
+	});
+	return re_status;
+}
 
 //get the code
 function getCode(obj)
 {
 	//先判断手机号是否注册
-	var status =200;
+	var phoneNum = document.getElementById("phoneNum").value;
+	var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/; 
+	if(!myreg.test(phoneNum)) 
+	{ 
+		alert('请输入有效的手机号码！'); 
+		return false; 
+	}
+	var status = veryPhone(phoneNum);
 	if(status == 200){
 		settime(obj);
 	}else{
 		alert('手机号已经注册 请直接登录');
 		return;
 	}
-
 	//获取验证码函数
+	var re_status = getVercode(phoneNum);
+	if(re_status == 200){
+		alert('验证码发送成功');
+	}
+}
+
+//check code 5minutes 200:success  100:failed
+function checkVercode(phoneNum,verCode)
+{
+	var data={
+		phoneNum: phoneNum,
+		verCode: verCode
+	};
+	var re_status=100;
+	$.ajax({
+		url: '/api/checkVercode',
+		type: 'post',
+		async: false,
+		dataType:'json',
+		data: data,
+		success: function (data) {
+	     	re_status = data.status;
+	    },
+	    error: function(data) {
+	     	alert("Sorry error");
+		}
+	});
+	return re_status;
 }
 
 </script>
-
-
 
 <script>
 layui.use(['form', 'layedit', 'laydate'], function(){
   var form = layui.form;
   //监听提交
-  form.on('submit(demo1)', function(data){
-    layer.alert(JSON.stringify(data.field), {
-      title: '最终的提交信息'
-    })
-    return false;
+  form.on('submit(subReg)', function(data){
+  	var phoneNum=document.getElementById("phoneNum").value;
+  	var verCode=document.getElementById("veryCode").value;
+  	var pass=document.getElementById("Password").value;
+  	var verPass=document.getElementById("veryPassword").value;
+  	if(pass.length <6  || verPass.length <6){
+			alert('密码长度至少6个字符');
+			return false;
+	}
+	if(pass != verPass){
+		alert('两次输入不一样');
+		return false;
+	}
+	var check = checkVercode(phoneNum,verCode);
+	// alert(check);
+	if(check == 200){
+		// return true;
+	}else{
+		return false;
+	}
+
+    // layer.alert(JSON.stringify(data.field), {
+    //   title: '最终的提交信息'
+    // })
   });
   
 });

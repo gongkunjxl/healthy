@@ -35,6 +35,7 @@ class MY_Controller extends CI_Controller {
         // 加载model和其他类库
        	$this->load->helper(array('form', 'url'));
        	$this->load->model(array('Common','SmsDemo'));
+        $this->load->library('session');
        	$this->api_url = base_url();
        	$this->load->database();
 		
