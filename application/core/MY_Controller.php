@@ -22,12 +22,15 @@ class MY_Controller extends CI_Controller {
   public $smsTemplate = "SMS_102295009";
 
 	public $per_page = '10'; 
+  public $back_page = '30';
 	public $api_url = '';
   public $code_vaild='-30 minute'; //验证码有效时间
 
   //mysql table
   public $user_table = 'hea_user';
   public $code_table = 'hea_code';
+  public $admin_table = 'hea_admin';
+  public $expert_table = 'hea_expert';
     
     public function __construct() {
         parent::__construct();
@@ -35,6 +38,7 @@ class MY_Controller extends CI_Controller {
         // 加载model和其他类库
        	$this->load->helper(array('form', 'url'));
        	$this->load->model(array('Common','SmsDemo'));
+        $this->load->library('session');
        	$this->api_url = base_url();
        	$this->load->database();
 		

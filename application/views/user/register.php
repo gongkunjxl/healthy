@@ -206,7 +206,6 @@ layui.use(['form', 'layedit', 'laydate'], function(){
 	var check = checkVercode(phoneNum,verCode);
 	// alert(check);
 	if(check == 200){
-		// document.href
 		// return true;
 	}else{
 		return false;

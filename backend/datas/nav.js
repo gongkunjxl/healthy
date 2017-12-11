@@ -6,52 +6,52 @@ var navs = [
 	"children": [{
 		"title": "网站统计",
 		"icon": "&#xe628;",
-		"href": "backend/buttonShow"
+		"href": "/backend/userAdmin"
 	}, {
 		"title": "个人信息",
 		"icon": "&#xe612;",
-		"href": "backend/tableShow"
+		"href": "/backend/tableShow"
 	},
 	 {
 		"title": "资料设置",
 		"icon": "&#xe614;",
-		"href": "backend/tableShow"
+		"href": "/backend/tableShow"
 	}]
 }, 
 {
 	"title": "用户管理",
 	"icon": "&#xe613;",
-	"href": "backend/tableShow",
+	"href": "/backend/userAdmin",
 	"spread": false
 },
 {
 	"title": "专家管理",
 	"icon": "fa-user-circle",
-	"href": "backend/tableShow",
+	"href": "/backend/tableShow",
 	"spread": false
 },
 {
 	"title": "视频管理",
 	"icon": "fa-file-video-o",
-	"href": "backend/tableShow",
+	"href": "/backend/tableShow",
 	"spread": false
 },
 {
 	"title": "音频管理",
 	"icon": "fa-file-audio-o",
-	"href": "backend/tableShow",
+	"href": "/backend/tableShow",
 	"spread": false
 },
 {
 	"title": "文章管理",
 	"icon": "fa-file-pdf-o",
-	"href": "backend/tableShow",
+	"href": "/backend/tableShow",
 	"spread": false
 },
 {
 	"title": "幻灯片管理",
 	"icon": "fa-file-powerpoint-o",
-	"href": "backend/tableShow",
+	"href": "/backend/tableShow",
 	"spread": false
 },
 // {

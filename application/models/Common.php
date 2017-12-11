@@ -68,12 +68,13 @@ class Common extends CI_Model
      /*
         * get one data by (where,filed) by gongkun used for search and limit pages
     */
-    function get_limit_order( $table='',$where=array(),$start=0,$limit=10,$orderby='id',$order_type='desc',$like = array())
+    function get_limit_order( $table='',$where=array(),$start=0,$limit=10,$orderby='id',$order_type='desc',$select_field='*',$like = array())
     {
       
         if( !empty($table) ){   
             $this->db->from($table);
             $this->db->where($where);   
+            $this->db->select($select_field);
             if( $like )
             {
                 $this->db->like($like);
@@ -107,7 +108,7 @@ class Common extends CI_Model
     /*
         *get the num of results by gongkun
     */
-    function get_count( $table ,$where,$like = array()){
+    function get_count( $table ,$where=array(),$like = array()){
         if( !empty($where) )
             $this->db->where($where);
         if($like)
@@ -124,9 +125,7 @@ class Common extends CI_Model
     function update( $table, $where=array(),$data=array())
     {
         $this->db->where($where );
-        
         $res = $this->db->update($table,$data); 
-        
         return $res;
     }
 

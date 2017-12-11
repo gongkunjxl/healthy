@@ -14,6 +14,9 @@ class Main extends MY_Controller {
     //主页
 	public function index()
 	{
+		if(!isset($_SESSION['userid'])){
+			$_SESSION['userid']=0;
+		}
 		$this->load->view('header');
 		$this->load->view('main/index');
 		$this->load->view('footer');
@@ -22,16 +25,72 @@ class Main extends MY_Controller {
 	//login
 	public function login()
 	{
+		if($_POST){
+			$postinfo= $this->Common->html_filter_array($_POST);
+			$where=array('username' => $postinfo['phone'],'password' => $postinfo['password']);
+			$rep=$this->Common->get_one($this->user_table,$where);
+			if(count($rep)>0){
+				$_SESSION['userid']=$rep['id'];
+				$_SESSION['username']=$rep['username'];
+				$_SESSION['nickname']=$rep['nickname'];
+				redirect('main/index');
+			}
+		}
 		$this->load->view('header');
 		$this->load->view('user/login');
 		$this->load->view('footer');
 	}
+	//logout
+	public function logout()
+	{
+		$_SESSION['userid']=0;
+		$_SESSION['username'] = '';
+		$_SESSION['nickname']='';
+		redirect('main/index');
+	}
 
 	//register
 	public function register()
-	{
+	{	
+		if($_POST){
+			$postinfo= $this->Common->html_filter_array($_POST);
+			$time=time();
+			$add_data=array('username' => $postinfo['phone'],'nickname' => $postinfo['username'],'password' => $postinfo['password'],'ctime' =>$time);
+			$rep=$this->Common->add($this->user_table,$add_data);
+			if($rep>0){
+				$_SESSION['userid']=$rep;
+				$_SESSION['username']=$postinfo['phone'];
+				$_SESSION['nickname']=$postinfo['username'];
+				redirect('main/index');
+				// $data['postinfo']=$postinfo;
+				// $this->load->view('header');
+				// $this->load->view('main/testdemo',$data);
+				// $this->load->view('footer');
+			}
+		}
 		$this->load->view('header');
 		$this->load->view('user/register');
+		$this->load->view('footer');
+	}
+
+	//forget password
+	public function forget()
+	{
+		if($_POST){
+			$postinfo= $this->Common->html_filter_array($_POST);
+			$time=time();
+			$updae_data=array('username' => $postinfo['phone'],'nickname' => $postinfo['username'],'password' => $postinfo['password'],'ctime' =>$time);
+			$rep=$this->Common->update($this->user_table,$updae_data);
+			if($rep>0){
+				redirect('main/index');
+				// $data['postinfo']=$postinfo;
+				// $this->load->view('header');
+				// $this->load->view('main/testdemo',$data);
+				// $this->load->view('footer');
+			}
+		}
+		$this->load->view('header');
+		$this->load->view('user/forget');
 		$this->load->view('footer');
 	}
 
@@ -44,17 +103,38 @@ class Main extends MY_Controller {
 	}
 
 	//expert
-	public function expert()
+	public function expert($page=1)
 	{
+		//get the expert
+		$page=$page;
+    	$where=array();
+    	$start=intval($page-1)*10;
+    	$orderby='ctime';
+    	$order_type='desc';
+    	$select_field='id,name,title,address';
+    	$data=$this->Common->get_limit_order( $this->expert_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);		
+    	$re_data['data']= $data;
+
 		$this->load->view('header');
-		$this->load->view('expert/expert');
+		$this->load->view('expert/expert',$re_data);
 		$this->load->view('footer');
 	}
 	//expert info
-	public function expertInfo()
+	public function expertInfo($id=0)
 	{
+		$where=array('id' => $id);
+		$data=$this->Common->get_one($this->expert_table,$where);
+		$data['work']=str_replace("\n","<br>",$data['work']);  //换行
+		$data['work']=str_replace(" ","&nbsp;",$data['work']);  //空格
+		$data['introduce']=str_replace("\n","<br>",$data['introduce']);  //换行
+		$data['introduce']=str_replace(" ","&nbsp;",$data['introduce']);  //空格
+		$data['study']=str_replace("\n","<br>",$data['study']);  //换行
+		$data['study']=str_replace(" ","&nbsp;",$data['study']);  //空格
+		$data['education']=str_replace("\n","<br>",$data['education']);  //换行
+		$data['education']=str_replace(" ","&nbsp;",$data['education']);  //空格
+		$re_data['data']=$data;
 		$this->load->view('header');
-		$this->load->view('expert/expertInfo');
+		$this->load->view('expert/expertInfo',$re_data);
 		$this->load->view('footer');
 	}
 
@@ -146,6 +226,7 @@ class Main extends MY_Controller {
 		    'title' => 'My Title',
 		    'heading' => 'My Heading',
 		    'message' => 'My Message',
+		    'username' => $_SESSION['username'],
 		    'pic_id' => $pic_id,
 		    'api_url' => $this->api_url,
 		    'url' => $this->per_page,

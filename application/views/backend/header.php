@@ -19,6 +19,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <!-- js -->
     <script type="text/javascript" src="/backend/plugins/layui/layui.js"></script>
+    <script type="text/javascript" src="/static/js/jquery-3.2.1.min.js"></script>
+    <!-- <script type="text/javascript" src="/static/layui/layui.all.js"></script> -->
     <script type="text/javascript" src="/backend/datas/nav.js"></script>
     <script src="/backend/js/index.js"></script>
   </head>
