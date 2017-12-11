@@ -108,7 +108,7 @@ class Common extends CI_Model
     /*
         *get the num of results by gongkun
     */
-    function get_count( $table ,$where,$like = array()){
+    function get_count( $table ,$where=array(),$like = array()){
         if( !empty($where) )
             $this->db->where($where);
         if($like)

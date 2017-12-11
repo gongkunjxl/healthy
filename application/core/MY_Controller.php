@@ -22,6 +22,7 @@ class MY_Controller extends CI_Controller {
   public $smsTemplate = "SMS_102295009";
 
 	public $per_page = '10'; 
+  public $back_page = '30';
 	public $api_url = '';
   public $code_vaild='-30 minute'; //验证码有效时间
 

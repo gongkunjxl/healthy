@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				       	 <label class="layui-btn" id="veryCode" onclick="getCode(this)" style="background-color: #009ACD; padding: 0 10px">获取验证码</label>
 				    </div>
 				</div>
-			</div>
+			</div>	
 			  <div class="layui-form-item">
 			    <label class="layui-form-label">新密码</label>
 			    <div class="layui-input-block">

@@ -102,10 +102,11 @@ class Api extends MY_Controller {
             $page = $postinfo['page'];
         }
         $where=array();
-        $start=intval($page-1)*10;
+        $start=intval($page-1)*intval($this->per_page);
         $orderby='ctime';
         $order_type='desc';
-        $data=$this->Common->get_limit_order( $this->expert_table,$where,$start,$this->per_page,$orderby,$order_type);
+        $select_field='*';
+        $data=$this->Common->get_limit_order( $this->expert_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field,'');
         $re_data['data']=$data;
         echo json_encode($re_data);
     }
@@ -129,7 +130,47 @@ class Api extends MY_Controller {
 		} 
 		echo json_encode($return);
 	}
+
+
+
+
+    /*
+      *以下部分是后台的API函数  by gongkun
+    */
+    public function userTable($page=1)
+    {
+        if($_POST){
+            $postinfo= $this->Common->html_filter_array($_POST);
+            $page = $postinfo['page'];
+        }
+        $where=array();
+        $start=intval($page-1)*intval($this->per_page);
+        $orderby='ctime';
+        $order_type='desc';
+        $select_field='*';
+        $data=$this->Common->get_limit_order( $this->user_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field,'');
+        // $re_data['data']=$data;
+        //$re_data['status'] = '200';
+        echo json_encode($data);
+    }
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

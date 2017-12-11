@@ -21,11 +21,21 @@ class Backend extends MY_Controller {
     }
 
     //main
-    public function main()
+    public function main($page=1)
     {
     	// $this->load->view('backend/main');	
-        $data=$this->Common->get_all($this->user_table);
+         
+        $page=$page;
+        $where=array();
+        $start=intval($page-1)*10;
+        $orderby='ctime';
+        $order_type='desc';
+        $select_field='*';
+        $data=$this->Common->get_limit_order( $this->user_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
+        $count=$this->Common->get_count($this->user_table,'','');
         $re_data['data'] = $data;
+        $re_data['count'] = $count;
+        $re_data['limit'] = $this->per_page;
         $this->load->view('backend/header');
         $this->load->view('backend/userAdmin',$re_data);
         $this->load->view('backend/footer');
