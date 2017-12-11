@@ -28,6 +28,7 @@ class MY_Controller extends CI_Controller {
   //mysql table
   public $user_table = 'hea_user';
   public $code_table = 'hea_code';
+  public $admin_table = 'hea_admin';
   public $expert_table = 'hea_expert';
     
     public function __construct() {

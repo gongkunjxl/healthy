@@ -18,7 +18,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" href="/backend/plugins/font-awesome/css/font-awesome.min.css">
 
     <!-- js -->
-    <script type="text/javascript" src="/backend/plugins/layui/layui.js"></script>
+   <!--  <script type="text/javascript" src="/backend/plugins/layui/layui.js"></script> -->
+   <script type="text/javascript"></script>
     <script type="text/javascript" src="/backend/datas/nav.js"></script>
     <script src="/backend/js/index.js"></script>
   </head>
