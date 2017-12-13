@@ -7,7 +7,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<!-- <?php// var_dump($data); ?> -->
 	<h2>专家<?php echo $data['name']; ?>的详情信息</h2>
 	<div class="expert-img">
-		<img src="/header/header_1.jpg">
+		<img id="headImg" src="/header/<?php echo $data['header'];?>">
+		<button type="button" class="layui-btn" style="margin-left: 30px; float: left;margin-top: 80px;" id="uploadHead">更换头像</button>
 	</div>
 	<div class="user-edit">
 		<form class="layui-form">
@@ -175,10 +176,52 @@ layui.use(['form', 'layedit', 'laydate'], function(){
     	return false;
   });
 });
-
 </script>
 
+<!-- 更换头像 -->
+<script type="text/javascript">
+layui.use('upload', function(){
+  var $ = layui.jquery
+  ,upload = layui.upload;
+  var id = document.getElementById("userId").value;
+  var data ={
+  	name:id
+  };
+  //普通图片上传
+  var uploadInst = upload.render({
+    elem: '#uploadHead'
+    ,url: '/api/uploadHeader'
+    ,data: data
+    ,accept: 'images'
+    ,before: function(obj){
+      //预读本地文件示例，不支持ie8
+    obj.preview(function(index, file, result){
+        $('#headImg').attr('src', result); //图片链接（base64）
+      });
+    }
+    ,done: function(res){
+      //alert(JSON.stringify(res));
+      //如果上传失败
+      if(res.status == 200){
+        return layer.msg('上传成功');
+      }else{
+      	return layer.msg('上传失败');
+      }
+      //上传成功
+    }
+    ,error: function(){
+    	// alert("upload failed!");
+      //演示失败状态，并实现重传
+      // var demoText = $('#demoText');
+      // demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-mini demo-reload">重试</a>');
+      // demoText.find('.demo-reload').on('click', function(){
+      //   uploadInst.upload();
+      // });
+    }
+  });
 
+});
+</script>
 
 
 

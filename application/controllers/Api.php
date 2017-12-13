@@ -164,9 +164,13 @@ class Api extends MY_Controller {
             $postinfo= $this->Common->html_filter_array($_POST);
             $where=array('id' => $postinfo['id']);
             $data=array('username' => $postinfo['username'],'nickname' => $postinfo['nickname'],'password' => $postinfo['password']);
-            $rep=$this->Common->update($this->user_table,$where,$data);
-            if($rep>0){
-                $re_data['status'] =200;
+
+            //判断是否是临时文件
+            if($postinfo['name'] != "tmp_header"){
+                $rep=$this->Common->update($this->user_table,$where,$data);
+                if($rep>0){
+                    $re_data['status'] =200;
+                }
             }
             echo json_encode($re_data);
         }
@@ -212,6 +216,56 @@ class Api extends MY_Controller {
             }
             echo json_encode($re_data);
         }
+    }
+     /*
+     *  Add  a new expert by gongkun 
+    */
+    public function updateExpertInfo()
+    {
+        if($_POST){
+            $re_data['status'] = 100;
+            $postinfo= $this->Common->html_filter_array($_POST);
+            $where=array('id' => $postinfo['id']);
+
+            $data=array(
+                    'name' => $postinfo['name'],'sex' => $postinfo['sex'],'nation' => $postinfo['nation'],
+                    'school' => $postinfo['school'],'title' => $postinfo['title'],'major' => $postinfo['major'],
+                    'record' => $postinfo['record'],'address' => $postinfo['address'],'introduce' => $postinfo['introduce'],
+                    'study' => $postinfo['study'],'education' => $postinfo['education'],'work' => $postinfo['work']
+            );
+            $rep=$this->Common->update($this->expert_table,$where,$data);
+            if($rep>0){
+                $re_data['status'] =200;
+            }
+            echo json_encode($re_data);
+        }
+    }
+    /*
+     * upload expert header image by gongkun
+    */
+    public function uploadHeader()
+    {
+        $return=array();
+        $postinfo= $this->Common->html_filter_array($_POST);
+        if ($_FILES["file"]["error"] > 0) {
+            $return['status']=$_FILES["file"]["error"];
+        } else {           
+            $fillname = $_FILES['file']['name']; // 得到文件全名
+            $dotArray = explode('.', $fillname); // 以.分割字符串，得到数组
+            $type = end($dotArray); // 得到最后一个元素：文件后缀
+            $path = "header/header_".$postinfo['name'].".".$type; // 产生随机唯一的名字
+            move_uploaded_file($_FILES["file"]["tmp_name"],$path);
+            //将文件存入数据库
+            $header = "header_".$postinfo['name'].".".$type;
+            $where=array('id' => $postinfo['name']);
+            $data = array('header' => $header);
+            $rep = $this->Common->update($this->expert_table,$where,$data);
+            if($rep>0){
+                 $return['status']=200;
+            }
+        } 
+        // $return['postinfo'] = $postinfo;
+        echo json_encode($return);
     }
     
 

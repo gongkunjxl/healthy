@@ -148,6 +148,15 @@ class Backend extends MY_Controller {
             redirect('backend/expertAdmin/1');
         }
     }
+    /*
+      * add a new expert by gongkun
+    */
+    public function addExpert()
+    {
+        $this->load->view('backend/header');
+        $this->load->view('backend/addExpert');
+        $this->load->view('backend/footer');
+    }
 
 }
 

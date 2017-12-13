@@ -72,7 +72,7 @@ layui.use(['form', 'layedit', 'laydate'], function(){
 		{
  		 	//do something
  		 	// alert('yes');
-		  	// layer.close(index);
+		  	layer.close(index);
 		  	var id = document.getElementById("userId");
 		  	var username = document.getElementById("username");
 		  	var nickname = document.getElementById("nickname");
@@ -99,9 +99,7 @@ layui.use(['form', 'layedit', 'laydate'], function(){
 				error: function(data) {
 			     	alert("Sorry error");
 				}
-			});  	
-		  	layer.close(index);
-		  	// $("#eidtForm").submit();
+			}); 
 		});
     	return false;
   });
