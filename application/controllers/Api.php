@@ -154,6 +154,67 @@ class Api extends MY_Controller {
         echo json_encode($data);
     }
 
+     /*
+     *  update user info by gongkun 
+    */
+    public function updateUserInfo()
+    {
+        if($_POST){
+            $re_data['status'] = 100;
+            $postinfo= $this->Common->html_filter_array($_POST);
+            $where=array('id' => $postinfo['id']);
+            $data=array('username' => $postinfo['username'],'nickname' => $postinfo['nickname'],'password' => $postinfo['password']);
+            $rep=$this->Common->update($this->user_table,$where,$data);
+            if($rep>0){
+                $re_data['status'] =200;
+            }
+            echo json_encode($re_data);
+        }
+    }
+    
+    /*
+      *expert table list by gongkun
+    */
+    public function expertTable($page=1)
+    {
+        if($_POST){
+            $postinfo= $this->Common->html_filter_array($_POST);
+            $page = $postinfo['page'];
+        }
+        $where=array();
+        $start=intval($page-1)*intval($this->per_page);
+        $orderby='ctime';
+        $order_type='desc';
+        $select_field='id,name,sex,nation,school,title,major,record,address,ctime';
+        $data=$this->Common->get_limit_order( $this->expert_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
+        
+        echo json_encode($data);
+    }
+     /*
+     *  update expert info by gongkun 
+    */
+    public function updateExpertInfo()
+    {
+        if($_POST){
+            $re_data['status'] = 100;
+            $postinfo= $this->Common->html_filter_array($_POST);
+            $where=array('id' => $postinfo['id']);
+
+            $data=array(
+                    'name' => $postinfo['name'],'sex' => $postinfo['sex'],'nation' => $postinfo['nation'],
+                    'school' => $postinfo['school'],'title' => $postinfo['title'],'major' => $postinfo['major'],
+                    'record' => $postinfo['record'],'address' => $postinfo['address'],'introduce' => $postinfo['introduce'],
+                    'study' => $postinfo['study'],'education' => $postinfo['education'],'work' => $postinfo['work']
+            );
+            $rep=$this->Common->update($this->expert_table,$where,$data);
+            if($rep>0){
+                $re_data['status'] =200;
+            }
+            echo json_encode($re_data);
+        }
+    }
+    
+
 
 }
 

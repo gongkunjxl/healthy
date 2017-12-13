@@ -27,7 +27,7 @@ var navs = [
 {
 	"title": "专家管理",
 	"icon": "fa-user-circle",
-	"href": "/backend/tableShow",
+	"href": "/backend/expertAdmin",
 	"spread": false
 },
 {

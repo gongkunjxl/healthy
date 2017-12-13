@@ -7,34 +7,48 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<!-- <?php //var_dump($data); ?> -->
 	<!-- <?php// echo count($data); ?> -->
 
-	<h2>用户注册信息表</h2>
+	<h2>专家注册信息表</h2>
 	<table class="layui-table" style="">
 	  <thead>
 	    <tr>
-	      <th width="10%">ID</th>
-	      <th width="15%">用户名</th>
-	      <th width="15%">密码</th>
-	       <th width="15%">电话</th>
-	      <th width="20%">注册时间</th>
-	      <th width="25%">操作</th>
+	      <th width="5%">ID</th>
+	      <th width="5%">姓名</th>
+	      <th width="5%">性别</th>
+	      <th width="5%">民族</th>
+	      <th width="5%">职称</th>
+	      <th width="10%">毕业学校</th>
+	      <th width="10%">专业</th>
+	      <th width="5%">学历</th>
+	      <th width="15%">执业地址</th>
+	      <th width="15%">注册时间</th>
+	       <th width="20%">操作</th>
+	      <!-- <th width="12%">个人介绍</th>
+	      <th width="12%">研究经历</th>
+	      <th width="12%">教育经历</th>
+	      <th width="12%">工作经历</th> -->
 	    </tr>
 	  </thead>
 	  <tbody id="table">
 	  	<?php foreach ($data as $value):?>
 		  	<tr>
 		  		<td><?php echo $value['id'];?></td>
-		  		<td ><?php echo $value['nickname'];?></td>
-		  		<td><?php echo $value['password'];?></td>
-		  		<td><?php echo $value['username'];?></td>
+		  		<td ><?php echo $value['name'];?></td>
+		  		<td><?php echo ($value['sex']==1)?"男":"女";?></td>
+		  		<td><?php echo $value['nation'];?></td>
+		  		<td><?php echo $value['title'];?></td>
+		  		<td><?php echo $value['school'];?></td>
+		  		<td><?php echo $value['major'];?></td>
+		  		<td><?php echo $value['record'];?></td>
+		  		<td><?php echo $value['address'];?></td>
 		  		<td><?php echo date("Y-m-d H:i:s",$value['ctime']);?></td>
 		  		<td>
-					<a class="layui-btn layui-btn-xs" href="/backend/userEdit/<?php echo $value['id']; ?>" >编辑</a>
+					<a class="layui-btn layui-btn-xs" href="/backend/expertEdit/<?php echo $value['id']; ?>" >详情</a>
 					<a class="layui-btn layui-btn-danger layui-btn-xs" onclick="delClick(this);" value="<?php echo $value['id']; ?>">删除</a>
 		  		</td>
 		  	</tr>
 		 <?php endforeach; ?>
 	  </tbody>
-	</table>
+	</table> 
 	<div id="pageNav" class="page-nav"></div>
 	
 </div>
@@ -58,7 +72,7 @@ layui.use(['laypage', 'layer'], function(){
 					page: obj.curr
 				};
 				$.ajax({
-					url: '/api/userTable',
+					url: '/api/expertTable',
 					type: 'post',
 					dataType:'json',
 					data: data,
@@ -70,16 +84,25 @@ layui.use(['laypage', 'layer'], function(){
 				     	obj.innerHTML="";
 				     	var html='<tr>';
 				     	for (var i = 0; i < data.length; i++) {
+				     		var sex="男";
+				     		if(data[i].sex==2){
+				     			sex="女";
+				     		}
 				     		html=html+'<td>'+data[i].id+'</td>'+
-				     		'<td>'+data[i].nickname+'</td>'+
-				     		'<td>'+data[i].password+'</td>'+
-				     		'<td>'+data[i].username+'</td>'+
+				     		'<td>'+data[i].name+'</td>'+
+				     		'<td>'+sex+'</td>'+
+				     		'<td>'+data[i].nation+'</td>'+
+				     		'<td>'+data[i].title+'</td>'+
+				     		'<td>'+data[i].school+'</td>'+
+				     		'<td>'+data[i].major+'</td>'+
+				     		'<td>'+data[i].record+'</td>'+
+				     		'<td>'+data[i].address+'</td>'+
 				     		'<td>'+new Date(parseInt(data[i].ctime) * 1000).toLocaleString()+'</td>'+
 				     		'<td>\
-								<a class="layui-btn layui-btn-xs" href="/backend/userEdit/'+data[i].id+'" >编辑</a>\
+								<a class="layui-btn layui-btn-xs" href="/backend/expertEdit/'+data[i].id+'" >详情</a>\
 								<a class="layui-btn layui-btn-danger layui-btn-xs" onclick="delClick(this);" value="'+data[i].id+'" >删除</a>\
 		  						</td>';
-		  					html=html+'</tr>';
+		  						html=html+'</tr>';
 				     	}
 				     	obj.innerHTML=html;
 
@@ -99,10 +122,10 @@ function  delClick(obj)
 {
     // alert(obj.getAttribute("value"));
     layer = layui.layer;
- 	layer.confirm('确认删除该用户？', { title:['删除用户信息提示','font-size:20px; text-align:center']}, function(index)
+ 	layer.confirm('确认删除该专家？', { title:['删除专家信息提示','font-size:20px; text-align:center']}, function(index)
 	{
 		layer.close(index);
-		window.location.href="/backend/userDelete/"+obj.getAttribute("value");
+		window.location.href="/backend/expertDelete/"+obj.getAttribute("value");
 	});
 }
 </script>

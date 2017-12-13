@@ -16,10 +16,10 @@ class MY_Controller extends CI_Controller {
 
 	//global variables
   // 短信验证
-  public $smsKeyId = "LTAI9M8T8TBHLxH4";
-  public $smsKeySecret = "50Gk84Q42Pr6AcBmeG7D13faZMWXuv";
-  public $smsSignName = "心事网";
-  public $smsTemplate = "SMS_102295009";
+  public $smsKeyId = "rr1dgd1Wgxph5bRq";
+  public $smsKeySecret = "7rhZmvfWNhhZkB5R3hF4TOPxZfAdfM";
+  public $smsSignName = "健康科普资源库";
+  public $smsTemplate = "SMS_116567263";
 
 	public $per_page = '10'; 
   public $back_page = '30';

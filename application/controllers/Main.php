@@ -14,6 +14,7 @@ class Main extends MY_Controller {
     //主页
 	public function index()
 	{
+		
 		if(!isset($_SESSION['userid'])){
 			$_SESSION['userid']=0;
 		}
