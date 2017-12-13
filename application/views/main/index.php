@@ -368,7 +368,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<a style="margin-top: 50px; margin-left: 50px;" href="/main/article">文章列表</a>
 		<a style="margin-top: 50px; margin-left: 50px;" href="/main/articleInfo">文章详情</a>
 		<a style="margin-top: 50px; margin-left: 50px;" href="/main/audio">音频列表</a>
-		<a style="margin-top: 50px; margin-left: 50px;" href="/main/video_list">视频列表</a>
+		<a style="margin-top: 50px; margin-left: 50px;" href="/main/audioinfo">音频详情</a>
+		<a style="margin-top: 50px; margin-left: 50px;" href="/main/video">视频列表</a>
 		<a style="margin-top: 50px; margin-left: 50px;" href="/main/videoInfo">视频详情</a>
 		<a style="margin-top: 50px; margin-left: 50px;" href="/main/picture">图片列表</a>
 		<a style="margin-top: 50px; margin-left: 50px;" href="/main/pictureInfo">图片详情</a>
