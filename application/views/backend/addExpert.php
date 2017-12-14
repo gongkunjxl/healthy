@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<h2>增加专家页面</h2>
 	<div class="expert-img">
 		<img id="headImg" src="/header/">
-		<button type="button" class="layui-btn" style="margin-left: 30px; float: left;margin-top: 80px;" id="uploadHead">更换头像</button>
+		<button type="button" class="layui-btn" style="margin-left: 30px; float: left;margin-top: 80px;" id="uploadHead">上传头像</button>
 	</div>
 	<div class="user-edit">
 		<form class="layui-form">
@@ -96,8 +96,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		  <div class="layui-form-item">
 		    <div class="layui-input-block">
-		      <button class="layui-btn" lay-submit="" lay-filter="editSubmit">提交信息</button>
-		      <a style="margin-left: 20%;" href=”#” onClick="javascript:history.back(-1)" class="layui-btn layui-btn-primary">返回</a>
+		      <button class="layui-btn" lay-submit="" id="subExpert" lay-filter="editSubmit">提交信息</button>
+		       <a style="margin-left: 20%;" href=”#” onClick="javascript:window.history.back();return false;" class="layui-btn layui-btn-primary">返回</a>
 		    </div>
 		  </div>
 		    
@@ -114,6 +114,7 @@ for(value in nation){
 	innerHTML=innerHTML+'<option value="'+nation[value]+'">'+nation[value]+"</option>";
 }
 nationObj.innerHTML = innerHTML;
+var expert_id = 0;
 
 layui.use(['form', 'layedit', 'laydate'], function(){
   var form = layui.form
@@ -123,13 +124,13 @@ layui.use(['form', 'layedit', 'laydate'], function(){
    // var introduce = layedit.build('introduce');
    // var study = layedit.build('study');
    // var education = layedit.build('education');
-
 	form.on('submit(editSubmit)', function(data){
+	   
 		layer.confirm('确认提交专家信息？', { title:['提交专家信息提示','font-size:20px; text-align:center']}, function(index)
 		{
  		 	//do something
  		 	// alert('yes');
-		  	// layer.close(index);
+		  	layer.close(index);
 		  	var name = document.getElementById("name");
 		  	var sex = '';
 		  	var sexRadio = document.getElementsByName("sex");
@@ -164,15 +165,16 @@ layui.use(['form', 'layedit', 'laydate'], function(){
 				study: study.value,
 				work: work.value
 			};
-			alert(JSON.stringify(data));
+			// alert(JSON.stringify(data));
 			$.ajax({
-				url: '/api/addExpert',
+				url: '/api/addNewExpert',
 				type: 'post',
 				dataType:'json',
 				data: data,
 				success: function (data) {
 			     	 // alert(JSON.stringify(data));
 				     if(data.status == 200){
+				     	expert_id = data.id;
 				     	alert("添加成功");
 				     }
 				},
@@ -180,7 +182,6 @@ layui.use(['form', 'layedit', 'laydate'], function(){
 			     	alert("Sorry error");
 				}
 			});  	
-		 
 		});
     	return false;
  	});
@@ -201,11 +202,15 @@ layui.use('upload', function(){
     ,url: '/api/uploadHeader'
     ,data: data
     ,accept: 'images'
+    ,exts: 'jpg|png|jpeg'
     ,before: function(obj){
+      if(expert_id >0){
+      	data.name = expert_id;
+      }
       //预读本地文件示例，不支持ie8
-    obj.preview(function(index, file, result){
-        $('#headImg').attr('src', result); //图片链接（base64）
-      });
+	  obj.preview(function(index, file, result){
+	     $('#headImg').attr('src', result); //图片链接（base64）
+	   });
     }
     ,done: function(res){
       //alert(JSON.stringify(res));
@@ -223,14 +228,6 @@ layui.use('upload', function(){
 
 });
 </script>
-
-
-
-
-
-
-
-
 
 
 

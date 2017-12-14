@@ -165,12 +165,9 @@ class Api extends MY_Controller {
             $where=array('id' => $postinfo['id']);
             $data=array('username' => $postinfo['username'],'nickname' => $postinfo['nickname'],'password' => $postinfo['password']);
 
-            //判断是否是临时文件
-            if($postinfo['name'] != "tmp_header"){
-                $rep=$this->Common->update($this->user_table,$where,$data);
-                if($rep>0){
-                    $re_data['status'] =200;
-                }
+            $rep=$this->Common->update($this->user_table,$where,$data);
+            if($rep>0){
+                $re_data['status'] =200;
             }
             echo json_encode($re_data);
         }
@@ -220,22 +217,42 @@ class Api extends MY_Controller {
      /*
      *  Add  a new expert by gongkun 
     */
-    public function updateExpertInfo()
+    public function addNewExpert()
     {
         if($_POST){
             $re_data['status'] = 100;
             $postinfo= $this->Common->html_filter_array($_POST);
-            $where=array('id' => $postinfo['id']);
-
+            $ctime = time();
+            $header = "header.jpg";
             $data=array(
                     'name' => $postinfo['name'],'sex' => $postinfo['sex'],'nation' => $postinfo['nation'],
                     'school' => $postinfo['school'],'title' => $postinfo['title'],'major' => $postinfo['major'],
                     'record' => $postinfo['record'],'address' => $postinfo['address'],'introduce' => $postinfo['introduce'],
-                    'study' => $postinfo['study'],'education' => $postinfo['education'],'work' => $postinfo['work']
+                    'study' => $postinfo['study'],'education' => $postinfo['education'],'work' => $postinfo['work'],
+                    'header' => $header,'ctime' => $ctime
             );
-            $rep=$this->Common->update($this->expert_table,$where,$data);
+            $rep = $this->Common->add($this->expert_table,$data);
             if($rep>0){
+                //如果已经上传了临时头像 需要更名头像
+                if(file_exists("header/tmp_header.jpg")){
+                    $header = "header_".$rep.".jpg";
+                    rename("header/tmp_header.jpg", "header/".$header);
+                }
+                if(file_exists("header/tmp_header.png")){
+                    $header = "header_".$rep.".png";
+                    rename("header/tmp_header.png", "header/".$header);
+                }  
+                if(file_exists("header/tmp_header.jpeg")){
+                    $header = "header_".$rep.".jpeg";
+                    rename("header/tmp_header.jpeg", "header/".$header);
+                }
+                if($header != "header.jpg"){
+                    $where=array('id' => $rep);
+                    $up_data = array('header' => $header);
+                    $this->Common->update($expert_table,$where,$up_data);
+                }
                 $re_data['status'] =200;
+                $re_data['id'] = $rep;
             }
             echo json_encode($re_data);
         }
@@ -253,15 +270,24 @@ class Api extends MY_Controller {
             $fillname = $_FILES['file']['name']; // 得到文件全名
             $dotArray = explode('.', $fillname); // 以.分割字符串，得到数组
             $type = end($dotArray); // 得到最后一个元素：文件后缀
-            $path = "header/header_".$postinfo['name'].".".$type; // 产生随机唯一的名字
+            if($postinfo['name'] == "tmp_header"){
+                $path = "header/".$postinfo['name'].".".$type;
+
+            }else{
+                $path = "header/header_".$postinfo['name'].".".$type; // 产生随机唯一的名字
+            }
             move_uploaded_file($_FILES["file"]["tmp_name"],$path);
             //将文件存入数据库
-            $header = "header_".$postinfo['name'].".".$type;
-            $where=array('id' => $postinfo['name']);
-            $data = array('header' => $header);
-            $rep = $this->Common->update($this->expert_table,$where,$data);
-            if($rep>0){
-                 $return['status']=200;
+            if($postinfo['name'] != "tmp_header"){
+                $header = "header_".$postinfo['name'].".".$type;
+                $where=array('id' => $postinfo['name']);
+                $data = array('header' => $header);
+                $rep = $this->Common->update($this->expert_table,$where,$data);
+                if($rep>0){
+                     $return['status']=200;
+                }
+            }else{
+                $return['status']=200;
             }
         } 
         // $return['postinfo'] = $postinfo;

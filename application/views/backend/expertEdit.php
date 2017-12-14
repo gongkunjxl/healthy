@@ -103,7 +103,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		  <div class="layui-form-item">
 		    <div class="layui-input-block">
 		      <button class="layui-btn" lay-submit="" lay-filter="editSubmit">立即修改</button>
-		      <a style="margin-left: 20%;" href=”#” onClick="javascript:history.back(-1)" class="layui-btn layui-btn-primary">返回</a>
+		      <a style="margin-left: 20%;" href=”#” onClick="javascript:window.history.back();return false;" class="layui-btn layui-btn-primary">返回</a>
 		    </div>
 		  </div>
 

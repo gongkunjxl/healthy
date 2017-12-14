@@ -111,7 +111,7 @@ class Backend extends MY_Controller {
         $start=intval($page-1)*intval($this->per_page);
         $orderby='ctime';
         $order_type='desc';
-        $select_field='*';
+        $select_field='id,name,sex,nation,school,title,major,record,address,ctime';
         $data=$this->Common->get_limit_order( $this->expert_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
         $count=$this->Common->get_count($this->expert_table,'','');
         $re_data['data'] = $data;
@@ -119,7 +119,7 @@ class Backend extends MY_Controller {
         $re_data['limit'] = $this->per_page;
         $this->load->view('backend/header');
         $this->load->view('backend/expertAdmin',$re_data);
-        $this->load->view('backend/footer');   
+        $this->load->view('backend/footer');    
     }
     /*
      *  expert delete by gongkun 
