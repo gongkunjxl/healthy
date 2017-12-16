@@ -131,9 +131,6 @@ class Api extends MY_Controller {
 		echo json_encode($return);
 	}
 
-
-
-
     /*
       *以下部分是后台的API函数  by gongkun
     */
@@ -173,6 +170,7 @@ class Api extends MY_Controller {
         }
     }
     
+
     /*
       *expert table list by gongkun
     */
@@ -294,6 +292,97 @@ class Api extends MY_Controller {
         echo json_encode($return);
     }
     
+
+    /*
+     * get more article by gongkun
+    */
+    public function articleTable($page=1)
+    {
+        if($_POST){
+            $postinfo= $this->Common->html_filter_array($_POST);
+            $page = $postinfo['page'];
+        }
+        $where=array();
+        $start=intval($page-1)*intval($this->per_page);
+        $orderby='ctime';
+        $order_type='desc';
+        $select_field='*';
+        $data=$this->Common->get_limit_order( $this->article_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
+        foreach ($data as $key => $value) {
+           //theme
+            $type_where = array('id' => $value['type']);
+            $type_data = $this->Common->get_one($this->type_table,$type_where);
+            $data[$key]['type'] = $type_data['name'];
+        }
+        echo json_encode($data);
+    }
+    /*
+     * update article info by gongkun
+    */
+    public function updateArticleInfo()
+    {
+        if($_POST){
+            $re_data['status'] = 100;
+            $postinfo= $this->Common->html_filter_array($_POST);
+            $where=array('id' => $postinfo['id']);
+            $data=array('name' => $postinfo['name'],'author' => $postinfo['author'],'title' => $postinfo['title'],'read' => $postinfo['read'],'type' => $postinfo['type'],'themeId' => $postinfo['theme'],'language'=>$postinfo['language'],'province' => $postinfo['province']);
+            $rep=$this->Common->update($this->article_table,$where,$data);
+            if($rep>0){
+                $re_data['status'] =200;
+            }
+            echo json_encode($re_data);
+        }
+    }
+    /*
+     * add new article by gongkun
+    */
+    public function addNewArticle()
+    {
+        if($_POST){
+            $re_data['status'] = 100;
+            $postinfo= $this->Common->html_filter_array($_POST);
+            $ctime = time();
+            $data=array(
+                    'name' => $postinfo['name'],'author' => $postinfo['author'],'title' => $postinfo['title'],
+                    'read' => $postinfo['read'],'type' => $postinfo['type'],'themeId' => $postinfo['theme'],'language'=>$postinfo['language'],'province' => $postinfo['province'],'ctime' => $ctime
+            );
+            $rep = $this->Common->add($this->article_table,$data);
+            if($rep>0){
+                //如果已经上传了临时文章 需要更名文章
+                if(file_exists("article/tmp_article.pdf")){
+                    $article = $rep.".pdf";
+                    rename("article/tmp_article.pdf", "article/".$article);
+                }
+                $re_data['status'] =200;
+                $re_data['id'] = $rep;
+            }
+            echo json_encode($re_data);
+        }
+    }
+     /*
+     * upload article pdf by gongkun
+    */
+    public function uploadArticle()
+    {
+        $return=array();
+        $postinfo= $this->Common->html_filter_array($_POST);
+        if ($_FILES["file"]["error"] > 0) {
+            $return['status']=$_FILES["file"]["error"];
+        } else {           
+            $fillname = $_FILES['file']['name']; // 得到文件全名
+            $dotArray = explode('.', $fillname); // 以.分割字符串，得到数组
+            $type = end($dotArray); // 得到最后一个元素：文件后缀
+            if($postinfo['name'] == "tmp_article"){
+                $path = "article/".$postinfo['name'].".".$type;
+            }else{
+                $path = "article/".$postinfo['name'].".".$type; // 产生随机唯一的名字
+            }
+            move_uploaded_file($_FILES["file"]["tmp_name"],$path);
+            $return['status']=200;
+        } 
+        // $return['postinfo'] = $postinfo;
+        echo json_encode($return);
+    }
 
 
 }

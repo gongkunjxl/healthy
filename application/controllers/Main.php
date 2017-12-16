@@ -8,7 +8,17 @@ class Main extends MY_Controller {
         //在此处加载model 自定义也可以
         //$this->load->database();
  		// $this->load->helper('url_helper');
+ 		$where = array('themeId' => '1');
+ 		$data = $this->Common->get_all($this->type_table,$where);
+ 		$file = fopen("static/js/sickTheme.json","w");
+ 		fwrite($file,json_encode($data));
+ 		fclose($file);
 
+ 		$where = array('themeId' => '2');
+ 		$data = $this->Common->get_all($this->type_table,$where);
+ 		$file = fopen("static/js/lifeTheme.json","w");
+ 		fwrite($file,json_encode($data));
+ 		fclose($file);
     }
 
     //主页

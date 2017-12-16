@@ -11,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		  <div class="layui-form-item">
 		    <label class="layui-form-label">用户ID</label>
 		    <div class="layui-input-block" style="width: 100px; height: 30px;">
-		       <input class="layui-input" style="border:0" id ="userId" value="<?php echo $data['id']; ?>">
+		       <input class="layui-input" readonly="true"  style="border:0" id ="userId" value="<?php echo $data['id']; ?>">
 		    </div>
 		  </div>
 
@@ -39,7 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		  <div class="layui-form-item">
 		    <label class="layui-form-label">注册时间</label>
 		    <div class="layui-input-block" style="width: 200px; height: 30px;">
-		       <input id="ctime" class="layui-input" style="border:0; color: #009ACD" value="<?php echo date("Y-m-d H:i:s",$data['ctime']); ?>">
+		       <input id="ctime" readonly="true"  class="layui-input" style="border:0; color: #009ACD" value="<?php echo date("Y-m-d H:i:s",$data['ctime']); ?>">
 		    </div>
 		  </div>
 

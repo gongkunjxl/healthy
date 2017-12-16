@@ -31,6 +31,18 @@ var navs = [
 	"spread": false
 },
 {
+	"title": "文章管理",
+	"icon": "fa-file-pdf-o",
+	"href": "/backend/articleAdmin",
+	"spread": false
+},
+{
+	"title": "图片管理",
+	"icon": "fa fa-picture-o",
+	"href": "/backend/tableShow",
+	"spread": false
+},
+{
 	"title": "视频管理",
 	"icon": "fa-file-video-o",
 	"href": "/backend/tableShow",
@@ -39,12 +51,6 @@ var navs = [
 {
 	"title": "音频管理",
 	"icon": "fa-file-audio-o",
-	"href": "/backend/tableShow",
-	"spread": false
-},
-{
-	"title": "文章管理",
-	"icon": "fa-file-pdf-o",
 	"href": "/backend/tableShow",
 	"spread": false
 },

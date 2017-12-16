@@ -2,7 +2,6 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <link rel="stylesheet" href="/static/css/articleinfo-page.css">
-
 <div class="layui-container">
  	<div class="layui-row">
 	  <div class="layui-col-md9">

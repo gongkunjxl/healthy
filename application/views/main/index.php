@@ -20,9 +20,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<label>选项:</label>
 			<select id="theme">
 				<option value="">主题</option>
-				<option value="1">主题1</option>
-				<option value="2">主题2</option>
-				<option value="3">主题3</option>
+				<option value="1">慢性病</option>
+				<option value="2">健康生活方式</option>
 			</select>
 			<select id="type">
 				<option value="">类型</option>
@@ -43,7 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 	</div>
 </div>
-
+<!-- <?php //echo var_dump($data); ?> -->
 	<!-- expert -->
 <div class="index-back">
   <div class="layui-container" >
@@ -378,8 +377,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 </div>
 
-
 <script>
+// $.getJSON("/static/js/sick.json",function(data){ 
+// 	alert(JSON.stringify(data[0].id));
+// }); 
+
 //一般直接写在一个js文件中
 layui.use(['layer', 'form'], function(){
   var layer = layui.layer

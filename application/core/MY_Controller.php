@@ -31,20 +31,21 @@ class MY_Controller extends CI_Controller {
   public $code_table = 'hea_code';
   public $admin_table = 'hea_admin';
   public $expert_table = 'hea_expert';
+  public $article_table = 'hea_article';
+  public $type_table = 'hea_type';
     
-    public function __construct() {
-        parent::__construct();
-        // $this->per_page = $this->config->item('per_page');
-        // 加载model和其他类库
-       	$this->load->helper(array('form', 'url'));
-       	$this->load->model(array('Common','SmsDemo'));
-        $this->load->library('session');
-       	$this->api_url = base_url();
-       	$this->load->database();
-		
-     }
+  public function __construct() {
+      parent::__construct();
+      // $this->per_page = $this->config->item('per_page');
+      // 加载model和其他类库
+      $this->load->helper(array('form', 'url'));
+     	$this->load->model(array('Common','SmsDemo'));
+      $this->load->library('session');
+     	$this->api_url = base_url();
+     	$this->load->database();
+   }
 
-     //other global functions
+   //other global functions
 	
 }
 ?>
