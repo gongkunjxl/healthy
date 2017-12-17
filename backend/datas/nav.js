@@ -6,11 +6,11 @@ var navs = [
 	"children": [{
 		"title": "网站统计",
 		"icon": "&#xe628;",
-		"href": "/backend/userAdmin"
+		"href": "/backend/webInfo"
 	}, {
 		"title": "个人信息",
 		"icon": "&#xe612;",
-		"href": "/backend/tableShow"
+		"href": "/backend/adminInfo"
 	},
 	 {
 		"title": "资料设置",

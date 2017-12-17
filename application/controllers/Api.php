@@ -132,8 +132,27 @@ class Api extends MY_Controller {
 	}
 
 
+    /*************  以下部分是后台的API函数  by gongkun **************/
+
     /*
-      *以下部分是后台的API函数  by gongkun
+     * update admin info by gongkun
+    */
+    public function updateAdminInfo()
+    {
+        if($_POST){
+            $re_data['status'] = 100;
+            $postinfo= $this->Common->html_filter_array($_POST);
+            $where=array('id' => $postinfo['adminId']);
+            $data=array('username' => $postinfo['adminName'],'password' => $postinfo['adminPassword']);
+            $rep=$this->Common->update($this->admin_table,$where,$data);
+            if($rep>0){
+                $re_data['status'] =200;
+            }
+            echo json_encode($re_data);
+        }
+    }
+    /*
+     * user table info by gongkun
     */
     public function userTable($page=1)
     {

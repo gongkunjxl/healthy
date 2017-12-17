@@ -275,40 +275,6 @@ layui.use('upload', function(){
     }
   });
 
-
-
-  //普通图片上传
-  // var uploadInst = upload.render({
-  //   elem: '#uploadArticle'
-  //   ,url: '/api/uploadArticle'
-  //   ,data: data
-  //   ,accept: 'file'
-  //   ,exts: 'pdf'
-  //   ,before: function(obj){
-  //     if(dirId >0){
-  //     	data.name = dirId;
-  //     }
-  //     //预读本地文件示例，不支持ie8
-	 // 	obj.preview(function(index, file, result){
-	 // 		article_name = file.name;
-	 //    });
-  //   }
-  //   ,done: function(res){
-  //     document.getElementById('fileShow').innerText = article_name;
-  //     //alert(JSON.stringify(res));
-  //     //如果上传失败
-  //     if(res.status == 200){
-  //       return layer.msg('上传成功');
-  //     }else{
-  //     	return layer.msg('上传失败');
-  //     }
-  //     //上传成功
-  //   }
-  //   ,error: function(){
-  //   	document.getElementById('fileShow').innerText = article_name;
-  //   }
-  // });
-
 });
 </script>
 

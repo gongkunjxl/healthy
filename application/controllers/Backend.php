@@ -5,14 +5,6 @@ class Backend extends MY_Controller {
 
 	public function __construct() {
         parent::__construct();
-    }
-
-    public function index()
-    {
-        $this->load->view('backend/header');
-        $this->load->view('backend/index');
-
-        // $this->load->view('backend/footer');
         //load the all data
         $where = array('themeId' => '1');
         $data = $this->Common->get_all($this->type_table,$where);
@@ -27,35 +19,62 @@ class Backend extends MY_Controller {
         fclose($file);
     }
 
+    public function index()
+    {
+        if(isset($_SESSION['adminId']) && $_SESSION['adminId']>0){
+            $this->load->view('backend/header');
+            $this->load->view('backend/index');
+        }else{
+            $this->load->view('backend/login');
+        }
+    }
+    /*
+     * login admin by gongkun
+    */
     public function login()
     {
+         if($_POST){
+            $postinfo= $this->Common->html_filter_array($_POST);
+            $where=array('username' => $postinfo['username'],'password' => $postinfo['password']);
+            $rep=$this->Common->get_one($this->admin_table,$where);
+            if(count($rep)>0){
+                $_SESSION['adminId']=$rep['id'];
+                $_SESSION['adminName']=$rep['username'];
+                $_SESSION['adminPassword']=$rep['password'];
+                redirect('backend/index');
+            }
+        }
     	$this->load->view('backend/login');
     }
-
-    //main
+    /*
+     * logout admin by gongkun
+    */
+    public function logout()
+    {
+        unset($_SESSION['adminId']);
+        unset($_SESSION['adminName']);
+        unset($_SESSION['adminPassword']);
+        $this->load->view('backend/login');
+    }
+    /*
+     * main content
+     */
     public function main($page=1)
     {
-    	// $this->load->view('backend/main');	
-        $page=$page;
-        $where=array();
-        $start=intval($page-1)*intval($this->per_page);
-        $orderby='ctime';
-        $order_type='desc';
-        $select_field='*';
-        $data=$this->Common->get_limit_order( $this->picture_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
-        
-        foreach ($data as $key => $value) {
-           //theme
-            $type_where = array('id' => $value['type']);
-            $type_data = $this->Common->get_one($this->type_table,$type_where);
-            $data[$key]['type'] = $type_data['name'];
-        }
-        $count=$this->Common->get_count($this->picture_table,'','');
+    	
+        $user_count = $this->Common->get_count($this->user_table,'','');
+        $expert_count = $this->Common->get_count($this->expert_table,'','');
+        $article_count = $this->Common->get_count($this->article_table,'','');
+        $picture_count = $this->Common->get_count($this->picture_table,'','');
+
+        $data['user_count'] = $user_count;
+        $data['expert_count'] = $expert_count;
+        $data['article_count'] = $article_count;
+        $data['picture_count'] = $picture_count;
         $re_data['data'] = $data;
-        $re_data['count'] = $count;
-        $re_data['limit'] = $this->per_page;
+  
         $this->load->view('backend/header');
-        $this->load->view('backend/pictureAdmin',$re_data);
+        $this->load->view('backend/webInfo',$re_data);
         $this->load->view('backend/footer');  
     }
 
@@ -71,7 +90,44 @@ class Backend extends MY_Controller {
     	$this->load->view('backend/form');
     }    
 
-    //其他的类似更改
+    /*
+     * web info by gongkun
+    */
+    public function webInfo()
+    {
+        $user_count = $this->Common->get_count($this->user_table,'','');
+        $expert_count = $this->Common->get_count($this->expert_table,'','');
+        $article_count = $this->Common->get_count($this->article_table,'','');
+        $picture_count = $this->Common->get_count($this->picture_table,'','');
+
+        $data['user_count'] = $user_count;
+        $data['expert_count'] = $expert_count;
+        $data['article_count'] = $article_count;
+        $data['picture_count'] = $picture_count;
+        $re_data['data'] = $data;
+  
+        $this->load->view('backend/header');
+        $this->load->view('backend/webInfo',$re_data);
+        $this->load->view('backend/footer');  
+    }
+    /*
+     * user info by gongkun
+    */
+    public function adminInfo()
+    {
+        if(isset($_SESSION['adminId']) && $_SESSION['adminId']>0){
+            $data['adminId'] = $_SESSION['adminId'];
+            $data['adminName'] = $_SESSION['adminName'];
+            $data['adminPassword'] = $_SESSION['adminPassword'];
+            $re_data['data'] = $data;
+            $this->load->view('backend/header');
+            $this->load->view('backend/adminInfo',$re_data);
+            $this->load->view('backend/footer');  
+        }else{
+            $this->load->view('backend/login');
+        }
+    }
+
 
     /*
      *  user Admin by gongkun 

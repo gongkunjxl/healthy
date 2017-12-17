@@ -118,8 +118,33 @@ html{margin: 0;padding: 0}
 	background-color: #f0ffff;
 }
 
-
-
+/*  网站基本信息 */
+.layui-container h1{
+	margin: 20px auto;
+	width: 400px;
+	font-size: 24px;
+	text-align: center;
+	color: #009ACD;
+	padding-bottom: 10px;
+ }
+ .web-show{
+ 	padding-top: 20px;
+ 	width: 80%;
+ 	height: 350px;
+ 	margin-left: 10%;
+ 	border: 2px solid #F5F5F5;
+ 	overflow: auto;
+ }
+.web-show .content-show{
+	margin: 0 auto;
+} 
+.web-show .content-show p{
+	font-size: 18px;
+	line-height: 30px;
+	color: #009ACD;
+	font-weight: 400;
+	text-align: center;
+}
 
 
 
