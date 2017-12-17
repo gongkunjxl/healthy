@@ -131,6 +131,7 @@ class Api extends MY_Controller {
 		echo json_encode($return);
 	}
 
+
     /*
       *以下部分是后台的API函数  by gongkun
     */
@@ -150,7 +151,6 @@ class Api extends MY_Controller {
         //$re_data['status'] = '200';
         echo json_encode($data);
     }
-
      /*
      *  update user info by gongkun 
     */
@@ -377,6 +377,198 @@ class Api extends MY_Controller {
             }else{
                 $path = "article/".$postinfo['name'].".".$type; // 产生随机唯一的名字
             }
+            move_uploaded_file($_FILES["file"]["tmp_name"],$path);
+            $return['status']=200;
+        } 
+        // $return['postinfo'] = $postinfo;
+        echo json_encode($return);
+    }
+
+
+
+    /*
+     * picture admin by gongkun
+    */
+    function pictureTable($page=1)
+    {
+        if($_POST){
+            $postinfo= $this->Common->html_filter_array($_POST);
+            $page = $postinfo['page'];
+        }
+        $where=array();
+        $start=intval($page-1)*intval($this->per_page);
+        $orderby='ctime';
+        $order_type='desc';
+        $select_field='*';
+        $data=$this->Common->get_limit_order( $this->picture_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
+        foreach ($data as $key => $value) {
+           //theme
+            $type_where = array('id' => $value['type']);
+            $type_data = $this->Common->get_one($this->type_table,$type_where);
+            $data[$key]['type'] = $type_data['name'];
+        }
+        echo json_encode($data); 
+    }
+    /*
+      * deleteImage by gongkun
+    */
+    function deleteImage()
+    {
+        if($_POST){
+            $re_data['status'] = 100;
+            $postinfo= $this->Common->html_filter_array($_POST);
+            $dirId = $postinfo['dirId'];
+            $imageName = $postinfo['imageName'];
+            $dir = 'picture/'.$dirId;
+            if(is_dir($dir)){
+                if($handle = opendir($dir)){  
+                    while (($file = readdir($handle)) !== false ) {  
+                        if($file == $imageName){  
+                           $path = $dir."/".$imageName;
+                           if(file_exists($path)){
+                                unlink($path);
+                          }
+                           $re_data['status'] =200;
+                        }  
+                    }  
+                }  
+                closedir($handle); 
+            }
+            echo json_encode($re_data);
+        }
+    }
+     /*
+      * indexImage by gongkun
+    */
+    function indexImage()
+    {
+        if($_POST){
+            $re_data['status'] = 100;
+            $postinfo= $this->Common->html_filter_array($_POST);
+            $dirId = $postinfo['dirId'];
+            $imageName = $postinfo['imageName'];
+            $dir = 'picture/'.$dirId;
+            $indexPath = $dir."/"."index.jpg";
+            if(file_exists($indexPath)){
+                $new_path = $dir."/".md5(uniqid(rand())).".jpg";
+                rename($indexPath, $new_path);
+            }
+            $indexPath = $dir."/"."index.jpeg";
+            if(file_exists($indexPath)){
+                $new_path = $dir."/".md5(uniqid(rand())).".jpeg";
+                rename($indexPath, $new_path);
+            }
+            $indexPath = $dir."/"."index.png";
+            if(file_exists($indexPath)){
+                $new_path = $dir."/".md5(uniqid(rand())).".png";
+                rename($indexPath, $new_path);
+            }
+            if(is_dir($dir)){
+                if($handle = opendir($dir)){  
+                    while (($file = readdir($handle)) !== false ) {  
+                        if($file == $imageName){  
+                           $path = $dir."/".$imageName;
+                           if(file_exists($path)){
+                            $dotArray = explode('.', $imageName);
+                            $new_path = $dir."/index".".".end($dotArray);
+                            rename($path, $new_path);
+                          }
+                            $re_data['status'] =200;
+                        }  
+                    }  
+                }  
+                closedir($handle); 
+            }
+            echo json_encode($re_data);
+        }
+    }
+    /*
+     * 上传图片
+    */
+    public function updatePicture()
+    {
+        $return=array();
+        $postinfo= $this->Common->html_filter_array($_POST);
+        if ($_FILES["file"]["error"] > 0) {
+            $return['status']=$_FILES["file"]["error"];
+        } else {           
+            $fillname = $_FILES['file']['name']; // 得到文件全名
+            $dotArray = explode('.', $fillname); // 以.分割字符串，得到数组
+            $type = end($dotArray); // 得到最后一个元素：文件后缀
+            $file_name = md5(uniqid(rand())).".".$type;
+            $path = "picture/".$postinfo['dirId']."/".$file_name;
+            move_uploaded_file($_FILES["file"]["tmp_name"],$path);
+
+            $return['filename'] = $file_name;
+            $return['status'] = 200;
+        } 
+        // $return['postinfo'] = $postinfo;
+        echo json_encode($return);
+    }
+     /*
+     * update article info by gongkun
+    */
+    public function updatePictureInfo()
+    {
+        if($_POST){
+            $re_data['status'] = 100;
+            $postinfo= $this->Common->html_filter_array($_POST);
+            $where=array('id' => $postinfo['id']);
+            $data=array('name' => $postinfo['name'],'author' => $postinfo['author'],'title' => $postinfo['title'],'read' => $postinfo['read'],'type' => $postinfo['type'],'themeId' => $postinfo['theme'],'language'=>$postinfo['language'],'province' => $postinfo['province']);
+            $rep=$this->Common->update($this->picture_table,$where,$data);
+            if($rep>0){
+                $re_data['status'] =200;
+            }
+            echo json_encode($re_data);
+        }
+    }
+    /*
+     * add new picture by gongkun
+    */
+    public function addNewPicture()
+    {
+        if($_POST){
+            $re_data['status'] = 100;
+            $postinfo= $this->Common->html_filter_array($_POST);
+            $ctime = time();
+            $data=array(
+                    'name' => $postinfo['name'],'author' => $postinfo['author'],'title' => $postinfo['title'],
+                    'read' => $postinfo['read'],'type' => $postinfo['type'],'themeId' => $postinfo['theme'],'language'=>$postinfo['language'],'province' => $postinfo['province'],'ctime' => $ctime
+            );
+            $rep = $this->Common->add($this->picture_table,$data);
+            if($rep>0){
+                //如果已经上传了临时文章 需要更名文章
+                if(file_exists("picture/tmp_picture")){
+                    $picture = "picture/".$rep;
+                    rename("picture/tmp_picture",$picture);
+                }
+                $re_data['status'] =200;
+                $re_data['id'] = $rep;
+            }
+            echo json_encode($re_data);
+        }
+    }
+     /*
+     * upload picture  by gongkun
+    */
+    public function uploadPicture()
+    {
+        $return=array();
+        $postinfo= $this->Common->html_filter_array($_POST);
+        if ($_FILES["file"]["error"] > 0) {
+            $return['status']=$_FILES["file"]["error"];
+        } else {           
+            $fillname = $_FILES['file']['name']; // 得到文件全名
+            $dotArray = explode('.', $fillname); // 以.分割字符串，得到数组
+            $type = end($dotArray); // 得到最后一个元素：文件后缀
+            
+            if($postinfo['name'] == "tmp_picture"){
+                $pic_dir = "picture/".$postinfo['name'];
+                if(!is_dir($pic_dir)){
+                   mkdir($pic_dir,0777,true);
+                }
+            }
+            $path = "picture/".$postinfo['name']."/".md5(uniqid(rand())).".".$type;
             move_uploaded_file($_FILES["file"]["tmp_name"],$path);
             $return['status']=200;
         } 

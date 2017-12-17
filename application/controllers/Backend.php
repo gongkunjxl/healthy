@@ -42,7 +42,7 @@ class Backend extends MY_Controller {
         $orderby='ctime';
         $order_type='desc';
         $select_field='*';
-        $data=$this->Common->get_limit_order( $this->article_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
+        $data=$this->Common->get_limit_order( $this->picture_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
         
         foreach ($data as $key => $value) {
            //theme
@@ -50,12 +50,12 @@ class Backend extends MY_Controller {
             $type_data = $this->Common->get_one($this->type_table,$type_where);
             $data[$key]['type'] = $type_data['name'];
         }
-        $count=$this->Common->get_count($this->article_table,'','');
+        $count=$this->Common->get_count($this->picture_table,'','');
         $re_data['data'] = $data;
         $re_data['count'] = $count;
         $re_data['limit'] = $this->per_page;
         $this->load->view('backend/header');
-        $this->load->view('backend/articleAdmin',$re_data);
+        $this->load->view('backend/pictureAdmin',$re_data);
         $this->load->view('backend/footer');  
     }
 
@@ -248,6 +248,89 @@ class Backend extends MY_Controller {
         redirect('backend/articleAdmin/1');
     }
 
+    /*
+     * picture section admin by gongkun
+    */
+    public function pictureAdmin($page=1)
+    {
+        $page=$page;
+        $where=array();
+        $start=intval($page-1)*intval($this->per_page);
+        $orderby='ctime';
+        $order_type='desc';
+        $select_field='*';
+        $data=$this->Common->get_limit_order( $this->picture_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
+        
+        foreach ($data as $key => $value) {
+           //theme
+            $type_where = array('id' => $value['type']);
+            $type_data = $this->Common->get_one($this->type_table,$type_where);
+            $data[$key]['type'] = $type_data['name'];
+        }
+        $count=$this->Common->get_count($this->picture_table,'','');
+        $re_data['data'] = $data;
+        $re_data['count'] = $count;
+        $re_data['limit'] = $this->per_page;
+        $this->load->view('backend/header');
+        $this->load->view('backend/pictureAdmin',$re_data);
+        $this->load->view('backend/footer');  
+    }
+    /*
+     * picture edit by gongkun
+    */
+    public  function pictureEdit($id=0)
+    {
+        if($id>0){
+            $where = array('id' => $id);
+            $data = $this->Common->get_one($this->picture_table,$where);
+            $dir = 'picture/'.$id;
+            $file_name = array();
+            if(is_dir($dir)){
+                if($handle = opendir($dir)){  
+                    while (($file = readdir($handle)) !== false ) {  
+                        if($file != ".." && $file != "." && $file != ".DS_Store"){  
+                            $file_name[] = $file;  
+                        }  
+                    }  
+                }  
+                closedir($handle); 
+            }
+            $re_data['data'] =$data;
+            $re_data['images'] = $file_name;
+            $this->load->view('backend/header');
+            $this->load->view('backend/pictureEdit',$re_data);
+            $this->load->view('backend/footer');
+        }else{
+            redirect('backend/pictureAdmin/1');
+        }
+    }
+    /*
+      * add new  picture by gongkun
+    */
+    public function addPicture()
+    {
+        $this->load->view('backend/header');
+        $this->load->view('backend/addPicture');
+        $this->load->view('backend/footer');
+    }
+     /*
+     *  picture delete by gongkun 
+    */
+    public function pictureDelete($id=0)
+    {
+        if($id>0){
+            $where = array('id' => $id);
+            $rep = $this->Common->delete($this->picture_table,$where);
+        }
+        $tmp_picture = "picture/".$id;
+        if(strtoupper(substr(PHP_OS, 0, 3)) == 'WIN') {
+            $str = "rmdir /s/q " . $tmp_picture;
+        } else {
+           $str = "rm -Rf " . $tmp_picture;
+        }
+        exec($str);
+        redirect('backend/pictureAdmin/1');
+    }
 
 
 }

@@ -39,7 +39,7 @@ var navs = [
 {
 	"title": "图片管理",
 	"icon": "fa fa-picture-o",
-	"href": "/backend/tableShow",
+	"href": "/backend/pictureAdmin",
 	"spread": false
 },
 {

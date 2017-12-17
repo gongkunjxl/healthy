@@ -33,6 +33,7 @@ class MY_Controller extends CI_Controller {
   public $expert_table = 'hea_expert';
   public $article_table = 'hea_article';
   public $type_table = 'hea_type';
+  public $picture_table = 'hea_picture';
     
   public function __construct() {
       parent::__construct();

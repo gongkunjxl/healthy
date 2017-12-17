@@ -69,6 +69,61 @@ html{margin: 0;padding: 0}
 	float: left;
 }
 
+/* picture show  */
+.pic-show{
+	margin-top: 50px;
+	width: 80%;
+	margin-left: 10%;
+	height: auto;
+	margin-bottom: 1px;
+	overflow:auto;
+}
+.pic-show .pic-content{
+	width: 160px;
+	height: 150px;
+	float: left;
+	margin-left: 30px;
+	margin-bottom: 40px;
+	border: 1px solid #F5F5F5
+	/*background-color: #F5F5F5;*/
+}
+.pic-show .pic-content img{
+	width: 160px;
+	height: 120px;
+}
+.pic-show .pic-content button{
+	margin-top: 5px;
+	height: 20px;
+	width: 40px;
+	line-height: 0;
+	font-size: 10px;
+	font-weight: 500;
+	padding: 0;
+}
+.line{
+	width: 80%;
+	margin-left:10%;
+	margin-top: 30px; 
+	height: 1px;
+	background-color: #009ACD;
+}
+
+/* add picture */
+.add-pic{
+	margin-top: 50px;
+	width: 80%;
+	margin-left: 10%;
+	height: auto;
+	overflow:auto;
+	background-color: #f0ffff;
+}
+
+
+
+
+
+
+
 
 
 
