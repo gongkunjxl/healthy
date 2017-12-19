@@ -3,10 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <link rel="stylesheet" href="/static/css/articleinfo-page.css">
 <div class="layui-container">
+	<!-- <?php //var_dump($data); ?> -->
  	<div class="layui-row">
 	  <div class="layui-col-md9">
 	  	<div class="article-show">
-		    <div id="pdf1" class="article-content">
+		    <div id="pdfShow" class="article-content">
 		    	
 		    </div>
 		</div>
@@ -35,7 +36,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <script type="text/javascript"> 
 	window.onload = function (){
-	    var success = new PDFObject({ url: "/article/yii2.pdf" ,pdfOpenParams: { scrollbars: '0', toolbar: '0', statusbar: '0'}}).embed("pdf1");
+		var pdfId = "<?php echo $data['id']; ?>";
+		var m_url = '/article/'+pdfId+".pdf";
+	    var success = new PDFObject({ url:m_url  ,pdfOpenParams: { scrollbars: '0', toolbar: '0', statusbar: '0'}}).embed("pdfShow");
 	};
 </script>
 <!-- 流加载 -->
@@ -52,17 +55,47 @@ layui.use('flow', function(){
 	      //模拟插入
 	      setTimeout(function(){
 	        var lis = [];
-	        for(var i = 0; i < 6; i++){
-	        	var litem='<a href="#" onclick="articleClick(\'11.pdf\');">\
-		    		<div class="content">\
-		    			<h3>. 冠心病的预防小知识冠心病的预防小知识冠心病的预防小知识</h3>\
-		    			<p class="span-left">12000人阅读</p>\
-		    			<p class="span-right">12页</p>\
-		    		</div>\
-		    		</a>';
-	          lis.push(litem);
-	        }
-	        next(lis.join(''), page < 6); //假设总页数为 6
+	        //ajax 获取推荐
+	        var data={
+					page: page
+				};
+				$.ajax({
+					url: '/api/articleRecommend',
+					type: 'post',
+					dataType:'json',
+					data: data,
+					success: function (data) {
+				     	// alert(JSON.stringify(data));
+				     	// alert(data.length);
+		
+				     	for (var i = 0; i < data.length; i++) {
+				     		var litem='<a href="#" onclick="articleClick(\''+data[i].id+'.pdf\');">\
+				    		<div class="content">\
+				    			<h3>. '+data[i].name+'</h3>\
+				    			<p class="span-left">'+data[i].read+'人阅读</p>\
+				    			<p class="span-right">'+data[i].page+'页</p><div class="line"></div></div></a>';
+			     		    lis.push(litem);
+				     	}
+				     	 next(lis.join(''), page < 6); //假设总页数为 6
+				    },
+				    error: function(data) {
+				     	alert("Sorry error");
+					}
+				});
+
+
+	        // alert(page);
+	       //  for(var i = 0; i < 6; i++){
+	       //  	var litem='<a href="#" onclick="articleClick(\'11.pdf\');">\
+		    		// <div class="content">\
+		    		// 	<h3>. 冠心病的预防小知识冠心病的预防小知识冠心病的预防小知识</h3>\
+		    		// 	<p class="span-left">12000人阅读</p>\
+		    		// 	<p class="span-right">12页</p>\
+		    		// </div>\
+		    		// </a>';
+	       //    lis.push(litem);
+	       //  }
+	        
 	      }, 500);
 	    }
 	  });
@@ -73,14 +106,10 @@ layui.use('flow', function(){
 	function articleClick(value)
 	{
 		// alert(value);
- 		var success = new PDFObject({ url: "/article/11.pdf" ,pdfOpenParams: { scrollbars: '0', toolbar: '0', statusbar: '0'}}).embed("pdf1");
+		var m_url = "/article/"+value
+ 		var success = new PDFObject({ url: m_url ,pdfOpenParams: { scrollbars: '0', toolbar: '0', statusbar: '0'}}).embed("pdfShow");
 		// 删除
-       	// document.getElementById("video-item").innerHTML="";
-
-       	// add
-       	// document.getElementById("video-item").innerHTML='<video poster="/static/images/image2.png" controls preload style="background-color: black">\
-       	// 		<source src="/video/movie.mp4"></source></video>\
-       	// 		<p>这个真的好难</p>';
+       	// document.getElementById("video-item").innerHTML="";  
 	}
 
 </script>

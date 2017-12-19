@@ -66,6 +66,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		      <input type="number" id="read" lay-verify="number|required" autocomplete="off" placeholder="请输入阅读量 默认是0" class="layui-input">
 		    </div>
 		  </div>
+		  <div class="layui-form-item" >
+		    <label class="layui-form-label">文章页数</label>
+		    <div class="layui-input-block" style="width: 40%;">
+		      <input type="number" id="page" lay-verify="number|required" autocomplete="off" placeholder="请输入阅读量 默认是0" class="layui-input">
+		    </div>
+		  </div>
 		  <div class="layui-form-item" style="margin-top: 60px;">
 		    <div class="layui-input-block">
 		      <button class="layui-btn" lay-submit="" lay-filter="editSubmit">提交信息</button>
@@ -149,6 +155,7 @@ layui.use(['form', 'layedit', 'laydate'], function(){
 		  	var author = document.getElementById("author");
 		  	var title = document.getElementById("title");
 		  	var read = document.getElementById("read");
+		  	var page = document.getElementById("page");
 		  	var type = document.getElementById("artType");
 		  	var province = document.getElementById("province");
 
@@ -157,6 +164,7 @@ layui.use(['form', 'layedit', 'laydate'], function(){
 				author: author.value,
 				title: title.value,
 				read: read.value,
+				page: page.value,
 				theme: theme.value,
 				language: lang.value,
 				type: type.value,

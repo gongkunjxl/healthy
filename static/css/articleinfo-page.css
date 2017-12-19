@@ -58,14 +58,23 @@ html{-webkit-text-size-adjust:none;}
 .article-left .left-show .content .span-left{
     width: 100px;
     float: left;
-    margin-top: 5px;
+    margin-top: 10px;
+    margin-left: 10px;
     height: 30px;
     font-weight: 300;
+}
+.article-left .left-show .content .line
+{
+    height: 1px;
+    margin-top: 40px;
+    width: 80%;
+    margin-left: 10%;
+    background-color: #EBEBEB;
 }
 .article-left .left-show .content .span-right{
     width: 60px;
     float: right;
-     margin-top: 5px;
+    margin-top: 5px;
     height: 30px;
     font-weight: 300;
 } 

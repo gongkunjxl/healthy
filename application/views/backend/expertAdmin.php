@@ -58,7 +58,7 @@ layui.use(['laypage', 'layer'], function(){
   var laypage = layui.laypage
   ,layer = layui.layer;
   var count="<?php echo $count;?>";
-  var limit = "<?php echo $limit; ?>"
+  var limit = "<?php echo $limit; ?>";
 	  //总页数大于页码总数
 	laypage.render({
 	    elem: 'pageNav'

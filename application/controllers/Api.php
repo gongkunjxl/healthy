@@ -92,9 +92,27 @@ class Api extends MY_Controller {
     }
 
     /*
-     *  get the expert
+     *  get the expert  by gongkun
     */
-    public function expert($page=1)
+    public function expertList($page=1)
+    {
+        $page=$page;
+        if($_POST){
+            $postinfo= $this->Common->html_filter_array($_POST);
+            $page = $postinfo['page'];
+        }
+        $where=array();
+        $start=intval($page-1)*intval($this->exp_page);
+        $orderby='ctime';
+        $order_type='desc';
+        $select_field='id,name,title,address,header';
+        $data=$this->Common->get_limit_order( $this->expert_table,$where,$start,$this->exp_page,$orderby,$order_type,$select_field,'');
+        echo json_encode($data);
+    }
+     /*
+     *  get the article  by gongkun
+    */
+    public function articleList($page=1)
     {
         $page=$page;
         if($_POST){
@@ -106,9 +124,38 @@ class Api extends MY_Controller {
         $orderby='ctime';
         $order_type='desc';
         $select_field='*';
-        $data=$this->Common->get_limit_order( $this->expert_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field,'');
-        $re_data['data']=$data;
-        echo json_encode($re_data);
+        $data=$this->Common->get_limit_order( $this->article_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field,'');
+        echo json_encode($data);
+    }
+    /*
+     * the recommend articles by gongkun
+    */
+     public function articleRecommend($page=1)
+    {
+        $page=$page;
+        if($_POST){
+            $postinfo= $this->Common->html_filter_array($_POST);
+            $page = $postinfo['page'];
+        }
+        $where=array();
+        $start=intval($page-1)*intval($this->rem_page);
+        $orderby='ctime';
+        $order_type='desc';
+        $select_field='*';
+        $data=$this->Common->get_limit_order( $this->article_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field,'');
+        // if(count($data)>0){
+        //     foreach ($data as $key => $value) {
+        //         $art_path = "article/".$value['id'].".pdf";
+        //         $page = $this->Common->getPdfPage($art_path);
+        //         if($page){
+        //             $data[$key]['page'] = $page;   
+        //         }else{
+        //             $data[$key]['page'] = 0;
+        //         }
+                
+        //     }
+        // }
+        echo json_encode($data);
     }
 
 
@@ -130,6 +177,9 @@ class Api extends MY_Controller {
 		} 
 		echo json_encode($return);
 	}
+
+
+
 
 
     /*************  以下部分是后台的API函数  by gongkun **************/
@@ -344,7 +394,7 @@ class Api extends MY_Controller {
             $re_data['status'] = 100;
             $postinfo= $this->Common->html_filter_array($_POST);
             $where=array('id' => $postinfo['id']);
-            $data=array('name' => $postinfo['name'],'author' => $postinfo['author'],'title' => $postinfo['title'],'read' => $postinfo['read'],'type' => $postinfo['type'],'themeId' => $postinfo['theme'],'language'=>$postinfo['language'],'province' => $postinfo['province']);
+            $data=array('name' => $postinfo['name'],'author' => $postinfo['author'],'title' => $postinfo['title'],'read' => $postinfo['read'],'page' => $postinfo['page'],'type' => $postinfo['type'],'themeId' => $postinfo['theme'],'language'=>$postinfo['language'],'province' => $postinfo['province']);
             $rep=$this->Common->update($this->article_table,$where,$data);
             if($rep>0){
                 $re_data['status'] =200;
@@ -363,7 +413,7 @@ class Api extends MY_Controller {
             $ctime = time();
             $data=array(
                     'name' => $postinfo['name'],'author' => $postinfo['author'],'title' => $postinfo['title'],
-                    'read' => $postinfo['read'],'type' => $postinfo['type'],'themeId' => $postinfo['theme'],'language'=>$postinfo['language'],'province' => $postinfo['province'],'ctime' => $ctime
+                    'read' => $postinfo['read'],'page' => $postinfo['page'],'type' => $postinfo['type'],'themeId' => $postinfo['theme'],'language'=>$postinfo['language'],'province' => $postinfo['province'],'ctime' => $ctime
             );
             $rep = $this->Common->add($this->article_table,$data);
             if($rep>0){

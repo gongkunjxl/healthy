@@ -22,6 +22,8 @@ class MY_Controller extends CI_Controller {
   public $smsTemplate = "SMS_116567263";
 
 	public $per_page = '10'; 
+  public $rem_page = '6';  //推荐的文章加载数量
+  public $exp_page = '12';  //专家数量
   public $back_page = '30';
 	public $api_url = '';
   public $code_vaild='-30 minute'; //验证码有效时间

@@ -73,10 +73,6 @@ class Main extends MY_Controller {
 				$_SESSION['username']=$postinfo['phone'];
 				$_SESSION['nickname']=$postinfo['username'];
 				redirect('main/index');
-				// $data['postinfo']=$postinfo;
-				// $this->load->view('header');
-				// $this->load->view('main/testdemo',$data);
-				// $this->load->view('footer');
 			}
 		}
 		$this->load->view('header');
@@ -113,17 +109,22 @@ class Main extends MY_Controller {
 		$this->load->view('footer');	
 	}
 
-	//expert
+	/*
+	 * get the expert by gongkun
+	*/
 	public function expert($page=1)
 	{
 		//get the expert
 		$page=$page;
     	$where=array();
-    	$start=intval($page-1)*10;
+    	$start=intval($page-1)*intval($this->exp_page);
     	$orderby='ctime';
     	$order_type='desc';
-    	$select_field='id,name,title,address';
-    	$data=$this->Common->get_limit_order( $this->expert_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);		
+    	$select_field='id,name,title,address,header';
+    	$data=$this->Common->get_limit_order( $this->expert_table,$where,$start,$this->exp_page,$orderby,$order_type,$select_field);
+    	$count=$this->Common->get_count($this->expert_table,'','');
+        $re_data['count'] = $count;
+        $re_data['limit'] = $this->exp_page;
     	$re_data['data']= $data;
 
 		$this->load->view('header');
@@ -181,18 +182,35 @@ class Main extends MY_Controller {
 	}
 
 	//article
-	public function article()
+	public function article($page=1)
 	{
+		$page=$page;
+    	$where=array();
+    	$start=intval($page-1)*10;
+    	$orderby='ctime';
+    	$order_type='desc';
+    	$select_field='*';
+    	$data=$this->Common->get_limit_order( $this->article_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
+    	$count=$this->Common->get_count($this->article_table,'','');
+        $re_data['count'] = $count;
+        $re_data['limit'] = $this->per_page;
+    	$re_data['data']= $data;
+
 		$this->load->view('header');
-		$this->load->view('article/article');
+		$this->load->view('article/article',$re_data);
 		$this->load->view('footer');
 	}
 
-	//articleInfo
-	public function articleInfo()
+	/*
+	 *  articleInfo by gongkun
+	*/
+	public function articleInfo($id=0)
 	{
+		$where = array('id' => $id);
+		$data = $this->Common->get_one($this->article_table,$where);
+		$re_data['data'] = $data;
 		$this->load->view('header');
-		$this->load->view('article/articleInfo');
+		$this->load->view('article/articleInfo',$re_data);
 		$this->load->view('footer');
 	}
 

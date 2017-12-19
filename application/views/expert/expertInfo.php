@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 		</div>
 		<div class="left-content">
-			<img src="/static/images/header_1.jpg">
+			<img src="/header/<?php echo $data['header']; ?>">
 		</div>
 	</div>
 
@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="study-flag"></div>
 			<h2>工作经历</h2>
 			<div class="line"></div>
-			<p> <?php echo $data['work']; ?></p>
+			<p style="text-indent: 0"> <?php echo $data['work']; ?></p>
 			<!-- <p style="text-indent: 0;">1963年8月至1974年10月 湖北省蓟县人民医院工作
 				<br>
 				1974年10月至1997年12月 任职武汉市第五医院中医科

@@ -16,9 +16,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	      <th width="10%">作者</th>
 	      <th width="5%">作者职称</th>
 	      <th width="5%">阅读量</th>
+	      <th width="5%">页数</th>
 	      <th width="5%">制作省份</th>
 	      <th width="5%">语言</th>
-	      <th width="10%">类型</th>
+	      <th width="5%">类型</th>
 	      <th width="10%">主题</th>
 	      <th width="15%">上传时间</th>
 	       <th width="25%">操作</th>
@@ -32,6 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		  		<td><?php echo $value['author']; ?></td>
 		  		<td><?php echo $value['title'];?></td>
 		  		<td><?php echo $value['read'];?></td>
+		  		<td><?php echo $value['page'];?></td>
 		  		<td><?php echo $value['province'];?></td>
 		  		<td><?php echo ($value['language']==1)?"中文":"English";?></td>
 		  		<td><?php echo $value['type'];?></td>
@@ -92,6 +94,7 @@ layui.use(['laypage', 'layer'], function(){
 				     		'<td>'+data[i].author+'</td>'+
 				     		'<td>'+data[i].title+'</td>'+
 				     		'<td>'+data[i].read+'</td>'+
+				     		'<td>'+data[i].page+'</td>'+
 				     		'<td>'+data[i].province+'</td>'+
 				     		'<td>'+language+'</td>'+
 				     		'<td>'+data[i].type+'</td>'+
