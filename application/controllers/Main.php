@@ -181,12 +181,14 @@ class Main extends MY_Controller {
 		$this->load->view('footer');	
 	}
 
-	//article
+	/*
+	 * get the article list by gongkun
+	*/
 	public function article($page=1)
 	{
 		$page=$page;
     	$where=array();
-    	$start=intval($page-1)*10;
+    	$start=intval($page-1)*intval($this->per_page);
     	$orderby='ctime';
     	$order_type='desc';
     	$select_field='*';
@@ -214,13 +216,61 @@ class Main extends MY_Controller {
 		$this->load->view('footer');
 	}
 
-	//picture
-	public function picture()
+	/*
+	 * get the picture first page by gongkun
+	*/
+	public function picture($page=1)
 	{
-		$this->load->view('header');
-		$this->load->view('picture/picture');
-		$this->load->view('footer');
+		$page=$page;
+    	$where=array();
+    	$start=intval($page-1)*intval($this->per_page);
+    	$orderby='ctime';
+    	$order_type='desc';
+    	$select_field='*';
+    	$data=$this->Common->get_limit_order( $this->picture_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
+    	$count=$this->Common->get_count($this->picture_table,'','');
+    	//获取图片的地址 判断是否有index
+    	if(count($data)>0){
+    		foreach ($data as $key => $value) {
+    			$dir = 'picture/'.$value['id'];
+    			$file_name = '';
+    			$index_name = '';
+	            if(is_dir($dir)){
+	                if($handle = opendir($dir)){  
+	                    while (($file = readdir($handle)) !== false ) {  
+	                        if($file != ".." && $file != "." && $file != ".DS_Store"){  
+	                        	if(empty($file_name)){
+	                            	$file_name = $file; 
+	                            }
+	                            if($file == 'index.jpg'){
+	                            	$index_name = 'index.jpg';
+	                            }
+	                            if($file == 'index.png'){
+	                            	$index_name = 'index.png';
+	                            }
+	                            if($file == 'index.jpeg'){
+	                            	$index_name = 'index.jpeg';
+	                            }
+	                        }  
+	                    }  
+	                }  
+	                closedir($handle); 
+	            }
+	            if(!empty($index_name)){
+	            	$data[$key]['index'] = $dir."/".$index_name;
+	            }else{
+	            	$data[$key]['index'] = $dir."/".$file_name;
+	            }
+    		}
+    	}
 
+        $re_data['count'] = $count;
+        $re_data['limit'] = $this->per_page;
+    	$re_data['data']= $data;
+
+		$this->load->view('header');
+		$this->load->view('picture/picture',$re_data);
+		$this->load->view('footer');
 	}
 
 	//picture info
