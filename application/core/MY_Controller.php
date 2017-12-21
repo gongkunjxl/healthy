@@ -23,10 +23,11 @@ class MY_Controller extends CI_Controller {
 
 	public $per_page = '10'; 
   public $rem_page = '6';  //推荐的文章加载数量
+  public $pic_page = '3';  //推荐的图片集加载数量
   public $exp_page = '12';  //专家数量
   public $back_page = '30';
 	public $api_url = '';
-  public $code_vaild='-30 minute'; //验证码有效时间
+  public $code_vaild='-15 minute'; //验证码有效时间
 
   //mysql table
   public $user_table = 'hea_user';

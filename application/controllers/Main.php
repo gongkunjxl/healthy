@@ -290,24 +290,24 @@ class Main extends MY_Controller {
 	                    if($file == 'index.jpg'){
 	                    	if($i>0){
 		                       	$tmp_name = $pic_name[0];
-		                       	$pic_name[0] = 'index.jpg';
-		                       	$pic_name[$i] = "/".$dir."/".$tmp_name;
+		                       	$pic_name[0] = "/".$dir."/".'index.jpg';
+		                       	$pic_name[$i] = $tmp_name;
 		                    }else{
 		                       	$pic_name[$i] = "/".$dir."/index.jpg";
 		                    }
 	                    }else if($file == 'index.png'){
 	                       	if($i>0){
 		                       	$tmp_name = $pic_name[0];
-		                       	$pic_name[0] = 'index.jpg';
-		                       	$pic_name[$i] = "/".$dir."/".$tmp_name;
+		                       	$pic_name[0] = "/".$dir."/".'index.jpg';
+		                       	$pic_name[$i] = $tmp_name;
 		                    }else{
 		                       	$pic_name[$i] = "/".$dir."/index.png";
 		                    }
 	                    }else if($file == 'index.jpeg'){
 	                        if($i>0){
 		                       	$tmp_name = $pic_name[0];
-		                       	$pic_name[0] = 'index.jpg';
-		                       	$pic_name[$i] = "/".$dir."/".$tmp_name;
+		                       	$pic_name[0] = "/".$dir."/".'index.jpg';
+		                       	$pic_name[$i] = $tmp_name;
 		                    }else{
 		                       	$pic_name[$i] = "/".$dir."/index.jpeg";
 		                    }
@@ -320,10 +320,6 @@ class Main extends MY_Controller {
 	        }
 	       closedir($handle); 
 	    }
-	    // get the recomand 3 pictures
-
-
-
 	    if($i>0){
 	    	$data['index'] = $pic_name[0];
 	    }else{
@@ -331,11 +327,58 @@ class Main extends MY_Controller {
 	    }
 	    $re_data['picture'] = json_encode($pic_name);
 	   	$re_data['data'] = $data;
+
+
+	    // get the recomand 3 pictures
+	    $page=1;
+    	$where=array();
+    	$start=intval($page-1)*intval($this->pic_page);
+    	$orderby='ctime';
+    	$order_type='desc';
+    	$select_field='*';
+    	$data=$this->Common->get_limit_order( $this->picture_table,$where,$start,$this->pic_page,$orderby,$order_type,$select_field);
+    	//获取图片的地址 判断是否有index
+    	if(count($data)>0){
+    		foreach ($data as $key => $value) {
+    			$dir = 'picture/'.$value['id'];
+    			$file_name = '';
+    			$index_name = '';
+	            if(is_dir($dir)){
+	                if($handle = opendir($dir)){  
+	                    while (($file = readdir($handle)) !== false ) {  
+	                        if($file != ".." && $file != "." && $file != ".DS_Store"){  
+	                        	if(empty($file_name)){
+	                            	$file_name = $file; 
+	                            }
+	                            if($file == 'index.jpg'){
+	                            	$index_name = 'index.jpg';
+	                            }
+	                            if($file == 'index.png'){
+	                            	$index_name = 'index.png';
+	                            }
+	                            if($file == 'index.jpeg'){
+	                            	$index_name = 'index.jpeg';
+	                            }
+	                        }  
+	                    }  
+	                }  
+	                closedir($handle); 
+	            }
+	            if(!empty($index_name)){
+	            	$data[$key]['index'] = $dir."/".$index_name;
+	            }else{
+	            	$data[$key]['index'] = $dir."/".$file_name;
+	            }
+    		}
+    	}
+
+    	$re_data['reData'] =$data;
 		$this->load->view('header');
 		$this->load->view('picture/pictureInfo',$re_data);
 		$this->load->view('footer');
 
 	}
+
 
 	public function powerpoint()
 	{

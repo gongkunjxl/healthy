@@ -209,7 +209,61 @@ class Api extends MY_Controller {
         }
         echo json_encode($data);
     }
-
+    /*
+     * get the picture detail info by gongkun
+    */
+    public function pictureDetail()
+    {
+        $id=0;
+        if($_POST){
+            $postinfo= $this->Common->html_filter_array($_POST);
+            $id = $postinfo['id'];
+        }
+        $where = array('id' => $id);
+        $data = $this->Common->get_one($this->picture_table,$where);
+        $dir = 'picture/'.$data['id'];
+        $pic_name = array();
+        $i=0;
+        if(is_dir($dir)){
+            if($handle = opendir($dir)){  
+                while (($file = readdir($handle)) !== false ) {  
+                    if($file != ".." && $file != "." && $file != ".DS_Store"){  
+                        if($file == 'index.jpg'){
+                            if($i>0){
+                                $tmp_name = $pic_name[0];
+                                $pic_name[0] = "/".$dir."/".'index.jpg';
+                                $pic_name[$i] = $tmp_name;
+                            }else{
+                                $pic_name[$i] = "/".$dir."/index.jpg";
+                            }
+                        }else if($file == 'index.png'){
+                            if($i>0){
+                                $tmp_name = $pic_name[0];
+                                $pic_name[0] = "/".$dir."/".'index.png';
+                                $pic_name[$i] = $tmp_name;
+                            }else{
+                                $pic_name[$i] = "/".$dir."/index.png";
+                            }
+                        }else if($file == 'index.jpeg'){
+                            if($i>0){
+                                $tmp_name = $pic_name[0];
+                                $pic_name[0] = "/".$dir."/".'index.jpeg';
+                                $pic_name[$i] = $tmp_name;
+                            }else{
+                                $pic_name[$i] = "/".$dir."/index.jpeg";
+                            }
+                        }else{
+                            $pic_name[$i] = "/".$dir."/".$file;
+                        }
+                        $i=$i+1;
+                    }  
+                }
+            }
+           closedir($handle); 
+        }
+        $re_data['picture'] = json_encode($pic_name);
+        echo json_encode($re_data);
+    }
 
 
     // upload mutiple picture
