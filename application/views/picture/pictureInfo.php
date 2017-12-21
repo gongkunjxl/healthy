@@ -4,20 +4,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <link rel="stylesheet" type="text/css" href="/static/css/picinfo-page.css">
 
 <div class="layui-container">
+    <?php var_dump($data);?>
+    <?php var_dump($picture);?>
 	<div class="pic-title-show">
-		<h2 id="pic_title">心脑血管的预防和注意事项 </h2>
+		<h2 id="pic_title"><?php echo $data['name'];?> </h2>
 	</div>
     <div class="pic-content-show" >
     	<div class="left-pre">
-    		<img onclick="pre_click(this)" value="1" src="/static/images/arrow-left.jpg">
+    		<img onclick="pre_click(this)" id="preId" value="0" src="/static/images/arrow-left.jpg">
     	</div>
     	<div class="mid-content">
 			<div class="pic-show" >
-				<img id="pic_show" src="/picture/pic_02.png">
+				<img id="picShow" src="<?php echo $data['index']; ?>">
 			</div> 
     	</div>
     	<div class="right-pre">
-    		<img onclick="next_click(this)" value="2" src="/static/images/arrow-right.jpg">
+    		<img onclick="next_click(this)" id="nextId" value="1" src="/static/images/arrow-right.jpg">
     	</div>
     </div>
 
@@ -61,23 +63,40 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 <div style="clear: both;"></div>
 <script type="text/javascript">
+    var tmpImages = '<?php echo $picture; ?>';
+    var nowPics = JSON.parse(tmpImages);
+    // alert(nowPics[0]);
+    // alert(nowPics.length);
 
 	function pre_click(obj)
 	{
-		// alert(obj.getAttribute("value"));
-		// alert(obj.getAttribute("src"));
-		var pic_obj=document.getElementById("pic_show");
-		// alert(pic_obj.getAttribute("src"));
-		pic_obj.setAttribute("src","/picture/pic_2.png");
-		// alert(pic_obj.getAttribute("src"));
+        var preValue = obj.getAttribute("value");
+        if(preValue == 0){
+            alert("左边没有了");
+        }else{
+            var nowValue = parseInt(preValue)-1;
+            obj.setAttribute("value",nowValue);
+            var picObj=document.getElementById("picShow");
+            var nextObj = document.getElementById("nextId");
+            picObj.setAttribute("src",nowPics[nowValue]);
+            nextObj.setAttribute("value",preValue);
+        }
 	}
 
 	function next_click(obj)
 	{
-		// alert(obj.getAttribute("value"));
-		var pic_obj=document.getElementById("pic_show");
-		// alert(pic_obj.getAttribute("src"));
-		pic_obj.setAttribute("src","/picture/pic_1.png");
+        var nextValue = obj.getAttribute("value");
+        // alert(nextValue);
+        if(nextValue > nowPics.length-1){
+            alert("右边没有了");
+        }else{
+            var nowValue = parseInt(nextValue)+1;
+            obj.setAttribute("value",nowValue);
+            var picObj=document.getElementById("picShow");
+            var preObj = document.getElementById("preId");
+            picObj.setAttribute("src",nowPics[nextValue]);
+            preObj.setAttribute("value",nextValue);
+        }
 	}
 
 	function pic_click()

@@ -24,10 +24,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div> 
 	</div>
 
-	<!-- <div class="expert-img" style="height: 100px;">
-		<button type="button" class="layui-btn" style="margin-left: 40px; width:100px;  float: left;margin-top: 30px;" id="uploadArticle">上传文件</button>
-		<label id="fileShow" style="float: left; margin-top: 20px; width: 300px; color: red"></label>
-	</div> -->
 	<div class="line" style="margin-top: 50px; margin-bottom: 50px;"></div>
 	<div class="user-edit">
 		<form class="layui-form">

@@ -110,7 +110,7 @@ class Api extends MY_Controller {
         echo json_encode($data);
     }
      /*
-     *  get the article  by gongkun
+     *  get the article list by gongkun
     */
     public function articleList($page=1)
     {
@@ -157,6 +157,59 @@ class Api extends MY_Controller {
         // }
         echo json_encode($data);
     }
+    /*
+     * get the picture list by gongkun
+    */
+    public function pictureList($page=1)
+    {
+        $page=$page;
+        if($_POST){
+            $postinfo= $this->Common->html_filter_array($_POST);
+            $page = $postinfo['page'];
+        }
+        $where=array();
+        $start=intval($page-1)*intval($this->per_page);
+        $orderby='ctime';
+        $order_type='desc';
+        $select_field='*';
+        $data=$this->Common->get_limit_order( $this->picture_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
+        //获取图片的地址 判断是否有index
+        if(count($data)>0){
+            foreach ($data as $key => $value) {
+                $dir = 'picture/'.$value['id'];
+                $file_name = '';
+                $index_name = '';
+                if(is_dir($dir)){
+                    if($handle = opendir($dir)){  
+                        while (($file = readdir($handle)) !== false ) {  
+                            if($file != ".." && $file != "." && $file != ".DS_Store"){  
+                                if(empty($file_name)){
+                                    $file_name = $file; 
+                                }
+                                if($file == 'index.jpg'){
+                                    $index_name = 'index.jpg';
+                                }
+                                if($file == 'index.png'){
+                                    $index_name = 'index.png';
+                                }
+                                if($file == 'index.jpeg'){
+                                    $index_name = 'index.jpeg';
+                                }
+                            }  
+                        }  
+                    }  
+                    closedir($handle); 
+                }
+                if(!empty($index_name)){
+                    $data[$key]['index'] = $dir."/".$index_name;
+                }else{
+                    $data[$key]['index'] = $dir."/".$file_name;
+                }
+            }
+        }
+        echo json_encode($data);
+    }
+
 
 
     // upload mutiple picture

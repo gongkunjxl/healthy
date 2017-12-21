@@ -125,6 +125,16 @@ layui.use(['layer', 'form'], function(){
 
 <!-- the page -->
 <script type="text/javascript">
+function formatDateTime(timeStamp) {   
+    var date = new Date();  
+    date.setTime(timeStamp * 1000);  
+    var y = date.getFullYear();      
+    var m = date.getMonth() + 1;      
+    m = m < 10 ? ('0' + m) : m;      
+    var d = date.getDate();      
+    d = d < 10 ? ('0' + d) : d;          
+    return y + '-' + m + '-' + d;      
+};
 
 	layui.use(['laypage', 'layer'], function(){
 	  var laypage = layui.laypage
@@ -160,7 +170,7 @@ layui.use(['layer', 'form'], function(){
 				     		'<div class="content-show"><img src="/static/images/pdf-logo.png">'+
 				     		'<div class="show-right">'+
 				     		'<h3>'+data[i].name+'</h3>'+
-				     		'<p>'+data[i].author+ data[i].title+'</p>'+'<span class="left-date">'+new Date(parseInt(data[i].ctime) * 1000).toLocaleString()+'</span>'+
+				     		'<p>'+data[i].author+ data[i].title+'</p>'+'<span class="left-date">'+formatDateTime(data[i].ctime)+'</span>'+
 				     		'<span class="right-date">'+data[i].read+'人阅读</span>'+
 				     		'</div></div></a></div>'; 
 				     	}

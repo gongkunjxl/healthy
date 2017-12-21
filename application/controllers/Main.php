@@ -263,7 +263,6 @@ class Main extends MY_Controller {
 	            }
     		}
     	}
-
         $re_data['count'] = $count;
         $re_data['limit'] = $this->per_page;
     	$re_data['data']= $data;
@@ -273,11 +272,67 @@ class Main extends MY_Controller {
 		$this->load->view('footer');
 	}
 
-	//picture info
-	public function pictureInfo()
+	/*
+	 * get the picture detail info by gongkun
+	*/
+	public function pictureInfo($id=0)
 	{
+		$where = array('id' => $id);
+		$data = $this->Common->get_one($this->picture_table,$where);
+
+		$dir = 'picture/'.$data['id'];
+    	$pic_name = array();
+    	$i=0;
+    	if(is_dir($dir)){
+	    	if($handle = opendir($dir)){  
+	            while (($file = readdir($handle)) !== false ) {  
+	                if($file != ".." && $file != "." && $file != ".DS_Store"){  
+	                    if($file == 'index.jpg'){
+	                    	if($i>0){
+		                       	$tmp_name = $pic_name[0];
+		                       	$pic_name[0] = 'index.jpg';
+		                       	$pic_name[$i] = "/".$dir."/".$tmp_name;
+		                    }else{
+		                       	$pic_name[$i] = "/".$dir."/index.jpg";
+		                    }
+	                    }else if($file == 'index.png'){
+	                       	if($i>0){
+		                       	$tmp_name = $pic_name[0];
+		                       	$pic_name[0] = 'index.jpg';
+		                       	$pic_name[$i] = "/".$dir."/".$tmp_name;
+		                    }else{
+		                       	$pic_name[$i] = "/".$dir."/index.png";
+		                    }
+	                    }else if($file == 'index.jpeg'){
+	                        if($i>0){
+		                       	$tmp_name = $pic_name[0];
+		                       	$pic_name[0] = 'index.jpg';
+		                       	$pic_name[$i] = "/".$dir."/".$tmp_name;
+		                    }else{
+		                       	$pic_name[$i] = "/".$dir."/index.jpeg";
+		                    }
+	                    }else{
+	                    	$pic_name[$i] = "/".$dir."/".$file;
+	                    }
+	                    $i=$i+1;
+	                }  
+	            }
+	        }
+	       closedir($handle); 
+	    }
+	    // get the recomand 3 pictures
+
+
+
+	    if($i>0){
+	    	$data['index'] = $pic_name[0];
+	    }else{
+	    	$data['index'] = '';
+	    }
+	    $re_data['picture'] = json_encode($pic_name);
+	   	$re_data['data'] = $data;
 		$this->load->view('header');
-		$this->load->view('picture/pictureInfo');
+		$this->load->view('picture/pictureInfo',$re_data);
 		$this->load->view('footer');
 
 	}
