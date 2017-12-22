@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- <?php //var_dump($reData);?> -->
     <!-- <?php// var_dump($picture);?> -->
 	<div class="pic-title-show" id="nameId">
-		<h2 id="pic_title"><?php echo $data['name'];?> </h2>
+		<h2 id="picTitle"><?php echo $data['name'];?> </h2>
 	</div>
     <div class="pic-content-show" >
     	<div class="left-pre">
@@ -42,7 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     	  </a>
         <?php endforeach; ?>
         <?php else:?>
-            <h1> NO expert more</h1>
+            <h1 style="margin-top:70px;font-size:24px; text-align:center; color:red"> NO expert more</h1>
         <?php endif; ?>
     	 <!--  <a onclick="pic_click(this);">
     		<div class="pic-show">
@@ -62,7 +62,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     	  </a> -->
     	</div>
     	<div class="right-button">
-    		<img onclick="more_click(this)" src="/static/images/right-button.png">
+    		<img onclick="more_click()" src="/static/images/right-button.png">
     	</div>
     </div>
 
@@ -79,6 +79,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     // alert(nowPics.length);
 	function pre_click(obj)
 	{
+        if(nowPics.length<1)return false;
         var preValue = obj.getAttribute("value");
         var picObj=document.getElementById("picShow");
         var nextObj = document.getElementById("nextId");
@@ -102,6 +103,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	function next_click(obj)
 	{
+        if(nowPics.length<1)return false;
         var nextValue = obj.getAttribute("value");
         var picObj=document.getElementById("picShow");
         var preObj = document.getElementById("preId");
@@ -111,7 +113,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             picObj.setAttribute("src",nowPics[0]);
             preObj.setAttribute("value",'0');
             obj.setAttribute("value",'1');
-           pHtml = "1/"+nowPics.length;
+            pHtml = "1/"+nowPics.length;
         }else{
             var nowValue = parseInt(nextValue)+1;
             obj.setAttribute("value",nowValue);
@@ -135,14 +137,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             dataType:'json',
             data: data,
             success: function (data) {
-                // alert(JSON.parse(data.picture));
+                 // alert(JSON.parse(data.picture));
                 nowPics = JSON.parse(data.picture);
                 var preObj = document.getElementById("preId");
                 var picObj=document.getElementById("picShow");
                 var nextObj = document.getElementById("nextId");
+                var titObj = document.getElementById("picTitle");
+                var navObj = document.getElementById("navShow");
+                var pHtml = "1/"+nowPics.length;
                 preObj.setAttribute("value",'0');
                 nextObj.setAttribute("value",'1');
                 picObj.setAttribute("src",nowPics[0]);
+                navObj.innerHTML = pHtml;
+                titObj.innerHTML = data.name;
             },
             error: function(data) {
                 alert("Sorry error");
@@ -151,15 +158,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	}
     // get more recommend pictures
-	function more_click(obj)
+	function more_click()
 	{
-        var id = obj.getAttribute("value");
         page = parseInt(page)+1;
         var data={
-            id: id,
             page: page
         };
-		alert("more click");
+        // alert(JSON.stringify(data));
+        $.ajax({
+            url: '/api/pictureRecommend',
+            type: 'post',
+            dataType:'json',
+            data: data,
+            success: function (data) {
+                // alert(data.length);
+                // alert(JSON.stringify(data));
+                var midObj = document.getElementById("midShow");
+                var html = '';
+                for (var i = 0; i < data.length; i++) {
+                   html = html+'<a onclick="pic_click(this);" value="'+data[i].id+'" >'+
+                   '<div class="pic-show"><img src="/'+data[i].index+'">'+
+                   '<div class="title"><h3>'+data[i].name+'</h3></div></div></a>';
+                }
+                if(data.length < 3){
+                    html = html+'<h1 style="margin-top:70px;font-size:24px; text-align:center; color:red"> NO expert more</h1>';
+                    page=1;
+                }
+                midObj.innerHTML = html;
+            },
+            error: function(data) {
+                alert("Sorry error");
+            }
+        });
 	}
 
 </script>
