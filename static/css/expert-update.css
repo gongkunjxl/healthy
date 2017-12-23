@@ -1,0 +1,67 @@
+html{margin: 0;padding: 0}
+.layui-container{
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.layui-container h2{
+	margin: 20px auto;
+	width: 400px;
+	font-size: 20px;
+	text-align: center;
+	color: #009ACD;
+	padding-bottom: 10px;
+ }
+
+/* user edit page */
+.layui-container .user-edit{
+	height: auto;
+	margin-top: 30px;
+	margin-left: 20%;
+	width: 80%;
+}
+.layui-container .user-edit .layui-form-item{
+	margin-top: 30px;
+}
+.layui-container .user-edit .layui-form-item .layui-form-label{
+	text-align: center;
+	padding: 5px 0;
+	font-size: 14px;
+}
+.layui-container .user-edit .layui-input{
+	height: 35px;
+}
+/* 专家图片部分 */
+.layui-container .expert-img{
+	width: 500px;
+	text-align: center;
+	margin: 20px auto;
+	/*margin-left: 10%;*/
+	height: 200px;
+	border:0.1px;
+	padding: 0;
+	background-color: #FBFBFB;
+}
+.layui-container .expert-img img{
+	width: 130px;
+	height: 180px;
+	margin-top: 10px;
+	float: left;
+	margin-left: 30px;
+}
+.layui-container .expert-img .button{
+	margin-left: 30px;
+	float: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

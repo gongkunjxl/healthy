@@ -3,7 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 // $username = $_SESSION['username'];
 if(isset($_SESSION['userid']) && $_SESSION['userid']>0){
    $userid = $_SESSION['userid'];
-    $nickname = $_SESSION['nickname'];
+   $nickname = $_SESSION['nickname'];
+   $type = $_SESSION['type'];
 }else{
   $userid=0; 
 }
@@ -81,7 +82,7 @@ if(isset($_SESSION['userid']) && $_SESSION['userid']>0){
            <li class="layui-nav-item" style="max-width: 180px;">
               <a style="margin-right: 20px; max-width: 150px; overflow: hidden; white-space:nowrap;"><img src="/static/images/header_1.jpg" class="layui-nav-img"><?php echo $nickname; ?></a>
               <dl class="layui-nav-child">
-                <dd><a href="#" style="line-height: 36px;">修改信息</a></dd>
+                <dd><a href="<?php echo ($type==2)?"/main/expertUpdateInfo":"#" ?>" style="line-height: 36px;">修改信息</a></dd>
                 <dd><a href="/main/logout" style="line-height: 36px;">退 出</a></dd>
               </dl>
           </li>

@@ -143,18 +143,6 @@ class Api extends MY_Controller {
         $order_type='desc';
         $select_field='*';
         $data=$this->Common->get_limit_order( $this->article_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field,'');
-        // if(count($data)>0){
-        //     foreach ($data as $key => $value) {
-        //         $art_path = "article/".$value['id'].".pdf";
-        //         $page = $this->Common->getPdfPage($art_path);
-        //         if($page){
-        //             $data[$key]['page'] = $page;   
-        //         }else{
-        //             $data[$key]['page'] = 0;
-        //         }
-                
-        //     }
-        // }
         echo json_encode($data);
     }
     /*
@@ -336,9 +324,33 @@ class Api extends MY_Controller {
 		} 
 		echo json_encode($return);
 	}
+     /*
+      *专家自己更新信息  by gongkun
+    */
+    public function expertUpdateInfo()
+    {
+        if($_POST){
+            $re_data['status'] = 100;
+            $postinfo= $this->Common->html_filter_array($_POST);
+            $ctime = time();
+            $data=array(
+                    'name' => $postinfo['name'],'sex' => $postinfo['sex'],'nation' => $postinfo['nation'],
+                    'school' => $postinfo['school'],'title' => $postinfo['title'],'major' => $postinfo['major'],
+                    'record' => $postinfo['record'],'address' => $postinfo['address'],'introduce' => $postinfo['introduce'],
+                    'study' => $postinfo['study'],'education' => $postinfo['education'],'work' => $postinfo['work'],'ctime' => $ctime
+            );
+            $where = array('id' => $postinfo['id']);
+            $rep = $this->Common->update($this->expert_table,$where,$data);
+            if($rep>0){
+                $user_where = array('username' => $postinfo['username']);
+                $user_data = array('password' => $postinfo['password']);
+                $user_rep = $this->Common->update($this->user_table,$user_where,$user_data);
 
-
-
+                $re_data['status'] =200;
+            }
+            echo json_encode($re_data);
+        }
+    }
 
 
     /*************  以下部分是后台的API函数  by gongkun **************/
@@ -412,9 +424,16 @@ class Api extends MY_Controller {
         $start=intval($page-1)*intval($this->per_page);
         $orderby='ctime';
         $order_type='desc';
-        $select_field='id,name,sex,nation,school,title,major,record,address,ctime';
+        $select_field='id,userId,name,sex,nation,school,title,major,record,address,ctime';
         $data=$this->Common->get_limit_order( $this->expert_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
         
+        foreach ($data as $key => $value) {
+            $user_field = 'username,password';
+            $user_where = array('id' => $value['userId']);
+            $user_data = $this->Common->get_one($this->user_table,$user_where,$user_field);
+            $data[$key]['username'] = $user_data['username'];
+            $data[$key]['password'] = $user_data['password'];
+        }
         echo json_encode($data);
     }
      /*
@@ -435,6 +454,9 @@ class Api extends MY_Controller {
             );
             $rep=$this->Common->update($this->expert_table,$where,$data);
             if($rep>0){
+                $user_where = array('username' => $postinfo['username']);
+                $user_data = array('password' => $postinfo['password']);
+                $user_rep = $this->Common->update($this->user_table,$user_where,$user_data);
                 $re_data['status'] =200;
             }
             echo json_encode($re_data);
@@ -449,36 +471,22 @@ class Api extends MY_Controller {
             $re_data['status'] = 100;
             $postinfo= $this->Common->html_filter_array($_POST);
             $ctime = time();
-            $header = "header.jpg";
+            $nickname = 'healthy';
             $data=array(
-                    'name' => $postinfo['name'],'sex' => $postinfo['sex'],'nation' => $postinfo['nation'],
-                    'school' => $postinfo['school'],'title' => $postinfo['title'],'major' => $postinfo['major'],
-                    'record' => $postinfo['record'],'address' => $postinfo['address'],'introduce' => $postinfo['introduce'],
-                    'study' => $postinfo['study'],'education' => $postinfo['education'],'work' => $postinfo['work'],
-                    'header' => $header,'ctime' => $ctime
+                    'username' => $postinfo['username'],'password' => $postinfo['password'],'nickname' => 'healthy','type' => '2','ctime' => $ctime
             );
-            $rep = $this->Common->add($this->expert_table,$data);
+            $rep = $this->Common->add($this->user_table,$data);
             if($rep>0){
-                //如果已经上传了临时头像 需要更名头像
-                if(file_exists("header/tmp_header.jpg")){
-                    $header = "header_".$rep.".jpg";
-                    rename("header/tmp_header.jpg", "header/".$header);
+                //增加专家的表
+                $header = 'header.jpg';
+                $exp_data = array(
+                    'userId' => $rep,'ctime' => $ctime,'header' => $header
+                );
+                $exp_rep = $this->Common->add($this->expert_table,$exp_data);
+                if($exp_rep>0){
+                    $re_data['status'] =200;
+                    $re_data['id'] = $exp_rep;
                 }
-                if(file_exists("header/tmp_header.png")){
-                    $header = "header_".$rep.".png";
-                    rename("header/tmp_header.png", "header/".$header);
-                }  
-                if(file_exists("header/tmp_header.jpeg")){
-                    $header = "header_".$rep.".jpeg";
-                    rename("header/tmp_header.jpeg", "header/".$header);
-                }
-                if($header != "header.jpg"){
-                    $where=array('id' => $rep);
-                    $up_data = array('header' => $header);
-                    $this->Common->update($expert_table,$where,$up_data);
-                }
-                $re_data['status'] =200;
-                $re_data['id'] = $rep;
             }
             echo json_encode($re_data);
         }

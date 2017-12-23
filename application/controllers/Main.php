@@ -33,7 +33,9 @@ class Main extends MY_Controller {
 		$this->load->view('footer');
 	}
 
-	//login
+	/*
+	 * login by gongkun
+	 */
 	public function login()
 	{
 		if($_POST){
@@ -44,40 +46,90 @@ class Main extends MY_Controller {
 				$_SESSION['userid']=$rep['id'];
 				$_SESSION['username']=$rep['username'];
 				$_SESSION['nickname']=$rep['nickname'];
-				redirect('main/index');
+				$_SESSION['type'] = $rep['type'];
+				if($rep['type'] == 2){
+					$rep_where = array('userId' => $rep['id']);
+					$rep_data = $this->Common->get_one($this->expert_table,$rep_where);
+					$rep_data['username'] = $rep['username'];
+					$rep_data['password'] = $rep['password'];
+					$re_data['data'] = $rep_data;
+					$this->load->view('header');
+					$this->load->view('user/expertUpdateInfo',$re_data);
+					$this->load->view('footer');
+				}else{
+					redirect('main/index');
+				}
+			}else{
+				$this->load->view('header');
+				$this->load->view('user/login');
+				$this->load->view('footer');
 			}
+		}else{
+			$this->load->view('header');
+			$this->load->view('user/login');
+			$this->load->view('footer');	
 		}
-		$this->load->view('header');
-		$this->load->view('user/login');
-		$this->load->view('footer');
 	}
-	//logout
+	/*
+	 * expertUpdateInfo by gongkun
+	*/
+	public function expertUpdateInfo()
+	{
+		$id = $_SESSION['userid'];
+		$where=array('id' => $id);
+		$rep=$this->Common->get_one($this->user_table,$where);
+				
+		$rep_where = array('userId' => $rep['id']);
+		$rep_data = $this->Common->get_one($this->expert_table,$rep_where);
+		$rep_data['username'] = $rep['username'];
+		$rep_data['password'] = $rep['password'];
+		$re_data['data'] = $rep_data;
+		$this->load->view('header');
+		$this->load->view('user/expertUpdateInfo',$re_data);
+		$this->load->view('footer');
+
+	}
+
+
+
+	/*
+	 * logout by gongkun
+	 */
 	public function logout()
 	{
 		$_SESSION['userid']=0;
 		$_SESSION['username'] = '';
 		$_SESSION['nickname']='';
+		$_SESSION['type']=0;
 		redirect('main/index');
 	}
 
-	//register
+	/*
+	 * register by gognkun
+	 */
 	public function register()
 	{	
 		if($_POST){
 			$postinfo= $this->Common->html_filter_array($_POST);
 			$time=time();
-			$add_data=array('username' => $postinfo['phone'],'nickname' => $postinfo['username'],'password' => $postinfo['password'],'ctime' =>$time);
+			$add_data=array('username' => $postinfo['phone'],'nickname' => $postinfo['username'],'password' => $postinfo['password'],'type' => '1','ctime' =>$time);
 			$rep=$this->Common->add($this->user_table,$add_data);
 			if($rep>0){
 				$_SESSION['userid']=$rep;
 				$_SESSION['username']=$postinfo['phone'];
 				$_SESSION['nickname']=$postinfo['username'];
+				$_SESSION['type'] = 1;
 				redirect('main/index');
+			}else{
+				$this->load->view('header');
+				$this->load->view('user/register');
+				$this->load->view('footer');	
 			}
+		}else{
+			$this->load->view('header');
+			$this->load->view('user/register');
+			$this->load->view('footer');
 		}
-		$this->load->view('header');
-		$this->load->view('user/register');
-		$this->load->view('footer');
 	}
 
 	//forget password
@@ -94,11 +146,16 @@ class Main extends MY_Controller {
 				// $this->load->view('header');
 				// $this->load->view('main/testdemo',$data);
 				// $this->load->view('footer');
+			}else{
+				$this->load->view('header');
+				$this->load->view('user/forget');
+				$this->load->view('footer');
 			}
+		}else{
+			$this->load->view('header');
+			$this->load->view('user/forget');
+			$this->load->view('footer');
 		}
-		$this->load->view('header');
-		$this->load->view('user/forget');
-		$this->load->view('footer');
 	}
 
 	//forgetPass

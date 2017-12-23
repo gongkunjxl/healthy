@@ -188,8 +188,17 @@ class Backend extends MY_Controller {
         $start=intval($page-1)*intval($this->per_page);
         $orderby='ctime';
         $order_type='desc';
-        $select_field='id,name,sex,nation,school,title,major,record,address,ctime';
+        $select_field='id,userId,name,sex,nation,school,title,major,record,address,ctime';
         $data=$this->Common->get_limit_order( $this->expert_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
+        //get the account from user table
+         foreach ($data as $key => $value) {
+            $user_field = 'username,password';
+            $user_where = array('id' => $value['userId']);
+            $user_data = $this->Common->get_one($this->user_table,$user_where,$user_field);
+            $data[$key]['username'] = $user_data['username'];
+            $data[$key]['password'] = $user_data['password'];
+        }
+
         $count=$this->Common->get_count($this->expert_table,'','');
         $re_data['data'] = $data;
         $re_data['count'] = $count;
@@ -206,6 +215,12 @@ class Backend extends MY_Controller {
         if($id>0){
             $where = array('id' => $id);
             $data = $this->Common->get_one($this->expert_table,$where);
+            $user_where = array('id' => $data['userId']);
+            $user_field = 'username,password';
+            $user_data = $this->Common->get_one($this->user_table,$user_where,$user_field);
+            $data['username'] = $user_data['username'];
+            $data['password'] = $user_data['password'];
+            
             $re_data['data'] =$data;
             $this->load->view('backend/header');
             $this->load->view('backend/expertEdit',$re_data);

@@ -161,7 +161,7 @@ class Common extends CI_Model
     function get_sql($sql, $action='')
     {
         $query = $this->db->query($sql);
-        if( $action == 'update' || $action == 'insert' )
+        if($action == 'update' || $action == 'insert' )
         {
             return $query;
         }

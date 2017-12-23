@@ -12,15 +12,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	  <thead>
 	    <tr>
 	      <th width="5%">ID</th>
+	      <th width="10%">用户名</th>
+	      <th width="5%">密码</th>
 	      <th width="5%">姓名</th>
 	      <th width="5%">性别</th>
 	      <th width="5%">民族</th>
 	      <th width="5%">职称</th>
 	      <th width="10%">毕业学校</th>
-	      <th width="10%">专业</th>
+	      <th width="5%">专业</th>
 	      <th width="5%">学历</th>
-	      <th width="15%">执业地址</th>
-	      <th width="15%">注册时间</th>
+	      <th width="10%">执业地址</th>
+	      <th width="10%">注册时间</th>
 	       <th width="20%">操作</th>
 	      <!-- <th width="12%">个人介绍</th>
 	      <th width="12%">研究经历</th>
@@ -32,6 +34,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	  	<?php foreach ($data as $value):?>
 		  	<tr>
 		  		<td><?php echo $value['id'];?></td>
+		  		<td ><?php echo $value['username'];?></td>
+		  		<td ><?php echo $value['password'];?></td>
 		  		<td ><?php echo $value['name'];?></td>
 		  		<td><?php echo ($value['sex']==1)?"男":"女";?></td>
 		  		<td><?php echo $value['nation'];?></td>
@@ -89,6 +93,8 @@ layui.use(['laypage', 'layer'], function(){
 				     			sex="女";
 				     		}
 				     		html=html+'<td>'+data[i].id+'</td>'+
+				     		'<td>'+data[i].username+'</td>'+
+				     		'<td>'+data[i].password+'</td>'+
 				     		'<td>'+data[i].name+'</td>'+
 				     		'<td>'+sex+'</td>'+
 				     		'<td>'+data[i].nation+'</td>'+
