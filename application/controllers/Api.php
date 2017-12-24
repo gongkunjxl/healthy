@@ -811,7 +811,256 @@ class Api extends MY_Controller {
         // $return['postinfo'] = $postinfo;
         echo json_encode($return);
     }
+    /**by liuzuobin
+    **/
+    public function addNewAudioInfo()
+    {
+        if($_POST){
 
+            $re_data['status'] = 100;
+            $postinfo= $this->Common->html_filter_array($_POST);
+
+            $data=array(
+                    'name' => $postinfo['name'],'description' => $postinfo['introduce'],'theme' => $postinfo['theme'],
+                    'type' => $postinfo['type'],'language' => $postinfo['language'],'province' => $postinfo['province'],'pic_url' => $postinfo['pic_url'],'source_url' => $postinfo['source_url']
+                );
+                $rep = $this->Common->add($this->audio_table,$data);
+
+                if($rep>0){
+                    $re_data['status'] =200;
+                    $re_data['id'] = $rep;
+                }
+            echo json_encode($re_data);
+        }
+    }
+
+    public function uploadAudioFront(){
+        $return=array();
+        $postinfo= $this->Common->html_filter_array($_POST);
+        if ($_FILES["file"]["error"] > 0) {
+            $return['status']=$_FILES["file"]["error"];
+        } else {           
+            $fillname = $_FILES['file']['name']; // 得到文件全名
+            $dotArray = explode('.', $fillname); // 以.分割字符串，得到数组
+            $type = end($dotArray); // 得到最后一个元素：文件后缀
+            $file_name = md5(uniqid(rand())).".".$type;
+            $path = "audio/".$file_name;
+            move_uploaded_file($_FILES["file"]["tmp_name"],$path);
+            //将文件存入数据库
+            if($postinfo['name'] != "tmp_header"){
+                $header = "header_".$postinfo['name'].".".$type;
+                $where=array('id' => $postinfo['name']);
+                $data = array('pic_url' => $header);
+                $rep = $this->Common->update($this->audio_table,$where,$data);
+                if($rep>0){
+                     $return['status']=200;
+                }
+            }else{
+                $return['status']=200;
+            }
+            $return['pic_url'] = $path;
+        } 
+        // $return['postinfo'] = $postinfo;
+        echo json_encode($return);
+    }
+
+    public function addNewAudio()
+    {
+        $return=array();
+        $postinfo= $this->Common->html_filter_array($_POST);
+        if ($_FILES["file"]["error"] > 0) {
+            $return['status']=$_FILES["file"]["error"];
+        } else {           
+            $fillname = $_FILES['file']['name']; // 得到文件全名
+            $dotArray = explode('.', $fillname); // 以.分割字符串，得到数组
+            $type = end($dotArray); // 得到最后一个元素：文件后缀
+            $file_name = md5(uniqid(rand())).".".$type;
+            $path = "audio/".$file_name;
+            move_uploaded_file($_FILES["file"]["tmp_name"],$path);
+
+            $return['url'] = $path;
+            $return['status'] = 200;
+        } 
+        $url = $postinfo['source_url'];
+        if(!empty($url)){
+            unlink($url);
+        }
+        
+        // $return['postinfo'] = $postinfo;
+        echo json_encode($return);
+    }
+
+    public function uploadAudio(){
+        $return=array();
+        $postinfo= $this->Common->html_filter_array($_POST);
+        if ($_FILES["file"]["error"] > 0) {
+            $return['status']=$_FILES["file"]["error"];
+        } else {           
+            $fillname = $_FILES['file']['name']; // 得到文件全名
+            $dotArray = explode('.', $fillname); // 以.分割字符串，得到数组
+            $type = end($dotArray); // 得到最后一个元素：文件后缀
+            $file_name = md5(uniqid(rand())).".".$type;
+            $path = "audio/".$file_name;
+            move_uploaded_file($_FILES["file"]["tmp_name"],$path);
+
+            $return['source_url'] = $path;
+            //将文件存入数据库
+            if($postinfo['name'] != "tmp_header"){
+                
+                $where=array('id' => $postinfo['name']);
+                $data = array('source_url' => $path);
+                $rep = $this->Common->update($this->ppt_table,$where,$data);
+                if($rep>0){
+                     $return['status']=200;
+                }
+            }else{
+                $return['status']=200;
+            }
+        } 
+        // $return['postinfo'] = $postinfo;
+        echo json_encode($return);
+    }
+
+    public function updateAudioInfo()
+    {
+        if($_POST){
+            $re_data['status'] = 100;
+            $postinfo= $this->Common->html_filter_array($_POST);
+            $where=array('id' => $postinfo['id']);
+            $data=array('name' => $postinfo['name'],'description' => $postinfo['introduce'],'type' => $postinfo['type'],'theme' => $postinfo['theme'],'language'=>$postinfo['language'],'province' => $postinfo['province'],'pic_url' => $postinfo['pic_url'],'source_url' => $postinfo['source_url']
+                );
+            $rep=$this->Common->update($this->audio_table,$where,$data);
+            if($rep>0){
+                $re_data['status'] =200;
+            }
+            echo json_encode($re_data);
+        }
+    }
+
+    public function audioTable(){
+        if($_POST){
+            $postinfo= $this->Common->html_filter_array($_POST);
+            $page = $postinfo['page'];
+        }
+        $where=array();
+        $start=intval($page-1)*intval($this->per_page);
+        $orderby='create_time';
+        $order_type='desc';
+        $select_field='id,name,description,seconds,theme,type,language,province,listen_num,create_time';
+        $data=$this->Common->get_limit_order( $this->audio_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
+        
+        echo json_encode($data);
+    }
+
+    public function pptTable(){
+        if($_POST){
+            $postinfo= $this->Common->html_filter_array($_POST);
+            $page = $postinfo['page'];
+        }
+        $where=array();
+        $start=intval($page-1)*intval($this->per_page);
+        $orderby='create_time';
+        $order_type='desc';
+        $select_field='id,name,description,author_id,author,page_count,theme,type,language,province,reader_num,pic_url,source_url,create_time';
+        $data=$this->Common->get_limit_order( $this->ppt_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
+        
+        echo json_encode($data);
+    }
+
+    public function addNewPPTInfo()
+    {
+        if($_POST){
+
+            $re_data['status'] = 100;
+            $postinfo= $this->Common->html_filter_array($_POST);
+
+            $data=array(
+                    'name' => $postinfo['name'],'description' => $postinfo['introduce'],'theme' => $postinfo['theme'],
+                    'type' => $postinfo['type'],'language' => $postinfo['language'],'province' => $postinfo['city'],
+                    'source_url' => $postinfo['url'],'author' => $postinfo['author']
+                );
+                $rep = $this->Common->add($this->ppt_table,$data);
+
+                if($rep>0){
+                    $re_data['status'] =200;
+                    $re_data['id'] = $rep;
+                }
+            echo json_encode($re_data);
+        }
+    }
+
+    public function addNewPPT()
+    {
+        $return=array();
+        $postinfo= $this->Common->html_filter_array($_POST);
+        if ($_FILES["file"]["error"] > 0) {
+            $return['status']=$_FILES["file"]["error"];
+        } else {           
+            $fillname = $_FILES['file']['name']; // 得到文件全名
+            $dotArray = explode('.', $fillname); // 以.分割字符串，得到数组
+            $type = end($dotArray); // 得到最后一个元素：文件后缀
+            $file_name = md5(uniqid(rand())).".".$type;
+            $path = "ppt/".$file_name;
+            move_uploaded_file($_FILES["file"]["tmp_name"],$path);
+
+            $return['url'] = $path;
+            $return['status'] = 200;
+        } 
+        $url = $postinfo['url'];
+        if(!empty($url)){
+            unlink($url);
+        }
+        
+        // $return['postinfo'] = $postinfo;
+        echo json_encode($return);
+    }
+
+    public function uploadPPT(){
+        $return=array();
+        $postinfo= $this->Common->html_filter_array($_POST);
+        if ($_FILES["file"]["error"] > 0) {
+            $return['status']=$_FILES["file"]["error"];
+        } else {           
+            $fillname = $_FILES['file']['name']; // 得到文件全名
+            $dotArray = explode('.', $fillname); // 以.分割字符串，得到数组
+            $type = end($dotArray); // 得到最后一个元素：文件后缀
+            $file_name = md5(uniqid(rand())).".".$type;
+            $path = "ppt/".$file_name;
+            move_uploaded_file($_FILES["file"]["tmp_name"],$path);
+
+            $return['url'] = $path;
+            //将文件存入数据库
+            if($postinfo['name'] != "tmp_header"){
+                
+                $where=array('id' => $postinfo['name']);
+                $data = array('source_url' => $path);
+                $rep = $this->Common->update($this->ppt_table,$where,$data);
+                if($rep>0){
+                     $return['status']=200;
+                }
+            }else{
+                $return['status']=200;
+            }
+        } 
+        // $return['postinfo'] = $postinfo;
+        echo json_encode($return);
+    }
+
+    public function updatePPTInfo()
+    {
+        if($_POST){
+            $re_data['status'] = 100;
+            $postinfo= $this->Common->html_filter_array($_POST);
+            $where=array('id' => $postinfo['id']);
+            $data=array('name' => $postinfo['name'],'author' => $postinfo['author'],'description' => $postinfo['description'],'type' => $postinfo['type'],'theme' => $postinfo['theme'],'language'=>$postinfo['language'],'province' => $postinfo['province'],'source_url' => $postinfo['url']
+                );
+            $rep=$this->Common->update($this->ppt_table,$where,$data);
+            if($rep>0){
+                $re_data['status'] =200;
+            }
+            echo json_encode($re_data);
+        }
+    }
 
 }
 

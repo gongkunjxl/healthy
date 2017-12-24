@@ -51,13 +51,13 @@ var navs = [
 {
 	"title": "音频管理",
 	"icon": "fa-file-audio-o",
-	"href": "/backend/tableShow",
+	"href": "/backend/audioAdmin",
 	"spread": false
 },
 {
 	"title": "幻灯片管理",
 	"icon": "fa-file-powerpoint-o",
-	"href": "/backend/tableShow",
+	"href": "/backend/pptAdmin",
 	"spread": false
 },
 // {

@@ -403,6 +403,125 @@ class Backend extends MY_Controller {
         redirect('backend/pictureAdmin/1');
     }
 
+    /*
+      * add a new audio by liuzuobin
+    */
+    public function audioAdmin($page=1)
+    {
+        $page=$page;
+        $where=array();
+        $start=intval($page-1)*intval($this->per_page);
+        $orderby='create_time';
+        $order_type='desc';
+        $select_field='id,name,description,seconds,theme,type,language,province,listen_num,create_time';
+        $data=$this->Common->get_limit_order( $this->audio_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
+        $count=$this->Common->get_count($this->audio_table,'','');
+        $re_data['data'] = $data;
+        $re_data['count'] = $count;
+        $re_data['limit'] = $this->per_page;
+        $this->load->view('backend/header');
+        $this->load->view('backend/audioAdmin',$re_data);
+        $this->load->view('backend/footer');
+    }
+
+    public function audioAdd()
+    {
+        $this->load->view('backend/header');
+        $this->load->view('backend/audioAdd');
+        $this->load->view('backend/footer');
+    }
+
+    public  function audioEdit($id=0)
+    {
+        if($id>0){
+            $where = array('id' => $id);
+            $data = $this->Common->get_one($this->audio_table,$where);
+            $re_data['data'] =$data;
+            $this->load->view('backend/header');
+            $this->load->view('backend/audioEdit',$re_data);
+            $this->load->view('backend/footer');
+        }else{
+            redirect('backend/audioAdmin/1');
+        }
+    }
+
+    public function audioDelete($id=0)
+    {
+        $pic_url = "";
+        if($id>0){
+            $where = array('id' => $id);
+            $select_field='pic_url,source_url';
+            $data = $this->Common->get_one($this->audio_table,$where,$select_field);
+            $pic_url = $data['pic_url'];
+            $source_url = $data['source_url'];
+            $rep = $this->Common->delete($this->audio_table,$where);
+        }
+        $tmp_header = "sound/".$pic_url;
+        if(file_exists($tmp_header)){
+            unlink($tmp_header);
+        }
+        redirect('backend/audioAdmin/1');
+    }
+
+    /*
+      * add a new ppt by liuzuobin
+    */
+    public function pptAdmin($page=1)
+    {
+        $page=$page;
+        $where=array();
+        $start=intval($page-1)*intval($this->per_page);
+        $orderby='create_time';
+        $order_type='desc';
+        $select_field='id,name,description,author_id,author,page_count,theme,type,language,province,reader_num,pic_url,source_url,create_time';
+        $data=$this->Common->get_limit_order( $this->ppt_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
+        $count=$this->Common->get_count($this->ppt_table,'','');
+        $re_data['data'] = $data;
+        $re_data['count'] = $count;
+        $re_data['limit'] = $this->per_page;
+        $this->load->view('backend/header');
+        $this->load->view('backend/pptAdmin',$re_data);
+        $this->load->view('backend/footer');
+    }
+
+    public function pptAdd()
+    {
+        $this->load->view('backend/header');
+        $this->load->view('backend/pptAdd');
+        $this->load->view('backend/footer');
+    }
+
+    public  function pptEdit($id=0)
+    {
+        if($id>0){
+            $where = array('id' => $id);
+            $data = $this->Common->get_one($this->ppt_table,$where);
+            $re_data['data'] =$data;
+            $this->load->view('backend/header');
+            $this->load->view('backend/pptEdit',$re_data);
+            $this->load->view('backend/footer');
+        }else{
+            redirect('backend/pptAdmin/1');
+        }
+    }
+
+    public function pptDelete($id=0)
+    {
+        $pic_url = "";
+        if($id>0){
+            $where = array('id' => $id);
+            $select_field='pic_url,source_url';
+            $data = $this->Common->get_one($this->ppt_table,$where,$select_field);
+            $pic_url = $data['pic_url'];
+            $source_url = $data['source_url'];
+            $rep = $this->Common->delete($this->ppt_table,$where);
+        }
+        $tmp_header = "sound/".$pic_url;
+        if(file_exists($tmp_header)){
+            unlink($tmp_header);
+        }
+        redirect('backend/pptAdmin/1');
+    }
 
 }
 

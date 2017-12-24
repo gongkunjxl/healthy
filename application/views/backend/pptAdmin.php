@@ -8,20 +8,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<!-- <?php// echo count($data); ?> -->
 	<h2 >幻灯片信息表</h2>
 	<a  style="margin-bottom:10px; margin-top: 0; font-weight: 400" href="/backend/pptAdd" class="layui-btn">新增幻灯片</a>
-	<table class="layui-table" style="">
+	<table class="layui-table" style="overflow:scroll;">
 	  <thead>
 	    <tr>
-	      <th width="10%">ppt名称</th>
-	      <th width="10%">ppt简介</th>
-	      <th width="10%">ppt作者</th>
-	      <th width="8%">ppt页数</th>
-	      <th width="10%">ppt主题</th>
-	      <th width="10%">ppt类型</th>
-	      <th width="7%">语言</th>
+	      <th width="10%;">名称</th>
+	      <th width="10%">简介</th>
+	      <th width="8%">作者</th>
+	      <th width="7%">页数</th>
+	      <th width="7%">主题</th>
+	      <th width="10%">类型</th>
+	      <th width="6%">语言</th>
 	      <th width="10%">制作省市</th>
 	      <th width="7%">阅读量</th>
 	      <th width="10%">上传时间</th>
-	       <th width="18%">操作</th>
+	       <th width="20%">操作</th>
 	    </tr>
 	  </thead>
 	  <tbody id="table">

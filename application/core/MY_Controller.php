@@ -37,6 +37,8 @@ class MY_Controller extends CI_Controller {
   public $article_table = 'hea_article';
   public $type_table = 'hea_type';
   public $picture_table = 'hea_picture';
+  public $audio_table = 'hea_audio';
+  public $ppt_table = 'hea_ppt';
     
   public function __construct() {
       parent::__construct();
