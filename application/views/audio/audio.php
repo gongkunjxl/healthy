@@ -77,119 +77,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<!-- content -->
  	<div class="audio-content">
- 		<div class="audio-show">
- 			<div class="content-show">
- 				<!-- <img src="/static/images/audio-logo.png"> -->
- 				<div class="audio-btn" >
-					<div class="off" onclick="audio.changeClass(this,'media1')">
-						<audio loop="loop" src="/audio/audio2.mp3" id="media1" preload="preload"></audio>
-					</div>
-				</div>
- 				<div class="show-right">
- 					<h3>慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座</h3>
- 					<p>刘晓燕 教授</p>
- 					<span class="left-date">2017-11-30</span>
- 					<span class="right-date">1121次播放</span>
- 				</div>
- 			</div>
- 		</div>
- 		<div class="audio-show">
- 			<div class="content-show">
- 				<!-- <img src="/static/images/audio-logo.png"> -->
- 				<div class="audio-btn" >
-					<div class="off" onclick="audio.changeClass(this,'mediaw')">
-						<audio loop="loop" src="/audio/audio1.mp3" id="mediaw" preload="preload"></audio>
-					</div>
-				</div>
- 				<div class="show-right">
- 					<h3>慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座</h3>
- 					<p>刘晓燕 教授</p>
- 					<span class="left-date">2017-11-30</span>
- 					<span class="right-date">1121次播放</span>
- 				</div>
- 			</div>
- 		</div>
- 		<div class="audio-show">
- 			<div class="content-show">
- 				<!-- <img src="/static/images/audio-logo.png"> -->
- 				<div class="audio-btn" >
-					<div class="off" onclick="audio.changeClass(this,'media1')">
-						<audio loop="loop" src="/audio/audio2.mp3" id="media1" preload="preload"></audio>
-					</div>
-				</div>
- 				<div class="show-right">
- 					<h3>慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座</h3>
- 					<p>刘晓燕 教授</p>
- 					<span class="left-date">2017-11-30</span>
- 					<span class="right-date">1121次播放</span>
- 				</div>
- 			</div>
- 		</div>
- 		<div class="audio-show">
- 			<div class="content-show">
- 				<!-- <img src="/static/images/audio-logo.png"> -->
- 				<div class="audio-btn" >
-					<div class="off" onclick="audio.changeClass(this,'media1')">
-						<audio loop="loop" src="/audio/audio2.mp3" id="media1" preload="preload"></audio>
-					</div>
-				</div>
- 				<div class="show-right">
- 					<h3>慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座</h3>
- 					<p>刘晓燕 教授</p>
- 					<span class="left-date">2017-11-30</span>
- 					<span class="right-date">1121次播放</span>
- 				</div>
- 			</div>
- 		</div>
- 		<div class="audio-show">
- 			<div class="content-show">
- 				<!-- <img src="/static/images/audio-logo.png"> -->
- 				<div class="audio-btn" >
-					<div class="off" onclick="audio.changeClass(this,'media1')">
-						<audio loop="loop" src="/audio/audio2.mp3" id="media1" preload="preload"></audio>
-					</div>
-				</div>
- 				<div class="show-right">
- 					<h3>慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座</h3>
- 					<p>刘晓燕 教授</p>
- 					<span class="left-date">2017-11-30</span>
- 					<span class="right-date">1121次播放</span>
- 				</div>
- 			</div>
- 		</div>
- 		<div class="audio-show">
- 			<div class="content-show">
- 				<!-- <img src="/static/images/audio-logo.png"> -->
- 				<div class="audio-btn" >
-					<div class="off" onclick="audio.changeClass(this,'media1')">
-						<audio loop="loop" src="/audio/audio2.mp3" id="media1" preload="preload"></audio>
-					</div>
-				</div>
- 				<div class="show-right">
- 					<h3>慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座</h3>
- 					<p>刘晓燕 教授</p>
- 					<span class="left-date">2017-11-30</span>
- 					<span class="right-date">1121次播放</span>
- 				</div>
- 			</div>
- 		</div>
- 		<div class="audio-show">
- 			<div class="content-show">
- 				<!-- <img src="/static/images/audio-logo.png"> -->
- 				<div class="audio-btn" >
-					<div class="off" onclick="audio.changeClass(this,'media1')">
-						<audio loop="loop" src="/audio/audio2.mp3" id="media1" preload="preload"></audio>
-					</div>
-				</div>
- 				<div class="show-right">
- 					<h3>慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座慢性疾病讲座</h3>
- 					<p>刘晓燕 教授</p>
- 					<span class="left-date">2017-11-30</span>
- 					<span class="right-date">1121次播放</span>
- 				</div>
- 			</div>
- 		</div>
-
+ 		<?php if(count($data)>0): ?>
+  	  	<?php foreach($data as $value ):?>
+			<a href="/main/audioinfo/<?php echo $value['id']; ?>">
+			  	<div class="audio-show">
+		 			<div class="content-show">
+		 				<!-- <img src="/static/images/audio-logo.png"> -->
+		 				<div class="audio-btn" >
+							<div class="off" onclick="audio.changeClass(this,'media1')">
+								<audio loop="loop" src="/<?php echo $value['source_url']; ?>" id="media1" preload="preload"></audio>
+							</div>
+						</div>
+		 				<div class="show-right">
+		 					<h3><?php echo $value['name']; ?></h3>
+		 					<p><?php echo $value['author']; ?>  <?php echo $value['title']; ?></p>
+		 					<span class="left-date"><?php echo $value['create_time']; ?></span>
+		 					<span class="right-date"><?php echo $value['listen_num']; ?>次播放</span>
+		 				</div>
+		 			</div>
+		 		</div>
+		    </a>
+		<?php endforeach; ?>
+		<?php else:?>
+			<h1> NO audio more</h1>
+		<?php endif; ?>
  	</div>
 
 </div>
@@ -231,16 +142,60 @@ layui.use(['layer', 'form'], function(){
 	layui.use(['laypage', 'layer'], function(){
 	  var laypage = layui.laypage
 	  ,layer = layui.layer;
-	 
-	  
+	  var count="<?php echo $count;?>";
+  	  var limit = "<?php echo $limit; ?>";
+  
 	  //总页数大于页码总数
 	  laypage.render({
 	    elem: 'pageNavi'
-	    ,count: 100 //数据总数
+	    ,count: count //数据总数
 	    ,groups: 7
-	    ,limit: 10
-	    ,jump: function(obj){
-	      console.log(obj)
+	    ,limit: limit
+	    ,jump: function(obj,first){
+	       if(!first){
+	   //  		//console.log(obj);
+	    		var data={
+					page: obj.curr
+				};
+				$.ajax({
+					url: '/api/audioList',
+					type: 'post',
+					dataType:'json',
+					data: data,
+					success: function (data) {
+				     	// alert(JSON.stringify(data));
+				     	// alert(data.length);
+				     	//渲染页面
+				     	var obj=document.getElementById('expertList');
+				     	// obj.innerHTML="";
+				     	var html='';
+				     	for (var i = 0; i < data.length; i++) {
+				     		html = html+'<a href="/main/audioinfo/'+data[i].id+'">'+
+				     		'<div class="audio-show">'+
+		 					'<div class="content-show">'+
+		 					'<div class="audio-btn" >'+
+							'<div class="off" onclick="audio.changeClass(this,\'media1\')">'+
+							'<audio loop="loop" src="/'+ <?php echo $value['source_url']; ?> + '" id="media1" preload="preload"></audio>'+
+							'</div>'+
+							'</div>'+
+		 					'<div class="show-right">'+
+		 					'<h3>'+<?php echo $value['name']; ?>+'</h3>'+
+		 					'<p>'+<?php echo $value['author']; ?>+<?php echo $value['title']; ?>+'</p>'+
+		 					'<span class="left-date">'+<?php echo $value['create_time']; ?>+'</span>'+
+		 					'<span class="right-date">'+<?php echo $value['listen_num']; ?>+'次播放</span>'+
+		 					'</div>'+
+		 					'</div>'+
+		 					'</div>'+
+				     		'</a>';
+				     	}
+				     	// alert(html);
+				     	obj.innerHTML=html;
+				    },
+				    error: function(data) {
+				     	alert("Sorry error");
+					}
+				});
+	    	}
 	    }
 	  });
 	  

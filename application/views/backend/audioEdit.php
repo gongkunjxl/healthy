@@ -60,7 +60,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		  </div>
 
 		  <div style="background-color: #FFFFFF;margin-left: 0.1px;">
-		  	<input type="" name="audio_name" id="audio_name" style="width: 33%;height: 33px;margin-left: 100px;" readonly="readonly" value="<?php echo $data['name'].'.ppt'; ?>">
+		  	<input type="" name="audio_name" id="audio_name" style="width: 33%;height: 33px;margin-left: 100px;" readonly="readonly" value="<?php echo $data['name'].'.mp3'; ?>">
 			<button type="button" class="layui-btn" id="uploadAudio">上传音频</button>
 		 </div>
 		  

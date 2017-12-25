@@ -1062,6 +1062,22 @@ class Api extends MY_Controller {
         }
     }
 
+    public function audioList($page=1)
+    {
+        $page=$page;
+        if($_POST){
+            $postinfo= $this->Common->html_filter_array($_POST);
+            $page = $postinfo['page'];
+        }
+        $where=array();
+        $start=intval($page-1)*intval($this->per_page);
+        $orderby='create_time';
+        $order_type='desc';
+        $select_field="id,name,author,title,description,source_url,seconds,theme,type,language,province,listen_num,date_format(create_time,'%Y-%m-%d') as create_time";
+        $data=$this->Common->get_limit_order( $this->audio_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field,'');
+        echo json_encode($data);
+    }
+
 }
 
 
