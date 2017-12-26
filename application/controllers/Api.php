@@ -1078,6 +1078,22 @@ class Api extends MY_Controller {
         echo json_encode($data);
     }
 
+    public function pptList($page=1)
+    {
+        $page=$page;
+        if($_POST){
+            $postinfo= $this->Common->html_filter_array($_POST);
+            $page = $postinfo['page'];
+        }
+        $where=array();
+        $start=intval($page-1)*intval($this->per_page);
+        $orderby='create_time';
+        $order_type='desc';
+        $select_field="id,name,author,description,source_url,theme,type,language,province,reader_num,date_format(create_time,'%Y-%m-%d') as create_time";
+        $data=$this->Common->get_limit_order( $this->ppt_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field,'');
+        echo json_encode($data);
+    }
+
 }
 
 

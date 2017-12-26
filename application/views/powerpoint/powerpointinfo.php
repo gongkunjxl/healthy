@@ -1,116 +1,93 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+// $username = $_SESSION['username'];
+if(isset($_SESSION['userid']) && $_SESSION['userid']>0){
+   $userid = $_SESSION['userid'];
+   $nickname = $_SESSION['nickname'];
+   $type = $_SESSION['type'];
+}else{
+  $userid=0; 
+}
 ?>
-<link rel="stylesheet" type="text/css" href="/static/css/ppt-info-page.css">
+<!doctype html>
+<html lang="en">
 
-<div class="layui-container">
-	<div class="ppt-title-show">
-		<h2 id="ppt_title">心脑血管的预防和注意事项 </h2>
-	</div>
-    <div class="ppt-content-show" >
-    	<div class="left-pre">
-    		<img onclick="pre_click(this)" value="1" src="/static/images/arrow-left.jpg">
-    	</div>
-    	<div class="mid-content">
-			<div class="ppt-show" >
-				<img id="ppt_show" src="/picture/pic_02.png">
-			</div> 
-    	</div>
-    	<div class="right-pre">
-    		<img onclick="next_click(this)" value="2" src="/static/images/arrow-right.jpg">
-    	</div>
-    </div>
+    <head>
+        <meta charset="utf-8">
 
-    <!-- the bottom -->
-    <div class="ppt-content-bottom">
-    	<div class="left-title">
-    		<h2>相关推荐</h2>
-    	</div>
-    	<div class="mid-content">
-    	  <a onclick="ppt_click(this);">
-    		<div class="ppt-show">
-    			<img src="/picture/pic_1.png">
-    			<div class="title">
-    				<h3>冬季保暖小知识冬季保暖小知识冬季保暖小知识冬季保暖小知识</h3>
-    			</div>
-    		</div>
-    	  </a>
-    	  <a onclick="ppt_click(this);">
-    		<div class="ppt-show">
-    			<img src="/picture/pic_02.png">
-    			<div class="title">
-    				<h3>冬季保暖小知识冬季保暖小知识冬季保暖小知识冬季保暖小知识</h3>
-    			</div>
-    		</div>
-    	  </a>
-    	  <a onclick="ppt_click(this);">
-    		<div class="ppt-show">
-    			<img src="/picture/pic_2.png">
-    			<div class="title">
-    				<h3>冬季保暖小知识冬季保暖小知识冬季保暖小知识冬季保暖小知识</h3>
-    			</div>
-    		</div>
-    	  </a>
-    	</div>
-    	<div class="right-button">
-    		<img onclick="more_click(this)" src="/static/images/right-button.png">
-    	</div>
-    </div>
+        <title>reveal.js – The HTML Presentation Framework</title>
 
-</div>
-</div>
-<div style="clear: both;"></div>
-<script type="text/javascript">
+        <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+        <meta name="author" content="Hakim El Hattab">
 
-	function pre_click(obj)
-	{
-		// alert(obj.getAttribute("value"));
-		// alert(obj.getAttribute("src"));
-		var ppt_obj=document.getElementById("ppt_show");
-		// alert(ppt_obj.getAttribute("src"));
-		ppt_obj.setAttribute("src","/picture/pic_2.png");
-		// alert(ppt_obj.getAttribute("src"));
-	}
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-	function next_click(obj)
-	{
-		// alert(obj.getAttribute("value"));
-		var ppt_obj=document.getElementById("ppt_show");
-		// alert(ppt_obj.getAttribute("src"));
-		ppt_obj.setAttribute("src","/picture/pic_1.png");
-	}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	function ppt_click()
-	{
-		alert("ppt click");
-	}
+        <link rel="stylesheet" href="/static/reveal/css/reveal.css">
+        <link rel="stylesheet" href="/static/reveal/css/theme/black.css" id="theme">
 
-	function more_click()
-	{
-		alert("more click");
-	}
+        <!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="/static/reveal/lib/css/zenburn.css">
 
-</script>
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? '/static/reveal/css/print/pdf.css' : '/static/reveal/css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
 
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
 
+    <body>
 
+        <div class="reveal">
 
-<script>
-//一般直接写在一个js文件中
-layui.use(['layer', 'form'], function(){
-  var layer = layui.layer
-  ,form = layui.form;
- 
-});
-</script> 
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <?php for ($i=1; $i <= $data['page_count']; $i++){?>
+                    <section>
+                        <div><img src="/<?php echo $data['pic_url'].'/'.$i; ?>.jpeg" style=""></div>
+                    </section>
+                <?php } ?>
 
+            </div>
 
+        </div>
 
+        <script src="/static/reveal/lib/js/head.min.js"></script>
+        <script src="/static/reveal/js/reveal.js"></script>
 
+        <script>
 
+            // More info https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
 
+                transition: 'slide', // none/fade/slide/convex/concave/zoom
 
+                // More info https://github.com/hakimel/reveal.js#dependencies
+                dependencies: [
+                    { src: '/static/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: '/static/reveal/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: '/static/reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: '/static/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: '/static/reveal/plugin/search/search.js', async: true },
+                    { src: '/static/reveal/plugin/zoom-js/zoom.js', async: true },
+                    { src: '/static/reveal/plugin/notes/notes.js', async: true }
+                ]
+            });
 
+        </script>
 
-
-
+    </body>
+</html>

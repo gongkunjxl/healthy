@@ -7,8 +7,22 @@
 <script type="text/javascript">
         $(document).ready(function(){
             var description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id tortor nisi. Aenean sodales diam ac lacus elementum scelerisque. Suspendisse a dui vitae lacus faucibus venenatis vel id nisl. Proin orci ante, ultricies nec interdum at, iaculis venenatis nulla. ';
-            $('#audio-player').ttwMusicPlayer(myPlaylist, {
-                autoPlay:false, 
+            myPlaylist = [
+
+    {
+        mp3:'/static/audio/detail/mix/1.mp3',
+        oga:'/static/audio/detail/mix/1.ogg',
+        title:"<?php echo $data['name']; ?>",
+        artist:"<?php echo $data['author']; ?>",
+        rating:4,
+        reader:'#',
+        num: "<?php echo $data['listen_num']; ?>",
+        duration:'0:30',
+        cover:'/static/audio/detail/mix/1.png',
+        description: "<?php echo $data['description']; ?>"
+    }];
+            $('#jquery_jplayer').ttwMusicPlayer(myPlaylist, {
+                autoPlay:true, 
                 description:description,
                 jPlayer:{
                     swfPath:'/static/audio/plugin/jquery-jplayer' //You need to override the default swf path any time the directory structure changes
@@ -20,7 +34,7 @@
 
 </script>
 <div class="layui-container" style="background: #444 url(/static/audio/detail/images/bg.jpg) ;height: 700px;margin-top: 0px;margin-bottom: 0px; ">
-    <div id="audio-player" style="padding-top: 100px;padding-bottom: 100px;"></div>    
+    <div id="jquery_jplayer" style="padding-top: 100px;padding-bottom: 100px;"></div>    
 </div>
 
 <div class="footer" style="margin-top: 0px;">

@@ -1,158 +1,27 @@
-/* 图片详情 */
+body{background-color: #EBEBEB;}
 
-html body{margin:0; padding: 0;}
-.ppt-title-show{
-    height: 40px;
-    width: 90%;
-    margin-left: 5%;
+.ppt-ppt {
     margin-top: 30px;
-    background-color: #EBEBEB;
-}
-.ppt-title-show h2{
-    padding-top: 10px;
-    margin-left: 20px;
-    font-size: 20px;
-    font-weight: 500;
-    color: #009ACD;
-}
-/*content*/
-.ppt-content-show{
-    height: 500px;
-    margin-top: 20px;
-    width: 90%;
-    margin-left: 5%;
-    border:2px solid #EBEBEB;
-}
-.ppt-content-show .left-pre{
-    width: 20%;
-    height: 500px;
-    float: left;
-    margin: 0 auto;
-    vertical-align: middle;
-    text-align: center;
-    /*background-color: #009ACD;*/
-}
-.ppt-content-show .left-pre img{
-    width: 60%;
-    max-width: 60px;
-    height: 100px;
-    margin-top: 200px;
-    cursor: pointer;
-}
-
-.ppt-content-show .mid-content{
-    width: 60%;
-    height: 500px;
-    float: left;
-    /*background-color: #EBEBEB;*/
-    margin:0 auto;
-    text-align: center;
-}
-.ppt-content-show .mid-content .ppt-show{
-    height: 500px; 
-    width: 100%;
-    display: table-cell; 
-    vertical-align:middle; 
-}
-
-.ppt-content-show .mid-content .ppt-show img{
-    vertical-align:middle;
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-}
-.ppt-content-show .right-pre{
-    width: 20%;
-    height: 500px;
-    float: left;
-    margin: 0 auto;
-    vertical-align: middle;
-    text-align: center;
-    cursor: pointer;
-}
-.ppt-content-show .right-pre img{
-    width: 60%;
-    max-width: 60px;
-    height: 100px;
-    margin-top: 200px;
-}
-
-/* bottom */
-
-.ppt-content-bottom{
-    width: 90%;
-    margin-top: 20px;
-    height: 200px;
-    margin-left: 5%;
-    border:2px solid #EBEBEB;   
-}
-.ppt-content-bottom .left-title{
-    width: 10%;
-    height: 100%;
-    border-right: 2px solid #EBEBEB;
-    float: left;
-}
-.ppt-content-bottom .left-title h2{
-    font-size: 24px;
-    width: 30px;
-    font-weight: 500;
-    margin: 0 auto;
-    text-align: center;
-    color: #009ACD;
-    margin-top: 40px;
-
-}
-.ppt-content-bottom .mid-content{
-    width: 80%;
-    height: 100%;
-    float: left;
-}
-.ppt-content-bottom .mid-content a{
-    cursor: pointer;
-}
-.ppt-content-bottom .mid-content a:hover img{
-    width: 98%;
-    margin-left: 1%;
-
-}
-.ppt-content-bottom .mid-content a:hover .title{
-    width: 98%;
-    margin-left: 1%;
-    background-color: #8B8878;
-} 
-.ppt-content-bottom .mid-content .ppt-show{
-    width: 30%;
-    margin-top: 20px;
-    height: 160px;
-    min-width: 200px;
-    margin-left: 3%;
-    float: left;
+    height: 600px; 
+    background-color: #fff; 
+    overflow:hidden; 
+    padding: 0.1px;
     border: 0.1px;
-    overflow: hidden;
-    position: relative;
+    padding-bottom: 20px;
 }
-.ppt-content-bottom .mid-content .ppt-show img{
+.ppt-ppt .ppt-title{
+    margin: 0;
+    padding: 0;
     width: 100%;
-    max-height: 100%;
+    height: 30px;  
 }
-.ppt-content-bottom .mid-content .ppt-show .title{
-    height: 35px;
-    width: 100%;
-    z-index: 200;
-    bottom: 0;
-    background-color: #009ACD;
-    display: block;
-    position: absolute;
-}
-.ppt-content-bottom .mid-content .ppt-show .title h3{
-    margin-top: 10px;
-    font-size: 16px;
-    font-weight: 400;
-    width: 90%;
-    margin-left: 5%;
-    color: #fff;
-    text-align: center;
+.ppt-ppt .ppt-title h2{
+    margin-left: 30px;
+    margin-top: 10px; 
+    font-size: 20px;
+    font-weight:500; 
+    letter-spacing: 2px;
+    width:100%; 
     overflow: hidden;
     text-overflow: ellipsis;
     -o-text-overflow:ellipsis;
@@ -160,34 +29,103 @@ html body{margin:0; padding: 0;}
     word-wrap: normal;
 }
 
-
-.ppt-content-bottom .right-button{
-    width: 10%;
-    height: 100%;
-    margin: 0 auto;
+.ppt-ppt .ppt-content
+{
+    padding: 0;
+    margin-top: 10px;
+    width: 100%;
+    height: 500px;
+}
+.ppt-ppt .ppt-content .ppt-item {
+    width: 100%; 
+    height: 500px;
+}
+.ppt-ppt .ppt-content .ppt-item ppt
+{
+    height: 500px;
+    width: 98%;
+    margin-left: 1%;
+    background-color: black;
+}
+.ppt-ppt .ppt-content .ppt-item p
+{
+    font-size: 18px;
+    font-weight: 400;
+    padding-top: 15px;
     text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 80%;
+    text-align: center;
+    margin-left: 10%;
+    color: #1792CD;
+}
+
+/*left  ppt list*/
+.ppt-list
+{
+    width: 80%;
+    margin-left: 10%; 
+    height: 600px; 
+    background-color: #fff; 
+    padding-bottom: 20px;
+    margin-top: 30px;
+}
+.ppt-list .ppt-title
+{
+    margin: 0 auto;
+    width: 100%;
+    height: 40px;
+    background-color: #1792CD; 
+    padding: 0.1px; 
+    border: 0.1px;
+}
+.ppt-list .ppt-title p{
+    margin-top: 7px; 
+    font-size: 18px; 
+    letter-spacing: 5px;
+    text-align: center;
+    color: #fff; 
+    font-weight: 400;
+    width:100%; 
     float: left;
 }
-.ppt-content-bottom .right-button img{
+.ppt-list .flow-default
+{
+    height: 500px; 
+    margin-top: 20px; 
+    overflow: auto;
+    border: 0.1px;
+    padding: 0.1px;
+}
+.ppt-list .flow-default li
+{
     height: 100px;
-    width: 40px;
-    margin:50px auto;
-    cursor: pointer;
+    border-bottom: 0.3px solid #1792CD;
+    padding-top: 10px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.ppt-list .flow-default .title-image{
+    width: 100px; 
+    height:80px; 
+    margin-left:5px;
+    padding-right: 10px;
+    float: left;
+}
+.ppt-list .flow-default li p{
+    padding-right: 5px; 
+    line-height: 24px; 
+    font-size: 14px;
+    color: #1792CD;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.ppt-list .flow-default .font-set{
+    font-size: 12px;
+}
+.ppt-list .apointer{
+    cursor:pointer;
+}
 

@@ -227,10 +227,13 @@ class Main extends MY_Controller {
 	}
 
 	//audioinfo
-	public function audioInfo()
+	public function audioInfo($id=0)
 	{
+		$where = array('id' => $id);
+		$data = $this->Common->get_one($this->audio_table,$where);
+		$re_data['data'] = $data;
 		$this->load->view('header');
-		$this->load->view('audio/audioinfo');
+		$this->load->view('audio/audioinfo',$re_data);
 	}
 
 	//视频链接
@@ -448,20 +451,31 @@ class Main extends MY_Controller {
 	}
 
 
-	public function powerpoint()
+	public function powerpoint($page=1)
 	{
+		$page=$page;
+        $where=array();
+        $start=intval($page-1)*intval($this->per_page);
+        $orderby='create_time';
+        $order_type='desc';
+        $select_field="id,name,author,description,source_url,theme,type,language,province,reader_num,date_format(create_time,'%Y-%m-%d') as create_time";
+        $data=$this->Common->get_limit_order( $this->ppt_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
+        $count=$this->Common->get_count($this->ppt_table,'','');
+        $re_data['data'] = $data;
+        $re_data['count'] = $count;
+        $re_data['limit'] = $this->per_page;
 		$this->load->view('header');
-		$this->load->view('powerpoint/powerpoint');
+		$this->load->view('powerpoint/powerpoint',$re_data);
 		$this->load->view('footer');
 
 	}
 
-	public function powerpointInfo()
+	public function powerpointInfo($id=0)
 	{
-		$this->load->view('header');
-		$this->load->view('powerpoint/powerpointinfo');
-		$this->load->view('footer');
-
+		$where = array('id' => $id);
+		$data = $this->Common->get_one($this->ppt_table,$where);
+		$re_data['data'] = $data;
+		$this->load->view('powerpoint/powerpointinfo',$re_data);
 	}
 	// 测试函数
 	public function testdemo($pic_id=1)

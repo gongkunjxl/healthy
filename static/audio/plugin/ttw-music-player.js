@@ -47,7 +47,7 @@
             currencySymbol:'',
             readerText:'播放',
             tracksToShow:5,
-            autoPlay:false,
+            autoPlay:true,
             jPlayer:{}
         };
 

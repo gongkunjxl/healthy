@@ -1,97 +1,120 @@
 
-.powerpoint-detail-line{
-    margin-top: 15px;
-    width: 96%;
-    height: 1.5px;
-    margin-left: 3%;
-    background-color: #bfcace;
-}
-.powerpoint-list-title{
+html{-webkit-text-size-adjust:none;}
+
+.powerpoint-title{
     margin-top: 30px;
     height: 50px;
-    width: 97%;
+    width: 100%;
     background-color: #EBEBEB;
     padding: 0.1px;
     border: 0.1px;
 }
-.powerpoint-list-title h2{
-    font-size: 18px;
+.powerpoint-title h2{
+    font-size: 20px;
     font-weight: 500;
     margin-left: 40px;
     margin-top: 15px;
     width: 100px;
     float: left;
 } 
-
-
-.powerpoint-list-content{
-    width: 100%;
-    height: 130px;
-    margin-top: 25px;
-    /*background-color: #F5F5F5;*/
-}
-.powerpoint-list-content .content{
-    height: 100%;
-    width: 35%;
+.powerpoint-title .instrt{
+    font-size: 14px;
+    width: 250px;
+    margin-top: 15px;
+    font-weight: 300;
+    color: red;
     float: left;
-    margin-left: 5%;
-    /*background-color: #fff0f5;*/
+}
+
+/*content*/
+.powerpoint-content{
+    width: 100%;
+    height: auto;
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+.powerpoint-content .powerpoint-show{
+    margin-top: 30px;
+    width: 50%;
+    min-width: 300px;
+    height: 140px;
+    float: left;
+    background-color: #fff;
+    border-bottom: 2px solid #EBEBEB;
+}
+.powerpoint-content .powerpoint-show .content-show{
+    width: 80%;
+    height: 130px;
+    margin-left: 10%;
+    padding: 0;
+    border:0.1px;
+}
+
+.powerpoint-content .powerpoint-show .content-show .powerpoint-img{
+    width: 120px;
+    height: 130px;
+    float: left;
+    border: 0.1px;
     padding: 0.1px;
 }
-.powerpoint-list-content .content .powerpoint-show{
-    height: 100%;
-    width: 45%;
-    float: left;
-}
-.powerpoint-list-content .content .powerpoint-show img{
-    height: 100%;
+.powerpoint-content .powerpoint-show .content-show .powerpoint-img .on{
     width: 100%;
-    background-color: black;
-}
-.powerpoint-list-content .content .powerpoint-label{
-    padding-top:10px;
     height: 100%;
-    width: 50%;
-    float: right;
+    background: url('/static/images/powerpoint-logo.png') no-repeat 0 0;
+    -webkit-animation: rotating 1.2s linear infinite;
+    animation: rotating 10s linear infinite;
+    background-size: 100% 100%;
 }
-.powerpoint-list-content .content .powerpoint-label h2{
-    vertical-align: middle;
-    font-size: 16px;
-    width: 90%;
-    margin-left: 15px;
-    font-weight: 200;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    word-wrap: normal;
-}
-.powerpoint-list-content .content .powerpoint-label .left-label{
-    font-size: 14px;
-    width: 40%;
-    margin-top: 11px;
-    margin-left: 15px;
-    font-weight: 200;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    word-wrap: normal;
-    float: left;
-}
-.powerpoint-list-content .content .powerpoint-label .right-label{
-    font-size: 14px;
-    width: 40%;
-    margin-top: 10px;
-    text-align: center;
-    font-weight: 200;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    word-wrap: normal;
-    float: right;
+.powerpoint-content .powerpoint-show .content-show .powerpoint-img .off{
+    width: 100%;
+    height: 100%;
+    background: url('/static/images/powerpoint-logo.png') no-repeat 0 0;
+    background-size: 100% 100%;
 }
 
-.powerpoint-list-content .content .powerpoint-label .author{
-    margin-top: 25px;
-    margin-left: 17px;
-    margin-right: 1px;
+.powerpoint-content .powerpoint-show .content-show .show-right{
+    height: 100px;
+    width: 70%;
+    margin-left: 30%;
+    background-color: #fff;
 }
+.powerpoint-content .powerpoint-show .content-show .show-right h2{
+    padding-top: 20px;
+    font-size: 18px;
+    font-weight: 300;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow:ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+.powerpoint-content .powerpoint-show .content-show .show-right p{
+    font-size: 14px;
+    font-weight: 300;
+    margin-top: 15px;
+}
+.powerpoint-content .powerpoint-show .content-show .show-right .left-date{
+    width: 80px;
+    float: left;
+    margin-top: 5px;
+    font-weight: 250;
+}
+.powerpoint-content .powerpoint-show .content-show .show-right .right-date{
+    width: 120px;
+    float: right;
+    margin-top: 5px;
+    margin-right: 20%;
+    font-weight: 300;
+}
+
+
+
+
+
+
+
+
+
+
+

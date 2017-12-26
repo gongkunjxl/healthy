@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 
 <div class="layui-container" >
-	<div class="powerpoint-list-title">
+	<div class="powerpoint-title">
 		<h2>慢性疾病</h2>
 	</div>
 
@@ -77,174 +77,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </ul> 
 	<!-- video -->
 	
-	<div class="powerpoint-list-content">
-		<a href="/main/powerpointinfo">
-			<div class="content">
-				<div class="powerpoint-show">
-					<img src="/static/images/image1.png">
+	<div class="powerpoint-content" id="pptList">
+		<?php if(count($data)>0): ?>
+  	  	<?php foreach($data as $value ):?>
+			<a href="/main/powerpointinfo/<?php echo $value['id']; ?>">
+			  	<div class="powerpoint-show">
+			  		<div class="content-show">
+			  			<div class="powerpoint-img">
+							<img src="/static/images/image1.png" style="width: 100%;height: 100%;">
+						</div>
+						<div class="show-right">
+							<h2><?php echo $value['name']; ?></h2>
+		 					<p><?php echo $value['author']; ?></p>
+		 					<span class="left-date"><?php echo $value['create_time']; ?></span>
+		 					<span class="right-date"><?php echo $value['reader_num']; ?>次浏览</span>
+						</div>
+			  		</div>
 				</div>
-				<div class="powerpoint-label">
-					<h2>管理胆固醇预防心梗讲座.ppt</h2>
-					<div class="author">张教授</p></div>
-					<div>
-						<p class="left-label">2017-11-11</p>
-						<p class="right-label">1350人阅读</p>
-					</div>
-				</div>
-			</div>
-		</a>
-		
-		<a href="/main/powerpointinfo">
-			<div class="content">
-				<div class="powerpoint-show">
-					<img src="/static/images/image1.png">
-				</div>
-				<div class="powerpoint-label">
-					<h2>管理胆固醇预防心梗讲座.ppt</h2>
-					<div class="author">张教授</p></div>
-					<div>
-						<p class="left-label">2017-11-11</p>
-						<p class="right-label">1350人阅读</p>
-					</div>
-				</div>
-			</div>
-		</a>
-	</div>
-	<div class="powerpoint-detail-line"></div>
-	<div class="powerpoint-list-content">
-		<a href="/main/powerpointinfo">
-			<div class="content">
-				<div class="powerpoint-show">
-					<img src="/static/images/image1.png">
-				</div>
-				<div class="powerpoint-label">
-					<h2>管理胆固醇预防心梗讲座.ppt</h2>
-					<div class="author">张教授</p></div>
-					<div>
-						<p class="left-label">2017-11-11</p>
-						<p class="right-label">1350人阅读</p>
-					</div>
-				</div>
-			</div>
-		</a>
-		
-		<a href="/main/powerpointinfo">
-			<div class="content">
-				<div class="powerpoint-show">
-					<img src="/static/images/image1.png">
-				</div>
-				<div class="powerpoint-label">
-					<h2>管理胆固醇预防心梗讲座.ppt</h2>
-					<div class="author">张教授</p></div>
-					<div>
-						<p class="left-label">2017-11-11</p>
-						<p class="right-label">1350人阅读</p>
-					</div>
-				</div>
-			</div>
-		</a>
-	</div>
-	<div class="powerpoint-detail-line"></div>
-	<div class="powerpoint-list-content">
-		<a href="/main/powerpointinfo">
-			<div class="content">
-				<div class="powerpoint-show">
-					<img src="/static/images/image1.png">
-				</div>
-				<div class="powerpoint-label">
-					<h2>管理胆固醇预防心梗讲座.ppt</h2>
-					<div class="author">张教授</p></div>
-					<div>
-						<p class="left-label">2017-11-11</p>
-						<p class="right-label">1350人阅读</p>
-					</div>
-				</div>
-			</div>
-		</a>
-		
-		<a href="/main/powerpointinfo">
-			<div class="content">
-				<div class="powerpoint-show">
-					<img src="/static/images/image1.png">
-				</div>
-				<div class="powerpoint-label">
-					<h2>管理胆固醇预防心梗讲座.ppt</h2>
-					<div class="author">张教授</p></div>
-					<div>
-						<p class="left-label">2017-11-11</p>
-						<p class="right-label">1350人阅读</p>
-					</div>
-				</div>
-			</div>
-		</a>
-	</div>
-	<div class="powerpoint-detail-line"></div>
-	<div class="powerpoint-list-content">
-		<a href="/main/powerpointinfo">
-			<div class="content">
-				<div class="powerpoint-show">
-					<img src="/static/images/image1.png">
-				</div>
-				<div class="powerpoint-label">
-					<h2>管理胆固醇预防心梗讲座.ppt</h2>
-					<div class="author">张教授</p></div>
-					<div>
-						<p class="left-label">2017-11-11</p>
-						<p class="right-label">1350人阅读</p>
-					</div>
-				</div>
-			</div>
-		</a>
-		
-		<a href="/main/powerpointinfo">
-			<div class="content">
-				<div class="powerpoint-show">
-					<img src="/static/images/image1.png">
-				</div>
-				<div class="powerpoint-label">
-					<h2>管理胆固醇预防心梗讲座.ppt</h2>
-					<div class="author">张教授</p></div>
-					<div>
-						<p class="left-label">2017-11-11</p>
-						<p class="right-label">1350人阅读</p>
-					</div>
-				</div>
-			</div>
-		</a>
-	</div>
-	<div class="powerpoint-detail-line"></div>
-	<div class="powerpoint-list-content">
-		<a href="/main/powerpointinfo">
-			<div class="content">
-				<div class="powerpoint-show">
-					<img src="/static/images/image1.png">
-				</div>
-				<div class="powerpoint-label">
-					<h2>管理胆固醇预防心梗讲座.ppt</h2>
-					<div class="author">张教授</p></div>
-					<div>
-						<p class="left-label">2017-11-11</p>
-						<p class="right-label">1350人阅读</p>
-					</div>
-				</div>
-			</div>
-		</a>
-		
-		<a href="/main/powerpointinfo">
-			<div class="content">
-				<div class="powerpoint-show">
-					<img src="/static/images/image1.png">
-				</div>
-				<div class="powerpoint-label">
-					<h2>管理胆固醇预防心梗讲座.ppt</h2>
-					<div class="author">张教授</p></div>
-					<div>
-						<p class="left-label">2017-11-11</p>
-						<p class="right-label">1350人阅读</p>
-					</div>
-				</div>
-			</div>
-		</a>
+		    </a>
+		<?php endforeach; ?>
+		<?php else:?>
+			<h1> NO audio more</h1>
+		<?php endif; ?>
 	</div>
 	
 </div>
@@ -265,16 +119,56 @@ layui.use(['layer', 'form'], function(){
 	layui.use(['laypage', 'layer'], function(){
 	  var laypage = layui.laypage
 	  ,layer = layui.layer;
-	 
-	  
+	  var count="<?php echo $count;?>";
+  	  var limit = "<?php echo $limit; ?>";
+  
 	  //总页数大于页码总数
 	  laypage.render({
 	    elem: 'pageNavi'
-	    ,count: 100 //数据总数
+	    ,count: count //数据总数
 	    ,groups: 7
-	    ,limit: 10
-	    ,jump: function(obj){
-	      console.log(obj)
+	    ,limit: limit
+	    ,jump: function(obj,first){
+	       if(!first){
+	   //  		//console.log(obj);
+	    		var data={
+					page: obj.curr
+				};
+				$.ajax({
+					url: '/api/pptList',
+					type: 'post',
+					dataType:'json',
+					data: data,
+					success: function (data) {
+				     	// alert(JSON.stringify(data));
+				     	// alert(data.length);
+				     	//渲染页面
+				     	var obj=document.getElementById('pptList');
+				     	// obj.innerHTML="";
+				     	var html='';
+				     	for (var i = 0; i < data.length; i++) {
+				     		html = html+'<a href="/main/powerpointinfo/'+data[i].id+'">'+
+				     		'<div class="powerpoint-show">'+
+			  				'<div class="content-show">'+
+			  				'<div class="powerpoint-img">'+
+							'<img src="/static/images/image1.png" style="width: 100%;height: 100%;">'+
+							'</div>'+
+							'<div class="show-right">'+
+							'<h2>'+data[i].name+'</h2>'+
+		 					'<p>'+data[i].author+'</p>'+
+		 					'<span class="left-date">'+data[i].create_time+'</span>'+
+		 					'<span class="right-date">'+data[i].reader_num+'次浏览'+'</span>'+
+							'</div></div></div>'+
+				     		'</a>';
+				     	}
+				     	console.log(html)
+				     	obj.innerHTML=html;
+				    },
+				    error: function(data) {
+				     	alert("Sorry error");
+					}
+				});
+	    	}
 	    }
 	  });
 	  
