@@ -22,6 +22,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		      <textarea  class="layui-textarea" id="introduce" lay-verify="introduce|required" placeholder="请输入专家介绍" style="height: 180px; line-height: 24px;"><?php echo $data['description']; ?></textarea>
 		    </div>
 		  </div>
+
+		  <div class="layui-form-item" >
+		    <label class="layui-form-label">文章作者</label>
+		    <div class="layui-input-block" style="width: 40%;">
+		      <input type="text" id="author" lay-verify="author" autocomplete="off" value="<?php echo $data['author']; ?>" class="layui-input">
+		    </div>
+		  </div>
+		   <div class="layui-form-item" >
+		    <label class="layui-form-label">作者职称</label>
+		    <div class="layui-input-block" style="width: 40%;">
+		      <input type="text" id="title" lay-verify="title" autocomplete="off" value="<?php echo $data['title']; ?>" class="layui-input">
+		    </div>
+		  </div>
 		 
 		  <div class="layui-form-item" pane="">
 		    <label class="layui-form-label">主题</label>
@@ -155,6 +168,8 @@ layui.use(['form', 'layedit', 'laydate'], function(){
 		  	layer.close(index);
 		  	var name = document.getElementById("name");
 		  	var introduce = document.getElementById("introduce");
+		  	var author = document.getElementById("author");
+		  	var title = document.getElementById("title");
 		  	var theme = '';
 		  	var themeRadio = document.getElementsByName("theme");
 		  	for (i=0; i<themeRadio.length; i++) {  
@@ -172,6 +187,8 @@ layui.use(['form', 'layedit', 'laydate'], function(){
 				id: id.value,
 				name: name.value,
 				introduce: introduce.value,
+				author: author.value,
+				title: title.value,
 				theme: theme.value,
 				type: type.value,
 				language: language.value,

@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <link rel="stylesheet" href="/static/css/powerpoint-page.css">
+<script type="text/javascript" src="/static/js/province.js"></script>
 <div class="layui-container">
 	<div class="index-search">
 		<div class="search-bar">
@@ -21,9 +22,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<label>选项:</label>
 			<select id="theme">
 				<option value="">主题</option>
-				<option value="1">主题1</option>
-				<option value="2">主题2</option>
-				<option value="3">主题3</option>
+				<option value="1">慢性疾病</option>
+				<option value="2">健康生活方式</option>
+				
 			</select>
 			<select id="type">
 				<option value="">类型</option>
@@ -36,10 +37,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<option value="1">中文</option>
 				<option value="2">English</option>
 			</select>
-			<select id="language" style="width: 80px;">
+			<select id="province" style="width: 80px;">
 				<option value="">制作省份</option>
-				<option value="1">北京</option>
-				<option value="2">广州</option>
+				
 			</select>
 		</div>
 	</div>
@@ -104,6 +104,44 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 
 <div id="pageNavi" style="text-align: center;margin-top: 50px;"></div>
+
+<script type="text/javascript">
+	var sickData,lifeData;
+	$.getJSON("/static/js/sickTheme.json",function(data){ 
+		sickData = data; 
+		var typeObj = document.getElementById("type");
+		var innerHTML = '';
+		for(value in sickData){
+			innerHTML=innerHTML+'<option value="'+sickData[value].id+'">'+sickData[value].name+"</option>";
+		}
+		typeObj.innerHTML = innerHTML;
+	});  
+
+	//province
+	var provinceObj = document.getElementById("province");
+	var innerHTML = '';
+	for(value in province){
+		innerHTML=innerHTML+'<option value="'+province[value]+'">'+province[value]+"</option>";
+	}
+	provinceObj.innerHTML = innerHTML;
+
+	$("select#theme").change(function(){
+		var themeId = $(this).val();
+		$.getJSON("/static/js/sickTheme.json",function(data){ 
+			sickData = data; 
+			if(themeId == 1){
+				var typeObj = document.getElementById("type");
+				var innerHTML = '';
+				for(value in sickData){
+					innerHTML=innerHTML+'<option value="'+sickData[value].id+'">'+sickData[value].name+"</option>";
+				}
+				typeObj.innerHTML = innerHTML;
+			}
+		}); 
+	}
+
+</script>
+
 <script>
 //一般直接写在一个js文件中
 layui.use(['layer', 'form'], function(){

@@ -821,7 +821,7 @@ class Api extends MY_Controller {
             $postinfo= $this->Common->html_filter_array($_POST);
 
             $data=array(
-                    'name' => $postinfo['name'],'description' => $postinfo['introduce'],'theme' => $postinfo['theme'],
+                    'name' => $postinfo['name'],'description' => $postinfo['introduce'],'theme' => $postinfo['theme'],'author'=>$postinfo['author'],'title'=>$postinfo['title'],
                     'type' => $postinfo['type'],'language' => $postinfo['language'],'province' => $postinfo['province'],'pic_url' => $postinfo['pic_url'],'source_url' => $postinfo['source_url']
                 );
                 $rep = $this->Common->add($this->audio_table,$data);
@@ -927,7 +927,7 @@ class Api extends MY_Controller {
             $re_data['status'] = 100;
             $postinfo= $this->Common->html_filter_array($_POST);
             $where=array('id' => $postinfo['id']);
-            $data=array('name' => $postinfo['name'],'description' => $postinfo['introduce'],'type' => $postinfo['type'],'theme' => $postinfo['theme'],'language'=>$postinfo['language'],'province' => $postinfo['province'],'pic_url' => $postinfo['pic_url'],'source_url' => $postinfo['source_url']
+            $data=array('name' => $postinfo['name'],'description' => $postinfo['introduce'],'type' => $postinfo['type'],'theme' => $postinfo['theme'],'language'=>$postinfo['language'],'province' => $postinfo['province'],'pic_url' => $postinfo['pic_url'],'source_url' => $postinfo['source_url'],'author'=>$postinfo['author'],'title'=>$postinfo['title']
                 );
             $rep=$this->Common->update($this->audio_table,$where,$data);
             if($rep>0){
