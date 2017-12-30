@@ -41,7 +41,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    </div>
 		  </div>
 		  <div class="layui-form-item">
-		    <label class="layui-form-label">文章类型</label>
+		    <label class="layui-form-label">视频类型</label>
 		    <div class="layui-input-block" style="width: 40%">
 		      <select id="videoType" name="videoType" lay-filter="videoType|required">
 		        
