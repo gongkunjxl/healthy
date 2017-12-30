@@ -60,17 +60,24 @@ class Backend extends MY_Controller {
      * main content
      */
     public function main($page=1)
-    {
-    	
+    {	
         $user_count = $this->Common->get_count($this->user_table,'','');
         $expert_count = $this->Common->get_count($this->expert_table,'','');
         $article_count = $this->Common->get_count($this->article_table,'','');
         $picture_count = $this->Common->get_count($this->picture_table,'','');
+        $video_count = $this->Common->get_count($this->video_table,'','');
+        $audio_count = $this->Common->get_count($this->audio_table,'','');
+        $ppt_count = $this->Common->get_count($this->ppt_table,'','');
 
         $data['user_count'] = $user_count;
         $data['expert_count'] = $expert_count;
         $data['article_count'] = $article_count;
         $data['picture_count'] = $picture_count;
+        $data['video_count'] = $video_count;
+        $data['audio_count'] = $audio_count;
+        $data['ppt_count'] = $ppt_count;
+        $count = intval($article_count)+intval($picture_count)+intval($video_count)+intval($audio_count)+intval($ppt_count);
+        $data['count'] = $count;
         $re_data['data'] = $data;
   
         $this->load->view('backend/header');
@@ -270,6 +277,12 @@ class Backend extends MY_Controller {
         $order_type='desc';
         $select_field='*';
         $data=$this->Common->get_limit_order( $this->article_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
+        foreach ($data as $key => $value) {
+           //theme
+            $type_where = array('id' => $value['type']);
+            $type_data = $this->Common->get_one($this->type_table,$type_where);
+            $data[$key]['type'] = $type_data['name'];
+        }
         $count=$this->Common->get_count($this->article_table,'','');
         $re_data['data'] = $data;
         $re_data['count'] = $count;
@@ -415,6 +428,12 @@ class Backend extends MY_Controller {
         $order_type='desc';
         $select_field='id,name,description,seconds,theme,type,language,province,listen_num,create_time';
         $data=$this->Common->get_limit_order( $this->audio_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
+        foreach ($data as $key => $value) {
+           //theme
+            $type_where = array('id' => $value['type']);
+            $type_data = $this->Common->get_one($this->type_table,$type_where);
+            $data[$key]['type'] = $type_data['name'];
+        }
         $count=$this->Common->get_count($this->audio_table,'','');
         $re_data['data'] = $data;
         $re_data['count'] = $count;
@@ -475,6 +494,12 @@ class Backend extends MY_Controller {
         $order_type='desc';
         $select_field='id,name,description,author_id,author,page_count,theme,type,language,province,reader_num,pic_url,source_url,create_time';
         $data=$this->Common->get_limit_order( $this->ppt_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
+        foreach ($data as $key => $value) {
+           //theme
+            $type_where = array('id' => $value['type']);
+            $type_data = $this->Common->get_one($this->type_table,$type_where);
+            $data[$key]['type'] = $type_data['name'];
+        }
         $count=$this->Common->get_count($this->ppt_table,'','');
         $re_data['data'] = $data;
         $re_data['count'] = $count;
@@ -521,6 +546,69 @@ class Backend extends MY_Controller {
             unlink($tmp_header);
         }
         redirect('backend/pptAdmin/1');
+    }
+
+     /*
+      * video Admin(视频的相关操作) by gongkun
+    */
+    public function videoAdmin($page=1)
+    {
+        $page=$page;
+        $where=array();
+        $start=intval($page-1)*intval($this->per_page);
+        $orderby='ctime';
+        $order_type='desc';
+        $select_field='*';
+        $data=$this->Common->get_limit_order( $this->video_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
+        foreach ($data as $key => $value) {
+           //theme
+            $type_where = array('id' => $value['type']);
+            $type_data = $this->Common->get_one($this->type_table,$type_where);
+            $data[$key]['type'] = $type_data['name'];
+        }
+        $count=$this->Common->get_count($this->video_table,'','');
+        $re_data['data'] = $data;
+        $re_data['count'] = $count;
+        $re_data['limit'] = $this->per_page;
+        $this->load->view('backend/header');
+        $this->load->view('backend/videoAdmin',$re_data);
+        $this->load->view('backend/footer');
+    }
+    /*
+     * video edit by gongkun
+    */
+    public function videoEdit($id=0)
+    {
+        if($id>0){
+            $where = array('id' => $id);
+            $data = $this->Common->get_one($this->video_table,$where);
+            $re_data['data'] =$data;
+            $this->load->view('backend/header');
+            $this->load->view('backend/videoEdit',$re_data);
+            $this->load->view('backend/footer');
+        }else{
+            redirect('backend/articleAdmin/1');
+        }
+    }
+    /*
+     * add and upload video by gongkun
+    */
+    public function addVideo()
+    {
+        $this->load->view('backend/header');
+        $this->load->view('backend/addVideo');
+        $this->load->view('backend/footer');
+    }
+    /*
+     *  video delete by gongkun 
+    */
+    public function videoDelete($id=0)
+    {
+        if($id>0){
+            $where = array('id' => $id);
+            $rep = $this->Common->delete($this->video_table,$where);
+        }
+        redirect('backend/videoAdmin/1');
     }
 
 }

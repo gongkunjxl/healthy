@@ -130,9 +130,10 @@ html{margin: 0;padding: 0}
  .web-show{
  	padding-top: 20px;
  	width: 80%;
- 	height: 350px;
+ 	height: auto;
  	margin-left: 10%;
  	border: 2px solid #F5F5F5;
+ 	padding-bottom: 20px;
  	overflow: auto;
  }
 .web-show .content-show{
@@ -146,9 +147,94 @@ html{margin: 0;padding: 0}
 	text-align: center;
 }
 
+/* video show  */
+.cover-show{
+	height: 180px;
+	width: 80%;
+	max-width: 600px;
+	border: 2px solid #F5F5F5;
+}
+.cover-show img{
+	margin-left: 30px;
+	margin-top: 30px;
+	width: 200px;
+	height: 120px;
+	float: left;
+}
+.video-show{
+	height: 280px;
+	width: 80%;
+	max-width: 600px;
+	border: 2px solid #F5F5F5;
+}
+.video-show .video-content{
+	/*margin-top: 20px;*/
+	width: 360px;
+	height: 240px;
+	margin: 20px auto;
+	background-color: black;
+}
+.video-show .video-content video{
+    height: 240px;
+    width: 100%;
+    padding: 0.1px;
+    border:0.1px;
+    background-color: black;
+}
 
-
-
+/* 增加视频的css */
+.add-content{
+	width: 100%;
+	margin: 30px auto;
+	height: auto;
+	overflow: auto;
+}
+.add-content .add-cover{
+	margin-top: 5px;
+	height: 180px;
+	width: 80%;
+	max-width: 600px;
+	border: 2px solid #F5F5F5;
+}
+.add-content .add-cover img{
+	margin-left: 30px;
+	margin-top: 30px;
+	width: 200px;
+	height: 120px;
+	float: left;
+}
+.add-content .add-video{
+	margin-top: 5px;
+	height: 80px;
+	width: 80%;
+	max-width: 600px;
+	border: 2px solid #F5F5F5;
+}
+.add-content .add-video p{
+	margin-top: 30px;
+	margin-left: 130px;
+	font-size: 16px;
+}
+.add-content .upload-all
+{
+	margin-top: 5px;
+	height: 80px;
+	width: 80%;
+	max-width: 600px;
+	border: 2px solid #F5F5F5;
+}
+#resultBox {
+	width: 100%;
+	height: auto;
+	border: 1px solid #F5F5F5;
+	padding: 5px;
+	overflow: auto;
+	padding-bottom: 30px;
+}
+.uploaderMsgBox {
+	width: 100%;
+	/*border-bottom: 1px solid #888;*/
+}
 
 
 

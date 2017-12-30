@@ -31,9 +31,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		  		<td><?php echo $value['description'];?></td>
 		  		<td><?php echo $value['author'];?></td>
 		  		<td><?php echo $value['page_count'];?></td>
-		  		<td><?php echo $value['theme'];?></td>
+		  		<td><?php echo ($value['theme']==1)?"慢性病":"健康生活";?></td>
 		  		<td><?php echo $value['type'];?></td>
-		  		<td><?php echo $value['language'];?></td>
+		  		<td><?php echo ($value['language']==1)?"中文":"English";?></td>
 		  		<td><?php echo $value['province'];?></td>
 		  		<td><?php echo $value['reader_num'];?></td>
 		  		<td><?php echo $value['create_time'];?></td>
@@ -80,14 +80,16 @@ layui.use(['laypage', 'layer'], function(){
 				     	obj.innerHTML="";
 				     	var html='<tr>';
 				     	for (var i = 0; i < data.length; i++) {
+				     		if(data[i].language == 1){ language = "中文";} else{language = "English";}
+				     		if(data[i].theme == 1){ theme = "慢性病";}else{ theme = "健康生活";}
 				     		html=html+
 				     		'<td>'+data[i].name+'</td>'+
 				     		'<td>'+data[i].description+'</td>'+
 				     		'<td>'+data[i].author+'</td>'+
 				     		'<td>'+data[i].page_count+'</td>'+
-				     		'<td>'+data[i].theme+'</td>'+
+				     		'<td>'+theme+'</td>'+
 				     		'<td>'+data[i].type+'</td>'+
-				     		'<td>'+data[i].language+'</td>'+
+				     		'<td>'+language+'</td>'+
 				     		'<td>'+data[i].province+'</td>'+
 				     		'<td>'+data[i].reader_num+'</td>'+
 				     		'<td>'+new Date(parseInt(data[i].create_time) * 1000).toLocaleString()+'</td>'+

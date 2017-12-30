@@ -69,7 +69,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		  <div class="layui-form-item" >
 		    <label class="layui-form-label">文章页数</label>
 		    <div class="layui-input-block" style="width: 40%;">
-		      <input type="number" id="page" lay-verify="number|required" autocomplete="off" placeholder="请输入阅读量 默认是0" class="layui-input">
+		      <input type="number" id="page" lay-verify="number|required" autocomplete="off" placeholder="请输文章页数" class="layui-input">
 		    </div>
 		  </div>
 		  <div class="layui-form-item" style="margin-top: 60px;">

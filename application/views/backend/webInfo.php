@@ -17,11 +17,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<br>
 			<p>相册份数: <?php echo $data['picture_count']; ?>份</p>
 			<br>
-			<p>视频数量: 1123份</p>
+			<p>视频数量: <?php echo $data['video_count']; ?>份</p>
 			<br>
-			<p>音频数量: 1123份</p>
+			<p>音频数量: <?php echo $data['audio_count']; ?>份</p>
 			<br>
-			<p>幻灯片数量: 1123份</p>
+			<p>幻灯片数量: <?php echo $data['ppt_count']; ?>份</p>
+			<br>
+			<p>素材总量: <?php echo $data['count']; ?>份</p>
 		</div>		
 	</div>		
 </div>

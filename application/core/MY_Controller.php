@@ -21,6 +21,11 @@ class MY_Controller extends CI_Controller {
   public $smsSignName = "健康科普资源库";
   public $smsTemplate = "SMS_116567263";
 
+  //视频管理
+  public $secretId = "AKIDAFEW1QOhZefdTCbBsUzMdjdLtFPNrUlr";
+  public $secretKey = "qVyLXaS1WwAD4jD8xa7RbZL0Yu44tY7X";
+  public $secretVaile = 86000;
+
 	public $per_page = '10'; 
   public $rem_page = '6';  //推荐的文章加载数量
   public $pic_page = '3';  //推荐的图片集加载数量
@@ -39,6 +44,8 @@ class MY_Controller extends CI_Controller {
   public $picture_table = 'hea_picture';
   public $audio_table = 'hea_audio';
   public $ppt_table = 'hea_ppt';
+  public $sig_table = 'hea_signature';
+  public $video_table = 'hea_video';
     
   public function __construct() {
       parent::__construct();

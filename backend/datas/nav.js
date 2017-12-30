@@ -45,7 +45,7 @@ var navs = [
 {
 	"title": "视频管理",
 	"icon": "fa-file-video-o",
-	"href": "/backend/tableShow",
+	"href": "/backend/videoAdmin",
 	"spread": false
 },
 {

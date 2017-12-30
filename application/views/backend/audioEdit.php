@@ -39,8 +39,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		  <div class="layui-form-item" pane="">
 		    <label class="layui-form-label">主题</label>
 		    <div class="layui-input-block">
-		      <input type="radio" name="theme" value="1" <?php if($data['theme']== 1):?> checked="true" <?php endif; ?> title="慢性疾病" checked="">
-		      <input type="radio" name="theme" value="2" <?php if($data['theme']== 2):?> checked="true" <?php endif; ?> title="健康生活方式">
+		         <input type="radio" lay-filter="theme" name="theme" <?php if($data['theme']== 1):?> checked="true" <?php endif; ?> value="1"  title="慢性病" >
+		      <input type="radio" name="theme" lay-filter="theme" <?php if($data['theme']== 2):?> checked="true" <?php endif; ?> value="2"   title="健康生活方式">
 		    </div>
 		  </div>
 
@@ -159,8 +159,26 @@ layui.use(['form', 'layedit', 'laydate'], function(){
    // var introduce = layedit.build('introduce');
    // var study = layedit.build('study');
    // var education = layedit.build('education');
+   	// 监听radio事件
+  	form.on('radio(theme)', function(data){
+  		var typeObj = document.getElementById("type");
+  	 	var innerHTML = '';
+	  	if(data.value == 1){
+			for(value in sickData){
+				innerHTML=innerHTML+'<option value="'+sickData[value].id+'">'+sickData[value].name+"</option>";
+			}
+	  	}else{
+	  		for(value in lifeData){
+				innerHTML=innerHTML+'<option value="'+lifeData[value].id+'">'+lifeData[value].name+"</option>";
+			}
+	  	}
+	  	// alert(innerHTML);
+	  	typeObj.innerHTML = innerHTML;
+	  	form.render('select'); 
+	});  
+
+
 	form.on('submit(editSubmit)', function(data){
-	   
 		layer.confirm('确认提交音频信息？', { title:['提交音频信息提示','font-size:20px; text-align:center']}, function(index)
 		{
  		 	//do something

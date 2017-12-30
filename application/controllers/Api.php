@@ -352,6 +352,44 @@ class Api extends MY_Controller {
         }
     }
 
+    /*
+     * get signature by gongkun valid one day
+    */
+    public function getSignature()
+    {
+        if($_POST){
+            $re_data['status'] = 100;
+            $postinfo= $this->Common->html_filter_array($_POST);
+            if($postinfo['action'] == 'signature'){
+                $where = array('id' => '1');
+                $rep_data = $this->Common->get_one($this->sig_table,$where);
+                $current = time();
+                $old_time = intval($rep_data['ctime'])+intval($this->secretVaile);
+                //expired
+                if($current > $old_time){ 
+                    $expired = $current + intval($this->secretVaile)+400;
+                    $arg_list = array(
+                    "secretId" => $this->secretId,
+                    "currentTimeStamp" => $current,
+                    "expireTime" => $expired,
+                    "random" => rand()
+                    );
+                    $orignal = http_build_query($arg_list);
+                    $signature = base64_encode(hash_hmac('SHA1', $orignal, $this->secretKey, true).$orignal);
+                    $up_data = array('signature' => $signature,'ctime' => $current);
+                    $rep = $this->Common->update($this->sig_table,$where,$up_data);
+                    if($rep>0){
+                        $re_data['status'] = 200;
+                        $re_data['signature'] = $signature;
+                    }
+                }else{
+                    $re_data['status'] = 200;
+                    $re_data['signature'] = $rep_data['signature'];
+                }
+            }
+            echo  json_encode($re_data);
+        }
+    }
 
     /*************  以下部分是后台的API函数  by gongkun **************/
 
@@ -620,8 +658,6 @@ class Api extends MY_Controller {
         echo json_encode($return);
     }
 
-
-
     /*
      * picture admin by gongkun
     */
@@ -811,7 +847,9 @@ class Api extends MY_Controller {
         // $return['postinfo'] = $postinfo;
         echo json_encode($return);
     }
-    /**by liuzuobin
+
+    /*
+     *by liuzuobin
     **/
     public function addNewAudioInfo()
     {
@@ -948,7 +986,12 @@ class Api extends MY_Controller {
         $order_type='desc';
         $select_field='id,name,description,seconds,theme,type,language,province,listen_num,create_time';
         $data=$this->Common->get_limit_order( $this->audio_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
-        
+        foreach ($data as $key => $value) {
+           //theme
+            $type_where = array('id' => $value['type']);
+            $type_data = $this->Common->get_one($this->type_table,$type_where);
+            $data[$key]['type'] = $type_data['name'];
+        }
         echo json_encode($data);
     }
 
@@ -963,7 +1006,12 @@ class Api extends MY_Controller {
         $order_type='desc';
         $select_field='id,name,description,author_id,author,page_count,theme,type,language,province,reader_num,pic_url,source_url,create_time';
         $data=$this->Common->get_limit_order( $this->ppt_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
-        
+        foreach ($data as $key => $value) {
+           //theme
+            $type_where = array('id' => $value['type']);
+            $type_data = $this->Common->get_one($this->type_table,$type_where);
+            $data[$key]['type'] = $type_data['name'];
+        }
         echo json_encode($data);
     }
 
@@ -1094,7 +1142,86 @@ class Api extends MY_Controller {
         echo json_encode($data);
     }
 
+    /*
+     * get more video by gongkun
+    */
+    public function videoTable($page=1)
+    {
+        if($_POST){
+            $postinfo= $this->Common->html_filter_array($_POST);
+            $page = $postinfo['page'];
+        }
+        $where=array();
+        $start=intval($page-1)*intval($this->per_page);
+        $orderby='ctime';
+        $order_type='desc';
+        $select_field='*';
+        $data=$this->Common->get_limit_order( $this->video_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
+        foreach ($data as $key => $value) {
+           //theme
+            $type_where = array('id' => $value['type']);
+            $type_data = $this->Common->get_one($this->type_table,$type_where);
+            $data[$key]['type'] = $type_data['name'];
+        }
+        echo json_encode($data);
+    }
+    /*
+     * update cover address by gongkun
+    */
+    public function updateCover()
+    {
+        if($_POST){
+            $re_data['status'] =100;
+            $postinfo = $this->Common->html_filter_array($_POST);
+            $where=array('id' => $postinfo['id']);
+            $data = array('covAddr' => $postinfo['covAddr']);
+            $rep = $this->Common->update($this->video_table,$where,$data);
+            if($rep>0){
+                $re_data['status'] = 200;
+            }
+            echo json_encode($re_data);
+        }
+    }
+     /*
+     * update video info by gongkun
+    */
+    public function updateVideoInfo()
+    {
+        if($_POST){
+            $re_data['status'] = 100;
+            $postinfo= $this->Common->html_filter_array($_POST);
+            $where=array('id' => $postinfo['id']);
+            $data=array('videoId' => $postinfo['videoId'],'name' => $postinfo['name'],'author' => $postinfo['author'],'title' => $postinfo['title'],'read' => $postinfo['read'],'videoAddr' => $postinfo['videoAddr'],'covAddr' => $postinfo['covAddr'],'type' => $postinfo['type'],'themeId' => $postinfo['theme'],'language'=>$postinfo['language'],'province' => $postinfo['province']);
+            $rep=$this->Common->update($this->video_table,$where,$data);
+            if($rep>0){
+                $re_data['status'] =200;
+            }
+            echo json_encode($re_data);
+        }
+    }
+      /*
+     * add new video by gongkun
+    */
+    public function addNewVideo()
+    {
+        if($_POST){
+            $re_data['status'] = 100;
+            $postinfo= $this->Common->html_filter_array($_POST);
+            $ctime = time();
+            $data=array(
+                    'name' => $postinfo['name'],'videoId' => $postinfo['videoId'],'author' => $postinfo['author'],'title' => $postinfo['title'],
+                    'read' => $postinfo['read'],'type' => $postinfo['type'],'themeId' => $postinfo['theme'],'language'=>$postinfo['language'],'province' => $postinfo['province'],'videoAddr' => $postinfo['videoAddr'],'covAddr' => $postinfo['covAddr'],'ctime' => $ctime
+            );
+            $rep = $this->Common->add($this->video_table,$data);
+            if($rep>0){
+                $re_data['status'] =200;
+            }
+            echo json_encode($re_data);
+        }
+    }
+    
 }
+
 
 
 

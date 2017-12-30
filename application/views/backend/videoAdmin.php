@@ -6,17 +6,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="layui-container" >
 	<!-- <?php //echo var_dump($data); ?> -->
 	<!-- <?php// echo count($data); ?> -->
-	<h2> 数据库中文章列表(<?php echo $count; ?>篇) </h2>
-	<a  style="margin-bottom:10px; margin-top: 0; font-weight: 400" href="/backend/addArticle" class="layui-btn">新增文章</a>
+	<h2> 数据库中视频列表(<?php echo $count; ?>份) </h2>
+	<a  style="margin-bottom:10px; margin-top: 0; font-weight: 400" href="/backend/addVideo" class="layui-btn">新增视频</a>
 	<table class="layui-table" style="">
 	  <thead>
 	    <tr>
 	      <th width="5%">ID</th>
-	      <th width="15%">文章标题</th>
+	      <th width="10%">视频标题</th>
+	      <th width="10%">点播ID</th>
 	      <th width="10%">作者</th>
 	      <th width="5%">职称</th>
-	      <th width="5%">阅读量</th>
-	      <th width="5%">页数</th>
+	      <th width="5%">播放量</th>
 	      <th width="5%">省份</th>
 	      <th width="5%">语言</th>
 	      <th width="5%">类型</th>
@@ -30,17 +30,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		  	<tr>
 		  		<td><?php echo $value['id'];?></td>
 		  		<td><?php echo $value['name'];?></td>
+		  		<td><?php echo $value['videoId'];?></td>
 		  		<td><?php echo $value['author']; ?></td>
 		  		<td><?php echo $value['title'];?></td>
 		  		<td><?php echo $value['read'];?></td>
-		  		<td><?php echo $value['page'];?></td>
 		  		<td><?php echo $value['province'];?></td>
 		  		<td><?php echo ($value['language']==1)?"中文":"English";?></td>
 		  		<td><?php echo $value['type'];?></td>
 		  		<td><?php echo ($value['themeId']==1)?"慢性病":"健康生活";?></td>
 		  		<td><?php echo date("Y-m-d H:i:s",$value['ctime']);?></td>
 		  		<td>
-					<a class="layui-btn layui-btn-xs" href="/backend/articleEdit/<?php echo $value['id']; ?>" >详情</a>
+					<a class="layui-btn layui-btn-xs" href="/backend/videoEdit/<?php echo $value['id']; ?>" >详情</a>
 					<a class="layui-btn layui-btn-danger layui-btn-xs" onclick="delClick(this);" value="<?php echo $value['id']; ?>">删除</a>
 		  		</td>
 		  	</tr>
@@ -48,7 +48,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	  </tbody>
 	</table> 
 	<div id="pageNav" class="page-nav"></div>
-	
 </div>
 
 <script>
@@ -73,7 +72,7 @@ layui.use(['laypage', 'layer'], function(){
 					page: obj.curr
 				};
 				$.ajax({
-					url: '/api/articleTable',
+					url: '/api/videoTable',
 					type: 'post',
 					dataType:'json',
 					data: data,
@@ -91,10 +90,10 @@ layui.use(['laypage', 'layer'], function(){
 
 				     		html=html+'<td>'+data[i].id+'</td>'+
 				     		'<td>'+data[i].name+'</td>'+
+				     		'<td>'+data[i].videoId+'</td>'+
 				     		'<td>'+data[i].author+'</td>'+
 				     		'<td>'+data[i].title+'</td>'+
 				     		'<td>'+data[i].read+'</td>'+
-				     		'<td>'+data[i].page+'</td>'+
 				     		'<td>'+data[i].province+'</td>'+
 				     		'<td>'+language+'</td>'+
 				     		'<td>'+data[i].type+'</td>'+
@@ -123,10 +122,10 @@ function  delClick(obj)
 {
     // alert(obj.getAttribute("value"));
     layer = layui.layer;
- 	layer.confirm('确认删除该文章？', { title:['删除文章信息提示','font-size:20px; text-align:center']}, function(index)
+ 	layer.confirm('确认删除该视频(腾讯云上的视频需要手动删除)？', { title:['删除视频信息提示','font-size:20px; color:red; text-align:center']}, function(index)
 	{
 		layer.close(index);
-		window.location.href="/backend/articleDelete/"+obj.getAttribute("value");
+		window.location.href="/backend/videoDelete/"+obj.getAttribute("value");
 	});
 }
 </script>

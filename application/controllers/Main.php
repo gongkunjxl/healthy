@@ -20,7 +20,6 @@ class Main extends MY_Controller {
  		fwrite($file,json_encode($data));
  		fclose($file);
     }
-
     //主页
 	public function index()
 	{
@@ -249,6 +248,16 @@ class Main extends MY_Controller {
 	{
 		$this->load->view('header');
 		$this->load->view('video/videoinfo');
+		$this->load->view('footer');	
+	}
+
+	/*
+	 * upload video test by gongkun
+	*/
+	public function uploadVideo()
+	{
+		$this->load->view('header');
+		$this->load->view('video/uploadVideo');
 		$this->load->view('footer');	
 	}
 

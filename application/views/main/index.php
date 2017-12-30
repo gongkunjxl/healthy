@@ -114,7 +114,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="content">
 			<div class="video-show">
 				<video poster="/static/images/image1.png"   controls preload "> 
-					<source src="/video/movie1.mp4"></source>
+					<source src="http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/acae3eba4564972818825976127/3g271zmMb48A.mp4"></source>
 				</video>
 			</div>
 			<div class="video-label">
@@ -360,6 +360,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<a style="margin-top: 50px; margin-left: 60px;" href="/main/testdemo">测试按钮</a>
 		<a style="margin-top: 50px; margin-left: 60px;" href="/backend/index">后台测试</a>
 		<a style="margin-top: 50px; margin-left: 60px;" href="/main/message">短信测试</a>
+		<a style="margin-top: 50px; margin-left: 60px;" href="/main/uploadVideo">视频测试</a>
 	</div>
 	<div style="height: 100px; margin-top:40px;width: 100%; background-color: #F5F5F5;border: 1px;padding: 0.1px;">
 		<a style="margin-top: 50px; margin-left: 10px;" href="/main/expert">专家页面</a>
