@@ -342,8 +342,19 @@ class Api extends MY_Controller {
         echo json_encode($data);
     }
     /*
-     *
+     * video play by gongkun(update read)
     */
+    public function videoPlay($id=0)
+    {
+        $id = $id;
+        if($_POST){
+            $postinfo = $this->Common->html_filter_array($_POST);
+            $id = $postinfo['id'];
+        }
+        $where = array('id' => $id);
+        $data = $this->Common->get_one($this->video_table,$where);
+        echo json_encode($data);
+    }
 
     // upload mutiple picture
     public function uploadMutiPic()

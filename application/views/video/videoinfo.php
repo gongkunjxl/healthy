@@ -11,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		  	<!-- 视频 -->
 			<div class="video-video">
 		    	<div class="video-title">
-		    		<h2><?php echo $data['name']; ?></h2>
+		    		<h2 id="videoTitle"><?php echo $data['name']; ?></h2>
 		    	</div>	
 		    	<!-- 内容 -->
 		    	<div class="video-content">
@@ -112,7 +112,6 @@ layui.use('flow', function(){
 <script type="text/javascript">
 	function videoClick(id)
 	{
-		alert(id);
 		//request and update the read data
 		var data={
 			id: id
@@ -123,17 +122,18 @@ layui.use('flow', function(){
      		dataType:'json',
      		data: data,
      		success: function (data) {
-               alert(JSON.stringify(data));
+//               alert(JSON.stringify(data));
+				document.getElementById("video-item").innerHTML="";
+       			document.getElementById("video-item").innerHTML='<video poster="'+data.covAddr+'" controls preload style="background-color: black">\
+       			<source src="'+data.videoAddr+'"></source></video>';
+       			var title = document.getElementById("videoTitle");
+       			title.innerText = data.name;
          	},
          	error: function(data) {
                alert("Sorry error");
     		 }
      	});
-
-
-		// 删除
       // 	document.getElementById("video-item").innerHTML="";
-
        	// // add
        	// document.getElementById("video-item").innerHTML='<video poster="/static/images/image2.png" controls preload style="background-color: black">\
        	// 		<source src="/video/movie2.mp4"></source></video>\
