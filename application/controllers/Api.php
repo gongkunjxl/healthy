@@ -305,6 +305,45 @@ class Api extends MY_Controller {
         }
         echo json_encode($data);
     }
+      /*
+     *  get the video list by gongkun
+    */
+    public function videoList($page=1)
+    {
+        $page=$page;
+        if($_POST){
+            $postinfo= $this->Common->html_filter_array($_POST);
+            $page = $postinfo['page'];
+        }
+        $where=array();
+        $start=intval($page-1)*intval($this->per_page);
+        $orderby='ctime';
+        $order_type='desc';
+        $select_field='id,name,author,title,read,ctime,covAddr';
+        $data=$this->Common->get_limit_order( $this->video_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field,'');
+        echo json_encode($data);
+    }
+    /*
+     * the recommend video by gongkun
+    */
+    public function videoRecommend($page=1)
+    {
+        $page=$page;
+        if($_POST){
+            $postinfo= $this->Common->html_filter_array($_POST);
+            $page = $postinfo['page'];
+        }
+        $where=array();
+        $start=intval($page-1)*intval($this->rem_page);
+        $orderby='ctime';
+        $order_type='desc';
+        $select_field='*';
+        $data=$this->Common->get_limit_order( $this->video_table,$where,$start,$this->rem_page,$orderby,$order_type,$select_field,'');
+        echo json_encode($data);
+    }
+    /*
+     *
+    */
 
     // upload mutiple picture
     public function uploadMutiPic()

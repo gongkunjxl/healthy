@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
+<script type="text/javascript" src="/static/js/index.js"></script>
+<script type="text/javascript" src="/static/js/province.js"></script>
 <div class="layui-container">
 	<div class="index-search">
 		<div class="search-bar">
@@ -10,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			      <input type="text" style="border:1.5px solid #009ACD;border-radius:0px;" name="title" required  lay-verify="required" placeholder="本站共收录2000份科普材料" autocomplete="off" class="layui-input">
 			    </div>
 			    <div class="layui-input-inline" style="width: 80px;">
-                        <button  style="width: 80px; height: 38px; font-size: 14px;background-color: #009ACD;border: 0;border-radius:0px;" lay-submit="" lay-filter="search"><i class="layui-icon" style="margin-right:7px;">&#xe615;</i>搜索</button>
+                    <button  style="width: 80px; height: 38px; font-size: 14px;background-color: #009ACD;border: 0;border-radius:0px;" lay-submit="" lay-filter="search"><i class="layui-icon" style="margin-right:7px;">&#xe615;</i>搜索</button>
                 </div>
 			  </div>
 			</form>
@@ -18,26 +20,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<!-- 选择 -->
 		<div class="search-option">
 			<label>选项:</label>
-			<select id="theme">
-				<option value="">主题</option>
+			<select id="theme" onchange="selTheme();" style="width: 80px;">
+				<option value="0">主题</option>
 				<option value="1">慢性病</option>
-				<option value="2">健康生活方式</option>
+				<option value="2">健康生活</option>
 			</select>
-			<select id="type">
-				<option value="">类型</option>
-				<option value="1">慢性病</option>
+			<select id="type" style="width: 80px;" onchange="selType();">
+			<!-- 	<option value="0">类型</option> -->
+	<!-- 			<option value="1">慢性病</option>
 				<option value="2">心脏病</option>
-				<option value="3">冠心病</option>
+				<option value="3">冠心病</option> -->
 			</select>
-			<select id="language">
-				<option value="">语言</option>
+			<select id="language" onchange="selLanguage();" style="width: 80px; ">
+				<option value="0">语言</option>
 				<option value="1">中文</option>
 				<option value="2">English</option>
 			</select>
-			<select id="language" style="width: 80px;">
-				<option value="">制作省份</option>
+			<select id="province" onchange="selProvince();" style="width: 80px;">
+				<!-- <option value="0">制作省份</option>
 				<option value="1">北京</option>
-				<option value="2">广州</option>
+				<option value="2">广州</option> -->
 			</select>
 		</div>
 	</div>
@@ -378,10 +380,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 </div>
 
+
+
+
+
 <script>
-// $.getJSON("/static/js/sick.json",function(data){ 
-// 	alert(JSON.stringify(data[0].id));
-// }); 
+// the province
+var provinceObj = document.getElementById("province");
+var proHTML = '';
+proHTML=proHTML+'<option value="0">省份</option>';
+for(value in province){
+	proHTML=proHTML+'<option value="'+province[value]+'">'+province[value]+"</option>";
+}
+provinceObj.innerHTML = proHTML;
 
 //一般直接写在一个js文件中
 layui.use(['layer', 'form'], function(){
@@ -390,6 +401,7 @@ layui.use(['layer', 'form'], function(){
  
 });
 </script>
+
 <!-- audio -->
 <script>
 	var audio = {

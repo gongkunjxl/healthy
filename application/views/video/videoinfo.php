@@ -4,19 +4,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <link rel="stylesheet" type="text/css" href="/static/css/videoinfo-page.css">
 
 <div class="layui-container">
+	<!-- <?php //var_dump($data); ?> -->
     <div class="layui-row ">
 		<!-- ledt-->
 		<div class="layui-col-md8">		
 		  	<!-- 视频 -->
 			<div class="video-video">
 		    	<div class="video-title">
-		    		<h2>刘教授讲解冬季保暖技巧</h2>
+		    		<h2><?php echo $data['name']; ?></h2>
 		    	</div>	
 		    	<!-- 内容 -->
 		    	<div class="video-content">
 					<div class="video-item" id="video-item">
-						<video poster="/static/images/image1.png" controls preload style="background-color: black"> 
-							<source src="/video/movie1.mp4"></source>
+						<video poster="<?php echo $data['covAddr']; ?>" controls preload style="background-color: black"> 
+							<source src="<?php echo $data['videoAddr']; ?>"></source>
 						</video>
 					</div>
 		    	</div>
@@ -38,23 +39,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			    		<p class="font-set"> 上传日期: 2017.11.12</p>			    
 			    	</li>
 			    </a> -->
-			  <!--   <a class="apointer">
-			    	 <li id="video">
-			    		<img class="title-image" src="/static/images/image2.png">
-			    		<p>管理胆固醇演讲管理胆固醇演讲管理胆固醇演讲管理胆固醇演讲</p>
-			    		<p class="font-set"> 播放: 100</p>
-			    		<p class="font-set"> 上传日期: 2017.11.12</p>			    
-			    	</li>
-			    </a> -->
-			<!--     <a class="apointer">
-			    	 <li id="video">
-			    		<img class="title-image" src="/static/images/image2.png">
-			    		<p>管理胆固醇演讲管理胆固醇演讲管理胆固醇演讲管理胆固醇演讲</p>
-			    		<p class="font-set"> 播放: 100</p>
-			    		<p class="font-set"> 上传日期: 2017.11.12</p>			    
-			    	</li>
-			    </a> -->
-
 			    </ul>
 		    </div>
     </div>
@@ -71,6 +55,16 @@ layui.use(['layer', 'form'], function(){
 </script> 
 <!-- 流加载 -->
 <script>
+function formatDateTime(timeStamp) {   
+    var date = new Date();  
+    date.setTime(timeStamp * 1000);  
+    var y = date.getFullYear();      
+    var m = date.getMonth() + 1;      
+    m = m < 10 ? ('0' + m) : m;      
+    var d = date.getDate();      
+    d = d < 10 ? ('0' + d) : d;          
+    return y + '-' + m + '-' + d;      
+};
 layui.use('flow', function(){
   	var flow = layui.flow;
  
@@ -83,17 +77,32 @@ layui.use('flow', function(){
 	      //模拟插入
 	      setTimeout(function(){
 	        var lis = [];
-	        for(var i = 0; i < 6; i++){
-	         	var litem='<a class="apointer"><li onclick="videoClick(\'sound.mp4\');" id="video" value="sound.mp4">\
-	         	<img class="title-image" src="/static/images/image2.png" value="100">\
-	         	<p>管理胆固醇演讲管理胆固醇演讲管理胆固醇演讲管理胆固醇演讲</p>\
-	         	<p class="font-set"> 播放: 100</p>\
-	         	<p class="font-set"> 上传日期: 2017.11.12</p>\
-	         	</li></a>';
-			  // var litem='<a href="#"><li><img style="width:100px; height:60px;" lay-src="http://s17.mogucdn.com/p2/161011/upload_279h87jbc9l0hkl54djjjh42dc7i1_800x480.jpg?v='+ ( (page-1)*6 + i + 1 ) +'"></li></a>'
-	          lis.push(litem);
-	        }
-	        next(lis.join(''), page < 6); //假设总页数为 6
+	        var data={
+					page: page
+				};
+				$.ajax({
+					url: '/api/videoRecommend',
+					type: 'post',
+					dataType:'json',
+					data: data,
+					success: function (data) {
+				     	 // alert(JSON.stringify(data));
+				     	// alert(data.length);
+				     	 for (var i = 0; i < data.length; i++) {
+				         	var litem='<a class="apointer"><li onclick="videoClick(\''+data[i].id+'\');" id="'+data[i].id+'">\
+	         				<img class="title-image" src="'+data[i].covAddr+'">\
+				         	<p>'+data[i].name+'</p>\
+				         	<p class="font-set"> 播放: '+data[i].read+'</p>\
+				         	<p class="font-set"> 上传日期: '+formatDateTime(data[i].ctime)+'</p>\
+				         	</li></a>';
+			     		    lis.push(litem);
+				     	 }
+				     	 next(lis.join(''), page < 6); //假设总页数为 6
+				    },
+				    error: function(data) {
+				     	alert("Sorry error");
+					}
+				});
 	      }, 500);
 	    }
 	  });
@@ -101,29 +110,37 @@ layui.use('flow', function(){
 </script>
 
 <script type="text/javascript">
-	function videoClick(value)
+	function videoClick(id)
 	{
-		// alert(value);
-		// 删除
-       	document.getElementById("video-item").innerHTML="";
+		alert(id);
+		//request and update the read data
+		var data={
+			id: id
+		};
+		$.ajax({
+		    url: '/api/videoPlay',
+     		type: 'post',
+     		dataType:'json',
+     		data: data,
+     		success: function (data) {
+               alert(JSON.stringify(data));
+         	},
+         	error: function(data) {
+               alert("Sorry error");
+    		 }
+     	});
 
-       	// add
-       	document.getElementById("video-item").innerHTML='<video poster="/static/images/image2.png" controls preload style="background-color: black">\
-       			<source src="/video/movie2.mp4"></source></video>\
-       			<p>这个真的好难</p>';
+
+		// 删除
+      // 	document.getElementById("video-item").innerHTML="";
+
+       	// // add
+       	// document.getElementById("video-item").innerHTML='<video poster="/static/images/image2.png" controls preload style="background-color: black">\
+       	// 		<source src="/video/movie2.mp4"></source></video>\
+       	// 		<p>这个真的好难</p>';
        	// alert(document.getElementById("video-item").innerHTML);
 	}
-	// $("ul li").on("click",function(){      //只需要找到你点击的是哪个ul里面的就行
 
- //     alert($(this).text());
- //       // alert($(this).attr("img",$(this).val()));
- //       // alert($(this).attr("value"));
- //       //删除div 
- //       // var video=document.getElementById("video-item"); 
- //       // video.remove('video','p');
-
- //     // alert($(this).arrt("value"));
- // });
 </script>
 
 

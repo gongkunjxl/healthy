@@ -23,38 +23,47 @@
     float: left;
 } 
 
-
-.video-list-content{
+.video-content{
     width: 100%;
-    height: 130px;
-    margin-top: 25px;
-    /*background-color: #F5F5F5;*/
+    height: auto;
+    padding: 0;
+    border: 0;
+    margin: 0;
 }
-.video-list-content .content{
-    height: 100%;
-    width: 35%;
+.video-content .video-list-content{
+    width: 50%;
+    height: 160px;
+    margin-top: 25px;
     float: left;
-    margin-left: 5%;
+    overflow: auto;
+    border-bottom: 1.5px solid #bfcace;
+}
+.video-content .video-list-content .content{
+    height: 130px;
+    width: 80%;
+    float: left;
+    margin-left: 10%;
     /*background-color: #fff0f5;*/
     padding: 0.1px;
 }
-.video-list-content .content .video-show{
+.video-content .video-list-content .content .video-show{
     height: 100%;
     width: 45%;
     float: left;
 }
-.video-list-content .content .video-show video{
+.video-content .video-list-content .content .video-show video{
     height: 100%;
     width: 100%;
     background-color: black;
 }
-.video-list-content .content .video-label{
+.video-content .video-list-content .content .video-label{
     padding-top:10px;
     height: 100%;
     width: 50%;
+    background-color: #fff;
     float: right;
 }
-.video-list-content .content .video-label h2{
+.video-content .video-list-content .content .video-label h2{
     vertical-align: middle;
     font-size: 16px;
     width: 90%;
@@ -65,7 +74,7 @@
     white-space: nowrap;
     word-wrap: normal;
 }
-.video-list-content .content .video-label .left-label{
+.video-content .video-list-content .content .video-label .left-label{
     font-size: 14px;
     width: 40%;
     margin-top: 11px;
@@ -77,7 +86,7 @@
     word-wrap: normal;
     float: left;
 }
-.video-list-content .content .video-label .right-label{
+.video-content .video-list-content .content .video-label .right-label{
     font-size: 14px;
     width: 40%;
     margin-top: 10px;
@@ -90,8 +99,11 @@
     float: right;
 }
 
-.video-list-content .content .video-label .author{
+.video-content .video-list-content .content .video-label .author{
     margin-top: 25px;
     margin-left: 17px;
     margin-right: 1px;
 }
+
+
+

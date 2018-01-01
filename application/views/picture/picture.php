@@ -77,7 +77,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </ul> 
 <!-- pic show -->
 <!-- <?php //var_dump($data); ?> -->
-<div class="picture-content" id="pictureList">
+ <div class="picture-content" id="pictureList">
   <?php if(count($data)>0): ?>
   <?php foreach($data as $value ):?>
 	<div class="picture-list-content">
@@ -122,7 +122,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div> -->
 </div>
 <div style="clear: both;"> </div>
-<div id="pageNav" style="text-align: center;margin-top: 80px;"></div>
+<div id="pageNav" style="text-align: center;margin-top: 50px;"></div>
 <script>
 //一般直接写在一个js文件中
 layui.use(['layer', 'form'], function(){

@@ -88,9 +88,6 @@ class Main extends MY_Controller {
 		$this->load->view('footer');
 
 	}
-
-
-
 	/*
 	 * logout by gongkun
 	 */
@@ -102,7 +99,6 @@ class Main extends MY_Controller {
 		$_SESSION['type']=0;
 		redirect('main/index');
 	}
-
 	/*
 	 * register by gognkun
 	 */
@@ -225,7 +221,9 @@ class Main extends MY_Controller {
 		$this->load->view('footer');	
 	}
 
-	//audioinfo
+	/* 
+	 * article info by 
+	*/
 	public function audioInfo($id=0)
 	{
 		$where = array('id' => $id);
@@ -233,21 +231,39 @@ class Main extends MY_Controller {
 		$re_data['data'] = $data;
 		$this->load->view('header');
 		$this->load->view('audio/audioinfo',$re_data);
-	}
-
-	//视频链接
-	public function video()
+		$this->load->view('footer');	
+	}	
+	/*
+	  * video info by gongkun
+	*/
+	public function video($page=1)
 	{
-		$data['title'] ='video';
+    	$where=array();
+    	$start=intval($page-1)*intval($this->per_page);
+    	$orderby='ctime';
+    	$order_type='desc';
+    	$select_field='id,name,author,title,read,ctime,covAddr';
+    	$data=$this->Common->get_limit_order( $this->video_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
+    	$count=$this->Common->get_count($this->video_table,'','');
+        $re_data['count'] = $count;
+        $re_data['limit'] = $this->per_page;
+    	$re_data['data']= $data;
+
 		$this->load->view('header');
-		$this->load->view('video/video');
+		$this->load->view('video/video',$re_data);
 		$this->load->view('footer');
 	}
-	//video info
-	public function videoInfo()
+	/*
+	 * video info by gongkun
+	 */
+	public function videoInfo($id = 0)
 	{
+		$where = array('id' => $id);
+		$data = $this->Common->get_one($this->video_table,$where);
+		$re_data['data'] = $data;
+
 		$this->load->view('header');
-		$this->load->view('video/videoinfo');
+		$this->load->view('video/videoinfo',$re_data);
 		$this->load->view('footer');	
 	}
 
