@@ -31,8 +31,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		  <div class="layui-form-item" pane="">
 		    <label class="layui-form-label">主题</label>
 		    <div class="layui-input-block">
-		      <input type="radio" name="theme" value="1" <?php if($data['theme']== 1):?> checked="true" <?php endif; ?> title="慢性疾病" checked="">
-		      <input type="radio" name="theme" value="2" <?php if($data['theme']== 2):?> checked="true" <?php endif; ?> title="健康生活方式">
+		      <input type="radio" name="theme" lay-filter="theme" value="1" <?php if($data['theme']== 1):?> checked="true" <?php endif; ?> title="慢性疾病" checked="">
+		      <input type="radio" name="theme" lay-filter="theme" value="2" <?php if($data['theme']== 2):?> checked="true" <?php endif; ?> title="健康生活方式">
 		    </div>
 		  </div>
 
@@ -66,7 +66,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		  
 		  <div class="expert-img" style="background-color: 	#FFFFFF;margin-left: 0.1px;height: 50px;">
-		  	<input type="" name="ppt_name" id="ppt_name" style="width: 33%;height: 33px;" readonly="readonly">
+		  	<input type="" name="ppt_name" id="ppt_name" style="width: 33%;height: 33px;" readonly="readonly" value="<?php echo $data['name'].'.ppt'; ?>">
 			<button type="button" class="layui-btn" id="uploadPPT">上传幻灯片</button>
 		 </div>
 		  
