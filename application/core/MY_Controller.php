@@ -31,7 +31,7 @@ class MY_Controller extends CI_Controller {
   public $pic_page = '3';  //推荐的图片集加载数量
   public $exp_page = '12';  //专家数量
   public $back_page = '30';
-	public $api_url = '';
+	public $api_url = '127.0.0.1:8080/healthy/ppt';
   public $code_vaild='-15 minute'; //验证码有效时间
 
   //mysql table

@@ -32,8 +32,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		  <div class="layui-form-item" pane="">
 		    <label class="layui-form-label">主题</label>
 		    <div class="layui-input-block">
-		      <input type="radio" name="theme" value="1" title="慢性疾病" checked="">
-		      <input type="radio" name="theme" value="2" title="健康生活方式">
+		      <input type="radio" name="theme" lay-filter="theme" value="1" title="慢性疾病" checked="">
+		      <input type="radio" name="theme" lay-filter="theme" value="2" title="健康生活方式">
 		    </div>
 		  </div>
 
@@ -90,16 +90,74 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div style="width: 100%;height: 50px;"></div>
 </div>
 <script type="text/javascript">
+var sickData,lifeData;
+
+$.getJSON("/static/js/sickTheme.json",function(data){ 
+	sickData = data; 
+	var themeId = '';
+		  	var themeRadio = document.getElementsByName("theme");
+		  	for (i=0; i<themeRadio.length; i++) {  
+		        if (themeRadio[i].checked) {  
+		           themeId = themeRadio[i];
+		           break;
+		        }  
+		    }
+	if(themeId == 1){
+		var typeObj = document.getElementById("type");
+		var innerHTML = '';
+		for(value in sickData){
+			innerHTML=innerHTML+'<option value="'+sickData[value].id+'">'+sickData[value].name+"</option>";
+		}
+		typeObj.innerHTML = innerHTML;
+	}
+}); 
+$.getJSON("/static/js/lifeTheme.json",function(data){ 
+	lifeData = data; 
+	var themeId = '';
+		  	var themeRadio = document.getElementsByName("theme");
+		  	for (i=0; i<themeRadio.length; i++) {  
+		        if (themeRadio[i].checked) {  
+		           themeId = themeRadio[i];
+		           break;
+		        }  
+		    }
+	
+	if(themeId == 2){
+		var typeObj = document.getElementById("type");
+		var innerHTML = '';
+		for(value in lifeData){
+			innerHTML=innerHTML+'<option value="'+lifeData[value].id+'">'+lifeData[value].name+"</option>";
+		}
+		typeObj.innerHTML = innerHTML;
+	}
+});
+
+
+
 var ppt_id = 0;
 var url = "";
 layui.use(['form', 'layedit', 'laydate'], function(){
   var form = layui.form
   ,layedit = layui.layedit
   ,layer = layui.layer;
-   // var work = layedit.build('work');
-   // var introduce = layedit.build('introduce');
-   // var study = layedit.build('study');
-   // var education = layedit.build('education');
+
+  	form.on('radio(theme)', function(data){
+  		var typeObj = document.getElementById("type");
+  	 	var innerHTML = '';
+	  	if(data.value == 1){
+			for(value in sickData){
+				innerHTML=innerHTML+'<option value="'+sickData[value].id+'">'+sickData[value].name+"</option>";
+			}
+	  	}else{
+	  		for(value in lifeData){
+				innerHTML=innerHTML+'<option value="'+lifeData[value].id+'">'+lifeData[value].name+"</option>";
+			}
+	  	}
+	  	// alert(innerHTML);
+	  	typeObj.innerHTML = innerHTML;
+	  	form.render('select'); 
+	});
+
 	form.on('submit(editSubmit)', function(data){
 	   
 		layer.confirm('确认提交幻灯片信息？', { title:['提交幻灯片信息提示','font-size:20px; text-align:center']}, function(index)
