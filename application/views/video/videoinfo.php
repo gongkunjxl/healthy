@@ -133,12 +133,6 @@ layui.use('flow', function(){
                alert("Sorry error");
     		 }
      	});
-      // 	document.getElementById("video-item").innerHTML="";
-       	// // add
-       	// document.getElementById("video-item").innerHTML='<video poster="/static/images/image2.png" controls preload style="background-color: black">\
-       	// 		<source src="/video/movie2.mp4"></source></video>\
-       	// 		<p>这个真的好难</p>';
-       	// alert(document.getElementById("video-item").innerHTML);
 	}
 
 </script>

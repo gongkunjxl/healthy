@@ -142,7 +142,7 @@ class Api extends MY_Controller {
         $orderby='ctime';
         $order_type='desc';
         $select_field='*';
-        $data=$this->Common->get_limit_order( $this->article_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field,'');
+        $data=$this->Common->get_limit_order( $this->article_table,$where,$start,$this->rem_page,$orderby,$order_type,$select_field,'');
         echo json_encode($data);
     }
     /*

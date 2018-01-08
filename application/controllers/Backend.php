@@ -106,11 +106,19 @@ class Backend extends MY_Controller {
         $expert_count = $this->Common->get_count($this->expert_table,'','');
         $article_count = $this->Common->get_count($this->article_table,'','');
         $picture_count = $this->Common->get_count($this->picture_table,'','');
+        $video_count = $this->Common->get_count($this->video_table,'','');
+        $audio_count = $this->Common->get_count($this->audio_table,'','');
+        $ppt_count = $this->Common->get_count($this->ppt_table,'','');
 
         $data['user_count'] = $user_count;
         $data['expert_count'] = $expert_count;
         $data['article_count'] = $article_count;
         $data['picture_count'] = $picture_count;
+        $data['video_count'] = $video_count;
+        $data['audio_count'] = $audio_count;
+        $data['ppt_count'] = $ppt_count;
+        $count = intval($article_count)+intval($picture_count)+intval($video_count)+intval($audio_count)+intval($ppt_count);
+        $data['count'] = $count;
         $re_data['data'] = $data;
   
         $this->load->view('backend/header');
