@@ -112,6 +112,12 @@ class Main extends MY_Controller {
     	//ppt
     	$select_field="id,name,author,description,source_url,theme,type,language,province,reader_num,date_format(create_time,'%Y-%m-%d') as create_time";
         $ppt_data=$this->Common->get_limit_order( $this->ppt_table,$where,$start,3,$orderby,$order_type,$select_field);
+        foreach ($ppt_data as $key => $value) {
+           //theme
+            $type_where = array('id' => $value['type']);
+            $type_data = $this->Common->get_one($this->type_table,$type_where);
+            $ppt_data[$key]['type'] = $type_data['name'];
+        }
         $re_data['ppt_data'] = $ppt_data;
 
 		$this->load->view('header');

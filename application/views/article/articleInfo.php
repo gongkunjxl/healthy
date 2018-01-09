@@ -65,9 +65,8 @@ layui.use('flow', function(){
 					dataType:'json',
 					data: data,
 					success: function (data) {
-				     	// alert(JSON.stringify(data));
+				     	 // alert(JSON.stringify(data));
 				     	// alert(data.length);
-		
 				     	for (var i = 0; i < data.length; i++) {
 				     		var litem='<a href="#" onclick="articleClick(\''+data[i].id+'.pdf\');">\
 				    		<div class="content">\
@@ -82,7 +81,6 @@ layui.use('flow', function(){
 				     	alert("Sorry error");
 					}
 				});
-
 
 	        // alert(page);
 	       //  for(var i = 0; i < 6; i++){

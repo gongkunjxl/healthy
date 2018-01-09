@@ -347,29 +347,24 @@ html{-webkit-text-size-adjust:none;}
     background-color: #009ACD;
 }
 .article-content{
-    height: 180px;
+    height: auto;
     width: 100%;
+    overflow: auto;
     margin-top: 30px;
 }
-.article-content .article-left{
-    width: 40%;
-    margin-left: 8%;
-    height: 100%;
-    padding-right: 20px;
+.article-content .article-show{
+    width: 50%;
+    height: 40px;
     float: left;
 }
-.article-content .article-right{
-    width: 40%;
+.article-content .article-show .article-label{
+    width: 80%;
+    margin-left: 10%;
     height: 100%;
     float: right;
 }
 
-.article-content  .article-label{
-    width: 100%;
-    height: 40px;
-}
-
-.article-content  .article-label .radius{
+.article-content .article-show .article-label .radius{
    margin-top: 12px;
    width:16px;
    height:16px;
@@ -382,10 +377,10 @@ html{-webkit-text-size-adjust:none;}
    text-decoration:none;
    float: left;
 }
-.article-content .article-label p{
-    width: 80%;
+.article-content .article-show .article-label p{
+    width: 60%;
+    font-size: 16px;
     margin-left: 10px;
-    font-size: 18px;
     font-weight: 400;
     line-height: 40px;
     padding: 0.1px;
@@ -395,8 +390,19 @@ html{-webkit-text-size-adjust:none;}
     -o-text-overflow:ellipsis;
     white-space: nowrap;
     word-wrap: normal;
+    float: left;
 }
-
+.article-content .article-show .article-label .time{
+    width: 20%;
+    font-weight: 400;
+    line-height: 40px;
+    float: right;
+    font-size: 16px;
+    min-width: 100px;
+}
+.article-content .article-show .article-label p a{
+      font-size: 14px;
+}
 /* audio */
 .audio-title{
     margin-top: 80px;
@@ -587,21 +593,21 @@ html{-webkit-text-size-adjust:none;}
     background-color: #009ACD;
 }
 .picture-content{
-    height: 200px;
+    height: 180px;
     margin-top: 30px;
     width: 100%;
     /*background-color: #F5F5F5;*/
 }
 .picture-content .content{
     width: 25%;
-    height: 200px;
+    height: 180px;
     padding:0.1px;
     float: left;
 }
 .picture-content .content .content-show{
-    width: 80%;
-    margin-left: 10%;
-    height: 200px;
+    width: 88%;
+    margin-left: 12%;
+    height: 180px;
     border:0.1px;
     padding: 0.1px;
     /*background-color: #fff0f5;*/
@@ -614,14 +620,14 @@ html{-webkit-text-size-adjust:none;}
 }
 .picture-content .content .content-show a:hover .label-word {
     background-color: #8B8878;
-    width: 98%;
+    width: 99%;
 }
 .picture-content .content .content-show a:hover > img{
-    height: 158px;
-    width: 98%;
+    height: 139px;
+    width: 99%;
 }
 .picture-content .content .content-show img{
-    height: 160px;
+    height: 140px;
     width: 100%;
 }
 .picture-content .content .content-show .label-word{
@@ -683,25 +689,69 @@ html{-webkit-text-size-adjust:none;}
     background-color: #009ACD;
 }
 .point-content{
-    height: 200px;
     width: 100%;
-    background-color: #0000;
+    height: 270px;
+    margin-top: 30px;
     /*background-color: #F5F5F5;*/
 }
 .point-content .content{
-    width: 33%;
+    height: 100%;
+    width: 30%;
+    float: left;
+    margin-left: 3%;
+    /*background-color: #fff0f5;*/
+    padding: 0.1px;
+}
+.point-content .content .point-show{
     height: 200px;
-    padding:0;
-    margin:0;
+    width: 100%;
+}
+.point-content .content .point-show img{
+    height: 200px;
+    width: 100%;
+    padding: 0.1px;
+    border:0.1px;
+    background-color: black;
+}
+.point-content .content .point-label{
+    padding-top:10px;
+    height: 70px;
+    background-color: #F5F5F5;
+}
+.point-content .content .point-label h3{
+    font-size: 16px;
+    width: 90%;
+    margin-left: 10px;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+.point-content .content .point-label .left-label{
+    font-size: 14px;
+    width: 40%;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-weight: 400;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
     float: left;
 }
-.point-content .content .content-show{
-    width: 80%;
-    margin-left: 10%;
-    height: 200px;
-    background-color: #fff0f5;
+.point-content .content .point-label .right-label{
+    font-size: 14px;
+    width: 40%;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: 400;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    float: right;
 }
-
 /* about us*/
 .about-title{
     margin-top: 80px;

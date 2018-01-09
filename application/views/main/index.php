@@ -6,13 +6,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="layui-container">
 	<div class="index-search">
 		<div class="search-bar">
-			<form class="layui-form" action="">
+			<form class="layui-form" >
 			  <div class="layui-form-item">
 			    <div class="layui-input-block search-input">
-			      <input type="text" style="border:1.5px solid #009ACD;border-radius:0px;" name="title" required  lay-verify="required" placeholder="本站共收录<?php echo $count; ?>份科普材料" autocomplete="off" class="layui-input">
+			      <input type="text"  style="border:1.5px solid #009ACD;border-radius:0px;" name="search" required  lay-verify="required" placeholder="本站共收录<?php echo $count; ?>份科普材料" autocomplete="off" class="layui-input">
 			    </div>
 			    <div class="layui-input-inline" style="width: 80px;">
-                    <button  style="width: 80px; height: 38px; font-size: 14px;background-color: #009ACD;border: 0;border-radius:0px;" lay-submit="" lay-filter="search"><i class="layui-icon" style="margin-right:7px;">&#xe615;</i>搜索</button>
+                    <button  style="width: 80px; height: 38px; font-size: 14px;background-color: #009ACD;border: 0;border-radius:0px;" lay-submit="" lay-filter="searchData"><i class="layui-icon" style="margin-right:7px;">&#xe615;</i>搜索</button>
                 </div>
 			  </div>
 			</form>
@@ -54,13 +54,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 	</div>
 </div>
-<?php echo var_dump($count); ?>
+<!-- <?php //echo var_dump($count); ?> -->
 <!-- <?php //echo var_dump($expert_data); ?> -->
 <!-- <?php //echo var_dump($video_data); ?> -->
 <!-- <?php //echo var_dump($audio_data); ?> -->
 <!-- <?php //echo var_dump($article_data); ?> -->
 <!-- <?php //echo var_dump($picture_data); ?> -->
-<?php echo var_dump($ppt_data); ?>
+<!-- <?php //echo var_dump($ppt_data); ?> -->
 	<!-- expert -->
 <div class="index-back">
   <div class="layui-container" >
@@ -161,43 +161,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 	<div class="article-line"></div>
 	<div class="article-content">
-		<div class="article-left">
+		<?php if(count($article_data)>0): ?>
+	  	  	<?php foreach($article_data as $value ):?>
+				<div class="article-show">
+					<div class="article-label">
+						<a href="/main/articleinfo/<?php echo $value['id']; ?>">
+						<div class="radius">●</div>
+						<p><?php echo $value['name']; ?></p>
+						<div class="time"><?php echo date("Y-m-d",$value['ctime']);?></div>
+						</a>
+					</div>
+				</div>
+			<?php endforeach; ?>
+			<?php else:?>
+				<h1> NO audio more</h1>
+			<?php endif; ?>
+		<!-- <div class="article-show">
 			<div class="article-label">
+				<a href="/main/articleinfo">
 				<div class="radius">●</div>
-				<p><a href="/main/articleinfo">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
+				<p>管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</p>
+				<div class="time">2016-11-21</div>
+				</a>
 			</div>
-			<div class="article-label">
-				<div class="radius">●</div>
-				<p><a href="/main/articleinfo">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
-			</div>
-			<div class="article-label">
-				<div class="radius">●</div>
-				<p><a href="/main/articleinfo">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
-			</div>
-			<div class="article-label">
-				<div class="radius">●</div>
-				<p><a href="/main/articleinfo">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
-			</div>
-		</div>
+		</div> -->
 
-		<div class="article-right">
-			<div class="article-label">
-				<div class="radius">●</div>
-				<p><a href="/main/articleinfo">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
-			</div>
-			<div class="article-label">
-				<div class="radius">●</div>
-				<p><a href="/main/articleinfo">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
-			</div>
-			<div class="article-label">
-				<div class="radius">●</div>
-				<p><a href="/main/articleinfo">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
-			</div>
-			<div class="article-label">
-				<div class="radius">●</div>
-				<p><a href="/main/articleinfo">管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</a></p>
-			</div>
-		</div>
 	</div>
 	<!-- audio -->
 	<div class="audio-title">
@@ -286,23 +274,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 	<div class="point-line"></div>
 	<div class="point-content" style="margin-top: 30px;">
-		<div class="content">
-			<video ishivideo="true" autoplay="true" isrotate="false" autoHide="true">
-			            <source src="http://www.html5videoplayer.net/videos/madagascar3.mp4" type="video/mp4">
-			        </video>
-		</div>
-		<div class="content">
-			<video ishivideo="true" autoplay="true" isrotate="false" autoHide="true">
-			            <source src="http://www.html5videoplayer.net/videos/madagascar3.mp4" type="video/mp4">
-			        </video>
-		</div>
-		<div class="content">
-			<video ishivideo="true" autoplay="true" isrotate="false" autoHide="true">
-			            <source src="http://www.html5videoplayer.net/videos/madagascar3.mp4" type="video/mp4">
-			        </video>
-		</div>
+	    <?php if(count($ppt_data)>0): ?>
+	    <?php foreach($ppt_data as $value ):?>
+		  <a href="/main/powerpointinfo/<?php echo $value['id']; ?>">
+			<div class="content">
+				<div class="point-show">
+					<img src="/static/images/image1.png">
+				</div>
+				<div class="point-label">
+					<h3><?php echo $value['name']; ?></h3>
+					<span class="left-label"><?php echo $value['type']; ?></span>
+					<span class="right-label"><?php echo $value['reader_num']; ?>人观看</span>
+				</div>
+			</div>
+		 </a>	
+		<?php endforeach; ?>
+		<?php else:?>
+			<h1> NO PowerPoint more</h1>
+		<?php endif; ?>
+		<!-- <a href="#">
+			<div class="content">
+				<div class="point-show">
+					<img src="/static/images/image1.png">
+				</div>
+				<div class="point-label">
+					<h3>管理胆固醇预防心梗讲座</h3>
+					<span class="left-label">慢性病</span>
+					<span class="right-label">1350人观看</span>
+				</div>
+			</div>
+		</a> -->
+		
 	</div>
-
 	<!-- about us -->
 	<div class="about-title">
 		<img src="/static/images/about-title.png">
@@ -340,10 +343,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 </div>
 
-
-
-
-
 <script>
 // the province
 var provinceObj = document.getElementById("province");
@@ -355,11 +354,7 @@ for(value in province){
 provinceObj.innerHTML = proHTML;
 
 //一般直接写在一个js文件中
-layui.use(['layer', 'form'], function(){
-  var layer = layui.layer
-  ,form = layui.form;
- 
-});
+
 </script>
 
 <!-- audio -->

@@ -23,6 +23,7 @@ if(isset($_SESSION['userid']) && $_SESSION['userid']>0){
   <link rel="stylesheet" href="/static/css/video-page-condition.css">
   <script type="text/javascript" src="/static/layui/layui.js"></script>
   <script type="text/javascript" src="/static/js/jquery-3.2.1.min.js"></script>
+  <!-- <script type="text/javascript" src="/static/js/jquery-2.1.4.js"></script> -->
 
 <script type="text/javascript" src="/static/js/many-condition.js"></script> 
 
