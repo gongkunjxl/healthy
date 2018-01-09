@@ -440,22 +440,6 @@ class Api extends MY_Controller {
             echo  json_encode($re_data);
         }
     }
-    /*
-     * search the index page
-    */
-    public function searchIndex()
-    {
-        if($_POST){
-            $re_data['status'] = 100;
-            $postinfo= $this->Common->html_filter_array($_POST);
-
-            $re_data['status'] = 200;
-            // $re_data['data'] = $postinfo;
-            echo  json_encode($re_data);
-        }
-    }
-
-
 
     /*************  以下部分是后台的API函数  by gongkun **************/
 
@@ -925,7 +909,7 @@ class Api extends MY_Controller {
             $postinfo= $this->Common->html_filter_array($_POST);
 
             $data=array(
-                    'name' => $postinfo['name'],'description' => $postinfo['introduce'],'theme' => $postinfo['theme'],'author'=>$postinfo['author'],'title'=>$postinfo['title'],
+                    'name' => $postinfo['name'],'description' => $postinfo['introduce'],'themeId' => $postinfo['theme'],'author'=>$postinfo['author'],'title'=>$postinfo['title'],
                     'type' => $postinfo['type'],'language' => $postinfo['language'],'province' => $postinfo['province'],'pic_url' => $postinfo['pic_url'],'source_url' => $postinfo['source_url']
                 );
                 $rep = $this->Common->add($this->audio_table,$data);
@@ -1031,7 +1015,7 @@ class Api extends MY_Controller {
             $re_data['status'] = 100;
             $postinfo= $this->Common->html_filter_array($_POST);
             $where=array('id' => $postinfo['id']);
-            $data=array('name' => $postinfo['name'],'description' => $postinfo['introduce'],'type' => $postinfo['type'],'theme' => $postinfo['theme'],'language'=>$postinfo['language'],'province' => $postinfo['province'],'pic_url' => $postinfo['pic_url'],'source_url' => $postinfo['source_url'],'author'=>$postinfo['author'],'title'=>$postinfo['title']
+            $data=array('name' => $postinfo['name'],'description' => $postinfo['introduce'],'type' => $postinfo['type'],'themeId' => $postinfo['theme'],'language'=>$postinfo['language'],'province' => $postinfo['province'],'pic_url' => $postinfo['pic_url'],'source_url' => $postinfo['source_url'],'author'=>$postinfo['author'],'title'=>$postinfo['title']
                 );
             $rep=$this->Common->update($this->audio_table,$where,$data);
             if($rep>0){
@@ -1050,7 +1034,7 @@ class Api extends MY_Controller {
         $start=intval($page-1)*intval($this->per_page);
         $orderby='create_time';
         $order_type='desc';
-        $select_field='id,name,description,seconds,theme,type,language,province,listen_num,create_time';
+        $select_field='id,name,description,seconds,themeId,type,language,province,listen_num,create_time';
         $data=$this->Common->get_limit_order( $this->audio_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
         foreach ($data as $key => $value) {
            //theme
@@ -1070,7 +1054,7 @@ class Api extends MY_Controller {
         $start=intval($page-1)*intval($this->per_page);
         $orderby='create_time';
         $order_type='desc';
-        $select_field='id,name,description,author_id,author,page_count,theme,type,language,province,reader_num,pic_url,source_url,create_time';
+        $select_field='id,name,description,author_id,author,page_count,themeId,type,language,province,reader_num,pic_url,source_url,create_time';
         $data=$this->Common->get_limit_order( $this->ppt_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
         foreach ($data as $key => $value) {
            //theme
@@ -1089,7 +1073,7 @@ class Api extends MY_Controller {
             $postinfo= $this->Common->html_filter_array($_POST);
 
             $data=array(
-                    'name' => $postinfo['name'],'description' => $postinfo['introduce'],'theme' => $postinfo['theme'],
+                    'name' => $postinfo['name'],'description' => $postinfo['introduce'],'themeId' => $postinfo['theme'],
                     'type' => $postinfo['type'],'language' => $postinfo['language'],'province' => $postinfo['city'],
                     'source_url' => $postinfo['url'],'author' => $postinfo['author']
                 );
@@ -1166,7 +1150,7 @@ class Api extends MY_Controller {
             $re_data['status'] = 100;
             $postinfo= $this->Common->html_filter_array($_POST);
             $where=array('id' => $postinfo['id']);
-            $data=array('name' => $postinfo['name'],'author' => $postinfo['author'],'description' => $postinfo['description'],'type' => $postinfo['type'],'theme' => $postinfo['theme'],'language'=>$postinfo['language'],'province' => $postinfo['province'],'source_url' => $postinfo['url']
+            $data=array('name' => $postinfo['name'],'author' => $postinfo['author'],'description' => $postinfo['description'],'type' => $postinfo['type'],'themeId' => $postinfo['theme'],'language'=>$postinfo['language'],'province' => $postinfo['province'],'source_url' => $postinfo['url']
                 );
             $rep=$this->Common->update($this->ppt_table,$where,$data);
             if($rep>0){
@@ -1187,7 +1171,7 @@ class Api extends MY_Controller {
         $start=intval($page-1)*intval($this->per_page);
         $orderby='create_time';
         $order_type='desc';
-        $select_field="id,name,author,title,description,source_url,seconds,theme,type,language,province,listen_num,date_format(create_time,'%Y-%m-%d') as create_time";
+        $select_field="id,name,author,title,description,source_url,seconds,themeId,type,language,province,listen_num,date_format(create_time,'%Y-%m-%d') as create_time";
         $data=$this->Common->get_limit_order( $this->audio_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field,'');
         echo json_encode($data);
     }
@@ -1203,7 +1187,7 @@ class Api extends MY_Controller {
         $start=intval($page-1)*intval($this->per_page);
         $orderby='create_time';
         $order_type='desc';
-        $select_field="id,name,author,description,source_url,theme,type,language,province,reader_num,date_format(create_time,'%Y-%m-%d') as create_time";
+        $select_field="id,name,author,description,source_url,themeId,type,language,province,reader_num,date_format(create_time,'%Y-%m-%d') as create_time";
         $data=$this->Common->get_limit_order( $this->ppt_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field,'');
         echo json_encode($data);
     }

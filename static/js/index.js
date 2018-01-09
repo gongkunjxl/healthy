@@ -1,13 +1,6 @@
 var sickData,lifeData;
 $.getJSON("/static/js/sickTheme.json",function(data){ 
 	sickData = data; 
-	var typeObj = document.getElementById("type");
-	var innerHTML = '';
-	innerHTML=innerHTML+'<option value="0">类型</option>';
-	// for(value in sickData){
-	// 	innerHTML=innerHTML+'<option value="'+sickData[value].id+'">'+sickData[value].name+"</option>";
-	// }
-	typeObj.innerHTML = innerHTML;
 }); 
 $.getJSON("/static/js/lifeTheme.json",function(data){ 
 	lifeData = data; 
@@ -19,26 +12,17 @@ var type = 0;
 var media = 0;
 var language = 0;
 var provData = 0;
-var search = '';
+var search = 0;
+
+theme = document.getElementById("theme").value;
+type = document.getElementById("type").value;
+media = document.getElementById("media").value;
+language = document.getElementById("language").value;
+provData = document.getElementById("province").value;
+search = document.getElementById("search").value;
 //  the theme select
 function selTheme(){
-	var themeObj = document.getElementById("theme");
-	theme = themeObj.value;
-	var typeObj = document.getElementById("type");
-	var innerHTML = '';
-	innerHTML=innerHTML+'<option value="0">类型</option>';
-	if(theme == 1){
-	  	for(value in sickData){
-			innerHTML=innerHTML+'<option value="'+sickData[value].id+'">'+sickData[value].name+"</option>";
-		}
-	}
-	if(theme == 2){
-		for(value in lifeData){
-			innerHTML=innerHTML+'<option value="'+lifeData[value].id+'">'+lifeData[value].name+"</option>";
-		}
-	}
-	typeObj.innerHTML = innerHTML;
-
+	theme = document.getElementById("theme").value;
 	//call request function
 	requestData();
 }
@@ -52,6 +36,7 @@ function selType(){
 function selMedia(){
 	media = document.getElementById("media").value;
 	//call request function
+	// location.href="/main/expert/1"
 	requestData();
 }
 // select the language
@@ -64,7 +49,7 @@ function selLanguage(){
 function selProvince(){
 	provData = document.getElementById("province").value;
 	//call request fucntion
-	requestData();
+	 requestData();
 }
 layui.use(['layer', 'form'], function(){
   var layer = layui.layer
@@ -72,6 +57,9 @@ layui.use(['layer', 'form'], function(){
   form.on('submit(searchData)', function(data){
   	// alert(JSON.stringify(data.field.search));
   	   search = data.field.search;
+  	   if(search == ''){
+  	   	  search = 0;
+  	   }
   	  	//call the request
   	  requestData();
   	   return false;
@@ -81,35 +69,85 @@ layui.use(['layer', 'form'], function(){
 
 //request the data
 function requestData(){
-	var data={
-		theme: theme ,
-		type: type,
-		media: media,
-		language: language,
-		provData: provData,
-		search: search
-	};
-	// alert(JSON.stringify(data));
-	$.ajax({
-		url: '/api/searchIndex',
-		type: 'post',
-		dataType:'json',
-		data: data,
-		success: function (data) {
-			// alert(JSON.stringify(data));
-			if(data.status == 200){
-				alert("Update the index page");
-				
-
-
-
-
-			}
-		},
-		error: function(data) {
-			alert("Sorry error");
+	if(search == ''){
+  	  	search = 0;
+ 	}
+	var base_url = "/main/";
+	var url = '';
+	// alert(media);
+	switch (media)
+	{
+		case '0':
+		{
+			url = base_url+"searchIndex/"+theme+"/"+type+"/"+media+"/"+language+"/"+provData+"/"+search;
+			break;
 		}
-	}); 
+		case '1':
+		{
+			url = base_url+"searchExpert/"+theme+"/"+type+"/"+media+"/"+language+"/"+provData+"/"+search;
+			break;
+		}
+		case '2':
+		{
+			url = base_url+"searchVideo/"+theme+"/"+type+"/"+media+"/"+language+"/"+provData+"/"+search;
+			break;
+		}
+		case '3':
+		{
+			url = base_url+"searchArticle/"+theme+"/"+type+"/"+media+"/"+language+"/"+provData+"/"+search;
+			break;
+		}
+		case '4':
+		{
+			url = base_url+"searchAudio/"+theme+"/"+type+"/"+media+"/"+language+"/"+provData+"/"+search;
+			break;
+		}
+		case '5':
+		{
+			url = base_url+"searchPicture/"+theme+"/"+type+"/"+media+"/"+language+"/"+provData+"/"+search;
+			break;
+		}
+		case '6':
+		{
+			url = base_url+"searchPPT/"+theme+"/"+type+"/"+media+"/"+language+"/"+provData+"/"+search;
+			break;
+		}
+		default:
+		{
+			url = base_url+"searchIndex/"+theme+"/"+type+"/"+media+"/"+language+"/"+provData+"/"+search;
+			break;
+		}
+	}
+	alert(url);
+	location.href = url;
+
+	// var data={
+	// 	theme: theme ,
+	// 	type: type,
+	// 	media: media,
+	// 	language: language,
+	// 	provData: provData,
+	// 	search: search
+	// };
+	// // alert(JSON.stringify(data));
+	// $.ajax({
+	// 	url: '/api/searchIndex',
+	// 	type: 'post',
+	// 	dataType:'json',
+	// 	data: data,
+	// 	success: function (data) {
+	// 		// alert(JSON.stringify(data));
+	// 		if(data.status == 200){
+
+	// 			// alert("Update the index page");
+
+
+	// 		}
+	// 	},
+	// 	error: function(data) {
+	// 		alert("Sorry error");
+	// 	}
+	// }); 
 }
 
 

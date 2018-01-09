@@ -34,7 +34,8 @@ if(isset($_SESSION['userid']) && $_SESSION['userid']>0){
 <!-- pdf show -->
  <script type="text/javascript" src="/static/js/pdfobject.js"></script>
 
-
+<!-- select -->
+<script type="text/javascript" src="/static/js/province.js"></script>
 <style type="text/css">
         .main-wrap{
             margin: 0 auto;
@@ -93,14 +94,119 @@ if(isset($_SESSION['userid']) && $_SESSION['userid']>0){
     </div>
   </div>
 </div>
+<div class="layui-container">
+  <div class="index-search">
+    <div class="search-bar">
+      <form class="layui-form" >
+        <div class="layui-form-item">
+          <div class="layui-input-block search-input">
+            <input type="text" id="search"  style="border:1.5px solid #009ACD;border-radius:0px;" name="search"  <?php if($head_data['search'] == '0'):?> placeholder="本站共收<?php echo $head_data['count']; ?>份科普材料" <?php else: ?> value="<?php echo $head_data['search']; ?>" <?php endif; ?> autocomplete="off" class="layui-input">
+          </div>
+          <div class="layui-input-inline" style="width: 80px;">
+                    <button  style="width: 80px; height: 38px; font-size: 14px;background-color: #009ACD;border: 0;border-radius:0px;" lay-submit="" lay-filter="searchData"><i class="layui-icon" style="margin-right:7px;">&#xe615;</i>搜索</button>
+                </div>
+        </div>
+      </form>
+    </div>
+    <!-- <?php //echo var_dump($head_data); ?> -->
+    <!-- 选择 -->
+    <div class="search-option">
+      <label>选项:</label>
+      <select id="theme" onchange="selTheme();" style="width: 80px;">
+        <option value="0"  <?php if($head_data['theme']== 0):?> selected="true" <?php endif; ?>>主题</option>
+        <option value="1"  <?php if($head_data['theme']== 1):?> selected="true" <?php endif; ?>>慢性病</option>
+        <option value="2"  <?php if($head_data['theme']== 2):?> selected="true" <?php endif; ?>>健康生活</option>
+      </select>
+      <select id="type" onchange="selType();" style="width: 80px;" >
+      <!--  <option value="0">类型</option> -->
+  <!--      <option value="1">慢性病</option>
+        <option value="2">心脏病</option>
+        <option value="3">冠心病</option> -->
+      </select>
+      <select id="media" onchange="selMedia();" style="width: 80px;" >
+        <option value="0" <?php if($head_data['media']== 0):?> selected="true" <?php endif; ?>>素材</option>
+        <option value="1" <?php if($head_data['media']== 1):?> selected="true" <?php endif; ?>>专家</option>
+        <option value="2" <?php if($head_data['media']== 2):?> selected="true" <?php endif; ?>>视频</option>
+        <option value="3" <?php if($head_data['media']== 3):?> selected="true" <?php endif; ?>>文章</option>
+        <option value="4" <?php if($head_data['media']== 4):?> selected="true" <?php endif; ?>>音频</option>
+        <option value="5" <?php if($head_data['media']== 5):?> selected="true" <?php endif; ?>>图片</option>
+        <option value="6" <?php if($head_data['media']== 6):?> selected="true" <?php endif; ?>>PPT</option>
+      </select>
+      
+      <select id="language" onchange="selLanguage();" style="width: 80px; ">
+        <option value="0" <?php if($head_data['language']== 0):?> selected="true" <?php endif; ?>>语言</option>
+        <option value="1" <?php if($head_data['language']== 1):?> selected="true" <?php endif; ?>>中文</option>
+        <option value="2" <?php if($head_data['language']== 2):?> selected="true" <?php endif; ?>>English</option>
+      </select>
+      <select id="province" onchange="selProvince();" style="width: 80px;">
+        <!-- <option value="0">制作省份</option>
+        <option value="1">北京</option>
+        <option value="2">广州</option> -->
+      </select>
+    </div>
+  </div>
+</div>
 
 <script>
+  // the province
+var provinceObj = document.getElementById("province");
+var proHTML = '';
+var provData = "<?php echo $head_data['province']; ?>";
+//alert(provData);
+proHTML=proHTML+'<option value="0">省份</option>';
+for(value in province){
+    if(province[value] == provData){
+      proHTML=proHTML+'<option selected="true" value="'+province[value]+'">'+province[value]+"</option>";
+    }else{
+      proHTML=proHTML+'<option value="'+province[value]+'">'+province[value]+"</option>";
+    }
+}
+provinceObj.innerHTML = proHTML;
+
+var sickData,lifeData;
+$.ajaxSettings.async = false;
+$.getJSON("/static/js/sickTheme.json",function(data){ 
+    sickData = data; 
+}); 
+$.getJSON("/static/js/lifeTheme.json",function(data){ 
+  lifeData = data; 
+});
+
+// the type 
+var theme = "<?php echo $head_data['theme']; ?>";
+var type = "<?php echo $head_data['type']; ?>"
+var typeObj = document.getElementById("type");
+// alert(theme);
+// alert(type);
+var innerHTML = '';
+innerHTML=innerHTML+'<option value="0">类型</option>';
+if(theme == '1'){
+    for(value in sickData){
+      if(sickData[value].id == type){
+        innerHTML=innerHTML+'<option selected="true" value="'+sickData[value].id+'">'+sickData[value].name+"</option>";
+      }else{
+        innerHTML=innerHTML+'<option value="'+sickData[value].id+'">'+sickData[value].name+"</option>";
+      }
+    }
+}
+if(theme == '2'){
+  for(value in lifeData){
+    if(lifeData[value].id == type){
+      innerHTML=innerHTML+'<option selected="true" value="'+lifeData[value].id+'">'+lifeData[value].name+"</option>";
+    }else{
+      innerHTML=innerHTML+'<option value="'+lifeData[value].id+'">'+lifeData[value].name+"</option>";
+    }
+  }
+}
+typeObj.innerHTML = innerHTML; 
+
 //注意进度条依赖 element 模块，否则无法进行正常渲染和功能性操作
 layui.use('element', function(){
   var element = layui.element;
 });
 </script>  
-
+<!-- The index.js -->
+<script type="text/javascript" src="/static/js/index.js"></script>
 
 
 

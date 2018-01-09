@@ -434,7 +434,7 @@ class Backend extends MY_Controller {
         $start=intval($page-1)*intval($this->per_page);
         $orderby='create_time';
         $order_type='desc';
-        $select_field='id,name,description,seconds,theme,type,language,province,listen_num,create_time';
+        $select_field='id,name,description,seconds,themeId,type,language,province,listen_num,create_time';
         $data=$this->Common->get_limit_order( $this->audio_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
         foreach ($data as $key => $value) {
            //theme
@@ -500,7 +500,7 @@ class Backend extends MY_Controller {
         $start=intval($page-1)*intval($this->per_page);
         $orderby='create_time';
         $order_type='desc';
-        $select_field='id,name,description,author_id,author,page_count,theme,type,language,province,reader_num,pic_url,source_url,create_time';
+        $select_field='id,name,description,author_id,author,page_count,themeId,type,language,province,reader_num,pic_url,source_url,create_time';
         $data=$this->Common->get_limit_order( $this->ppt_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
         foreach ($data as $key => $value) {
            //theme

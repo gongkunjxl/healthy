@@ -19,11 +19,27 @@ class Main extends MY_Controller {
  		$file = fopen("static/js/lifeTheme.json","w");
  		fwrite($file,json_encode($data));
  		fclose($file);
+
+ 		 //all count
+        $expert_count = $this->Common->get_count($this->expert_table,'','');
+        $article_count = $this->Common->get_count($this->article_table,'','');
+        $picture_count = $this->Common->get_count($this->picture_table,'','');
+        $video_count = $this->Common->get_count($this->video_table,'','');
+        $audio_count = $this->Common->get_count($this->audio_table,'','');
+        $ppt_count = $this->Common->get_count($this->ppt_table,'','');
+        $count = $expert_count+$article_count+$picture_count+$video_count+$audio_count+$ppt_count;
+        $_SESSION['count'] = $count;
     }
     //主页
 	public function index()
 	{
-		
+		$head_data['theme'] = 0;
+		$head_data['type'] = 0;
+		$head_data['media'] = 0;
+		$head_data['language'] = 0;
+		$head_data['province'] = 0;
+		$head_data['search'] = 0;
+
 		if(!isset($_SESSION['userid'])){
 			$_SESSION['userid']=0;
 		}
@@ -36,7 +52,7 @@ class Main extends MY_Controller {
         $audio_count = $this->Common->get_count($this->audio_table,'','');
         $ppt_count = $this->Common->get_count($this->ppt_table,'','');
         $count = $expert_count+$article_count+$picture_count+$video_count+$audio_count+$ppt_count;
-        $re_data['count'] = $count;
+        $head_data['count'] = $count;
 		//expert
 		$page = 1;
     	$where=array();
@@ -105,12 +121,12 @@ class Main extends MY_Controller {
 
     	$orderby = "create_time";
     	//audio
-    	$select_field="id,name,author,title,description,source_url,seconds,theme,type,language,province,listen_num,date_format(create_time,'%Y-%m-%d') as create_time";
+    	$select_field="id,name,author,title,description,source_url,seconds,themeId,type,language,province,listen_num,date_format(create_time,'%Y-%m-%d') as create_time";
         $audio_data=$this->Common->get_limit_order( $this->audio_table,$where,$start,5,$orderby,$order_type,$select_field);
         $re_data['audio_data'] = $audio_data;
 
     	//ppt
-    	$select_field="id,name,author,description,source_url,theme,type,language,province,reader_num,date_format(create_time,'%Y-%m-%d') as create_time";
+    	$select_field="id,name,author,description,source_url,themeId,type,language,province,reader_num,date_format(create_time,'%Y-%m-%d') as create_time";
         $ppt_data=$this->Common->get_limit_order( $this->ppt_table,$where,$start,3,$orderby,$order_type,$select_field);
         foreach ($ppt_data as $key => $value) {
            //theme
@@ -120,7 +136,8 @@ class Main extends MY_Controller {
         }
         $re_data['ppt_data'] = $ppt_data;
 
-		$this->load->view('header');
+		$re_head['head_data'] = $head_data;
+		$this->load->view('header',$re_head);
 		$this->load->view('main/index',$re_data);
 		$this->load->view('footer');
 	}
@@ -255,6 +272,210 @@ class Main extends MY_Controller {
 	}
 
 	/*
+	 * search index(通过search 和分类跳转过来) 搜索所有的内容部分
+	*/
+	public function searchIndex($theme,$type,$media,$language,$province,$search)
+	{
+		//expert
+		$page = 1;
+    	$where=array();
+    	$start=intval($page-1)*intval($this->exp_page);
+    	$orderby='ctime';
+    	$order_type='desc';
+    	//条件
+    	$like = array();
+    	$search = urldecode($search);
+    	if($search != '0'){
+    		$like['name'] = $search;
+    	}
+    	$select_field='id,name,title,address,header';
+    	$expert_data=$this->Common->get_limit_order( $this->expert_table,$where,$start,3,$orderby,$order_type,$select_field,$like);
+    	$re_data['expert_data'] = $expert_data;
+
+    	$province = urldecode($province);
+    	//条件
+    	if($theme>0){
+    		$where['themeId'] = $theme;
+    	}
+    	if($type>0){
+    		$where['type'] = $type;
+    	}
+    	if($language>0){
+    		$where['language'] = $language;
+    	}
+    	if($province != '0'){
+    		$where['province'] = $province;
+    	}
+
+    	//video
+    	$select_field='id,name,author,title,read,type,ctime,covAddr,videoAddr';
+    	$video_data=$this->Common->get_limit_order( $this->video_table,$where,$start,3,$orderby,$order_type,$select_field,$like);
+    	foreach ($video_data as $key => $value) {
+           //theme
+            $type_where = array('id' => $value['type']);
+            $type_data = $this->Common->get_one($this->type_table,$type_where);
+            $video_data[$key]['type'] = $type_data['name'];
+        }
+    	$re_data['video_data'] = $video_data;
+
+    	//article
+    	$select_field='*';
+    	$article_data=$this->Common->get_limit_order( $this->article_table,$where,$start,8,$orderby,$order_type,$select_field,$like);
+    	$re_data['article_data'] = $article_data;
+
+        //picture
+        $select_field='id,name,author';
+    	$picture_data=$this->Common->get_limit_order( $this->picture_table,$where,$start,4,$orderby,$order_type,$select_field,$like);
+    	//获取图片的地址 判断是否有index
+    	if(count($picture_data)>0){
+    		foreach ($picture_data as $key => $value) {
+    			$dir = 'picture/'.$value['id'];
+    			$file_name = '';
+    			$index_name = '';
+	            if(is_dir($dir)){
+	                if($handle = opendir($dir)){  
+	                    while (($file = readdir($handle)) !== false ) {  
+	                        if($file != ".." && $file != "." && $file != ".DS_Store"){  
+	                        	if(empty($file_name)){
+	                            	$file_name = $file; 
+	                            }
+	                            if($file == 'index.jpg'){
+	                            	$index_name = 'index.jpg';
+	                            }
+	                            if($file == 'index.png'){
+	                            	$index_name = 'index.png';
+	                            }
+	                            if($file == 'index.jpeg'){
+	                            	$index_name = 'index.jpeg';
+	                            }
+	                        }  
+	                    }  
+	                }  
+	                closedir($handle); 
+	            }
+	            if(!empty($index_name)){
+	            	$picture_data[$key]['index'] = $dir."/".$index_name;
+	            }else{
+	            	$picture_data[$key]['index'] = $dir."/".$file_name;
+	            }
+    		}
+    	}
+    	$re_data['picture_data'] = $picture_data;
+
+    	$orderby = "create_time";
+    	//audio
+    	$select_field="id,name,author,title,description,source_url,seconds,themeId,type,language,province,listen_num,date_format(create_time,'%Y-%m-%d') as create_time";
+        $audio_data=$this->Common->get_limit_order( $this->audio_table,$where,$start,5,$orderby,$order_type,$select_field,$like);
+        $re_data['audio_data'] = $audio_data;
+
+    	//ppt
+    	$select_field="id,name,author,description,source_url,themeId,type,language,province,reader_num,date_format(create_time,'%Y-%m-%d') as create_time";
+        $ppt_data=$this->Common->get_limit_order( $this->ppt_table,$where,$start,3,$orderby,$order_type,$select_field,$like);
+        foreach ($ppt_data as $key => $value) {
+           //theme
+            $type_where = array('id' => $value['type']);
+            $type_data = $this->Common->get_one($this->type_table,$type_where);
+            $ppt_data[$key]['type'] = $type_data['name'];
+        }
+        $re_data['ppt_data'] = $ppt_data;
+
+        $head_data['count'] = $_SESSION['count'];
+        $head_data['theme'] = $theme;
+		$head_data['type'] = $type;
+		$head_data['media'] = $media;
+		$head_data['language'] = $language;
+		$head_data['province'] = $province;
+		$head_data['search'] = $search;
+		$re_head['head_data'] = $head_data;
+
+		$this->load->view('header',$re_head);
+		$this->load->view('main/index',$re_data);
+		$this->load->view('footer');
+
+	}
+	/*
+	 * search expert( 通过search 和分类跳转过来) 只搜索文章部分
+	*/
+	public function searchExpert($theme,$type,$media,$language,$province,$search)
+	{
+		//expert
+		$page = 1;
+    	$where=array();
+    	$start=intval($page-1)*intval($this->exp_page);
+    	$orderby='ctime';
+    	$order_type='desc';
+    	//条件
+    	$like = array();
+    	$search = urldecode($search);
+    	//限制返回结果最多十个
+    	if($search != '0'){
+    		$like['name'] = $search;
+    		$re_data['count'] = $this->exp_page;
+    	}else{
+    		$count=$this->Common->get_count($this->expert_table,'','');
+    		$re_data['count'] = $count;
+    	}
+    	$select_field='id,name,title,address,header';
+    	$expert_data=$this->Common->get_limit_order( $this->expert_table,$where,$start,$this->exp_page,$orderby,$order_type,$select_field,$like);
+        $re_data['limit'] = $this->exp_page;
+    	$re_data['data'] = $expert_data;
+        
+        $head_data['count'] = $_SESSION['count'];
+        $head_data['theme'] = $theme;
+		$head_data['type'] = $type;
+		$head_data['media'] = $media;
+		$head_data['language'] = $language;
+		$head_data['province'] = $province;
+		$head_data['search'] = $search;
+		$re_head['head_data'] = $head_data;
+
+		$this->load->view('header',$re_head);
+		$this->load->view('expert/expert',$re_data);
+		$this->load->view('footer');
+	}
+	/*
+	 * search expert( 通过search 和分类跳转过来) 只搜索文章部分
+	*/
+	public function searchVideo($theme,$type,$media,$language,$province,$search)
+	{
+		//expert
+		$page = 1;
+    	$where=array();
+    	$start=intval($page-1)*intval($this->exp_page);
+    	$orderby='ctime';
+    	$order_type='desc';
+    	//条件
+    	$like = array();
+    	$search = urldecode($search);
+    	//限制返回结果最多十个
+    	if($search != '0'){
+    		$like['name'] = $search;
+    		$re_data['count'] = $this->exp_page;
+    	}else{
+    		$count=$this->Common->get_count($this->expert_table,'','');
+    		$re_data['count'] = $count;
+    	}
+    	$select_field='id,name,title,address,header';
+    	$expert_data=$this->Common->get_limit_order( $this->expert_table,$where,$start,$this->exp_page,$orderby,$order_type,$select_field,$like);
+        $re_data['limit'] = $this->exp_page;
+    	$re_data['data'] = $expert_data;
+        
+        $head_data['count'] = $_SESSION['count'];
+        $head_data['theme'] = $theme;
+		$head_data['type'] = $type;
+		$head_data['media'] = $media;
+		$head_data['language'] = $language;
+		$head_data['province'] = $province;
+		$head_data['search'] = $search;
+		$re_head['head_data'] = $head_data;
+
+		$this->load->view('header',$re_head);
+		$this->load->view('expert/expert',$re_data);
+		$this->load->view('footer');
+	}
+	
+
+	/*
 	 * get the expert by gongkun
 	*/
 	public function expert($page=1)
@@ -303,7 +524,7 @@ class Main extends MY_Controller {
         $start=intval($page-1)*intval($this->per_page);
         $orderby='create_time';
         $order_type='desc';
-        $select_field="id,name,author,title,description,source_url,seconds,theme,type,language,province,listen_num,date_format(create_time,'%Y-%m-%d') as create_time";
+        $select_field="id,name,author,title,description,source_url,seconds,themeId,type,language,province,listen_num,date_format(create_time,'%Y-%m-%d') as create_time";
         $data=$this->Common->get_limit_order( $this->audio_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
         $count=$this->Common->get_count($this->audio_table,'','');
         $re_data['data'] = $data;
@@ -576,7 +797,7 @@ class Main extends MY_Controller {
         $start=intval($page-1)*intval($this->per_page);
         $orderby='create_time';
         $order_type='desc';
-        $select_field="id,name,author,description,source_url,theme,type,language,province,reader_num,date_format(create_time,'%Y-%m-%d') as create_time";
+        $select_field="id,name,author,description,source_url,themeId,type,language,province,reader_num,date_format(create_time,'%Y-%m-%d') as create_time";
         $data=$this->Common->get_limit_order( $this->ppt_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
         $count=$this->Common->get_count($this->ppt_table,'','');
         $re_data['data'] = $data;

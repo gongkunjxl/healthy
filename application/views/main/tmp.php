@@ -1,6 +1,59 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
+<script type="text/javascript" src="/static/js/index.js"></script>
+<script type="text/javascript" src="/static/js/province.js"></script>
+<div class="layui-container">
+	<div class="index-search">
+		<div class="search-bar">
+			<form class="layui-form" >
+			  <div class="layui-form-item">
+			    <div class="layui-input-block search-input">
+			      <input type="text"  style="border:1.5px solid #009ACD;border-radius:0px;" name="search" required  lay-verify="required" placeholder="本站共收录<?php echo $count; ?>份科普材料" autocomplete="off" class="layui-input">
+			    </div>
+			    <div class="layui-input-inline" style="width: 80px;">
+                    <button  style="width: 80px; height: 38px; font-size: 14px;background-color: #009ACD;border: 0;border-radius:0px;" lay-submit="" lay-filter="searchData"><i class="layui-icon" style="margin-right:7px;">&#xe615;</i>搜索</button>
+                </div>
+			  </div>
+			</form>
+		</div>
+		<!-- 选择 -->
+		<div class="search-option">
+			<label>选项:</label>
+			<select id="theme" onchange="selTheme();" style="width: 80px;">
+				<option value="0">主题</option>
+				<option value="1">慢性病</option>
+				<option value="2">健康生活</option>
+			</select>
+			<select id="type" onchange="selType();" style="width: 80px;" >
+			<!-- 	<option value="0">类型</option> -->
+	<!-- 			<option value="1">慢性病</option>
+				<option value="2">心脏病</option>
+				<option value="3">冠心病</option> -->
+			</select>
+			<select id="media" onchange="selMedia();" style="width: 80px;" >
+				<option value="0">素材</option>
+				<option value="1">专家</option>
+				<option value="2">视频</option>
+				<option value="3">文章</option>
+				<option value="4">音频</option>
+				<option value="5">图片</option>
+				<option value="6">PPT</option>
+			</select>
+			
+			<select id="language" onchange="selLanguage();" style="width: 80px; ">
+				<option value="0">语言</option>
+				<option value="1">中文</option>
+				<option value="2">English</option>
+			</select>
+			<select id="province" onchange="selProvince();" style="width: 80px;">
+				<!-- <option value="0">制作省份</option>
+				<option value="1">北京</option>
+				<option value="2">广州</option> -->
+			</select>
+		</div>
+	</div>
+</div>
 <!-- <?php //echo var_dump($count); ?> -->
 <!-- <?php //echo var_dump($expert_data); ?> -->
 <!-- <?php //echo var_dump($video_data); ?> -->
@@ -8,8 +61,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- <?php //echo var_dump($article_data); ?> -->
 <!-- <?php //echo var_dump($picture_data); ?> -->
 <!-- <?php //echo var_dump($ppt_data); ?> -->
-<!-- expert -->
-<?php if(count($expert_data)>0): ?>
+	<!-- expert -->
 <div class="index-back">
   <div class="layui-container" >
 	<div class="index-expert">
@@ -21,6 +73,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<!-- <p><a href="#">more >></a></p> -->
 		</div>
 		<div class="expert-content">
+		  <?php if(count($expert_data)>0): ?>
 	  	  	<?php foreach($expert_data as $value ):?>
 				<a href="/main/expertInfo/<?php echo $value['id']; ?>">
 				<div class="content">
@@ -37,22 +90,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 			   </a>
 			<?php endforeach; ?>
+			<?php else:?>
+				<h1> NO Expert</h1>
+			<?php endif; ?>
+		   <!-- <a href="/main/expertInfo/2">
+			<div class="content">
+				<div class="img-border">
+					<img src="/static/images/header.jpg">
+				</div>
+				<div class="word">
+					<div class="name-title">
+						<h2>朱晓燕</h2>
+						<p>内科主任医师</p>
+						<p>武汉同济医学院</p>
+					</div>
+				</div>
+			</div>
+		   </a> -->
 		</div>
 	 </div>
    </div>
 </div>
-<?php endif; ?>
-
 <div class="layui-container" >
-  <?php if(count($video_data)>0): ?>
 	<!-- video -->
 	<div class="video-title">
 		<img src="/static/images/video-title.png">
 		<h1>视频讲座</h1>
-		<?php if(count($video_data)>2):?><p><a href="/main/video">more >></a></p><?php endif; ?>
+		<p><a href="/main/video">more >></a></p>
 	</div>
 	<div class="video-line"></div>
 	<div class="video-content">
+		<?php if(count($video_data)>0): ?>
 	  	  <?php foreach($video_data as $value ):?>
 			<div class="content">
 				<div class="video-show">
@@ -67,18 +135,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 		  </div>		
 		  <?php endforeach; ?>
+		<?php else:?>
+			<h1> NO video more</h1>
+		<?php endif; ?>
+		<!-- <div class="content">
+			<div class="video-show">
+				<video poster="/static/images/image1.png"   controls preload "> 
+					<source src="http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/acae3eba4564972818825976127/3g271zmMb48A.mp4"></source>
+				</video>
+			</div>
+			<div class="video-label">
+				<h3>管理胆固醇预防心梗讲座</h3>
+				<span class="left-label">慢性病</span>
+				<span class="right-label">1350人观看</span>
+			</div>
+		</div>
+	-->
 	</div>
-	<?php endif; ?>
 
 	<!--  文章 -->
-    <?php if(count($article_data)>0): ?>
 	<div class="article-title">
 		<img src="/static/images/article-title.png">
 		<h1>精品文章</h1>
-		<?php if(count($article_data)>8):?><p><a href="/main/article/1" style="margin-top: 5px;color: #009ACD">more >></a></p><?php endif; ?>
+		<p><a href="/main/article/1" style="margin-top: 5px;color: #009ACD">more >></a></p>
 	</div>
 	<div class="article-line"></div>
 	<div class="article-content">
+		<?php if(count($article_data)>0): ?>
 	  	  	<?php foreach($article_data as $value ):?>
 				<div class="article-show">
 					<div class="article-label">
@@ -90,18 +173,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 				</div>
 			<?php endforeach; ?>
-	</div>
-	<?php endif; ?>
+			<?php else:?>
+				<h1> NO audio more</h1>
+			<?php endif; ?>
+		<!-- <div class="article-show">
+			<div class="article-label">
+				<a href="/main/articleinfo">
+				<div class="radius">●</div>
+				<p>管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇管理胆固醇 预防心梗管理胆固醇 预防心梗管理胆固醇</p>
+				<div class="time">2016-11-21</div>
+				</a>
+			</div>
+		</div> -->
 
+	</div>
 	<!-- audio -->
-	<?php $i=1; if(count($audio_data)>0): ?>
 	<div class="audio-title">
 		<img src="/static/images/audio-title.png">
 		<h1>专家音频</h1>
-		<?php if(count($audio_data)>5):?><p><a href="/main/audio" style="margin-top: 5px;color: #009ACD">more >></a></p><?php endif; ?>
+		<p><a href="/main/audio" style="margin-top: 5px;color: #009ACD">more >></a></p>
 	</div>
 	<div class="audio-line"></div>
 	<div class="audio-content">
+		<?php $i=1; if(count($audio_data)>0): ?>
 	  	  	<?php foreach($audio_data as $value ):?>
 			  <div class="content">
 				<div class="content-show">
@@ -114,19 +208,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					 <!-- <div class="label-detail" style="display: none;overflow: right;white-space:nowrap;">刘小光教授讲解讲述秋冬季节疾病预防注意事项小光教授讲解讲述秋冬季节疾病预防注意事项</div> -->
 				</div>
 			  </div>
+
 			<?php endforeach; ?>
+			<?php else:?>
+				<h1> NO audio more</h1>
+			<?php endif; ?>
+		<!-- <div class="content">
+			<div class="content-show">
+				<div class="audio-btn" >
+					<div class="off" onclick="audio.changeClass(this,'media1')">
+						<audio loop="loop" src="/audio/audio2.mp3" id="media1" preload="preload"></audio>
+					</div>
+				 </div>
+				 <p class="pcalss1">刘小光教授讲解讲述秋冬季节疾病预防注意事项小光教授讲解讲述秋冬季节疾病预防注意事项</p>
+				 <div class="label-detail" style="display: none;overflow: right;white-space:nowrap;">刘小光教授讲解讲述秋冬季节疾病预防注意事项小光教授讲解讲述秋冬季节疾病预防注意事项</div>
+			</div>
+		</div>  -->
+
 	</div>
-	<?php endif; ?>
 
 	<!-- picture -->
-	<?php if(count($picture_data)>0): ?>
 	<div class="picture-title">
 		<img src="/static/images/picture-title.png">
 		<h1>精选图片</h1>
-		<?php if(count($picture_data)>3): ?><p><a href="/main/picture/1" style="margin-top: 5px;color: #009ACD">more >></a></p><?php endif; ?>
+		<p><a href="/main/picture/1" style="margin-top: 5px;color: #009ACD">more >></a></p>
 	</div>
 	<div class="picture-line"></div>
 	<div class="picture-content">
+		<?php if(count($picture_data)>0): ?>
 	  	  	<?php foreach($picture_data as $value ):?>
 			  <div class="content">
 				<div class="content-show" id="layer-photos-show1">
@@ -139,18 +248,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 			  </div>
 			<?php endforeach; ?>
+			<?php else:?>
+				<h1> NO Piture more</h1>
+			<?php endif; ?>
+		<!-- <div class="content">
+			<div class="content-show" id="layer-photos-show1">
+				<a>
+					<img src="/picture/pic_1.png">
+					<img style="display: none;" src="/picture/pic_01.png">
+					<img style="display: none;" src="/picture/pic_02.png">
+				<div class="label-word">
+					<p>冬季养生知识</p>
+				</div>
+				</a>
+			</div>
+		</div> -->
+
 	</div>
-	<?php endif; ?>
 
 	<!-- powerpoint -->
-	<?php if(count($ppt_data)>0): ?>
 	<div class="point-title">
 		<img src="/static/images/point-title.png">
 		<h1>幻灯片</h1>
-		<?php if(count($ppt_data)>2): ?><p><a href="#" style="margin-top: 5px;color: #009ACD">more >></a></p><?php endif; ?>
+		<p><a href="#" style="margin-top: 5px;color: #009ACD">more >></a></p>
 	</div>
 	<div class="point-line"></div>
 	<div class="point-content" style="margin-top: 30px;">
+	    <?php if(count($ppt_data)>0): ?>
 	    <?php foreach($ppt_data as $value ):?>
 		  <a href="/main/powerpointinfo/<?php echo $value['id']; ?>">
 			<div class="content">
@@ -165,8 +289,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 		 </a>	
 		<?php endforeach; ?>
+		<?php else:?>
+			<h1> NO PowerPoint more</h1>
+		<?php endif; ?>
+		<!-- <a href="#">
+			<div class="content">
+				<div class="point-show">
+					<img src="/static/images/image1.png">
+				</div>
+				<div class="point-label">
+					<h3>管理胆固醇预防心梗讲座</h3>
+					<span class="left-label">慢性病</span>
+					<span class="right-label">1350人观看</span>
+				</div>
+			</div>
+		</a> -->
+		
 	</div>
-	<?php endif; ?>
 	<!-- about us -->
 	<div class="about-title">
 		<img src="/static/images/about-title.png">
@@ -203,6 +342,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<a style="margin-top: 50px; margin-left: 50px;" href="/main/powerpointInfo">ppt详情</a>
 	</div>
 </div>
+
+<script>
+// the province
+var provinceObj = document.getElementById("province");
+var proHTML = '';
+proHTML=proHTML+'<option value="0">省份</option>';
+for(value in province){
+	proHTML=proHTML+'<option value="'+province[value]+'">'+province[value]+"</option>";
+}
+provinceObj.innerHTML = proHTML;
+
+//一般直接写在一个js文件中
+
+</script>
 
 <!-- audio -->
 <script>
