@@ -45,6 +45,12 @@ function selType(){
 	type = document.getElementById("type").value;
 	//call request function
 }
+// select the media
+function selMedia(){
+	media = document.getElementById("media").value;
+	
+	//call request function
+}
 // select the language
 function selLanguage(){
 	language = document.getElementById("language").value;

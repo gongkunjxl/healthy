@@ -46,7 +46,10 @@ class MY_Controller extends CI_Controller {
   public $ppt_table = 'hea_ppt';
   public $sig_table = 'hea_signature';
   public $video_table = 'hea_video';
-    
+
+  //global variables
+  public $media = array('素材','专家','视频','文章','音频','图片','PPT');
+
   public function __construct() {
       parent::__construct();
       // $this->per_page = $this->config->item('per_page');

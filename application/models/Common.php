@@ -83,7 +83,7 @@ class Common extends CI_Model
             {
                 $this->db->limit($limit,$start);
             }
-            $this->db->order_by($orderby,$order_type);                      
+            $this->db->order_by($orderby,$order_type);                
             $query = $this->db->get();
             return $query->result_array();
         }else{

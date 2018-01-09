@@ -56,20 +56,18 @@ if(isset($_SESSION['userid']) && $_SESSION['userid']>0){
           <a href="/main/index">首页</a>
         </li>
         <li class="layui-nav-item" style="padding-right:10px;">
-          <a href="article">慢性疾病</a>
+          <a href="#">慢性疾病</a>
           <dl class="layui-nav-child">
+            <dd style="line-height: 36px;"><a href="javascript:;">高血脂</a></dd>
+            <dd style="line-height: 36px;"><a href="javascript:;">脑卒中</a></dd>
             <dd style="line-height: 36px;"><a href="javascript:;">高血压</a></dd>
-            <dd style="line-height: 36px;"><a href="javascript:;">糖尿病</a></dd>
-            <dd style="line-height: 36px;"><a href="javascript:;">心血管疾病</a></dd>
           </dl>
         </li>
         <li class="layui-nav-item" style="margin-left: 1%;">
           <a href="#" style="padding-right: 20px;">健康生活方式</a>
           <dl class="layui-nav-child">
-            <dd style="line-height: 36px;"><a href="javascript:;">高血压</a></dd>
-            <dd style="line-height: 36px;"><a href="javascript:;">糖尿病</a></dd>
-            <dd style="line-height: 36px;"><a href="javascript:;">心血管疾病</a></dd>
-             <dd style="line-height: 36px;"><a href="javascript:;">心血管疾病</a></dd>
+            <dd style="line-height: 36px;"><a href="javascript:;">情绪管理</a></dd>
+            <dd style="line-height: 36px;"><a href="javascript:;">膳食平衡</a></dd>
           </dl>
         </li>
 
