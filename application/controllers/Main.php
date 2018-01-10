@@ -804,6 +804,7 @@ class Main extends MY_Controller {
 	public function expert($page=1)
 	{
 		//赋值
+		$_SESSION['media'] = '1';
 		$theme = $_SESSION['theme'];
 		$type = $_SESSION['type'];
 		$media = $_SESSION['media'];
@@ -864,6 +865,7 @@ class Main extends MY_Controller {
 	public function audio($page=1)
 	{
 		//赋值
+		$_SESSION['media'] = '4';
 		$theme = $_SESSION['theme'];
 		$type = $_SESSION['type'];
 		$media = $_SESSION['media'];
@@ -934,6 +936,7 @@ class Main extends MY_Controller {
 	public function video($page=1)
 	{
 		//赋值
+		$_SESSION['media'] = '2';
 		$theme = $_SESSION['theme'];
 		$type = $_SESSION['type'];
 		$media = $_SESSION['media'];
@@ -1019,6 +1022,7 @@ class Main extends MY_Controller {
 	public function article($page=1)
 	{
 		//赋值
+		$_SESSION['media'] = '3';
 		$theme = $_SESSION['theme'];
 		$type = $_SESSION['type'];
 		$media = $_SESSION['media'];
@@ -1090,6 +1094,7 @@ class Main extends MY_Controller {
 	public function picture($page=1)
 	{
 		//赋值
+		$_SESSION['media'] = '5';
 		$theme = $_SESSION['theme'];
 		$type = $_SESSION['type'];
 		$media = $_SESSION['media'];
@@ -1285,6 +1290,7 @@ class Main extends MY_Controller {
 	public function powerpoint($page=1)
 	{
 		//赋值
+		$_SESSION['media'] = '6';
 		$theme = $_SESSION['theme'];
 		$type = $_SESSION['type'];
 		$media = $_SESSION['media'];

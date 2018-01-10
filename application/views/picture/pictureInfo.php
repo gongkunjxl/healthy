@@ -11,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
     <div class="pic-content-show" >
     	<div class="left-pre">
-    		<img onclick="pre_click(this)" id="preId" value="0" src="/static/images/arrow-left.jpg">
+    		<img onclick="pre_click(this)" id="preId" value="0" src="/static/images/arrow-left.png">
     	</div>
     	<div class="mid-content">
 			<div class="pic-show" >
@@ -20,7 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div> 
     	</div>
     	<div class="right-pre">
-    		<img onclick="next_click(this)" id="nextId" value="1" src="/static/images/arrow-right.jpg">
+    		<img onclick="next_click(this)" id="nextId" value="1" src="/static/images/arrow-right.png">
     	</div>
     </div>
 

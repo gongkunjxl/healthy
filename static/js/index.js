@@ -118,7 +118,7 @@ function requestData(){
 			break;
 		}
 	}
-	alert(url);
+	// alert(url);
 	location.href = url;
 
 }

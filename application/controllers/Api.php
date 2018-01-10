@@ -96,17 +96,29 @@ class Api extends MY_Controller {
     */
     public function expertList($page=1)
     {
-        $page=$page;
+        //赋值
+        $theme = $_SESSION['theme'];
+        $type = $_SESSION['type'];
+        $media = $_SESSION['media'];
+        $language = $_SESSION['language'];
+        $province = $_SESSION['province'];
+        $search = $_SESSION['search'];
         if($_POST){
             $postinfo= $this->Common->html_filter_array($_POST);
             $page = $postinfo['page'];
         }
+
         $where=array();
         $start=intval($page-1)*intval($this->exp_page);
         $orderby='ctime';
         $order_type='desc';
+        //条件
+        $like = array();
+        if($search != '0'){
+            $like['name'] = $search;
+        }
         $select_field='id,name,title,address,header';
-        $data=$this->Common->get_limit_order( $this->expert_table,$where,$start,$this->exp_page,$orderby,$order_type,$select_field,'');
+        $data=$this->Common->get_limit_order( $this->expert_table,$where,$start,$this->exp_page,$orderby,$order_type,$select_field,$like);
         echo json_encode($data);
     }
      /*
@@ -119,31 +131,83 @@ class Api extends MY_Controller {
             $postinfo= $this->Common->html_filter_array($_POST);
             $page = $postinfo['page'];
         }
+        $theme = $_SESSION['theme'];
+        $type = $_SESSION['type'];
+        $media = $_SESSION['media'];
+        $language = $_SESSION['language'];
+        $province = $_SESSION['province'];
+        $search = $_SESSION['search'];
+
         $where=array();
         $start=intval($page-1)*intval($this->per_page);
         $orderby='ctime';
         $order_type='desc';
+        //条件
+        $like = array();
+        if($search != '0'){
+            $like['name'] = $search;
+        }
+        //条件
+        if($theme>0){
+            $where['themeId'] = $theme;
+        }
+        if($type>0){
+            $where['type'] = $type;
+        }
+        if($language>0){
+            $where['language'] = $language;
+        }
+        if($province != '0'){
+            $where['province'] = $province;
+        }
+        //article
         $select_field='*';
-        $data=$this->Common->get_limit_order( $this->article_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field,'');
-        echo json_encode($data);
+        $article_data=$this->Common->get_limit_order( $this->article_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field,$like);
+         echo json_encode($article_data);
     }
     /*
      * the recommend articles by gongkun
     */
-     public function articleRecommend($page=1)
+    public function articleRecommend($page=1)
     {
         $page=$page;
         if($_POST){
             $postinfo= $this->Common->html_filter_array($_POST);
             $page = $postinfo['page'];
         }
+        $theme = $_SESSION['theme'];
+        $type = $_SESSION['type'];
+        $media = $_SESSION['media'];
+        $language = $_SESSION['language'];
+        $province = $_SESSION['province'];
+        $search = $_SESSION['search'];
+
         $where=array();
-        $start=intval($page-1)*intval($this->rem_page);
+        $start=intval($page-1)*intval($this->per_page);
         $orderby='ctime';
         $order_type='desc';
+        //条件
+        $like = array();
+        if($search != '0'){
+            $like['name'] = $search;
+        }
+        //条件
+        if($theme>0){
+            $where['themeId'] = $theme;
+        }
+        if($type>0){
+            $where['type'] = $type;
+        }
+        if($language>0){
+            $where['language'] = $language;
+        }
+        if($province != '0'){
+            $where['province'] = $province;
+        }
+        //article
         $select_field='*';
-        $data=$this->Common->get_limit_order( $this->article_table,$where,$start,$this->rem_page,$orderby,$order_type,$select_field,'');
-        echo json_encode($data);
+        $article_data=$this->Common->get_limit_order( $this->article_table,$where,$start,$this->rem_page,$orderby,$order_type,$select_field,$like);
+         echo json_encode($article_data);
     }
     /*
      * get the picture list by gongkun
@@ -155,15 +219,40 @@ class Api extends MY_Controller {
             $postinfo= $this->Common->html_filter_array($_POST);
             $page = $postinfo['page'];
         }
+        //赋值
+        $theme = $_SESSION['theme'];
+        $type = $_SESSION['type'];
+        $media = $_SESSION['media'];
+        $language = $_SESSION['language'];
+        $province = $_SESSION['province'];
+        $search = $_SESSION['search'];
         $where=array();
         $start=intval($page-1)*intval($this->per_page);
         $orderby='ctime';
         $order_type='desc';
+        //条件
+        $like = array();
+        if($search != '0'){
+            $like['name'] = $search;
+        }
+        //条件
+        if($theme>0){
+            $where['themeId'] = $theme;
+        }
+        if($type>0){
+            $where['type'] = $type;
+        }
+        if($language>0){
+            $where['language'] = $language;
+        }
+        if($province != '0'){
+            $where['province'] = $province;
+        }
+        //article
         $select_field='*';
-        $data=$this->Common->get_limit_order( $this->picture_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
-        //获取图片的地址 判断是否有index
-        if(count($data)>0){
-            foreach ($data as $key => $value) {
+        $picture_data=$this->Common->get_limit_order( $this->picture_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field,$like);
+        if(count($picture_data)>0){
+            foreach ($picture_data as $key => $value) {
                 $dir = 'picture/'.$value['id'];
                 $file_name = '';
                 $index_name = '';
@@ -189,13 +278,13 @@ class Api extends MY_Controller {
                     closedir($handle); 
                 }
                 if(!empty($index_name)){
-                    $data[$key]['index'] = $dir."/".$index_name;
+                    $picture_data[$key]['index'] = $dir."/".$index_name;
                 }else{
-                    $data[$key]['index'] = $dir."/".$file_name;
+                    $picture_data[$key]['index'] = $dir."/".$file_name;
                 }
             }
         }
-        echo json_encode($data);
+        echo json_encode($picture_data);
     }
     /*
      * get the picture detail info by gongkun
@@ -258,20 +347,45 @@ class Api extends MY_Controller {
     */
     public function pictureRecommend($page=1)
     {
-        $page=$page;
+          $page=$page;
         if($_POST){
             $postinfo= $this->Common->html_filter_array($_POST);
             $page = $postinfo['page'];
         }
+        //赋值
+        $theme = $_SESSION['theme'];
+        $type = $_SESSION['type'];
+        $media = $_SESSION['media'];
+        $language = $_SESSION['language'];
+        $province = $_SESSION['province'];
+        $search = $_SESSION['search'];
         $where=array();
-        $start=intval($page-1)*intval($this->pic_page);
+        $start=intval($page-1)*intval($this->per_page);
         $orderby='ctime';
         $order_type='desc';
+        //条件
+        $like = array();
+        if($search != '0'){
+            $like['name'] = $search;
+        }
+        //条件
+        if($theme>0){
+            $where['themeId'] = $theme;
+        }
+        if($type>0){
+            $where['type'] = $type;
+        }
+        if($language>0){
+            $where['language'] = $language;
+        }
+        if($province != '0'){
+            $where['province'] = $province;
+        }
+        //article
         $select_field='*';
-        $data=$this->Common->get_limit_order($this->picture_table,$where,$start,$this->pic_page,$orderby,$order_type,$select_field);
-        //获取图片的地址 判断是否有index
-        if(count($data)>0){
-            foreach ($data as $key => $value) {
+        $picture_data=$this->Common->get_limit_order( $this->picture_table,$where,$start,$this->pic_page,$orderby,$order_type,$select_field,$like);
+        if(count($picture_data)>0){
+            foreach ($picture_data as $key => $value) {
                 $dir = 'picture/'.$value['id'];
                 $file_name = '';
                 $index_name = '';
@@ -297,13 +411,13 @@ class Api extends MY_Controller {
                     closedir($handle); 
                 }
                 if(!empty($index_name)){
-                    $data[$key]['index'] = $dir."/".$index_name;
+                    $picture_data[$key]['index'] = $dir."/".$index_name;
                 }else{
-                    $data[$key]['index'] = $dir."/".$file_name;
+                    $picture_data[$key]['index'] = $dir."/".$file_name;
                 }
             }
         }
-        echo json_encode($data);
+        echo json_encode($picture_data);
     }
       /*
      *  get the video list by gongkun
@@ -315,13 +429,45 @@ class Api extends MY_Controller {
             $postinfo= $this->Common->html_filter_array($_POST);
             $page = $postinfo['page'];
         }
+        //赋值
+        $theme = $_SESSION['theme'];
+        $type = $_SESSION['type'];
+        $media = $_SESSION['media'];
+        $language = $_SESSION['language'];
+        $province = $_SESSION['province'];
+        $search = $_SESSION['search'];
         $where=array();
         $start=intval($page-1)*intval($this->per_page);
         $orderby='ctime';
         $order_type='desc';
-        $select_field='id,name,author,title,read,ctime,covAddr';
-        $data=$this->Common->get_limit_order( $this->video_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field,'');
-        echo json_encode($data);
+        //条件
+        $like = array();
+        if($search != '0'){
+            $like['name'] = $search;
+        }
+        //条件
+        if($theme>0){
+            $where['themeId'] = $theme;
+        }
+        if($type>0){
+            $where['type'] = $type;
+        }
+        if($language>0){
+            $where['language'] = $language;
+        }
+        if($province != '0'){
+            $where['province'] = $province;
+        }
+        //video
+        $select_field='id,name,author,title,read,type,ctime,covAddr,videoAddr';
+        $video_data=$this->Common->get_limit_order( $this->video_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field,$like);
+        foreach ($video_data as $key => $value) {
+           //theme
+            $type_where = array('id' => $value['type']);
+            $type_data = $this->Common->get_one($this->type_table,$type_where);
+            $video_data[$key]['type'] = $type_data['name'];
+        }
+        echo json_encode($video_data);
     }
     /*
      * the recommend video by gongkun
@@ -333,13 +479,57 @@ class Api extends MY_Controller {
             $postinfo= $this->Common->html_filter_array($_POST);
             $page = $postinfo['page'];
         }
+        //赋值
+        $theme = $_SESSION['theme'];
+        $type = $_SESSION['type'];
+        $media = $_SESSION['media'];
+        $language = $_SESSION['language'];
+        $province = $_SESSION['province'];
+        $search = $_SESSION['search'];
         $where=array();
-        $start=intval($page-1)*intval($this->rem_page);
+        $start=intval($page-1)*intval($this->per_page);
         $orderby='ctime';
         $order_type='desc';
-        $select_field='*';
-        $data=$this->Common->get_limit_order( $this->video_table,$where,$start,$this->rem_page,$orderby,$order_type,$select_field,'');
-        echo json_encode($data);
+        //条件
+        $like = array();
+        if($search != '0'){
+            $like['name'] = $search;
+        }
+        //条件
+        if($theme>0){
+            $where['themeId'] = $theme;
+        }
+        if($type>0){
+            $where['type'] = $type;
+        }
+        if($language>0){
+            $where['language'] = $language;
+        }
+        if($province != '0'){
+            $where['province'] = $province;
+        }
+        //video
+        $select_field='id,name,author,title,read,type,ctime,covAddr,videoAddr';
+        $video_data=$this->Common->get_limit_order( $this->video_table,$where,$start,$this->rem_page,$orderby,$order_type,$select_field,$like);
+        foreach ($video_data as $key => $value) {
+           //theme
+            $type_where = array('id' => $value['type']);
+            $type_data = $this->Common->get_one($this->type_table,$type_where);
+            $video_data[$key]['type'] = $type_data['name'];
+        }
+        echo json_encode($video_data);
+        // $page=$page;
+        // if($_POST){
+        //     $postinfo= $this->Common->html_filter_array($_POST);
+        //     $page = $postinfo['page'];
+        // }
+        // $where=array();
+        // $start=intval($page-1)*intval($this->rem_page);
+        // $orderby='ctime';
+        // $order_type='desc';
+        // $select_field='*';
+        // $data=$this->Common->get_limit_order( $this->video_table,$where,$start,$this->rem_page,$orderby,$order_type,$select_field,'');
+        // echo json_encode($data);
     }
     /*
      * video play by gongkun(update read)
@@ -1161,19 +1351,53 @@ class Api extends MY_Controller {
     }
 
     public function audioList($page=1)
-    {
+    {   
         $page=$page;
         if($_POST){
             $postinfo= $this->Common->html_filter_array($_POST);
             $page = $postinfo['page'];
         }
+        //赋值
+        $theme = $_SESSION['theme'];
+        $type = $_SESSION['type'];
+        $media = $_SESSION['media'];
+        $language = $_SESSION['language'];
+        $province = $_SESSION['province'];
+        $search = $_SESSION['search'];
+
         $where=array();
         $start=intval($page-1)*intval($this->per_page);
-        $orderby='create_time';
+        $orderby='ctime';
         $order_type='desc';
+        //条件
+        $like = array();
+        if($search != '0'){
+            $like['name'] = $search;
+        }
+        if($theme>0){
+            $where['themeId'] = $theme;
+        }
+        if($type>0){
+            $where['type'] = $type;
+        }
+        if($language>0){
+            $where['language'] = $language;
+        }
+        if($province != '0'){
+            $where['province'] = $province;
+        }
+        //audio
+        $orderby = "create_time";
         $select_field="id,name,author,title,description,source_url,seconds,themeId,type,language,province,listen_num,date_format(create_time,'%Y-%m-%d') as create_time";
-        $data=$this->Common->get_limit_order( $this->audio_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field,'');
-        echo json_encode($data);
+        $audio_data=$this->Common->get_limit_order( $this->audio_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field,$like);
+        echo json_encode($audio_data);
+        // $where=array();
+        // $start=intval($page-1)*intval($this->per_page);
+        // $orderby='create_time';
+        // $order_type='desc';
+        // $select_field="id,name,author,title,description,source_url,seconds,themeId,type,language,province,listen_num,date_format(create_time,'%Y-%m-%d') as create_time";
+        // $data=$this->Common->get_limit_order( $this->audio_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field,'');
+        // echo json_encode($data);
     }
 
     public function pptList($page=1)
@@ -1183,13 +1407,40 @@ class Api extends MY_Controller {
             $postinfo= $this->Common->html_filter_array($_POST);
             $page = $postinfo['page'];
         }
+        //赋值
+        $_SESSION['media'] = '6';
+        $theme = $_SESSION['theme'];
+        $type = $_SESSION['type'];
+        $media = $_SESSION['media'];
+        $language = $_SESSION['language'];
+        $province = $_SESSION['province'];
+        $search = $_SESSION['search'];  
         $where=array();
         $start=intval($page-1)*intval($this->per_page);
-        $orderby='create_time';
+        $orderby='ctime';
         $order_type='desc';
+        //条件
+        $like = array();
+        if($search != '0'){
+            $like['name'] = $search;
+        }
+        if($theme>0){
+            $where['themeId'] = $theme;
+        }
+        if($type>0){
+            $where['type'] = $type;
+        }
+        if($language>0){
+            $where['language'] = $language;
+        }
+        if($province != '0'){
+            $where['province'] = $province;
+        }
+        //audio
+        $orderby = "create_time";
         $select_field="id,name,author,description,source_url,themeId,type,language,province,reader_num,date_format(create_time,'%Y-%m-%d') as create_time";
-        $data=$this->Common->get_limit_order( $this->ppt_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field,'');
-        echo json_encode($data);
+        $ppt_data=$this->Common->get_limit_order( $this->ppt_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
+        echo json_encode($ppt_data);
     }
 
     /*

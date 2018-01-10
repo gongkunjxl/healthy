@@ -67,8 +67,8 @@ if(isset($_SESSION['userid']) && $_SESSION['userid']>0){
         <li class="layui-nav-item" style="margin-left: 1%;">
           <a style="text-decoration: none; padding-right: 20px;">健康生活方式</a>
           <dl class="layui-nav-child">
-            <dd style="line-height: 36px;"><a style="text-decoration: none;" href="/main/searchIndex/2/1">情绪管理</a></dd>
-            <dd style="line-height: 36px;"><a style="text-decoration: none;" href="/main/searchIndex/2/2">膳食平衡</a></dd>
+            <dd style="line-height: 36px;"><a style="text-decoration: none;" href="/main/searchIndex/2/4">情绪管理</a></dd>
+            <dd style="line-height: 36px;"><a style="text-decoration: none;" href="/main/searchIndex/2/5">膳食平衡</a></dd>
           </dl>
         </li>
         <!-- the login -->
