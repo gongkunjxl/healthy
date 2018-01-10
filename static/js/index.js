@@ -121,33 +121,6 @@ function requestData(){
 	alert(url);
 	location.href = url;
 
-	// var data={
-	// 	theme: theme ,
-	// 	type: type,
-	// 	media: media,
-	// 	language: language,
-	// 	provData: provData,
-	// 	search: search
-	// };
-	// // alert(JSON.stringify(data));
-	// $.ajax({
-	// 	url: '/api/searchIndex',
-	// 	type: 'post',
-	// 	dataType:'json',
-	// 	data: data,
-	// 	success: function (data) {
-	// 		// alert(JSON.stringify(data));
-	// 		if(data.status == 200){
-
-	// 			// alert("Update the index page");
-
-
-	// 		}
-	// 	},
-	// 	error: function(data) {
-	// 		alert("Sorry error");
-	// 	}
-	// }); 
 }
 
 

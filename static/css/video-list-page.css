@@ -1,15 +1,16 @@
 
 .video-detail-line{
     margin-top: 15px;
-    width: 96%;
+    width: 90%;
     height: 1.5px;
-    margin-left: 3%;
+    margin-left: 10%;
     background-color: #bfcace;
 }
 .video-list-title{
     margin-top: 30px;
     height: 50px;
-    width: 97%;
+    width: 95%;
+    margin-left: 5%;
     background-color: #EBEBEB;
     padding: 0.1px;
     border: 0.1px;
@@ -28,28 +29,27 @@
     height: auto;
     padding: 0;
     border: 0;
-    margin: 0;
+    margin-top: 20px;
 }
 .video-content .video-list-content{
-    width: 50%;
+    width: 40%;
     height: 160px;
     margin-top: 25px;
+    margin-left: 5%;
     float: left;
     overflow: auto;
     border-bottom: 1.5px solid #bfcace;
 }
 .video-content .video-list-content .content{
     height: 130px;
-    width: 80%;
+    width: 100%;
     float: left;
-    margin-left: 10%;
-    /*background-color: #fff0f5;*/
+    margin-left: 0;
     padding: 0.1px;
 }
 .video-content .video-list-content .content .video-show{
     height: 100%;
-    width: 45%;
-    float: left;
+    width: 45%;    float: left;
 }
 .video-content .video-list-content .content .video-show video{
     height: 100%;

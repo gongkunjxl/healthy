@@ -4,7 +4,8 @@ html{-webkit-text-size-adjust:none;}
 .audio-title{
     margin-top: 30px;
     height: 50px;
-    width: 100%;
+    width: 95%;
+    margin-left: 5%;
     background-color: #EBEBEB;
     padding: 0.1px;
     border: 0.1px;
@@ -32,11 +33,12 @@ html{-webkit-text-size-adjust:none;}
     height: auto;
     padding: 0;
     border: 0;
-    margin: 0;
+    margin-top: 20px;
 }
 .audio-content .audio-show{
     margin-top: 30px;
-    width: 50%;
+    width: 40%;
+    margin-left: 5%;
     min-width: 300px;
     height: 120px;
     float: left;
@@ -44,9 +46,9 @@ html{-webkit-text-size-adjust:none;}
     border-bottom: 2px solid #EBEBEB;
 }
 .audio-content .audio-show .content-show{
-    width: 80%;
+    width: 100%;
     height: 100px;
-    margin-left: 10%;
+    margin-left: 0;
     padding: 0;
     border:0.1px;
 }

@@ -4,7 +4,8 @@ html{-webkit-text-size-adjust:none;}
 .powerpoint-title{
     margin-top: 30px;
     height: 50px;
-    width: 100%;
+    width: 95%;
+    margin-left: 5%;
     background-color: #EBEBEB;
     padding: 0.1px;
     border: 0.1px;
@@ -32,27 +33,29 @@ html{-webkit-text-size-adjust:none;}
     height: auto;
     padding: 0;
     border: 0;
-    margin: 0;
+    margin-top: 20px;
+    overflow: auto;
 }
 .powerpoint-content .powerpoint-show{
     margin-top: 30px;
-    width: 50%;
+    width: 45%;
+    margin-left: 5%;
     min-width: 300px;
-    height: 140px;
+    height: 160px;
     float: left;
     background-color: #fff;
-    border-bottom: 2px solid #EBEBEB;
+    border-bottom: 1.5px solid #EBEBEB;
 }
 .powerpoint-content .powerpoint-show .content-show{
-    width: 80%;
+    width: 100%;
     height: 130px;
-    margin-left: 10%;
+    margin-left: 0;
     padding: 0;
     border:0.1px;
 }
 
 .powerpoint-content .powerpoint-show .content-show .powerpoint-img{
-    width: 120px;
+    width: 45%;
     height: 130px;
     float: left;
     border: 0.1px;
@@ -75,8 +78,8 @@ html{-webkit-text-size-adjust:none;}
 
 .powerpoint-content .powerpoint-show .content-show .show-right{
     height: 100px;
-    width: 70%;
-    margin-left: 30%;
+    width: 50%;
+    float: right;
     background-color: #fff;
 }
 .powerpoint-content .powerpoint-show .content-show .show-right h2{
