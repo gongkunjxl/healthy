@@ -13,13 +13,11 @@ class Main extends MY_Controller {
  		$file = fopen("static/js/sickTheme.json","w");
  		fwrite($file,json_encode($data));
  		fclose($file);
-
  		$where = array('themeId' => '2');
  		$data = $this->Common->get_all($this->type_table,$where);
  		$file = fopen("static/js/lifeTheme.json","w");
  		fwrite($file,json_encode($data));
  		fclose($file);
-
  		 //all count
         $expert_count = $this->Common->get_count($this->expert_table,'','');
         $article_count = $this->Common->get_count($this->article_table,'','');
@@ -135,6 +133,7 @@ class Main extends MY_Controller {
             $ppt_data[$key]['type'] = $type_data['name'];
         }
         $re_data['ppt_data'] = $ppt_data;
+        $re_data['if_search'] = '0';  	//判断是从搜索来的 如果是不显示about部分
 		$re_head['head_data'] = $head_data;
 
 		//setting the session
@@ -149,7 +148,6 @@ class Main extends MY_Controller {
 		$this->load->view('main/index',$re_data);
 		$this->load->view('footer');
 	}
-
 	/*
 	 * login by gongkun
 	 */
@@ -404,6 +402,7 @@ class Main extends MY_Controller {
 		$_SESSION['province'] = $province;
 		$_SESSION['search'] = $search;
 
+		$re_data['if_search'] = '1';
 		$this->load->view('header',$re_head);
 		$this->load->view('main/index',$re_data);
 		$this->load->view('footer');

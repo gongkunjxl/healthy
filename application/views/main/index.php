@@ -168,6 +168,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 	<?php endif; ?>
 	<!-- about us -->
+	<?php if($if_search == '0'):?>
 	<div class="about-title">
 		<img src="/static/images/about-title.png">
 		<h1>关于我们</h1>
@@ -176,7 +177,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="about-content">
 		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;中华预防医学健康传播分会、中华医学心血管病分会、国家心血管病中心防治资讯部、中华疾病预防控制中心慢病z红心、中国心血管健康联盟5加专业机构联合发布《“管理胆固醇、防心梗”核心提示》、呼吁公众及高危人群从监测血脂、管理“坏胆固醇”、识别心梗前兆等方面入手、防止心梗的发生。</p>
 	</div>
-	<div style="height: 100px; margin-top:40px;width: 100%; background-color: #F5F5F5;border: 1px;padding: 0.1px;">
+	<?php endif; ?>
+	<!-- <div style="height: 100px; margin-top:40px;width: 100%; background-color: #F5F5F5;border: 1px;padding: 0.1px;">
 		<a style="margin-top: 50px; margin-left: 60px;" href="/main/testdemo">测试按钮</a>
 		<a style="margin-top: 50px; margin-left: 60px;" href="/backend/index">后台测试</a>
 		<a style="margin-top: 50px; margin-left: 60px;" href="/main/message">短信测试</a>
@@ -195,7 +197,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<a style="margin-top: 50px; margin-left: 50px;" href="/main/pictureInfo">图片详情</a>
 		<a style="margin-top: 50px; margin-left: 50px;" href="/main/powerpoint">ppt列表</a>
 		<a style="margin-top: 50px; margin-left: 50px;" href="/main/powerpointInfo">ppt详情</a>
-	</div>
+	</div> -->
 </div>
 
 <!-- audio -->
