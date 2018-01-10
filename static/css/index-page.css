@@ -66,15 +66,8 @@ html{-webkit-text-size-adjust:none;}
     width: 80%;
     float: left;
 }
-/*.index-search .search-bar .sub-button
-{
-    width: 80px;
-    height: 38px;
-    background-color: #009ACD;
-    border: 0;
-    padding: 0;
-}
-*/
+
+
 .index-search .search-option{
     width: 75%;
     margin-left: 15%;

@@ -175,12 +175,12 @@ class Main extends MY_Controller {
 					redirect('main/index');
 				}
 			}else{
-				$this->load->view('header');
+				$this->load->view('header2');
 				$this->load->view('user/login');
 				$this->load->view('footer');
 			}
 		}else{
-			$this->load->view('header');
+			$this->load->view('header2');
 			$this->load->view('user/login');
 			$this->load->view('footer');	
 		}
@@ -199,7 +199,7 @@ class Main extends MY_Controller {
 		$rep_data['username'] = $rep['username'];
 		$rep_data['password'] = $rep['password'];
 		$re_data['data'] = $rep_data;
-		$this->load->view('header');
+		$this->load->view('header2');
 		$this->load->view('user/expertUpdateInfo',$re_data);
 		$this->load->view('footer');
 
@@ -276,11 +276,10 @@ class Main extends MY_Controller {
 		$this->load->view('user/forget');
 		$this->load->view('footer');	
 	}
-
 	/*
 	 * search index(通过search 和分类跳转过来) 搜索所有的内容部分
 	*/
-	public function searchIndex($theme,$type,$media,$language,$province,$search)
+	public function searchIndex($theme='0',$type='0',$media='0',$language='0',$province='0',$search='0')
 	{
 		//expert
 		$page = 1;
@@ -855,7 +854,8 @@ class Main extends MY_Controller {
 		$data['education']=str_replace("\n","<br>",$data['education']);  //换行
 		$data['education']=str_replace(" ","&nbsp;",$data['education']);  //空格
 		$re_data['data']=$data;
-		$this->load->view('header');
+
+		$this->load->view('header2');
 		$this->load->view('expert/expertInfo',$re_data);
 		$this->load->view('footer');
 	}
@@ -924,7 +924,7 @@ class Main extends MY_Controller {
 		$where = array('id' => $id);
 		$data = $this->Common->get_one($this->audio_table,$where);
 		$re_data['data'] = $data;
-		$this->load->view('header');
+		$this->load->view('header2');
 		$this->load->view('audio/audioinfo',$re_data);
 		$this->load->view('footer');	
 	}	
@@ -940,7 +940,6 @@ class Main extends MY_Controller {
 		$language = $_SESSION['language'];
 		$province = $_SESSION['province'];
 		$search = $_SESSION['search'];
-
     	$where=array();
     	$start=intval($page-1)*intval($this->per_page);
     	$orderby='ctime';
@@ -999,7 +998,7 @@ class Main extends MY_Controller {
 		$data = $this->Common->get_one($this->video_table,$where);
 		$re_data['data'] = $data;
 
-		$this->load->view('header');
+		$this->load->view('header2');
 		$this->load->view('video/videoinfo',$re_data);
 		$this->load->view('footer');	
 	}
@@ -1009,7 +1008,7 @@ class Main extends MY_Controller {
 	*/
 	public function uploadVideo()
 	{
-		$this->load->view('header');
+		$this->load->view('header2');
 		$this->load->view('video/uploadVideo');
 		$this->load->view('footer');	
 	}
@@ -1080,7 +1079,7 @@ class Main extends MY_Controller {
 		$where = array('id' => $id);
 		$data = $this->Common->get_one($this->article_table,$where);
 		$re_data['data'] = $data;
-		$this->load->view('header');
+		$this->load->view('header2');
 		$this->load->view('article/articleInfo',$re_data);
 		$this->load->view('footer');
 	}
@@ -1276,7 +1275,7 @@ class Main extends MY_Controller {
     	}
 
     	$re_data['reData'] =$data;
-		$this->load->view('header');
+		$this->load->view('header2');
 		$this->load->view('picture/pictureInfo',$re_data);
 		$this->load->view('footer');
 

@@ -50,45 +50,44 @@ if(isset($_SESSION['userid']) && $_SESSION['userid']>0){
 </head>
 <body>
 <div class="nav">
-
   <div class="layui-container">
     <img class="logo" src="/static/images/head_logo.png"   alt="logo">
     <ul class="layui-nav">
         <li class="layui-nav-item">
-          <a href="/main/index">首页</a>
+          <a style="text-decoration: none;" href="/main/index">首页</a>
         </li>
         <li class="layui-nav-item" style="padding-right:10px;">
-          <a href="#">慢性疾病</a>
+          <a style="text-decoration: none;">慢性疾病</a>
           <dl class="layui-nav-child">
-            <dd style="line-height: 36px;"><a href="javascript:;">高血脂</a></dd>
-            <dd style="line-height: 36px;"><a href="javascript:;">脑卒中</a></dd>
-            <dd style="line-height: 36px;"><a href="javascript:;">高血压</a></dd>
+            <dd style="line-height: 36px;"><a style="text-decoration: none;" href="/main/searchIndex/1/1">高血脂</a></dd>
+            <dd style="line-height: 36px;"><a style="text-decoration: none;" href="/main/searchIndex/1/2">脑卒中</a></dd>
+            <dd style="line-height: 36px;"><a style="text-decoration: none;" href="/main/searchIndex/1/3">高血压</a></dd>
           </dl>
         </li>
         <li class="layui-nav-item" style="margin-left: 1%;">
-          <a href="#" style="padding-right: 20px;">健康生活方式</a>
+          <a style="text-decoration: none; padding-right: 20px;">健康生活方式</a>
           <dl class="layui-nav-child">
-            <dd style="line-height: 36px;"><a href="javascript:;">情绪管理</a></dd>
-            <dd style="line-height: 36px;"><a href="javascript:;">膳食平衡</a></dd>
+            <dd style="line-height: 36px;"><a style="text-decoration: none;" href="/main/searchIndex/2/1">情绪管理</a></dd>
+            <dd style="line-height: 36px;"><a style="text-decoration: none;" href="/main/searchIndex/2/2">膳食平衡</a></dd>
           </dl>
         </li>
-
         <!-- the login -->
-
     </ul>
     <div class="right-nav">
       <?php if($userid>0):?>
         <ul class="layui-nav" style="margin-top: 0;width: 100%;">
            <li class="layui-nav-item" style="max-width: 180px;">
-              <a style="margin-right: 20px; max-width: 150px; overflow: hidden; white-space:nowrap;"><img src="/static/images/header_1.jpg" class="layui-nav-img"><?php echo $nickname; ?></a>
+              <a style="text-decoration: none; margin-right: 20px; max-width: 150px; overflow: hidden; white-space:nowrap;"><img src="/static/images/header_1.jpg" class="layui-nav-img"><?php echo $nickname; ?></a>
               <dl class="layui-nav-child">
-                <dd><a href="<?php echo ($type==2)?"/main/expertUpdateInfo":"#" ?>" style="line-height: 36px;">修改信息</a></dd>
-                <dd><a href="/main/logout" style="line-height: 36px;">退 出</a></dd>
+                <?php if($type==2): ?>
+                  <dd><a href="/main/expertUpdateInfo" style="text-decoration: none; line-height: 36px;">修改信息</a></dd>
+                <?php endif; ?>
+                <dd><a href="/main/logout" style="text-decoration: none; line-height: 36px;">退 出</a></dd>
               </dl>
           </li>
         </ul>
       <?php else:?>
-        <span class="login-word"><a href="/main/login">登陆</a><label>|</label><a href="/main/register">注册</a></span>
+        <span class="login-word"><a style="text-decoration: none;" href="/main/login">登陆</a><label>|</label><a href="/main/register">注册</a></span>
       <?php endif;?>
 
     </div>
