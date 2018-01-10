@@ -135,8 +135,16 @@ class Main extends MY_Controller {
             $ppt_data[$key]['type'] = $type_data['name'];
         }
         $re_data['ppt_data'] = $ppt_data;
-
 		$re_head['head_data'] = $head_data;
+
+		//setting the session
+		$_SESSION['theme'] = 0;
+		$_SESSION['type'] = 0;
+		$_SESSION['media'] = 0;
+		$_SESSION['language'] = 0;
+		$_SESSION['province'] = 0;
+		$_SESSION['search'] = 0;			
+
 		$this->load->view('header',$re_head);
 		$this->load->view('main/index',$re_data);
 		$this->load->view('footer');
@@ -388,6 +396,14 @@ class Main extends MY_Controller {
 		$head_data['search'] = $search;
 		$re_head['head_data'] = $head_data;
 
+		//赋值
+		$_SESSION['theme'] = $theme;
+		$_SESSION['type'] = $type;
+		$_SESSION['media'] = $media;
+		$_SESSION['language'] = $language;
+		$_SESSION['province'] = $province;
+		$_SESSION['search'] = $search;
+
 		$this->load->view('header',$re_head);
 		$this->load->view('main/index',$re_data);
 		$this->load->view('footer');
@@ -425,6 +441,14 @@ class Main extends MY_Controller {
 		$head_data['province'] = $province;
 		$head_data['search'] = $search;
 		$re_head['head_data'] = $head_data;
+
+		//赋值
+		$_SESSION['theme'] = $theme;
+		$_SESSION['type'] = $type;
+		$_SESSION['media'] = $media;
+		$_SESSION['language'] = $language;
+		$_SESSION['province'] = urldecode($province);
+		$_SESSION['search'] = $search;
 
 		$this->load->view('header',$re_head);
 		$this->load->view('expert/expert',$re_data);
@@ -472,7 +496,7 @@ class Main extends MY_Controller {
             $type_data = $this->Common->get_one($this->type_table,$type_where);
             $video_data[$key]['type'] = $type_data['name'];
         }
-        $re_data['count'] = coutn($tmp_data);
+        $re_data['count'] = count($tmp_data);
         $re_data['limit'] = $this->per_page;
     	$re_data['data'] = $video_data;
         
@@ -484,6 +508,14 @@ class Main extends MY_Controller {
 		$head_data['province'] = $province;
 		$head_data['search'] = $search;
 		$re_head['head_data'] = $head_data;
+
+		//赋值
+		$_SESSION['theme'] = $theme;
+		$_SESSION['type'] = $type;
+		$_SESSION['media'] = $media;
+		$_SESSION['language'] = $language;
+		$_SESSION['province'] = $province;
+		$_SESSION['search'] = $search;
 
 		$this->load->view('header',$re_head);
 		$this->load->view('video/video',$re_data);
@@ -537,6 +569,14 @@ class Main extends MY_Controller {
 		$head_data['province'] = $province;
 		$head_data['search'] = $search;
 		$re_head['head_data'] = $head_data;
+
+		//赋值
+		$_SESSION['theme'] = $theme;
+		$_SESSION['type'] = $type;
+		$_SESSION['media'] = $media;
+		$_SESSION['language'] = $language;
+		$_SESSION['province'] = $province;
+		$_SESSION['search'] = $search;
 
 		$this->load->view('header',$re_head);
 		$this->load->view('article/article',$re_data);
@@ -592,6 +632,14 @@ class Main extends MY_Controller {
 		$head_data['province'] = $province;
 		$head_data['search'] = $search;
 		$re_head['head_data'] = $head_data;
+
+		//赋值
+		$_SESSION['theme'] = $theme;
+		$_SESSION['type'] = $type;
+		$_SESSION['media'] = $media;
+		$_SESSION['language'] = $language;
+		$_SESSION['province'] = $province;
+		$_SESSION['search'] = $search;
 
 		$this->load->view('header',$re_head);
 		$this->load->view('audio/audio',$re_data);
@@ -678,6 +726,13 @@ class Main extends MY_Controller {
 		$head_data['province'] = $province;
 		$head_data['search'] = $search;
 		$re_head['head_data'] = $head_data;
+		//赋值
+		$_SESSION['theme'] = $theme;
+		$_SESSION['type'] = $type;
+		$_SESSION['media'] = $media;
+		$_SESSION['language'] = $language;
+		$_SESSION['province'] = $province;
+		$_SESSION['search'] = $search;
 
 		$this->load->view('header',$re_head);
 		$this->load->view('picture/picture',$re_data);
@@ -733,31 +788,57 @@ class Main extends MY_Controller {
 		$head_data['province'] = $province;
 		$head_data['search'] = $search;
 		$re_head['head_data'] = $head_data;
+		//赋值
+		$_SESSION['theme'] = $theme;
+		$_SESSION['type'] = $type;
+		$_SESSION['media'] = $media;
+		$_SESSION['language'] = $language;
+		$_SESSION['province'] = $province;
+		$_SESSION['search'] = $search;
 
 		$this->load->view('header',$re_head);
 		$this->load->view('powerpoint/powerpoint',$re_data);
 		$this->load->view('footer');
 	}
-
 	/*
 	 * get the expert by gongkun
 	*/
 	public function expert($page=1)
 	{
-		//get the expert
-		$page=$page;
+		//赋值
+		$theme = $_SESSION['theme'];
+		$type = $_SESSION['type'];
+		$media = $_SESSION['media'];
+		$language = $_SESSION['language'];
+		$province = $_SESSION['province'];
+		$search = $_SESSION['search'];
+		//expert
     	$where=array();
     	$start=intval($page-1)*intval($this->exp_page);
     	$orderby='ctime';
     	$order_type='desc';
+    	//条件
+    	$like = array();
+    	if($search != '0'){
+    		$like['name'] = $search;
+    	}
     	$select_field='id,name,title,address,header';
-    	$data=$this->Common->get_limit_order( $this->expert_table,$where,$start,$this->exp_page,$orderby,$order_type,$select_field);
-    	$count=$this->Common->get_count($this->expert_table,'','');
-        $re_data['count'] = $count;
+    	$expert_data=$this->Common->get_limit_order( $this->expert_table,$where,$start,$this->exp_page,$orderby,$order_type,$select_field,$like);
+    	$tmp_data=$this->Common->get_limit_order( $this->expert_table,$where,$start,'',$orderby,$order_type,$select_field,$like);
+    	$re_data['count'] = count($tmp_data);
         $re_data['limit'] = $this->exp_page;
-    	$re_data['data']= $data;
+    	$re_data['data'] = $expert_data;
+        
+        $head_data['count'] = $_SESSION['count'];
+        $head_data['theme'] = $theme;
+		$head_data['type'] = $type;
+		$head_data['media'] = $media;
+		$head_data['language'] = $language;
+		$head_data['province'] = $province;
+		$head_data['search'] = $search;
+		$re_head['head_data'] = $head_data;
 
-		$this->load->view('header');
+		$this->load->view('header',$re_head);
 		$this->load->view('expert/expert',$re_data);
 		$this->load->view('footer');
 	}
@@ -783,20 +864,57 @@ class Main extends MY_Controller {
 	//audio
 	public function audio($page=1)
 	{
-		$page=$page;
-        $where=array();
-        $start=intval($page-1)*intval($this->per_page);
-        $orderby='create_time';
-        $order_type='desc';
-        $select_field="id,name,author,title,description,source_url,seconds,themeId,type,language,province,listen_num,date_format(create_time,'%Y-%m-%d') as create_time";
-        $data=$this->Common->get_limit_order( $this->audio_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
-        $count=$this->Common->get_count($this->audio_table,'','');
-        $re_data['data'] = $data;
-        $re_data['count'] = $count;
+		//赋值
+		$theme = $_SESSION['theme'];
+		$type = $_SESSION['type'];
+		$media = $_SESSION['media'];
+		$language = $_SESSION['language'];
+		$province = $_SESSION['province'];
+		$search = $_SESSION['search'];
+
+		$where=array();
+    	$start=intval($page-1)*intval($this->per_page);
+    	$orderby='ctime';
+    	$order_type='desc';
+    	//条件
+    	$like = array();
+    	if($search != '0'){
+    		$like['name'] = $search;
+    	}
+    	if($theme>0){
+    		$where['themeId'] = $theme;
+    	}
+    	if($type>0){
+    		$where['type'] = $type;
+    	}
+    	if($language>0){
+    		$where['language'] = $language;
+    	}
+    	if($province != '0'){
+    		$where['province'] = $province;
+    	}
+    	//audio
+    	$orderby = "create_time";
+    	$select_field="id,name,author,title,description,source_url,seconds,themeId,type,language,province,listen_num,date_format(create_time,'%Y-%m-%d') as create_time";
+        $audio_data=$this->Common->get_limit_order( $this->audio_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field,$like);
+        $tmp_data=$this->Common->get_limit_order( $this->audio_table,$where,$start,'',$orderby,$order_type,$select_field,$like);
+        
+        $re_data['count'] = count($tmp_data);
         $re_data['limit'] = $this->per_page;
-		$this->load->view('header');
+    	$re_data['data'] = $audio_data;
+        
+        $head_data['count'] = $_SESSION['count'];
+        $head_data['theme'] = $theme;
+		$head_data['type'] = $type;
+		$head_data['media'] = $media;
+		$head_data['language'] = $language;
+		$head_data['province'] = $province;
+		$head_data['search'] = $search;
+		$re_head['head_data'] = $head_data;
+
+		$this->load->view('header',$re_head);
 		$this->load->view('audio/audio',$re_data);
-		$this->load->view('footer');	
+		$this->load->view('footer');
 	}
 
 	/* 
@@ -816,18 +934,60 @@ class Main extends MY_Controller {
 	*/
 	public function video($page=1)
 	{
+		//赋值
+		$theme = $_SESSION['theme'];
+		$type = $_SESSION['type'];
+		$media = $_SESSION['media'];
+		$language = $_SESSION['language'];
+		$province = $_SESSION['province'];
+		$search = $_SESSION['search'];
+
     	$where=array();
     	$start=intval($page-1)*intval($this->per_page);
     	$orderby='ctime';
     	$order_type='desc';
-    	$select_field='id,name,author,title,read,ctime,covAddr';
-    	$data=$this->Common->get_limit_order( $this->video_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
-    	$count=$this->Common->get_count($this->video_table,'','');
-        $re_data['count'] = $count;
+    	//条件
+    	$like = array();
+    	if($search != '0'){
+    		$like['name'] = $search;
+    	}
+    	//条件
+    	if($theme>0){
+    		$where['themeId'] = $theme;
+    	}
+    	if($type>0){
+    		$where['type'] = $type;
+    	}
+    	if($language>0){
+    		$where['language'] = $language;
+    	}
+    	if($province != '0'){
+    		$where['province'] = $province;
+    	}
+    	//video
+    	$select_field='id,name,author,title,read,type,ctime,covAddr,videoAddr';
+    	$video_data=$this->Common->get_limit_order( $this->video_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field,$like);
+    	$tmp_data=$this->Common->get_limit_order( $this->video_table,$where,$start,'',$orderby,$order_type,$select_field,$like);
+    	foreach ($video_data as $key => $value) {
+           //theme
+            $type_where = array('id' => $value['type']);
+            $type_data = $this->Common->get_one($this->type_table,$type_where);
+            $video_data[$key]['type'] = $type_data['name'];
+        }
+        $re_data['count'] = count($tmp_data);
         $re_data['limit'] = $this->per_page;
-    	$re_data['data']= $data;
+    	$re_data['data'] = $video_data;
+        
+        $head_data['count'] = $_SESSION['count'];
+        $head_data['theme'] = $theme;
+		$head_data['type'] = $type;
+		$head_data['media'] = $media;
+		$head_data['language'] = $language;
+		$head_data['province'] = $province;
+		$head_data['search'] = $search;
+		$re_head['head_data'] = $head_data;
 
-		$this->load->view('header');
+		$this->load->view('header',$re_head);
 		$this->load->view('video/video',$re_data);
 		$this->load->view('footer');
 	}
@@ -860,19 +1020,55 @@ class Main extends MY_Controller {
 	*/
 	public function article($page=1)
 	{
-		$page=$page;
-    	$where=array();
+		//赋值
+		$theme = $_SESSION['theme'];
+		$type = $_SESSION['type'];
+		$media = $_SESSION['media'];
+		$language = $_SESSION['language'];
+		$province = $_SESSION['province'];
+		$search = $_SESSION['search'];
+
+		$where=array();
     	$start=intval($page-1)*intval($this->per_page);
     	$orderby='ctime';
     	$order_type='desc';
+    	//条件
+    	$like = array();
+    	if($search != '0'){
+    		$like['name'] = $search;
+    	}
+    	//条件
+    	if($theme>0){
+    		$where['themeId'] = $theme;
+    	}
+    	if($type>0){
+    		$where['type'] = $type;
+    	}
+    	if($language>0){
+    		$where['language'] = $language;
+    	}
+    	if($province != '0'){
+    		$where['province'] = $province;
+    	}
+    	//article
     	$select_field='*';
-    	$data=$this->Common->get_limit_order( $this->article_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
-    	$count=$this->Common->get_count($this->article_table,'','');
-        $re_data['count'] = $count;
+    	$article_data=$this->Common->get_limit_order( $this->article_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field,$like);
+    	$tmp_data=$this->Common->get_limit_order( $this->article_table,$where,$start,'',$orderby,$order_type,$select_field,$like);
+    	
+        $re_data['count'] = count($tmp_data);
         $re_data['limit'] = $this->per_page;
-    	$re_data['data']= $data;
+    	$re_data['data'] = $article_data;
+        
+        $head_data['count'] = $_SESSION['count'];
+        $head_data['theme'] = $theme;
+		$head_data['type'] = $type;
+		$head_data['media'] = $media;
+		$head_data['language'] = $language;
+		$head_data['province'] = $province;
+		$head_data['search'] = $search;
+		$re_head['head_data'] = $head_data;
 
-		$this->load->view('header');
+		$this->load->view('header',$re_head);
 		$this->load->view('article/article',$re_data);
 		$this->load->view('footer');
 	}
@@ -895,17 +1091,41 @@ class Main extends MY_Controller {
 	*/
 	public function picture($page=1)
 	{
-		$page=$page;
-    	$where=array();
+		//赋值
+		$theme = $_SESSION['theme'];
+		$type = $_SESSION['type'];
+		$media = $_SESSION['media'];
+		$language = $_SESSION['language'];
+		$province = $_SESSION['province'];
+		$search = $_SESSION['search'];
+		$where=array();
     	$start=intval($page-1)*intval($this->per_page);
     	$orderby='ctime';
     	$order_type='desc';
+    	//条件
+    	$like = array();
+    	if($search != '0'){
+    		$like['name'] = $search;
+    	}
+    	//条件
+    	if($theme>0){
+    		$where['themeId'] = $theme;
+    	}
+    	if($type>0){
+    		$where['type'] = $type;
+    	}
+    	if($language>0){
+    		$where['language'] = $language;
+    	}
+    	if($province != '0'){
+    		$where['province'] = $province;
+    	}
+    	//article
     	$select_field='*';
-    	$data=$this->Common->get_limit_order( $this->picture_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
-    	$count=$this->Common->get_count($this->picture_table,'','');
-    	//获取图片的地址 判断是否有index
-    	if(count($data)>0){
-    		foreach ($data as $key => $value) {
+    	$picture_data=$this->Common->get_limit_order( $this->picture_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field,$like);
+    	$tmp_data=$this->Common->get_limit_order( $this->picture_table,$where,$start,'',$orderby,$order_type,$select_field,$like);
+    	if(count($picture_data)>0){
+    		foreach ($picture_data as $key => $value) {
     			$dir = 'picture/'.$value['id'];
     			$file_name = '';
     			$index_name = '';
@@ -931,19 +1151,30 @@ class Main extends MY_Controller {
 	                closedir($handle); 
 	            }
 	            if(!empty($index_name)){
-	            	$data[$key]['index'] = $dir."/".$index_name;
+	            	$picture_data[$key]['index'] = $dir."/".$index_name;
 	            }else{
-	            	$data[$key]['index'] = $dir."/".$file_name;
+	            	$picture_data[$key]['index'] = $dir."/".$file_name;
 	            }
     		}
     	}
-        $re_data['count'] = $count;
+    	
+        $re_data['count'] = count($tmp_data);
         $re_data['limit'] = $this->per_page;
-    	$re_data['data']= $data;
+    	$re_data['data'] = $picture_data;
+        
+        $head_data['count'] = $_SESSION['count'];
+        $head_data['theme'] = $theme;
+		$head_data['type'] = $type;
+		$head_data['media'] = $media;
+		$head_data['language'] = $language;
+		$head_data['province'] = $province;
+		$head_data['search'] = $search;
+		$re_head['head_data'] = $head_data;
 
-		$this->load->view('header');
+		$this->load->view('header',$re_head);
 		$this->load->view('picture/picture',$re_data);
 		$this->load->view('footer');
+
 	}
 
 	/*
@@ -1002,7 +1233,6 @@ class Main extends MY_Controller {
 	    $re_data['picture'] = json_encode($pic_name);
 	   	$re_data['data'] = $data;
 
-
 	    // get the recomand 3 pictures
 	    $page=1;
     	$where=array();
@@ -1056,21 +1286,63 @@ class Main extends MY_Controller {
 
 	public function powerpoint($page=1)
 	{
-		$page=$page;
-        $where=array();
-        $start=intval($page-1)*intval($this->per_page);
-        $orderby='create_time';
-        $order_type='desc';
-        $select_field="id,name,author,description,source_url,themeId,type,language,province,reader_num,date_format(create_time,'%Y-%m-%d') as create_time";
-        $data=$this->Common->get_limit_order( $this->ppt_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
-        $count=$this->Common->get_count($this->ppt_table,'','');
-        $re_data['data'] = $data;
-        $re_data['count'] = $count;
+		//赋值
+		$theme = $_SESSION['theme'];
+		$type = $_SESSION['type'];
+		$media = $_SESSION['media'];
+		$language = $_SESSION['language'];
+		$province = $_SESSION['province'];
+		$search = $_SESSION['search'];	
+		$where=array();
+    	$start=intval($page-1)*intval($this->per_page);
+    	$orderby='ctime';
+    	$order_type='desc';
+    	//条件
+    	$like = array();
+    	if($search != '0'){
+    		$like['name'] = $search;
+    	}
+    	if($theme>0){
+    		$where['themeId'] = $theme;
+    	}
+    	if($type>0){
+    		$where['type'] = $type;
+    	}
+    	if($language>0){
+    		$where['language'] = $language;
+    	}
+    	if($province != '0'){
+    		$where['province'] = $province;
+    	}
+    	//audio
+    	$orderby = "create_time";
+    	$select_field="id,name,author,description,source_url,themeId,type,language,province,reader_num,date_format(create_time,'%Y-%m-%d') as create_time";
+        $ppt_data=$this->Common->get_limit_order( $this->ppt_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
+        $tmp_data=$this->Common->get_limit_order( $this->ppt_table,$where,$start,'',$orderby,$order_type,$select_field,$like);
+        
+        $re_data['count'] = count($tmp_data);
         $re_data['limit'] = $this->per_page;
-		$this->load->view('header');
+    	$re_data['data'] = $ppt_data;
+        
+        $head_data['count'] = $_SESSION['count'];
+        $head_data['theme'] = $theme;
+		$head_data['type'] = $type;
+		$head_data['media'] = $media;
+		$head_data['language'] = $language;
+		$head_data['province'] = $province;
+		$head_data['search'] = $search;
+		$re_head['head_data'] = $head_data;
+		//赋值
+		$_SESSION['theme'] = $theme;
+		$_SESSION['type'] = $type;
+		$_SESSION['media'] = $media;
+		$_SESSION['language'] = $language;
+		$_SESSION['province'] = $province;
+		$_SESSION['search'] = $search;
+
+		$this->load->view('header',$re_head);
 		$this->load->view('powerpoint/powerpoint',$re_data);
 		$this->load->view('footer');
-
 	}
 
 	public function powerpointInfo($id=0)

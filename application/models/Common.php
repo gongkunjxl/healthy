@@ -193,7 +193,6 @@ class Common extends CI_Model
           return $max;
         }
     }
-
 }
 ?>
 

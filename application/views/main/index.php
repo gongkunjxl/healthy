@@ -75,7 +75,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="article-title">
 		<img src="/static/images/article-title.png">
 		<h1>精品文章</h1>
-		<?php if(count($article_data)>8):?><p><a href="/main/article/1" style="margin-top: 5px;color: #009ACD">more >></a></p><?php endif; ?>
+		<?php if(count($article_data)>7):?><p><a href="/main/article/1" style="margin-top: 5px;color: #009ACD">more >></a></p><?php endif; ?>
 	</div>
 	<div class="article-line"></div>
 	<div class="article-content">
@@ -98,7 +98,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="audio-title">
 		<img src="/static/images/audio-title.png">
 		<h1>专家音频</h1>
-		<?php if(count($audio_data)>5):?><p><a href="/main/audio" style="margin-top: 5px;color: #009ACD">more >></a></p><?php endif; ?>
+		<?php if(count($audio_data)>4):?><p><a href="/main/audio" style="margin-top: 5px;color: #009ACD">more >></a></p><?php endif; ?>
 	</div>
 	<div class="audio-line"></div>
 	<div class="audio-content">
@@ -147,7 +147,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="point-title">
 		<img src="/static/images/point-title.png">
 		<h1>幻灯片</h1>
-		<?php if(count($ppt_data)>2): ?><p><a href="#" style="margin-top: 5px;color: #009ACD">more >></a></p><?php endif; ?>
+		<?php if(count($ppt_data)>2): ?><p><a href="/main/powerpoint/1" style="margin-top: 5px;color: #009ACD">more >></a></p><?php endif; ?>
 	</div>
 	<div class="point-line"></div>
 	<div class="point-content" style="margin-top: 30px;">
@@ -176,12 +176,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="about-content">
 		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;中华预防医学健康传播分会、中华医学心血管病分会、国家心血管病中心防治资讯部、中华疾病预防控制中心慢病z红心、中国心血管健康联盟5加专业机构联合发布《“管理胆固醇、防心梗”核心提示》、呼吁公众及高危人群从监测血脂、管理“坏胆固醇”、识别心梗前兆等方面入手、防止心梗的发生。</p>
 	</div>
-<!-- 	 <div id="layer-photos-demo" >
-		  <img layer-pid="图片id，可以不写" layer-src="/picture/pic_01.png" src="/picture/pic_01.png" alt="图片名">
-		  <img layer-pid="图片id，可以不写" layer-src="/picture/pic_02.png" src="/picture/pic_02.png" alt="图片名">
-		  <img layer-pid="图片id，可以不写" layer-src="/picture/pic_03.png" src="/picture/pic_03.png" alt="图片名">
-		  <img layer-pid="图片id，可以不写" layer-src="/picture/pic_04.png" src="/picture/pic_04.png" alt="图片名">
-	</div> -->
 	<div style="height: 100px; margin-top:40px;width: 100%; background-color: #F5F5F5;border: 1px;padding: 0.1px;">
 		<a style="margin-top: 50px; margin-left: 60px;" href="/main/testdemo">测试按钮</a>
 		<a style="margin-top: 50px; margin-left: 60px;" href="/backend/index">后台测试</a>
