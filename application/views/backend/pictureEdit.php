@@ -171,6 +171,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				     	var btnObj = document.getElementById(buttonId);
 						if(btnObj){
 							// alert(btnObj.innerText);
+							btnObj.
 							btnObj.innerText = "封面图";
 						} 
 						var indexObj = document.getElementById('index');

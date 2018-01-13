@@ -18,13 +18,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		   <div class="layui-form-item" >
 		    <label class="layui-form-label">视频标题</label>
 		    <div class="layui-input-block" style="width: 40%;">
-		      <input type="text" id="name" lay-verify="name|required" autocomplete="off" placeholder="请输入文章标题" class="layui-input">
+		      <input type="text" id="name" lay-verify="name|required" autocomplete="off" placeholder="请输入视频标题" class="layui-input">
 		    </div>
 		  </div>
 		   <div class="layui-form-item" >
 		    <label class="layui-form-label">视频作者</label>
 		    <div class="layui-input-block" style="width: 40%;">
-		      <input type="text" id="author" lay-verify="author|required" autocomplete="off" placeholder="请输入文章作者" class="layui-input">
+		      <input type="text" id="author" lay-verify="author|required" autocomplete="off" placeholder="请输入视频作者" class="layui-input">
 		    </div>
 		  </div>
 		  <div class="layui-form-item" >
