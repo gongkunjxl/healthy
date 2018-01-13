@@ -879,6 +879,7 @@ class Api extends MY_Controller {
     public function uploadArticle()
     {
         $return=array();
+        $return['status']=100;
         $postinfo= $this->Common->html_filter_array($_POST);
         if ($_FILES["file"]["error"] > 0) {
             $return['status']=$_FILES["file"]["error"];
