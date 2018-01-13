@@ -102,7 +102,7 @@ var pic_url = "<?php echo $data['pic_url']; ?>";
 var source_url = "<?php echo $data['source_url']; ?>";
 // load the data
 var sickData,lifeData;
-
+$.ajaxSettings.async = false;
 $.getJSON("/static/js/sickTheme.json",function(data){ 
 	sickData = data; 
 	var themeId = "<?php echo $data['themeId']; ?>";
