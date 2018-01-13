@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="powerpoint-content" id="pptList">
 		<?php if(count($data)>0): ?>
   	  	<?php foreach($data as $value ):?>
-			<a href="/main/powerpointinfo/<?php echo $value['id']; ?>">
+			<a target="_blank" href="/main/powerpointinfo/<?php echo $value['id']; ?>">
 			  	<div class="powerpoint-show">
 			  		<div class="content-show">
 			  			<div class="powerpoint-img">
