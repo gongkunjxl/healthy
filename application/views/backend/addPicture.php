@@ -96,6 +96,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 var dirId = 0;
 
 var sickData,lifeData;
+$.ajaxSettings.async = false;
 $.getJSON("/static/js/sickTheme.json",function(data){ 
 	sickData = data; 
 	var typeObj = document.getElementById("artType");
