@@ -258,12 +258,12 @@ class Main extends MY_Controller {
 				// $this->load->view('main/testdemo',$data);
 				// $this->load->view('footer');
 			}else{
-				$this->load->view('header');
+				$this->load->view('header2');
 				$this->load->view('user/forget');
 				$this->load->view('footer');
 			}
 		}else{
-			$this->load->view('header');
+			$this->load->view('header2');
 			$this->load->view('user/forget');
 			$this->load->view('footer');
 		}
@@ -272,7 +272,7 @@ class Main extends MY_Controller {
 	//forgetPass
 	public function forgetPass()
 	{
-		$this->load->view('header');
+		$this->load->view('header2');
 		$this->load->view('user/forget');
 		$this->load->view('footer');	
 	}
