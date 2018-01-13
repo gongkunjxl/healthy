@@ -135,6 +135,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script type="text/javascript">
 // load the data
 var sickData,lifeData;
+$.ajaxSettings.async = false;
 $.getJSON("/static/js/sickTheme.json",function(data){ 
 	sickData = data; 
 	var themeId = "<?php echo $data['themeId']; ?>";
