@@ -70,10 +70,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    </div>
 		  </div>
 
-		  
-		  <div class="expert-img">
-			<button type="button" class="layui-btn" style="margin-left: 30px; float: left;margin-top: 80px;" id="uploadPPTFront">上传幻灯片</button>
+		  <div style="background-color: #FFFFFF;margin-left: 0.1px;">
+		  	<input type="" name="ppt_name" id="ppt_name" style="width: 33%;height: 33px;margin-left: 100px;" readonly="readonly">
+			<button type="button" class="layui-btn" id="uploadPPTFront">上传幻灯片</button>
 		 </div>
+
+		  <!--<div class="expert-img">
+			<button type="button" class="layui-btn" style="margin-left: 30px; float: left;margin-top: 80px;" id="uploadPPTFront">上传幻灯片</button>
+		 </div>-->
 		  
 
 		  <div class="layui-form-item">
@@ -236,6 +240,7 @@ layui.use('upload', function(){
       }
       //预读本地文件示例，不支持ie8
 	  obj.preview(function(index, file, result){
+	  	 document.getElementById("ppt_name").value = file.name;
 	     $('#headImg').attr('src', result); //图片链接（base64）
 	   });
     }
