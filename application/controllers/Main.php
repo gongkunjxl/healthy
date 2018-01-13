@@ -168,7 +168,7 @@ class Main extends MY_Controller {
 					$rep_data['username'] = $rep['username'];
 					$rep_data['password'] = $rep['password'];
 					$re_data['data'] = $rep_data;
-					$this->load->view('header');
+					$this->load->view('header2');
 					$this->load->view('user/expertUpdateInfo',$re_data);
 					$this->load->view('footer');
 				}else{
