@@ -99,7 +99,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 <script type="text/javascript">
 var sickData,lifeData;
-
+$.ajaxSettings.async = false;
 $.getJSON("/static/js/sickTheme.json",function(data){ 
 	sickData = data; 
 	var themeId = '';

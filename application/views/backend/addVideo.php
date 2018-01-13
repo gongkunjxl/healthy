@@ -108,6 +108,7 @@ var covAddr = '';
 var videoId = '';
 
 var sickData,lifeData;
+$.ajaxSettings.async = false;
 $.getJSON("/static/js/sickTheme.json",function(data){ 
 	sickData = data; 
 	var typeObj = document.getElementById("videoType");
