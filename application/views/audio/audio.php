@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  	<div class="audio-content" id="audioList">
  		<?php if(count($data)>0): ?>
   	  	<?php foreach($data as $value ):?>
-			<a href="/main/audioinfo/<?php echo $value['id']; ?>">
+			<a target="_blank" href="/main/audioinfo/<?php echo $value['id']; ?>" >
 			  	<div class="audio-show">
 		 			<div class="content-show">
 		 				<!-- <img src="/static/images/audio-logo.png"> -->

@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div class="layui-container" >
 	<div class="index-expert">
 		<div class="expert-title">
-			<a href="/main/expert/1">
+			<a  href="/main/expert/1">
 			<img src="/static/images/expert-title.png">
 			<h1>科普专家</h1>
 			</a>
@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 		<div class="expert-content">
 	  	  	<?php foreach($expert_data as $value ):?>
-				<a href="/main/expertInfo/<?php echo $value['id']; ?>">
+				<a target="_blank" href="/main/expertInfo/<?php echo $value['id']; ?>">
 				<div class="content">
 					<div class="img-border">
 						<img src="/header/<?php echo $value['header']; ?>">
@@ -82,7 +82,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	  	  	<?php foreach($article_data as $value ):?>
 				<div class="article-show">
 					<div class="article-label">
-						<a href="/main/articleinfo/<?php echo $value['id']; ?>">
+						<a target="_blank" href="/main/articleinfo/<?php echo $value['id']; ?>">
 						<div class="radius">●</div>
 						<p><?php echo $value['name']; ?></p>
 						<div class="time"><?php echo date("Y-m-d",$value['ctime']);?></div>
@@ -147,12 +147,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="point-title">
 		<img src="/static/images/point-title.png">
 		<h1>幻灯片</h1>
-		<?php if(count($ppt_data)>2): ?><p><a href="/main/powerpoint/1" style="margin-top: 5px;color: #009ACD">more >></a></p><?php endif; ?>
+		<?php if(count($ppt_data)>2): ?><p><a target="_blank" href="/main/powerpoint/1" style="margin-top: 5px;color: #009ACD">more >></a></p><?php endif; ?>
 	</div>
 	<div class="point-line"></div>
 	<div class="point-content" style="margin-top: 30px;">
 	    <?php foreach($ppt_data as $value ):?>
-		  <a href="/main/powerpointinfo/<?php echo $value['id']; ?>">
+		  <a target="_blank" href="/main/powerpointinfo/<?php echo $value['id']; ?>">
 			<div class="content">
 				<div class="point-show">
 					<img src="/static/images/image1.png">
