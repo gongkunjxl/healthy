@@ -1442,7 +1442,6 @@ class Api extends MY_Controller {
         $ppt_data=$this->Common->get_limit_order( $this->ppt_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
         echo json_encode($ppt_data);
     }
-
     /*
      * get more video by gongkun
     */

@@ -271,7 +271,7 @@ layui.use('upload', function(){
     }
     ,done: function(res){
       // document.getElementById('fileShow').innerText = article_name;
-      //alert(JSON.stringify(res));
+      alert(JSON.stringify(res));
       //如果上传失败
       if(res.status == 200){
         return layer.msg('上传成功');
