@@ -131,7 +131,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			  <div class="content">
 				<div class="content-show" id="layer-photos-show1">
 					<a href="/main/pictureinfo/<?php echo $value['id'];?>">
-						<img src="/<?php echo $value['index'];?>">
+						<img src="/picture/<?php echo $value['id'];?>/<?php echo $value['index'];?>">
 					<div class="label-word">
 						<p><?php echo $value['name'];?></p>
 					</div>

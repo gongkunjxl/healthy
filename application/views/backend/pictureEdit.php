@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<button class="layui-btn layui-btn-danger" onclick="delImage('pic_<?php echo $key; ?>','<?php echo $value; ?>');" style="margin-left: 10px;float: left;">
 			  <i class="layui-icon">&#xe640;</i>
 			</button>
-			<button class="layui-btn" id="<?php echo $dotArray[0]; ?>" onclick="indexImage('<?php echo $dotArray[0]; ?>','<?php echo $value; ?>');" style="margin-left: 50px;width:50px;float: left;"><?php echo ($dotArray[0] == "index")?"封面图":"设为封面"; ?></button>
+			<button class="layui-btn" id="<?php echo $dotArray[0]; ?>" onclick="indexImage('<?php echo $dotArray[0]; ?>','<?php echo $value; ?>');" style="margin-left: 50px;width:50px;float: left;"><?php echo ($value == $data['index'])?"封面图":"设为封面"; ?></button>
 		</div>
 	  <?php endforeach; ?>	
 <!-- 
@@ -121,6 +121,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- picture delete -->
 <script type="text/javascript">
 	var dirId = "<?php echo $data['id']; ?>";
+	var indexArr = "<?php echo $data['index']; ?>";
+	var indexId = indexArr.split('.')[0];
 	function delImage(imageId,imageName){
 		layer.confirm('确认删除这张图片？', { title:['删除图片信息提示','font-size:20px; text-align:center']}, function(index)
 		{
@@ -170,14 +172,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				     if(data.status == 200){
 				     	var btnObj = document.getElementById(buttonId);
 						if(btnObj){
-							// alert(btnObj.innerText);
-							btnObj.
 							btnObj.innerText = "封面图";
 						} 
-						var indexObj = document.getElementById('index');
+						var indexObj = document.getElementById(indexId);
 						if(indexObj){
 							indexObj.innerText = "设为封面";
 						}
+						indexId = buttonId;
 				     }
 				},
 				error: function(data) {
