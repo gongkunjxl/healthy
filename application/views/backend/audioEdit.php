@@ -39,8 +39,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		  <div class="layui-form-item" pane="">
 		    <label class="layui-form-label">主题</label>
 		    <div class="layui-input-block">
-		         <input type="radio" lay-filter="theme" name="theme" <?php if($data['theme']== 1):?> checked="true" <?php endif; ?> value="1"  title="慢性病" >
-		      <input type="radio" name="theme" lay-filter="theme" <?php if($data['theme']== 2):?> checked="true" <?php endif; ?> value="2"   title="健康生活方式">
+		         <input type="radio" lay-filter="theme" name="theme" <?php if($data['themeId']== 1):?> checked="true" <?php endif; ?> value="1"  title="慢性病" >
+		      <input type="radio" name="theme" lay-filter="theme" <?php if($data['themeId']== 2):?> checked="true" <?php endif; ?> value="2"   title="健康生活方式">
 		    </div>
 		  </div>
 
@@ -102,9 +102,10 @@ var pic_url = "<?php echo $data['pic_url']; ?>";
 var source_url = "<?php echo $data['source_url']; ?>";
 // load the data
 var sickData,lifeData;
+
 $.getJSON("/static/js/sickTheme.json",function(data){ 
 	sickData = data; 
-	var themeId = "<?php echo $data['theme']; ?>";
+	var themeId = "<?php echo $data['themeId']; ?>";
 	var type = "<?php echo $data['type']; ?>";
 	if(themeId == 1){
 		var typeObj = document.getElementById("type");
@@ -121,7 +122,7 @@ $.getJSON("/static/js/sickTheme.json",function(data){
 }); 
 $.getJSON("/static/js/lifeTheme.json",function(data){ 
 	lifeData = data; 
-	var themeId = "<?php echo $data['theme']; ?>";
+	var themeId = "<?php echo $data['themeId']; ?>";
 	var type = "<?php echo $data['type']; ?>";
 	if(themeId == 2){
 		var typeObj = document.getElementById("type");
