@@ -926,9 +926,9 @@ class Main extends MY_Controller {
 		$where = array('id' => $id);
 		$data = $this->Common->get_one($this->audio_table,$where);
 		$re_data['data'] = $data;
-		$this->load->view('header2');
+		//$this->load->view('header2');
 		$this->load->view('audio/audioinfo',$re_data);
-		$this->load->view('footer');	
+		//$this->load->view('footer');	
 	}	
 	/*
 	  * video info by gongkun
