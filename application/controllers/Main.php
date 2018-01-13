@@ -69,7 +69,7 @@ class Main extends MY_Controller {
            //theme
             $type_where = array('id' => $value['type']);
             $type_data = $this->Common->get_one($this->type_table,$type_where);
-            $video_data[$key]['type'] = $type_data['name'];
+            $video_data[$key]['type_data'] = $type_data['name'];
         }
     	$re_data['video_data'] = $video_data;
 
@@ -1088,8 +1088,8 @@ class Main extends MY_Controller {
 		$where = array('id' => $id);
 		$data = $this->Common->get_one($this->article_table,$where);
 		$re_data['data'] = $data;
-		$count = $data['reader_num'] + 1;
-		$updae_data = array('reader_num' => $count);
+		$count = intval($data['read']) + 1;
+		$updae_data = array('read' => $count);
 		$this->Common->update($this->article_table,$where,$updae_data);
 		$this->load->view('header2');
 		$this->load->view('article/articleInfo',$re_data);
