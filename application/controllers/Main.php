@@ -161,7 +161,7 @@ class Main extends MY_Controller {
 				$_SESSION['userid']=$rep['id'];
 				$_SESSION['username']=$rep['username'];
 				$_SESSION['nickname']=$rep['nickname'];
-				$_SESSION['type'] = $rep['type'];
+				$_SESSION['userType'] = $rep['type'];
 				if($rep['type'] == 2){
 					$rep_where = array('userId' => $rep['id']);
 					$rep_data = $this->Common->get_one($this->expert_table,$rep_where);
@@ -212,7 +212,7 @@ class Main extends MY_Controller {
 		$_SESSION['userid']=0;
 		$_SESSION['username'] = '';
 		$_SESSION['nickname']='';
-		$_SESSION['type']=0;
+		$_SESSION['userType']=0;
 		redirect('main/index');
 	}
 	/*
@@ -229,10 +229,10 @@ class Main extends MY_Controller {
 				$_SESSION['userid']=$rep;
 				$_SESSION['username']=$postinfo['phone'];
 				$_SESSION['nickname']=$postinfo['username'];
-				$_SESSION['type'] = 1;
+				$_SESSION['userType'] = 1;
 				redirect('main/index');
 			}else{
-				$this->load->view('header');
+				$this->load->view('header2');
 				$this->load->view('user/register');
 				$this->load->view('footer');	
 			}

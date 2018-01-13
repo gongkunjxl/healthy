@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 if(isset($_SESSION['userid']) && $_SESSION['userid']>0){
    $userid = $_SESSION['userid'];
    $nickname = $_SESSION['nickname'];
-   $type = $_SESSION['type'];
+   $type = $_SESSION['userType'];
 }else{
   $userid=0; 
 }
