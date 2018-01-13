@@ -31,7 +31,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		  		<td><?php echo $value['description'];?></td>
 		  		<td><?php echo $value['author'];?></td>
 		  		<td><?php echo $value['page_count'];?></td>
-		  		<td><?php echo ($value['theme']==1)?"慢性病":"健康生活";?></td>
+		  		<td><?php echo ($value['themeId']==1)?"慢性病":"健康生活";?></td>
 		  		<td><?php echo $value['type'];?></td>
 		  		<td><?php echo ($value['language']==1)?"中文":"English";?></td>
 		  		<td><?php echo $value['province'];?></td>
