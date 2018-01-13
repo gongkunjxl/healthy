@@ -1125,6 +1125,7 @@ class Api extends MY_Controller {
             $file_name = md5(uniqid(rand())).".".$type;
             $path = "audio/".$file_name;
             move_uploaded_file($_FILES["file"]["tmp_name"],$path);
+            chmod($path,0777);
             //将文件存入数据库
             if($postinfo['name'] != "tmp_header"){
                 $header = "header_".$postinfo['name'].".".$type;
@@ -1181,7 +1182,7 @@ class Api extends MY_Controller {
             $file_name = md5(uniqid(rand())).".".$type;
             $path = "audio/".$file_name;
             move_uploaded_file($_FILES["file"]["tmp_name"],$path);
-
+            chmod($path,0777);
             $return['source_url'] = $path;
             //将文件存入数据库
             if($postinfo['name'] != "tmp_header"){
