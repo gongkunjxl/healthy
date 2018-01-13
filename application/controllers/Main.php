@@ -926,9 +926,12 @@ class Main extends MY_Controller {
 		$where = array('id' => $id);
 		$data = $this->Common->get_one($this->audio_table,$where);
 		$re_data['data'] = $data;
-		$this->load->view('header2');
+		$count = $data['listen_num'] + 1;
+		$updae_data = array('listen_num' => $count);
+		$this->Common->update($this->audio_table,$where,$updae_data);
+		//$this->load->view('header2');
 		$this->load->view('audio/audioinfo',$re_data);
-		$this->load->view('footer');	
+		//$this->load->view('footer');	
 	}	
 	/*
 	  * video info by gongkun
@@ -1000,7 +1003,9 @@ class Main extends MY_Controller {
 		$where = array('id' => $id);
 		$data = $this->Common->get_one($this->video_table,$where);
 		$re_data['data'] = $data;
-
+		$count = $data['read'] + 1;
+		$updae_data = array('read' => $count);
+		$this->Common->update($this->video_table,$where,$updae_data);
 		$this->load->view('header2');
 		$this->load->view('video/videoinfo',$re_data);
 		$this->load->view('footer');	
@@ -1083,6 +1088,9 @@ class Main extends MY_Controller {
 		$where = array('id' => $id);
 		$data = $this->Common->get_one($this->article_table,$where);
 		$re_data['data'] = $data;
+		$count = $data['reader_num'] + 1;
+		$updae_data = array('reader_num' => $count);
+		$this->Common->update($this->article_table,$where,$updae_data);
 		$this->load->view('header2');
 		$this->load->view('article/articleInfo',$re_data);
 		$this->load->view('footer');
@@ -1280,6 +1288,9 @@ class Main extends MY_Controller {
     	}
 
     	$re_data['reData'] =$data;
+    	$count = $data['read'] + 1;
+		$updae_data = array('read' => $count);
+		$this->Common->update($this->picture_table,$where,$updae_data);
 		$this->load->view('header2');
 		$this->load->view('picture/pictureInfo',$re_data);
 		$this->load->view('footer');
@@ -1354,6 +1365,11 @@ class Main extends MY_Controller {
 		$where = array('id' => $id);
 		$data = $this->Common->get_one($this->ppt_table,$where);
 		$re_data['data'] = $data;
+
+		$count = $data['reader_num'] + 1;
+		$updae_data = array('reader_num' => $count);
+		$this->Common->update($this->ppt_table,$where,$updae_data);
+		
 		$this->load->view('powerpoint/powerpointinfo',$re_data);
 	}
 	// 测试函数
