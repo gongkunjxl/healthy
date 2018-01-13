@@ -1288,9 +1288,9 @@ class Main extends MY_Controller {
     	}
 
     	$re_data['reData'] =$data;
-    	$count = $data['read'] + 1;
-		$updae_data = array('read' => $count);
-		$this->Common->update($this->picture_table,$where,$updae_data);
+  //   	$count = $data['read'] + 1;
+		// $updae_data = array('read' => $count);
+		// $this->Common->update($this->picture_table,$where,$updae_data);
 		$this->load->view('header2');
 		$this->load->view('picture/pictureInfo',$re_data);
 		$this->load->view('footer');
