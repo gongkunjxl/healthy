@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<!-- <?php //var_dump($data); ?> -->
 	<!-- <?php// echo count($data); ?> -->
 
-	<h2>用户注册信息表<?php echo $count; ?></h2>
+	<h2>用户注册信息表(<?php echo $count; ?>)人</h2>
 	<table class="layui-table" style="">
 	  <thead>
 	    <tr>

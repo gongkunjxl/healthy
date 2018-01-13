@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="layui-container" >
 	<!-- <?php //var_dump($data); ?> -->
 	<!-- <?php// echo count($data); ?> -->
-	<h2 >专家注册信息表<?php echo $count; ?></h2>
+	<h2 >专家注册信息表(<?php echo $count; ?>)人</h2>
 	<a  style="margin-bottom:10px; margin-top: 0; font-weight: 400" href="/backend/addExpert" class="layui-btn">新增专家</a>
 	<table class="layui-table" style="">
 	  <thead>
