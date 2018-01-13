@@ -237,7 +237,7 @@ class Main extends MY_Controller {
 				$this->load->view('footer');	
 			}
 		}else{
-			$this->load->view('header');
+			$this->load->view('header2');
 			$this->load->view('user/register');
 			$this->load->view('footer');
 		}
