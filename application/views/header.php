@@ -161,7 +161,6 @@ for(value in province){
     }
 }
 provinceObj.innerHTML = proHTML;
-
 var sickData,lifeData;
 $.ajaxSettings.async = false;
 $.getJSON("/static/js/sickTheme.json",function(data){ 
