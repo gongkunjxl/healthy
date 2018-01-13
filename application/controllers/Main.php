@@ -79,42 +79,8 @@ class Main extends MY_Controller {
     	$re_data['article_data'] = $article_data;
 
         //picture
-        $select_field='id,name,author';
+        $select_field='id,name,author,index';
     	$picture_data=$this->Common->get_limit_order( $this->picture_table,$where,$start,4,$orderby,$order_type,$select_field);
-    	//获取图片的地址 判断是否有index
-    	if(count($picture_data)>0){
-    		foreach ($picture_data as $key => $value) {
-    			$dir = 'picture/'.$value['id'];
-    			$file_name = '';
-    			$index_name = '';
-	            if(is_dir($dir)){
-	                if($handle = opendir($dir)){  
-	                    while (($file = readdir($handle)) !== false ) {  
-	                        if($file != ".." && $file != "." && $file != ".DS_Store"){  
-	                        	if(empty($file_name)){
-	                            	$file_name = $file; 
-	                            }
-	                            if($file == 'index.jpg'){
-	                            	$index_name = 'index.jpg';
-	                            }
-	                            if($file == 'index.png'){
-	                            	$index_name = 'index.png';
-	                            }
-	                            if($file == 'index.jpeg'){
-	                            	$index_name = 'index.jpeg';
-	                            }
-	                        }  
-	                    }  
-	                }  
-	                closedir($handle); 
-	            }
-	            if(!empty($index_name)){
-	            	$picture_data[$key]['index'] = $dir."/".$index_name;
-	            }else{
-	            	$picture_data[$key]['index'] = $dir."/".$file_name;
-	            }
-    		}
-    	}
     	$re_data['picture_data'] = $picture_data;
 
     	$orderby = "create_time";
@@ -329,42 +295,42 @@ class Main extends MY_Controller {
     	$re_data['article_data'] = $article_data;
 
         //picture
-        $select_field='id,name,author';
+        $select_field='id,name,author,index';
     	$picture_data=$this->Common->get_limit_order( $this->picture_table,$where,$start,4,$orderby,$order_type,$select_field,$like);
     	//获取图片的地址 判断是否有index
-    	if(count($picture_data)>0){
-    		foreach ($picture_data as $key => $value) {
-    			$dir = 'picture/'.$value['id'];
-    			$file_name = '';
-    			$index_name = '';
-	            if(is_dir($dir)){
-	                if($handle = opendir($dir)){  
-	                    while (($file = readdir($handle)) !== false ) {  
-	                        if($file != ".." && $file != "." && $file != ".DS_Store"){  
-	                        	if(empty($file_name)){
-	                            	$file_name = $file; 
-	                            }
-	                            if($file == 'index.jpg'){
-	                            	$index_name = 'index.jpg';
-	                            }
-	                            if($file == 'index.png'){
-	                            	$index_name = 'index.png';
-	                            }
-	                            if($file == 'index.jpeg'){
-	                            	$index_name = 'index.jpeg';
-	                            }
-	                        }  
-	                    }  
-	                }  
-	                closedir($handle); 
-	            }
-	            if(!empty($index_name)){
-	            	$picture_data[$key]['index'] = $dir."/".$index_name;
-	            }else{
-	            	$picture_data[$key]['index'] = $dir."/".$file_name;
-	            }
-    		}
-    	}
+    	// if(count($picture_data)>0){
+    	// 	foreach ($picture_data as $key => $value) {
+    	// 		$dir = 'picture/'.$value['id'];
+    	// 		$file_name = '';
+    	// 		$index_name = '';
+	    //         if(is_dir($dir)){
+	    //             if($handle = opendir($dir)){  
+	    //                 while (($file = readdir($handle)) !== false ) {  
+	    //                     if($file != ".." && $file != "." && $file != ".DS_Store"){  
+	    //                     	if(empty($file_name)){
+	    //                         	$file_name = $file; 
+	    //                         }
+	    //                         if($file == 'index.jpg'){
+	    //                         	$index_name = 'index.jpg';
+	    //                         }
+	    //                         if($file == 'index.png'){
+	    //                         	$index_name = 'index.png';
+	    //                         }
+	    //                         if($file == 'index.jpeg'){
+	    //                         	$index_name = 'index.jpeg';
+	    //                         }
+	    //                     }  
+	    //                 }  
+	    //             }  
+	    //             closedir($handle); 
+	    //         }
+	    //         if(!empty($index_name)){
+	    //         	$picture_data[$key]['index'] = $dir."/".$index_name;
+	    //         }else{
+	    //         	$picture_data[$key]['index'] = $dir."/".$file_name;
+	    //         }
+    	// 	}
+    	// }
     	$re_data['picture_data'] = $picture_data;
 
     	$orderby = "create_time";
@@ -678,40 +644,7 @@ class Main extends MY_Controller {
     	$select_field='*';
     	$picture_data=$this->Common->get_limit_order( $this->picture_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field,$like);
     	$tmp_data=$this->Common->get_limit_order( $this->picture_table,$where,$start,'',$orderby,$order_type,$select_field,$like);
-    	if(count($picture_data)>0){
-    		foreach ($picture_data as $key => $value) {
-    			$dir = 'picture/'.$value['id'];
-    			$file_name = '';
-    			$index_name = '';
-	            if(is_dir($dir)){
-	                if($handle = opendir($dir)){  
-	                    while (($file = readdir($handle)) !== false ) {  
-	                        if($file != ".." && $file != "." && $file != ".DS_Store"){  
-	                        	if(empty($file_name)){
-	                            	$file_name = $file; 
-	                            }
-	                            if($file == 'index.jpg'){
-	                            	$index_name = 'index.jpg';
-	                            }
-	                            if($file == 'index.png'){
-	                            	$index_name = 'index.png';
-	                            }
-	                            if($file == 'index.jpeg'){
-	                            	$index_name = 'index.jpeg';
-	                            }
-	                        }  
-	                    }  
-	                }  
-	                closedir($handle); 
-	            }
-	            if(!empty($index_name)){
-	            	$picture_data[$key]['index'] = $dir."/".$index_name;
-	            }else{
-	            	$picture_data[$key]['index'] = $dir."/".$file_name;
-	            }
-    		}
-    	}
-    	
+
         $re_data['count'] = count($tmp_data);
         $re_data['limit'] = $this->per_page;
     	$re_data['data'] = $picture_data;
@@ -1131,43 +1064,10 @@ class Main extends MY_Controller {
     	if($province != '0'){
     		$where['province'] = $province;
     	}
-    	//article
+    	//picture
     	$select_field='*';
     	$picture_data=$this->Common->get_limit_order( $this->picture_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field,$like);
     	$tmp_data=$this->Common->get_limit_order( $this->picture_table,$where,$start,'',$orderby,$order_type,$select_field,$like);
-    	if(count($picture_data)>0){
-    		foreach ($picture_data as $key => $value) {
-    			$dir = 'picture/'.$value['id'];
-    			$file_name = '';
-    			$index_name = '';
-	            if(is_dir($dir)){
-	                if($handle = opendir($dir)){  
-	                    while (($file = readdir($handle)) !== false ) {  
-	                        if($file != ".." && $file != "." && $file != ".DS_Store"){  
-	                        	if(empty($file_name)){
-	                            	$file_name = $file; 
-	                            }
-	                            if($file == 'index.jpg'){
-	                            	$index_name = 'index.jpg';
-	                            }
-	                            if($file == 'index.png'){
-	                            	$index_name = 'index.png';
-	                            }
-	                            if($file == 'index.jpeg'){
-	                            	$index_name = 'index.jpeg';
-	                            }
-	                        }  
-	                    }  
-	                }  
-	                closedir($handle); 
-	            }
-	            if(!empty($index_name)){
-	            	$picture_data[$key]['index'] = $dir."/".$index_name;
-	            }else{
-	            	$picture_data[$key]['index'] = $dir."/".$file_name;
-	            }
-    		}
-    	}
     	
         $re_data['count'] = count($tmp_data);
         $re_data['limit'] = $this->per_page;
@@ -1203,43 +1103,22 @@ class Main extends MY_Controller {
 	    	if($handle = opendir($dir)){  
 	            while (($file = readdir($handle)) !== false ) {  
 	                if($file != ".." && $file != "." && $file != ".DS_Store"){  
-	                    if($file == 'index.jpg'){
+	                    if($file == $data['index']){
 	                    	if($i>0){
 		                       	$tmp_name = $pic_name[0];
-		                       	$pic_name[0] = "/".$dir."/".'index.jpg';
+		                       	$pic_name[0] = "/picture/".$id."/".$file;
 		                       	$pic_name[$i] = $tmp_name;
 		                    }else{
-		                       	$pic_name[$i] = "/".$dir."/index.jpg";
-		                    }
-	                    }else if($file == 'index.png'){
-	                       	if($i>0){
-		                       	$tmp_name = $pic_name[0];
-		                       	$pic_name[0] = "/".$dir."/".'index.jpg';
-		                       	$pic_name[$i] = $tmp_name;
-		                    }else{
-		                       	$pic_name[$i] = "/".$dir."/index.png";
-		                    }
-	                    }else if($file == 'index.jpeg'){
-	                        if($i>0){
-		                       	$tmp_name = $pic_name[0];
-		                       	$pic_name[0] = "/".$dir."/".'index.jpg';
-		                       	$pic_name[$i] = $tmp_name;
-		                    }else{
-		                       	$pic_name[$i] = "/".$dir."/index.jpeg";
+		                       	$pic_name[$i] = "/picture/".$id."/".$file;
 		                    }
 	                    }else{
-	                    	$pic_name[$i] = "/".$dir."/".$file;
+	                    	$pic_name[$i] = "/picture/".$id."/".$file;
 	                    }
 	                    $i=$i+1;
 	                }  
 	            }
 	        }
 	       closedir($handle); 
-	    }
-	    if($i>0){
-	    	$data['index'] = $pic_name[0];
-	    }else{
-	    	$data['index'] = '';
 	    }
 	    $re_data['picture'] = json_encode($pic_name);
 	   	$re_data['data'] = $data;
@@ -1254,40 +1133,6 @@ class Main extends MY_Controller {
     	$order_type='desc';
     	$select_field='*';
     	$data=$this->Common->get_limit_order( $this->picture_table,$where,$start,$this->pic_page,$orderby,$order_type,$select_field);
-    	//获取图片的地址 判断是否有index
-    	if(count($data)>0){
-    		foreach ($data as $key => $value) {
-    			$dir = 'picture/'.$value['id'];
-    			$file_name = '';
-    			$index_name = '';
-	            if(is_dir($dir)){
-	                if($handle = opendir($dir)){  
-	                    while (($file = readdir($handle)) !== false ) {  
-	                        if($file != ".." && $file != "." && $file != ".DS_Store"){  
-	                        	if(empty($file_name)){
-	                            	$file_name = $file; 
-	                            }
-	                            if($file == 'index.jpg'){
-	                            	$index_name = 'index.jpg';
-	                            }
-	                            if($file == 'index.png'){
-	                            	$index_name = 'index.png';
-	                            }
-	                            if($file == 'index.jpeg'){
-	                            	$index_name = 'index.jpeg';
-	                            }
-	                        }  
-	                    }  
-	                }  
-	                closedir($handle); 
-	            }
-	            if(!empty($index_name)){
-	            	$data[$key]['index'] = $dir."/".$index_name;
-	            }else{
-	            	$data[$key]['index'] = $dir."/".$file_name;
-	            }
-    		}
-    	}
 
     	$re_data['reData'] =$data;
 		$this->load->view('header2');

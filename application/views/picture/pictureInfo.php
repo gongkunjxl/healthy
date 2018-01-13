@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     	</div>
     	<div class="mid-content">
 			<div class="pic-show" >
-				<img id="picShow" src="<?php echo $data['index']; ?>">
+				<img id="picShow" src="/picture/<?php echo $data['id']; ?>/<?php echo $data['index']; ?>">
                 <p id="navShow"></p>
 			</div> 
     	</div>
@@ -34,7 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <?php foreach($reData as $value ):?>
     	  <a onclick="pic_click(this);" value="<?php echo $value['id'];?>" >
     		<div class="pic-show">
-    			<img src="/<?php echo $value['index']; ?>">
+    			<img src="/picture/<?php echo $value['id']; ?>/<?php echo $value['index']; ?>">
     			<div class="title">
     				<h3><?php echo $value['name']; ?></h3>
     			</div>
@@ -44,22 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <?php else:?>
             <h1 style="margin-top:70px;font-size:24px; text-align:center; color:red"> NO expert more</h1>
         <?php endif; ?>
-    	 <!--  <a onclick="pic_click(this);">
-    		<div class="pic-show">
-    			<img src="/picture/pic_02.png">
-    			<div class="title">
-    				<h3>冬季保暖小知识冬季保暖小知识冬季保暖小知识冬季保暖小知识</h3>
-    			</div>
-    		</div>
-    	  </a>
-    	  <a onclick="pic_click(this);">
-    		<div class="pic-show">
-    			<img src="/picture/pic_2.png">
-    			<div class="title">
-    				<h3>冬季保暖小知识冬季保暖小知识冬季保暖小知识冬季保暖小知识</h3>
-    			</div>
-    		</div>
-    	  </a> -->
+    	
     	</div>
     	<div class="right-button">
     		<img onclick="more_click()" src="/static/images/right-button.png">
@@ -177,7 +162,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 var html = '';
                 for (var i = 0; i < data.length; i++) {
                    html = html+'<a onclick="pic_click(this);" value="'+data[i].id+'" >'+
-                   '<div class="pic-show"><img src="/'+data[i].index+'">'+
+                   '<div class="pic-show"><img src="/picture/'+data[i].id+"/"+data[i].index+'">'+
                    '<div class="title"><h3>'+data[i].name+'</h3></div></div></a>';
                 }
                 if(data.length < 3){
@@ -193,9 +178,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 
 </script>
-
-
-
 
 <script>
 //一般直接写在一个js文件中

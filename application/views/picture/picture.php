@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<a href="/main/pictureinfo/<?php echo $value['id'];?>">
 			<div class="content">
 				<div class="picture-show">
-					<img src="/<?php echo $value['index'];?>">
+					<img src="/picture/<?php echo $value['id'];?>/<?php echo $value['index'];?>">
 				</div>
 				<div class="picture-label">
 					<h2><?php echo $value['name'];?></h2>
@@ -91,7 +91,7 @@ function formatDateTime(timeStamp) {
 				     		html = html +'<div class="picture-list-content">'+
 				     		'<a href="/main/pictureinfo/'+data[i].id+'">'+
 				     		'<div class="content"><div class="picture-show">'+
-							'<img src="/'+data[i].index+'"></div><div class="picture-label">'+
+							'<img src="/picture/'+data[i].id+"/"+data[i].index+'"></div><div class="picture-label">'+
 							'<h2>'+data[i].name+'</h2>'+
 							'<div class="author">'+data[i].author+' &nbsp;&nbsp;'+data[i].title+'</p></div><div>'+
 							'<p class="left-label">'+formatDateTime(data[i].ctime)+'</p>'+

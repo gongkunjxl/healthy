@@ -248,42 +248,9 @@ class Api extends MY_Controller {
         if($province != '0'){
             $where['province'] = $province;
         }
-        //article
+        //picture
         $select_field='*';
         $picture_data=$this->Common->get_limit_order( $this->picture_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field,$like);
-        if(count($picture_data)>0){
-            foreach ($picture_data as $key => $value) {
-                $dir = 'picture/'.$value['id'];
-                $file_name = '';
-                $index_name = '';
-                if(is_dir($dir)){
-                    if($handle = opendir($dir)){  
-                        while (($file = readdir($handle)) !== false ) {  
-                            if($file != ".." && $file != "." && $file != ".DS_Store"){  
-                                if(empty($file_name)){
-                                    $file_name = $file; 
-                                }
-                                if($file == 'index.jpg'){
-                                    $index_name = 'index.jpg';
-                                }
-                                if($file == 'index.png'){
-                                    $index_name = 'index.png';
-                                }
-                                if($file == 'index.jpeg'){
-                                    $index_name = 'index.jpeg';
-                                }
-                            }  
-                        }  
-                    }  
-                    closedir($handle); 
-                }
-                if(!empty($index_name)){
-                    $picture_data[$key]['index'] = $dir."/".$index_name;
-                }else{
-                    $picture_data[$key]['index'] = $dir."/".$file_name;
-                }
-            }
-        }
         echo json_encode($picture_data);
     }
     /*
@@ -305,32 +272,16 @@ class Api extends MY_Controller {
             if($handle = opendir($dir)){  
                 while (($file = readdir($handle)) !== false ) {  
                     if($file != ".." && $file != "." && $file != ".DS_Store"){  
-                        if($file == 'index.jpg'){
+                        if($file == $data['index']){
                             if($i>0){
                                 $tmp_name = $pic_name[0];
-                                $pic_name[0] = "/".$dir."/".'index.jpg';
+                                $pic_name[0] = "/picture/".$id."/".$file;
                                 $pic_name[$i] = $tmp_name;
                             }else{
-                                $pic_name[$i] = "/".$dir."/index.jpg";
-                            }
-                        }else if($file == 'index.png'){
-                            if($i>0){
-                                $tmp_name = $pic_name[0];
-                                $pic_name[0] = "/".$dir."/".'index.png';
-                                $pic_name[$i] = $tmp_name;
-                            }else{
-                                $pic_name[$i] = "/".$dir."/index.png";
-                            }
-                        }else if($file == 'index.jpeg'){
-                            if($i>0){
-                                $tmp_name = $pic_name[0];
-                                $pic_name[0] = "/".$dir."/".'index.jpeg';
-                                $pic_name[$i] = $tmp_name;
-                            }else{
-                                $pic_name[$i] = "/".$dir."/index.jpeg";
+                                $pic_name[$i] = "/picture/".$id."/".$file;
                             }
                         }else{
-                            $pic_name[$i] = "/".$dir."/".$file;
+                            $pic_name[$i] = "/picture/".$id."/".$file;
                         }
                         $i=$i+1;
                     }  
@@ -381,42 +332,9 @@ class Api extends MY_Controller {
         if($province != '0'){
             $where['province'] = $province;
         }
-        //article
+        //picture
         $select_field='*';
         $picture_data=$this->Common->get_limit_order( $this->picture_table,$where,$start,$this->pic_page,$orderby,$order_type,$select_field,$like);
-        if(count($picture_data)>0){
-            foreach ($picture_data as $key => $value) {
-                $dir = 'picture/'.$value['id'];
-                $file_name = '';
-                $index_name = '';
-                if(is_dir($dir)){
-                    if($handle = opendir($dir)){  
-                        while (($file = readdir($handle)) !== false ) {  
-                            if($file != ".." && $file != "." && $file != ".DS_Store"){  
-                                if(empty($file_name)){
-                                    $file_name = $file; 
-                                }
-                                if($file == 'index.jpg'){
-                                    $index_name = 'index.jpg';
-                                }
-                                if($file == 'index.png'){
-                                    $index_name = 'index.png';
-                                }
-                                if($file == 'index.jpeg'){
-                                    $index_name = 'index.jpeg';
-                                }
-                            }  
-                        }  
-                    }  
-                    closedir($handle); 
-                }
-                if(!empty($index_name)){
-                    $picture_data[$key]['index'] = $dir."/".$index_name;
-                }else{
-                    $picture_data[$key]['index'] = $dir."/".$file_name;
-                }
-            }
-        }
         echo json_encode($picture_data);
     }
       /*
@@ -960,38 +878,44 @@ class Api extends MY_Controller {
             $postinfo= $this->Common->html_filter_array($_POST);
             $dirId = $postinfo['dirId'];
             $imageName = $postinfo['imageName'];
-            $dir = 'picture/'.$dirId;
-            $indexPath = $dir."/"."index.jpg";
-            if(file_exists($indexPath)){
-                $new_path = $dir."/".md5(uniqid(rand())).".jpg";
-                rename($indexPath, $new_path);
+            $where = array('id' => $dirId);
+            $update_data = array('index' => $imageName);
+            $rep = $this->Common->update($this->picture_table,$where,$update_data);  
+            if($rep>0){
+                $re_data['status'] = 200;
             }
-            $indexPath = $dir."/"."index.jpeg";
-            if(file_exists($indexPath)){
-                $new_path = $dir."/".md5(uniqid(rand())).".jpeg";
-                rename($indexPath, $new_path);
-            }
-            $indexPath = $dir."/"."index.png";
-            if(file_exists($indexPath)){
-                $new_path = $dir."/".md5(uniqid(rand())).".png";
-                rename($indexPath, $new_path);
-            }
-            if(is_dir($dir)){
-                if($handle = opendir($dir)){  
-                    while (($file = readdir($handle)) !== false ) {  
-                        if($file == $imageName){  
-                           $path = $dir."/".$imageName;
-                           if(file_exists($path)){
-                            $dotArray = explode('.', $imageName);
-                            $new_path = $dir."/index".".".end($dotArray);
-                            rename($path, $new_path);
-                          }
-                            $re_data['status'] =200;
-                        }  
-                    }  
-                }  
-                closedir($handle); 
-            }
+            // $dir = 'picture/'.$dirId;
+            // $indexPath = $dir."/"."index.jpg";
+            // if(file_exists($indexPath)){
+            //     $new_path = $dir."/".md5(uniqid(rand())).".jpg";
+            //     rename($indexPath, $new_path);
+            // }
+            // $indexPath = $dir."/"."index.jpeg";
+            // if(file_exists($indexPath)){
+            //     $new_path = $dir."/".md5(uniqid(rand())).".jpeg";
+            //     rename($indexPath, $new_path);
+            // }
+            // $indexPath = $dir."/"."index.png";
+            // if(file_exists($indexPath)){
+            //     $new_path = $dir."/".md5(uniqid(rand())).".png";
+            //     rename($indexPath, $new_path);
+            // }
+            // if(is_dir($dir)){
+            //     if($handle = opendir($dir)){  
+            //         while (($file = readdir($handle)) !== false ) {  
+            //             if($file == $imageName){  
+            //                $path = $dir."/".$imageName;
+            //                if(file_exists($path)){
+            //                 $dotArray = explode('.', $imageName);
+            //                 $new_path = $dir."/index".".".end($dotArray);
+            //                 rename($path, $new_path);
+            //               }
+            //                 $re_data['status'] =200;
+            //             }  
+            //         }  
+            //     }  
+            //     closedir($handle); 
+            // }
             echo json_encode($re_data);
         }
     }
@@ -1053,6 +977,22 @@ class Api extends MY_Controller {
                 //如果已经上传了临时文章 需要更名文章
                 if(file_exists("picture/tmp_picture")){
                     $picture = "picture/".$rep;
+                    $index = 'index11.jpg';
+                    //第一张图片
+                    if(is_dir("picture/tmp_picture")){
+                        if($handle = opendir("picture/tmp_picture")){  
+                            while (($file = readdir($handle)) !== false ) {  
+                                if($file != ".." && $file != "." && $file != ".DS_Store"){
+                                    $index = $file;
+                                    break;
+                                }
+                            }  
+                        }  
+                        closedir($handle); 
+                    }
+                    $where = array('id' => $rep);
+                    $update_data = array('index' => $index);
+                    $this->Common->update($this->picture_table,$where,$update_data);  
                     rename("picture/tmp_picture",$picture);
                 }
                 $re_data['status'] =200;
@@ -1081,8 +1021,14 @@ class Api extends MY_Controller {
                    mkdir($pic_dir,0777,true);
                 }
             }
-            $path = "picture/".$postinfo['name']."/".md5(uniqid(rand())).".".$type;
+            $pic_name = md5(uniqid(rand())).".".$type;
+            $path = "picture/".$postinfo['name']."/".$pic_name;
             move_uploaded_file($_FILES["file"]["tmp_name"],$path);
+            if($postinfo['name'] != "tmp_picture"){
+                $where = array('id' => $postinfo['name']);
+                $update_data = array('index' => $pic_name);
+                $this->Common->update($this->picture_table,$where,$update_data); 
+            }
             $return['status']=200;
         } 
         // $return['postinfo'] = $postinfo;
