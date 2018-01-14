@@ -1,15 +1,4 @@
 /*include login and register css*/
-html body{
-	margin: 0;
-	padding: 0;
-	height: 100%;
-}
-html body .div-layout{
-	height: auto;
-	position: relative; 
-	min-height: 100%;
-	padding-bottom: 240px;
-}
 .login-show{
 	width: 80%;
 	margin-top: 100px;

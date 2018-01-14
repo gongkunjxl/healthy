@@ -1,5 +1,19 @@
-
-html{-webkit-text-size-adjust:none;}
+html{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+html body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+html body .div-layout{
+    height: auto;
+    position: relative; 
+    min-height: 100%;
+    padding-bottom: 240px;
+}
 .nav{height:100px;background:#009ACD; border: 0.1px;padding: 0.1px;}
 .nav .logo{
     height: 50px; 
