@@ -10,7 +10,7 @@ if(isset($_SESSION['userid']) && $_SESSION['userid']>0){
 }
 ?>
 <!DOCTYPE html>
-<html >
+<html style="height: 100%;margin: 0;padding:0">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -48,7 +48,8 @@ if(isset($_SESSION['userid']) && $_SESSION['userid']>0){
         }
     </style>
 </head>
-<body>
+<body style="height: 100%;margin: 0;padding:0">
+  <div style="height: auto; position: relative; min-height: 100%;padding-bottom: 240px;">
 <div class="nav">
 
   <div class="layui-container">
@@ -94,7 +95,7 @@ if(isset($_SESSION['userid']) && $_SESSION['userid']>0){
     </div>
   </div>
 </div>
-<div style="height: auto; position: relative; min-height: 100%;padding-bottom: 240px;">
+
 <script>
 //注意进度条依赖 element 模块，否则无法进行正常渲染和功能性操作
 layui.use('element', function(){
