@@ -188,6 +188,7 @@ layui.use(['form', 'layedit', 'laydate'], function(){
 				    if(data.status == 200){
 				     	dirId = data.id;
 				     	alert("添加成功");
+				     	window.history.go(-1);
 				    }
 				},
 				error: function(data) {
