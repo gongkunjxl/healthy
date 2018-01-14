@@ -145,7 +145,7 @@ if(isset($_SESSION['userid']) && $_SESSION['userid']>0){
     </div>
   </div>
 </div>
-
+<div style="height: auto; position: relative; min-height: 100%;padding-bottom: 240px;">
 <script>
   // the province
 var provinceObj = document.getElementById("province");

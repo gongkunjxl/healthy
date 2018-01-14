@@ -94,7 +94,7 @@ if(isset($_SESSION['userid']) && $_SESSION['userid']>0){
     </div>
   </div>
 </div>
-
+<div style="height: auto; position: relative; min-height: 100%;padding-bottom: 240px;">
 <script>
 //注意进度条依赖 element 模块，否则无法进行正常渲染和功能性操作
 layui.use('element', function(){
