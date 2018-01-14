@@ -10,7 +10,7 @@ if(isset($_SESSION['userid']) && $_SESSION['userid']>0){
 }
 ?>
 <!DOCTYPE html>
-<html style="height: 100%;margin: 0;padding:0">
+<html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -48,8 +48,8 @@ if(isset($_SESSION['userid']) && $_SESSION['userid']>0){
         }
     </style>
 </head>
-<body style="height: 100%;margin: 0;padding:0">
-  <div style="height: auto; position: relative; min-height: 100%;padding-bottom: 240px;">
+<body >
+<div  class="div-layout">
 <div class="nav">
 
   <div class="layui-container">
