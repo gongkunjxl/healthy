@@ -1221,6 +1221,18 @@ class Api extends MY_Controller {
                     $re_data['status'] =200;
                     $re_data['id'] = $rep;
                 }
+
+            $pictureUrl = "/Users/liuzuobin/shanshu/healthy/healthy/ppt";
+            $pptUrl = "/Users/liuzuobin/shanshu/healthy/healthy/".$postinfo['url'];
+            $httpurl = "127.0.0.1:8080/healthy/ppt?pptUrl=".$pptUrl."&pictureUrl=".$pictureUrl."&id=".$rep;
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL,$httpurl);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch,CURLOPT_HEADER, 0);
+            $output = curl_exec($ch);
+            curl_close($ch);
+            //print_r($output);
+            chmod($pictureUrl,0777);
             echo json_encode($re_data);
         }
     }
@@ -1277,6 +1289,16 @@ class Api extends MY_Controller {
             }else{
                 $return['status']=200;
             }
+
+            $pictureUrl = "/Users/liuzuobin/shanshu/healthy/healthy/ppt";
+            $pptUrl = "/Users/liuzuobin/shanshu/healthy/healthy/".$path;
+            $httpurl = "127.0.0.1:8080/healthy/ppt?pptUrl=".$pptUrl."&pictureUrl=".$pictureUrl."&id=".$postinfo['name'];
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL,$httpurl);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch,CURLOPT_HEADER, 0);
+            $output = curl_exec($ch);
+            curl_close($ch);
         } 
         // $return['postinfo'] = $postinfo;
         echo json_encode($return);

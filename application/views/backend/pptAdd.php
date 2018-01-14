@@ -3,7 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <link rel="stylesheet" type="text/css" href="/static/css/back-useradmin.css">
 <script type="text/javascript" src="/static/layui/layui.js"></script>
-<script type="text/javascript" src="/backend/js/jquery.form.js"></script>
 <script type="text/javascript" src="/static/js/province.js"></script>
 <div class="layui-container" >
 	<h2>增加幻灯片页面</h2>
@@ -188,7 +187,7 @@ layui.use(['form', 'layedit', 'laydate'], function(){
 			var data={
 				name: name.value,
 				introduce: introduce.value,
-				author: author.valiue,
+				author: author.value,
 				theme: theme.value,
 				type: type.value,
 				language: language.value,
@@ -203,13 +202,19 @@ layui.use(['form', 'layedit', 'laydate'], function(){
 				data: data,
 				success: function (data) {
 			     	 // alert(JSON.stringify(data));
-				     if(data.status == 200){
+				     if(data.status == "200"){
 				     	ppt_id = data.id;
 				     	alert("添加成功");
 				     }
 				},
 				error: function(data) {
-			     	alert("Sorry error");
+					if(data.status == "200"){
+						ppt_id = data.id;
+				     	alert("添加成功");
+				     	alert(ppt_id)
+					}else{
+						alert("Sorry error");
+					}
 				}
 			});  	
 		});
@@ -234,7 +239,6 @@ layui.use('upload', function(){
     ,data: data
     ,accept: 'file'
     ,before: function(obj){
-      alert(url)
       if(ppt_id >0){
       	data.name = ppt_id;
       }
@@ -249,7 +253,6 @@ layui.use('upload', function(){
       //如果上传失败
       if(res.status == 200){
       	url = res.url;
-      	alert(url)
         return layer.msg('上传成功');
       }else{
       	return layer.msg('上传失败');
