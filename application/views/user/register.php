@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <!-- <link rel="stylesheet" href="/static/css/video-list-page.css"> -->
 <link rel="stylesheet" href="/static/css/user-page.css">
-<div class="layui-container">
+<div class="layui-container" >
 	<div class="register-show">
 		<h1>欢迎注册中国健康知识科普网</h1>
 		<div class="register-content">

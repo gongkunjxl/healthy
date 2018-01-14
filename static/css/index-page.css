@@ -795,8 +795,8 @@ html{-webkit-text-size-adjust:none;}
     border:0.1px;
     margin-top: 100px;
     padding: 0;
-    /*bottom: 0px;*/
-    /*position: absolute;*/
+    bottom: 0px;
+    position: absolute;
 }
 .footer .layui-container .footer-content{
     width: 30%;
