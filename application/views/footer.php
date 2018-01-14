@@ -1,5 +1,5 @@
 
-<div class="footer">
+<div class="footer" >
 	<div class="layui-container">
 		<div class="footer-content">
 			<ul>
