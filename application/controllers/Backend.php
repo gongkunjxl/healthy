@@ -201,9 +201,9 @@ class Backend extends MY_Controller {
         $page=$page;
         $where=array();
         $start=intval($page-1)*intval($this->per_page);
-        $orderby='ctime';
+        $orderby='ctime,is_top';
         $order_type='desc';
-        $select_field='id,userId,name,sex,nation,school,title,major,record,address,ctime';
+        $select_field='id,userId,name,sex,nation,school,title,major,record,address,ctime,is_top';
         $data=$this->Common->get_limit_order( $this->expert_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
         //get the account from user table
          foreach ($data as $key => $value) {
@@ -281,7 +281,7 @@ class Backend extends MY_Controller {
         $page=$page;
         $where=array();
         $start=intval($page-1)*intval($this->per_page);
-        $orderby='ctime';
+        $orderby='ctime,is_top';
         $order_type='desc';
         $select_field='*';
         $data=$this->Common->get_limit_order( $this->article_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
@@ -348,7 +348,7 @@ class Backend extends MY_Controller {
         $page=$page;
         $where=array();
         $start=intval($page-1)*intval($this->per_page);
-        $orderby='ctime';
+        $orderby='ctime,is_top';
         $order_type='desc';
         $select_field='*';
         $data=$this->Common->get_limit_order( $this->picture_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
@@ -432,9 +432,9 @@ class Backend extends MY_Controller {
         $page=$page;
         $where=array();
         $start=intval($page-1)*intval($this->per_page);
-        $orderby='create_time';
+        $orderby='create_time,is_top';
         $order_type='desc';
-        $select_field='id,name,description,seconds,themeId,type,language,province,listen_num,create_time';
+        $select_field='id,name,description,seconds,themeId,type,language,province,listen_num,create_time,is_top';
         $data=$this->Common->get_limit_order( $this->audio_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
         foreach ($data as $key => $value) {
            //theme
@@ -498,9 +498,9 @@ class Backend extends MY_Controller {
         $page=$page;
         $where=array();
         $start=intval($page-1)*intval($this->per_page);
-        $orderby='create_time';
+        $orderby='create_time,is_top';
         $order_type='desc';
-        $select_field='id,name,description,author_id,author,page_count,themeId,type,language,province,reader_num,pic_url,source_url,create_time';
+        $select_field='id,name,description,author_id,author,page_count,themeId,type,language,province,reader_num,pic_url,source_url,create_time,is_top';
         $data=$this->Common->get_limit_order( $this->ppt_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
         foreach ($data as $key => $value) {
            //theme
@@ -564,7 +564,7 @@ class Backend extends MY_Controller {
         $page=$page;
         $where=array();
         $start=intval($page-1)*intval($this->per_page);
-        $orderby='ctime';
+        $orderby='ctime,is_top';
         $order_type='desc';
         $select_field='*';
         $data=$this->Common->get_limit_order( $this->video_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
@@ -619,6 +619,142 @@ class Backend extends MY_Controller {
         redirect('backend/videoAdmin/1');
     }
 
+
+    public function pptCancelTop($id=0)
+    {
+        if($id>0){
+            $where=array('id' => $id);
+            $data = array('is_top' => 0);
+            $rep = $this->Common->update($this->ppt_table,$where,$data);
+        }
+        redirect('backend/pptAdmin/1');
+    }
+
+    public function pptPushTop($id=0)
+    {
+        $topwhere = array('is_top' => 1);
+        $count=$this->Common->get_count($this->ppt_table,$topwhere,'');
+        if ($count == 3) {
+            echo "string";
+        }
+        if($id>0){
+            $where=array('id' => $id);
+            $data = array('is_top' => 1);
+            $rep = $this->Common->update($this->ppt_table,$where,$data);
+        }
+        redirect('backend/pptAdmin/1');
+    }
+
+
+    public function audioCancelTop($id=0)
+    {
+        if($id>0){
+            $where=array('id' => $id);
+            $data = array('is_top' => 0);
+            $rep = $this->Common->update($this->audio_table,$where,$data);
+        }
+        redirect('backend/audioAdmin/1');
+    }
+
+    public function audioPushTop($id=0)
+    {
+        if($id>0){
+            $where=array('id' => $id);
+            $data = array('is_top' => 1);
+            $rep = $this->Common->update($this->audio_table,$where,$data);
+            
+        }
+        redirect('backend/audioAdmin/1');
+    }
+
+    public function videoCancelTop($id=0)
+    {
+        if($id>0){
+            $where=array('id' => $id);
+            $data = array('is_top' => 0);
+            $rep = $this->Common->update($this->video_table,$where,$data);
+        }
+        redirect('backend/videoAdmin/1');
+    }
+
+    public function videoPushTop($id=0)
+    {
+        if($id>0){
+            $where=array('id' => $id);
+            $data = array('is_top' => 1);
+            $rep = $this->Common->update($this->video_table,$where,$data);
+        }
+        redirect('backend/videoAdmin/1');
+    }
+
+    public function expertCancelTop($id=0)
+    {
+        if($id>0){
+            $where=array('id' => $id);
+            $data = array('is_top' => 0);
+            $rep = $this->Common->update($this->expert_table,$where,$data);
+        }
+        redirect('backend/expertAdmin/1');
+    }
+
+    public function expertPushTop($id=0)
+    {
+        if($id>0){
+            $where=array('id' => $id);
+            $data = array('is_top' => 1);
+            $rep = $this->Common->update($this->expert_table,$where,$data);
+        }
+        redirect('backend/expertAdmin/1');
+    }
+
+    public function pictureCancelTop($id=0)
+    {
+        if($id>0){
+            $where=array('id' => $id);
+            $data = array('is_top' => 0);
+            $rep = $this->Common->update($this->picture_table,$where,$data);
+        }
+        redirect('backend/pictureAdmin/1');
+    }
+
+    public function picturePushTop($id=0)
+    {
+        if($id>0){
+            $where=array('id' => $id);
+            $data = array('is_top' => 1);
+            $rep = $this->Common->update($this->picture_table,$where,$data);
+            if($rep>0){
+                $re_data['status'] = 200;
+            }
+        }
+        redirect('backend/pictureAdmin/1');
+    }
+
+    public function articleCancelTop($id=0)
+    {
+        if($id>0){
+            $where=array('id' => $id);
+            $data = array('is_top' => 0);
+            $rep = $this->Common->update($this->article_table,$where,$data);
+            if($rep>0){
+                $re_data['status'] = 200;
+            }
+        }
+        redirect('backend/articleAdmin/1');
+    }
+
+    public function articlePushTop($id=0)
+    {
+        if($id>0){
+            $where=array('id' => $id);
+            $data = array('is_top' => 1);
+            $rep = $this->Common->update($this->article_table,$where,$data);
+            if($rep>0){
+                $re_data['status'] = 200;
+            }
+        }
+        redirect('backend/articleAdmin/1');
+    }
 }
 
 
