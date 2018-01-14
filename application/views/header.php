@@ -54,6 +54,7 @@ if(isset($_SESSION['userid']) && $_SESSION['userid']>0){
   <div class="layui-container">
     <img class="logo" src="/static/images/head_logo.png"   alt="logo">
     <ul class="layui-nav">
+        <h1>健康科普资源库</h1>
         <li class="layui-nav-item">
           <a style="text-decoration: none;" href="/main/index">首页</a>
         </li>
