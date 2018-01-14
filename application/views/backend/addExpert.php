@@ -62,6 +62,7 @@ layui.use(['form', 'layedit', 'laydate'], function(){
 				success: function (data) {
 				     if(data.status == 200){
 				     	alert("添加成功");
+				     	window.history.go(-1);
 				     }
 				},
 				error: function(data) {

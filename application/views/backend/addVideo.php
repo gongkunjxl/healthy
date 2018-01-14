@@ -205,6 +205,7 @@ layui.use(['form', 'layedit', 'laydate'], function(){
 					// alert(JSON.stringify(data));
 				    if(data.status == 200){
 				     	alert("添加成功");
+				     	window.history.go(-1);
 				    }
 				},
 				error: function(data) {
