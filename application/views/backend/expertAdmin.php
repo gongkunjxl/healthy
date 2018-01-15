@@ -24,6 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	      <th width="10%">执业地址</th>
 	      <th width="10%">注册时间</th>
 	       <th width="20%">操作</th>
+	       <th width="10%">置顶</th>
 	      <!-- <th width="12%">个人介绍</th>
 	      <th width="12%">研究经历</th>
 	      <th width="12%">教育经历</th>
@@ -46,14 +47,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		  		<td><?php echo $value['address'];?></td>
 		  		<td><?php echo date("Y-m-d H:i:s",$value['ctime']);?></td>
 		  		<td>
+					<a class="layui-btn layui-btn-xs" href="/backend/expertEdit/<?php echo $value['id']; ?>" >详情</a>
+					<a class="layui-btn layui-btn-danger layui-btn-xs" onclick="delClick(this);" value="<?php echo $value['id']; ?>">删除</a>
+		  		</td>
+		  		<td>
 		  			<?php if($value['is_top']==1):?>
 		  				<a class="layui-btn layui-btn-xs" onclick="cancelTop(this);" value="<?php echo $value['id']; ?>">取消置顶</a>
 		  			<?php endif; ?>
 		  			<?php if($value['is_top']==0):?>
 		  				<a class="layui-btn layui-btn-xs" onclick="pushTop(this);" value="<?php echo $value['id']; ?>">置顶</a>
 		  			<?php endif; ?>
-					<a class="layui-btn layui-btn-xs" href="/backend/expertEdit/<?php echo $value['id']; ?>" >详情</a>
-					<a class="layui-btn layui-btn-danger layui-btn-xs" onclick="delClick(this);" value="<?php echo $value['id']; ?>">删除</a>
 		  		</td>
 		  	</tr>
 		 <?php endforeach; ?>
@@ -114,6 +117,13 @@ layui.use(['laypage', 'layer'], function(){
 								<a class="layui-btn layui-btn-xs" href="/backend/expertEdit/'+data[i].id+'" >详情</a>\
 								<a class="layui-btn layui-btn-danger layui-btn-xs" onclick="delClick(this);" value="'+data[i].id+'" >删除</a>\
 		  						</td>';
+
+		  					if (data[i].istop==1) {
+		  						html=html+'<td><a class="layui-btn layui-btn-xs" onclick="cancelTop(this);" value="'+data[i].id+'">取消置顶</a></td>';
+		  					}else{
+		  						html=html+'<td><a class="layui-btn layui-btn-xs" onclick="pushTop(this);" value="'+data[i].id+'">置顶</a></td>';
+		  					}
+
 		  						html=html+'</tr>';
 				     	}
 				     	obj.innerHTML=html;

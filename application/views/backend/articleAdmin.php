@@ -23,6 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	      <th width="10%">主题</th>
 	      <th width="15%">上传时间</th>
 	       <th width="25%">操作</th>
+	       <th width="10%">置顶</th>
 	    </tr>
 	  </thead>
 	  <tbody id="table">
@@ -46,6 +47,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		  			<?php if($value['is_top']==0):?>
 		  				<a class="layui-btn layui-btn-xs" onclick="pushTop(this);" value="<?php echo $value['id']; ?>">置顶</a>
 		  			<?php endif; ?>
+		  		</td>
+		  		<td>
 					<a class="layui-btn layui-btn-xs" href="/backend/articleEdit/<?php echo $value['id']; ?>" >详情</a>
 					<a class="layui-btn layui-btn-danger layui-btn-xs" onclick="delClick(this);" value="<?php echo $value['id']; ?>">删除</a>
 		  		</td>
@@ -110,6 +113,13 @@ layui.use(['laypage', 'layer'], function(){
 								<a class="layui-btn layui-btn-xs" href="/backend/articleEdit/'+data[i].id+'" >详情</a>\
 								<a class="layui-btn layui-btn-danger layui-btn-xs" onclick="delClick(this);" value="'+data[i].id+'" >删除</a>\
 		  						</td>';
+
+		  					if (data[i].istop==1) {
+		  						html=html+'<td><a class="layui-btn layui-btn-xs" onclick="cancelTop(this);" value="'+data[i].id+'">取消置顶</a></td>';
+		  					}else{
+		  						html=html+'<td><a class="layui-btn layui-btn-xs" onclick="pushTop(this);" value="'+data[i].id+'">置顶</a></td>';
+		  					}
+
 		  						html=html+'</tr>';
 				     	}
 				     	obj.innerHTML=html;
