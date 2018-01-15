@@ -1222,8 +1222,10 @@ class Api extends MY_Controller {
                     $re_data['id'] = $rep;
                 }
 
-            $pictureUrl = "/Users/liuzuobin/shanshu/healthy/healthy/ppt";
-            $pptUrl = "/Users/liuzuobin/shanshu/healthy/healthy/".$postinfo['url'];
+            //$pictureUrl = "/Users/liuzuobin/shanshu/healthy/healthy/ppt";
+            //$pptUrl = "/Users/liuzuobin/shanshu/healthy/healthy/".$postinfo['url'];
+            $pictureUrl = "/var/www/healthy/ppt";
+            $pptUrl = "/var/www/healthy/".$postinfo['url'];
             $httpurl = "127.0.0.1:8080/healthy/ppt?pptUrl=".$pptUrl."&pictureUrl=".$pictureUrl."&id=".$rep;
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL,$httpurl);
@@ -1488,6 +1490,138 @@ class Api extends MY_Controller {
             }
             echo json_encode($re_data);
         }
+    }
+
+    public function pptPushTop()
+    {
+        if($_POST){
+            $re_data['status'] = 100;
+            $topwhere = array('is_top' => 1);
+            $count=$this->Common->get_count($this->ppt_table,$topwhere,'');
+                
+            if ($count >2) {
+                $re_data['count'] = $count;
+            }else{
+                $postinfo= $this->Common->html_filter_array($_POST);
+                $where=array('id' => $postinfo['id']);
+                $data = array('is_top' => 1);
+                $rep = $this->Common->update($this->ppt_table,$where,$data);
+                //redirect('backend/pptAdmin/1');
+            }
+            //redirect('backend/pptAdmin/1');
+            echo json_encode($re_data);
+        }
+        
+    }
+
+    public function audioPushTop()
+    {
+        if($_POST){
+            $re_data['status'] = 100;
+            $topwhere = array('is_top' => 1);
+            $count=$this->Common->get_count($this->audio_table,$topwhere,'');
+                
+            if ($count >2) {
+                $re_data['count'] = $count;
+            }else{
+                $postinfo= $this->Common->html_filter_array($_POST);
+                $where=array('id' => $postinfo['id']);
+                $data = array('is_top' => 1);
+                $rep = $this->Common->update($this->audio_table,$where,$data);
+                //redirect('backend/pptAdmin/1');
+            }
+            //redirect('backend/pptAdmin/1');
+            echo json_encode($re_data);
+        }
+        
+    }
+
+    public function expertPushTop()
+    {
+        if($_POST){
+            $re_data['status'] = 100;
+            $topwhere = array('is_top' => 1);
+            $count=$this->Common->get_count($this->expert_table,$topwhere,'');
+                
+            if ($count >2) {
+                $re_data['count'] = $count;
+            }else{
+                $postinfo= $this->Common->html_filter_array($_POST);
+                $where=array('id' => $postinfo['id']);
+                $data = array('is_top' => 1);
+                $rep = $this->Common->update($this->expert_table,$where,$data);
+                //redirect('backend/pptAdmin/1');
+            }
+            //redirect('backend/pptAdmin/1');
+            echo json_encode($re_data);
+        }
+        
+    }
+
+    public function picturePushTop()
+    {
+        if($_POST){
+            $re_data['status'] = 100;
+            $topwhere = array('is_top' => 1);
+            $count=$this->Common->get_count($this->picture_table,$topwhere,'');
+                
+            if ($count >2) {
+                $re_data['count'] = $count;
+            }else{
+                $postinfo= $this->Common->html_filter_array($_POST);
+                $where=array('id' => $postinfo['id']);
+                $data = array('is_top' => 1);
+                $rep = $this->Common->update($this->picture_table,$where,$data);
+                //redirect('backend/pptAdmin/1');
+            }
+            //redirect('backend/pptAdmin/1');
+            echo json_encode($re_data);
+        }
+        
+    }
+
+    public function articlePushTop()
+    {
+        if($_POST){
+            $re_data['status'] = 100;
+            $topwhere = array('is_top' => 1);
+            $count=$this->Common->get_count($this->article_table,$topwhere,'');
+                
+            if ($count >2) {
+                $re_data['count'] = $count;
+            }else{
+                $postinfo= $this->Common->html_filter_array($_POST);
+                $where=array('id' => $postinfo['id']);
+                $data = array('is_top' => 1);
+                $rep = $this->Common->update($this->article_table,$where,$data);
+                //redirect('backend/pptAdmin/1');
+            }
+            //redirect('backend/pptAdmin/1');
+            echo json_encode($re_data);
+        }
+        
+    }
+
+    public function videoPushTop()
+    {
+        if($_POST){
+            $re_data['status'] = 100;
+            $topwhere = array('is_top' => 1);
+            $count=$this->Common->get_count($this->video_table,$topwhere,'');
+                
+            if ($count >2) {
+                $re_data['count'] = $count;
+            }else{
+                $postinfo= $this->Common->html_filter_array($_POST);
+                $where=array('id' => $postinfo['id']);
+                $data = array('is_top' => 1);
+                $rep = $this->Common->update($this->video_table,$where,$data);
+                //redirect('backend/pptAdmin/1');
+            }
+            //redirect('backend/pptAdmin/1');
+            echo json_encode($re_data);
+        }
+        
     }
     
 }

@@ -155,7 +155,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		  <a target="_blank" href="/main/powerpointinfo/<?php echo $value['id']; ?>">
 			<div class="content">
 				<div class="point-show">
-					<img src="/static/images/image1.png">
+					<img src="/<?php echo $value['pic_url'].'/1'; ?>.jpeg">
 				</div>
 				<div class="point-label">
 					<h3><?php echo $value['name']; ?></h3>

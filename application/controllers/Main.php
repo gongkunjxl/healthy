@@ -55,7 +55,7 @@ class Main extends MY_Controller {
 		$page = 1;
     	$where=array();
     	$start=intval($page-1)*intval($this->exp_page);
-    	$orderby='ctime';
+    	$orderby='ctime,is_top';
     	$order_type='desc';
 
     	$select_field='id,name,title,address,header';
@@ -83,14 +83,14 @@ class Main extends MY_Controller {
     	$picture_data=$this->Common->get_limit_order( $this->picture_table,$where,$start,4,$orderby,$order_type,$select_field);
     	$re_data['picture_data'] = $picture_data;
 
-    	$orderby = "create_time";
+    	$orderby = "create_time,is_top";
     	//audio
     	$select_field="id,name,author,title,description,source_url,seconds,themeId,type,language,province,listen_num,date_format(create_time,'%Y-%m-%d') as create_time";
         $audio_data=$this->Common->get_limit_order( $this->audio_table,$where,$start,5,$orderby,$order_type,$select_field);
         $re_data['audio_data'] = $audio_data;
 
     	//ppt
-    	$select_field="id,name,author,description,source_url,themeId,type,language,province,reader_num,date_format(create_time,'%Y-%m-%d') as create_time";
+    	$select_field="id,name,author,description,source_url,pic_url,themeId,type,language,province,reader_num,date_format(create_time,'%Y-%m-%d') as create_time";
         $ppt_data=$this->Common->get_limit_order( $this->ppt_table,$where,$start,3,$orderby,$order_type,$select_field);
         foreach ($ppt_data as $key => $value) {
            //theme
@@ -251,7 +251,7 @@ class Main extends MY_Controller {
 		$page = 1;
     	$where=array();
     	$start=intval($page-1)*intval($this->exp_page);
-    	$orderby='ctime';
+    	$orderby='ctime,is_top';
     	$order_type='desc';
     	//条件
     	$like = array();
@@ -333,7 +333,7 @@ class Main extends MY_Controller {
     	// }
     	$re_data['picture_data'] = $picture_data;
 
-    	$orderby = "create_time";
+    	$orderby = "create_time,is_top";
     	//audio
     	$select_field="id,name,author,title,description,source_url,seconds,themeId,type,language,province,listen_num,date_format(create_time,'%Y-%m-%d') as create_time";
         $audio_data=$this->Common->get_limit_order( $this->audio_table,$where,$start,5,$orderby,$order_type,$select_field,$like);
@@ -382,7 +382,7 @@ class Main extends MY_Controller {
 		$page = 1;
     	$where=array();
     	$start=intval($page-1)*intval($this->exp_page);
-    	$orderby='ctime';
+    	$orderby='ctime,is_top';
     	$order_type='desc';
     	//条件
     	$like = array();
@@ -427,7 +427,7 @@ class Main extends MY_Controller {
 		$page = 1;
     	$where=array();
     	$start=intval($page-1)*intval($this->per_page);
-    	$orderby='ctime';
+    	$orderby='ctime,is_top';
     	$order_type='desc';
     	//条件
     	$like = array();
@@ -494,7 +494,7 @@ class Main extends MY_Controller {
 		$page = 1;
     	$where=array();
     	$start=intval($page-1)*intval($this->per_page);
-    	$orderby='ctime';
+    	$orderby='ctime,is_top';
     	$order_type='desc';
     	//条件
     	$like = array();
@@ -555,7 +555,7 @@ class Main extends MY_Controller {
 		$page = 1;
     	$where=array();
     	$start=intval($page-1)*intval($this->per_page);
-    	$orderby='ctime';
+    	$orderby='ctime,is_top';
     	$order_type='desc';
     	//条件
     	$like = array();
@@ -579,7 +579,7 @@ class Main extends MY_Controller {
     		$where['province'] = $province;
     	}
     	//audio
-    	$orderby = "create_time";
+    	$orderby = "create_time,is_top";
     	$select_field="id,name,author,title,description,source_url,seconds,themeId,type,language,province,listen_num,date_format(create_time,'%Y-%m-%d') as create_time";
         $audio_data=$this->Common->get_limit_order( $this->audio_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field,$like);
         $tmp_data=$this->Common->get_limit_order( $this->audio_table,$where,$start,'',$orderby,$order_type,$select_field,$like);
@@ -618,7 +618,7 @@ class Main extends MY_Controller {
 		$page = 1;
     	$where=array();
     	$start=intval($page-1)*intval($this->per_page);
-    	$orderby='ctime';
+    	$orderby='ctime,is_top';
     	$order_type='desc';
     	//条件
     	$like = array();
@@ -678,7 +678,7 @@ class Main extends MY_Controller {
 		$page = 1;
     	$where=array();
     	$start=intval($page-1)*intval($this->per_page);
-    	$orderby='ctime';
+    	$orderby='ctime,is_top';
     	$order_type='desc';
     	//条件
     	$like = array();
@@ -702,7 +702,7 @@ class Main extends MY_Controller {
     		$where['province'] = $province;
     	}
     	//audio
-    	$orderby = "create_time";
+    	$orderby = "create_time,is_top";
     	$select_field="id,name,author,description,source_url,themeId,type,language,province,reader_num,date_format(create_time,'%Y-%m-%d') as create_time";
         $ppt_data=$this->Common->get_limit_order( $this->ppt_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
         $tmp_data=$this->Common->get_limit_order( $this->ppt_table,$where,$start,'',$orderby,$order_type,$select_field,$like);
@@ -747,7 +747,7 @@ class Main extends MY_Controller {
 		//expert
     	$where=array();
     	$start=intval($page-1)*intval($this->exp_page);
-    	$orderby='ctime';
+    	$orderby='ctime,is_top';
     	$order_type='desc';
     	//条件
     	$like = array();
@@ -808,7 +808,7 @@ class Main extends MY_Controller {
 
 		$where=array();
     	$start=intval($page-1)*intval($this->per_page);
-    	$orderby='ctime';
+    	$orderby='ctime,is_top';
     	$order_type='desc';
     	//条件
     	$like = array();
@@ -828,7 +828,7 @@ class Main extends MY_Controller {
     		$where['province'] = $province;
     	}
     	//audio
-    	$orderby = "create_time";
+    	$orderby = "create_time,is_top";
     	$select_field="id,name,author,title,description,source_url,seconds,themeId,type,language,province,listen_num,date_format(create_time,'%Y-%m-%d') as create_time";
         $audio_data=$this->Common->get_limit_order( $this->audio_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field,$like);
         $tmp_data=$this->Common->get_limit_order( $this->audio_table,$where,$start,'',$orderby,$order_type,$select_field,$like);
@@ -881,7 +881,7 @@ class Main extends MY_Controller {
 		$search = $_SESSION['search'];
     	$where=array();
     	$start=intval($page-1)*intval($this->per_page);
-    	$orderby='ctime';
+    	$orderby='ctime,is_top';
     	$order_type='desc';
     	//条件
     	$like = array();
@@ -970,7 +970,7 @@ class Main extends MY_Controller {
 
 		$where=array();
     	$start=intval($page-1)*intval($this->per_page);
-    	$orderby='ctime';
+    	$orderby='ctime,is_top';
     	$order_type='desc';
     	//条件
     	$like = array();
@@ -1044,7 +1044,7 @@ class Main extends MY_Controller {
 		$search = $_SESSION['search'];
 		$where=array();
     	$start=intval($page-1)*intval($this->per_page);
-    	$orderby='ctime';
+    	$orderby='ctime,is_top';
     	$order_type='desc';
     	//条件
     	$like = array();
@@ -1129,7 +1129,7 @@ class Main extends MY_Controller {
 	    $page=1;
     	$where=array();
     	$start=intval($page-1)*intval($this->pic_page);
-    	$orderby='ctime';
+    	$orderby='ctime,is_top';
     	$order_type='desc';
     	$select_field='*';
     	$data=$this->Common->get_limit_order( $this->picture_table,$where,$start,$this->pic_page,$orderby,$order_type,$select_field);
@@ -1154,7 +1154,7 @@ class Main extends MY_Controller {
 		$search = $_SESSION['search'];	
 		$where=array();
     	$start=intval($page-1)*intval($this->per_page);
-    	$orderby='ctime';
+    	$orderby='ctime,is_top';
     	$order_type='desc';
     	//条件
     	$like = array();
@@ -1174,8 +1174,8 @@ class Main extends MY_Controller {
     		$where['province'] = $province;
     	}
     	//audio
-    	$orderby = "create_time";
-    	$select_field="id,name,author,description,source_url,themeId,type,language,province,reader_num,date_format(create_time,'%Y-%m-%d') as create_time";
+    	$orderby = "create_time,is_top";
+    	$select_field="id,name,author,description,source_url,pic_url,themeId,type,language,province,reader_num,date_format(create_time,'%Y-%m-%d') as create_time";
         $ppt_data=$this->Common->get_limit_order( $this->ppt_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
         $tmp_data=$this->Common->get_limit_order( $this->ppt_table,$where,$start,'',$orderby,$order_type,$select_field,$like);
         

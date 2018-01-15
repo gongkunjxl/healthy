@@ -38,6 +38,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		  		<td><?php echo $value['reader_num'];?></td>
 		  		<td><?php echo $value['create_time'];?></td>
 		  		<td>
+		  			<?php if($value['is_top']==1):?>
+		  				<a class="layui-btn layui-btn-xs" onclick="cancelTop(this);" value="<?php echo $value['id']; ?>">取消置顶</a>
+		  			<?php endif; ?>
+		  			<?php if($value['is_top']==0):?>
+		  				<a class="layui-btn layui-btn-xs" onclick="pushTop(this);" value="<?php echo $value['id']; ?>">置顶</a>
+		  			<?php endif; ?>
 					<a class="layui-btn layui-btn-xs" href="/backend/pptEdit/<?php echo $value['id']; ?>" >详情</a>
 					<a class="layui-btn layui-btn-danger layui-btn-xs" onclick="delClick(this);" value="<?php echo $value['id']; ?>">删除</a>
 		  		</td>
@@ -122,6 +128,49 @@ function  delClick(obj)
 		window.location.href="/backend/pptDelete/"+obj.getAttribute("value");
 	});
 }
+
+function  cancelTop(obj)
+{
+    // alert(obj.getAttribute("value"));
+    layer = layui.layer;
+ 	layer.confirm('确认取消置顶该ppt？', { title:['取消置顶PPT信息提示','font-size:20px; text-align:center']}, function(index)
+	{
+		layer.close(index);
+		window.location.href="/backend/pptCancelTop/"+obj.getAttribute("value");
+	});
+}
+
+function  pushTop(obj)
+{
+    // alert(obj.getAttribute("value"));
+    layer = layui.layer;
+ 	layer.confirm('确认置顶该ppt？', { title:['置顶PPT信息提示','font-size:20px; text-align:center']}, function(index)
+	{
+		layer.close(index);
+
+		var data={
+					id: obj.getAttribute("value")
+				};
+		$.ajax({
+					url: '/api/pptPushTop',
+					type: 'post',
+					dataType:'json',
+					data: data,
+					success: function (data) {
+						if(data.count>2){
+							alert("置顶项只能为3个，请先取消一个置顶项");
+						}
+				     	window.location.href="/backend/pptAdmin";
+				    },
+				    error: function(data) {
+				     	
+					}
+				});
+
+		//window.location.href="/backend/pptPushTop/"+obj.getAttribute("value");
+	});
+}
+
 </script>
 
 
