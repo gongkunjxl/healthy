@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			  	<div class="powerpoint-show">
 			  		<div class="content-show">
 			  			<div class="powerpoint-img">
-							<img src="/static/images/image1.png" style="width: 100%;height: 100%;">
+							<img src="/<?php echo $value['pic_url'].'/1'; ?>.jpeg" style="width: 100%;height: 100%;">
 						</div>
 						<div class="show-right">
 							<h2><?php echo $value['name']; ?></h2>

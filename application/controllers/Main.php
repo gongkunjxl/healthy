@@ -90,7 +90,7 @@ class Main extends MY_Controller {
         $re_data['audio_data'] = $audio_data;
 
     	//ppt
-    	$select_field="id,name,author,description,source_url,themeId,type,language,province,reader_num,date_format(create_time,'%Y-%m-%d') as create_time";
+    	$select_field="id,name,author,description,source_url,pic_url,themeId,type,language,province,reader_num,date_format(create_time,'%Y-%m-%d') as create_time";
         $ppt_data=$this->Common->get_limit_order( $this->ppt_table,$where,$start,3,$orderby,$order_type,$select_field);
         foreach ($ppt_data as $key => $value) {
            //theme
@@ -1175,7 +1175,7 @@ class Main extends MY_Controller {
     	}
     	//audio
     	$orderby = "create_time,is_top";
-    	$select_field="id,name,author,description,source_url,themeId,type,language,province,reader_num,date_format(create_time,'%Y-%m-%d') as create_time";
+    	$select_field="id,name,author,description,source_url,pic_url,themeId,type,language,province,reader_num,date_format(create_time,'%Y-%m-%d') as create_time";
         $ppt_data=$this->Common->get_limit_order( $this->ppt_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
         $tmp_data=$this->Common->get_limit_order( $this->ppt_table,$where,$start,'',$orderby,$order_type,$select_field,$like);
         
