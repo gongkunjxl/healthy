@@ -1222,8 +1222,10 @@ class Api extends MY_Controller {
                     $re_data['id'] = $rep;
                 }
 
-            $pictureUrl = "/Users/liuzuobin/shanshu/healthy/healthy/ppt";
-            $pptUrl = "/Users/liuzuobin/shanshu/healthy/healthy/".$postinfo['url'];
+            //$pictureUrl = "/Users/liuzuobin/shanshu/healthy/healthy/ppt";
+            //$pptUrl = "/Users/liuzuobin/shanshu/healthy/healthy/".$postinfo['url'];
+            $pictureUrl = "/var/www/healthy/ppt";
+            $pptUrl = "/var/www/healthy/".$postinfo['url'];
             $httpurl = "127.0.0.1:8080/healthy/ppt?pptUrl=".$pptUrl."&pictureUrl=".$pictureUrl."&id=".$rep;
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL,$httpurl);
