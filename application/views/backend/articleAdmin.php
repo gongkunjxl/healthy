@@ -41,16 +41,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		  		<td><?php echo ($value['themeId']==1)?"慢性病":"健康生活";?></td>
 		  		<td><?php echo date("Y-m-d H:i:s",$value['ctime']);?></td>
 		  		<td>
+					<a class="layui-btn layui-btn-xs" href="/backend/articleEdit/<?php echo $value['id']; ?>" >详情</a>
+					<a class="layui-btn layui-btn-danger layui-btn-xs" onclick="delClick(this);" value="<?php echo $value['id']; ?>">删除</a>
+		  		</td>
+		  		<td>
 		  			<?php if($value['is_top']==1):?>
 		  				<a class="layui-btn layui-btn-xs" onclick="cancelTop(this);" value="<?php echo $value['id']; ?>">取消置顶</a>
 		  			<?php endif; ?>
 		  			<?php if($value['is_top']==0):?>
 		  				<a class="layui-btn layui-btn-xs" onclick="pushTop(this);" value="<?php echo $value['id']; ?>">置顶</a>
 		  			<?php endif; ?>
-		  		</td>
-		  		<td>
-					<a class="layui-btn layui-btn-xs" href="/backend/articleEdit/<?php echo $value['id']; ?>" >详情</a>
-					<a class="layui-btn layui-btn-danger layui-btn-xs" onclick="delClick(this);" value="<?php echo $value['id']; ?>">删除</a>
 		  		</td>
 		  	</tr>
 		 <?php endforeach; ?>
