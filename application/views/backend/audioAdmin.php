@@ -21,6 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	      <th width="8%">播放量</th>
 	      <th width="10%">上传时间</th>
 	       <th width="15%">操作</th>
+	       <th width="10%">置顶</th>
 	    </tr>
 	  </thead>
 	  <tbody id="table">
@@ -36,14 +37,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		  		<td><?php echo $value['listen_num'];?></td>
 		  		<td><?php echo $value['create_time'];?></td>
 		  		<td>
+					<a class="layui-btn layui-btn-xs" href="/backend/audioEdit/<?php echo $value['id']; ?>" >详情</a>
+					<a class="layui-btn layui-btn-danger layui-btn-xs" onclick="delClick(this);" value="<?php echo $value['id']; ?>">删除</a>
+		  		</td>
+		  		<td>
 		  			<?php if($value['is_top']==1):?>
 		  				<a class="layui-btn layui-btn-xs" onclick="cancelTop(this);" value="<?php echo $value['id']; ?>">取消置顶</a>
 		  			<?php endif; ?>
 		  			<?php if($value['is_top']==0):?>
 		  				<a class="layui-btn layui-btn-xs" onclick="pushTop(this);" value="<?php echo $value['id']; ?>">置顶</a>
 		  			<?php endif; ?>
-					<a class="layui-btn layui-btn-xs" href="/backend/audioEdit/<?php echo $value['id']; ?>" >详情</a>
-					<a class="layui-btn layui-btn-danger layui-btn-xs" onclick="delClick(this);" value="<?php echo $value['id']; ?>">删除</a>
 		  		</td>
 		  	</tr>
 		 <?php endforeach; ?>
@@ -100,6 +103,13 @@ layui.use(['laypage', 'layer'], function(){
 								<a class="layui-btn layui-btn-xs" href="/backend/expertEdit/'+data[i].id+'" >详情</a>\
 								<a class="layui-btn layui-btn-danger layui-btn-xs" onclick="delClick(this);" value="'+data[i].id+'" >删除</a>\
 		  						</td>';
+
+		  					if (data[i].istop==1) {
+		  						html=html+'<td><a class="layui-btn layui-btn-xs" onclick="cancelTop(this);" value="'+data[i].id+'">取消置顶</a></td>';
+		  					}else{
+		  						html=html+'<td><a class="layui-btn layui-btn-xs" onclick="pushTop(this);" value="'+data[i].id+'">置顶</a></td>';
+		  					}
+
 		  						html=html+'</tr>';
 				     	}
 				     	obj.innerHTML=html;

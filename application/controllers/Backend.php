@@ -201,7 +201,7 @@ class Backend extends MY_Controller {
         $page=$page;
         $where=array();
         $start=intval($page-1)*intval($this->per_page);
-        $orderby='ctime,is_top';
+        $orderby='is_top,ctime';
         $order_type='desc';
         $select_field='id,userId,name,sex,nation,school,title,major,record,address,ctime,is_top';
         $data=$this->Common->get_limit_order( $this->expert_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
@@ -281,7 +281,7 @@ class Backend extends MY_Controller {
         $page=$page;
         $where=array();
         $start=intval($page-1)*intval($this->per_page);
-        $orderby='ctime,is_top';
+        $orderby='is_top,ctime';
         $order_type='desc';
         $select_field='*';
         $data=$this->Common->get_limit_order( $this->article_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
@@ -348,7 +348,7 @@ class Backend extends MY_Controller {
         $page=$page;
         $where=array();
         $start=intval($page-1)*intval($this->per_page);
-        $orderby='ctime,is_top';
+        $orderby='is_top,ctime';
         $order_type='desc';
         $select_field='*';
         $data=$this->Common->get_limit_order( $this->picture_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
@@ -432,7 +432,7 @@ class Backend extends MY_Controller {
         $page=$page;
         $where=array();
         $start=intval($page-1)*intval($this->per_page);
-        $orderby='create_time,is_top';
+        $orderby='is_top,create_time';
         $order_type='desc';
         $select_field='id,name,description,seconds,themeId,type,language,province,listen_num,create_time,is_top';
         $data=$this->Common->get_limit_order( $this->audio_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
@@ -498,7 +498,7 @@ class Backend extends MY_Controller {
         $page=$page;
         $where=array();
         $start=intval($page-1)*intval($this->per_page);
-        $orderby='create_time,is_top';
+        $orderby='is_top,create_time';
         $order_type='desc';
         $select_field='id,name,description,author_id,author,page_count,themeId,type,language,province,reader_num,pic_url,source_url,create_time,is_top';
         $data=$this->Common->get_limit_order( $this->ppt_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
@@ -564,7 +564,7 @@ class Backend extends MY_Controller {
         $page=$page;
         $where=array();
         $start=intval($page-1)*intval($this->per_page);
-        $orderby='ctime,is_top';
+        $orderby='is_top,ctime';
         $order_type='desc';
         $select_field='*';
         $data=$this->Common->get_limit_order( $this->video_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
