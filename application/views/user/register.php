@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <link rel="stylesheet" href="/static/css/user-page.css">
 <div class="layui-container" >
 	<div class="register-show">
-		<h1>欢迎注册中国健康知识科普网</h1>
+		<h1>欢迎注册科普资源库网站</h1>
 		<div class="register-content">
 			<form class="layui-form" action="/main/register" method="post" id="regForm" enctype="multipart/form-data">
 			  <div class="layui-form-item">

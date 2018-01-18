@@ -16,22 +16,29 @@ html body .div-layout{
 }
 .nav{height:100px;background:#009ACD; border: 0.1px;padding: 0.1px;}
 .nav .logo{
-    height: 50px; 
-    margin-top: 20px; 
-    width: 25%;
+    height: 80px; 
+    margin-top: 10px; 
+    width: 20%;
     float: left;
+}
+.nav .logo img{
+    width: 80px;
+    height: 80px;
+    float: right;
+    margin-right: 60px;
 }
 .nav .layui-nav{
     width: 50%;
     background-color:#009ACD; 
     margin-top: 20px;
-    height: 50px;
+    height: 10px;
     float: left;
 }
 .nav .layui-nav h1{
-    font-size: 20px;
+    font-size: 24px;
     letter-spacing: 2px;
-    margin-left: 10px;   
+    margin-left: 50px;   
+    /*line-height: 10px;*/
 }
 .nav .layui-nav .layui-nav-item{
     margin-right: 3%;
