@@ -24,6 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	      <th width="10%">执业地址</th>
 	      <th width="10%">注册时间</th>
 	       <th width="20%">操作</th>
+	       <th width="10%">置顶</th>
 	      <!-- <th width="12%">个人介绍</th>
 	      <th width="12%">研究经历</th>
 	      <th width="12%">教育经历</th>
@@ -48,6 +49,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		  		<td>
 					<a class="layui-btn layui-btn-xs" href="/backend/expertEdit/<?php echo $value['id']; ?>" >详情</a>
 					<a class="layui-btn layui-btn-danger layui-btn-xs" onclick="delClick(this);" value="<?php echo $value['id']; ?>">删除</a>
+		  		</td>
+		  		<td>
+		  			<?php if($value['is_top']==1):?>
+		  				<a class="layui-btn layui-btn-xs" onclick="cancelTop(this);" value="<?php echo $value['id']; ?>">取消置顶</a>
+		  			<?php endif; ?>
+		  			<?php if($value['is_top']==0):?>
+		  				<a class="layui-btn layui-btn-xs" onclick="pushTop(this);" value="<?php echo $value['id']; ?>">置顶</a>
+		  			<?php endif; ?>
 		  		</td>
 		  	</tr>
 		 <?php endforeach; ?>
@@ -108,6 +117,13 @@ layui.use(['laypage', 'layer'], function(){
 								<a class="layui-btn layui-btn-xs" href="/backend/expertEdit/'+data[i].id+'" >详情</a>\
 								<a class="layui-btn layui-btn-danger layui-btn-xs" onclick="delClick(this);" value="'+data[i].id+'" >删除</a>\
 		  						</td>';
+
+		  					if (data[i].istop==1) {
+		  						html=html+'<td><a class="layui-btn layui-btn-xs" onclick="cancelTop(this);" value="'+data[i].id+'">取消置顶</a></td>';
+		  					}else{
+		  						html=html+'<td><a class="layui-btn layui-btn-xs" onclick="pushTop(this);" value="'+data[i].id+'">置顶</a></td>';
+		  					}
+
 		  						html=html+'</tr>';
 				     	}
 				     	obj.innerHTML=html;
@@ -131,6 +147,48 @@ function  delClick(obj)
 	{
 		layer.close(index);
 		window.location.href="/backend/expertDelete/"+obj.getAttribute("value");
+	});
+}
+
+function  cancelTop(obj)
+{
+    // alert(obj.getAttribute("value"));
+    layer = layui.layer;
+ 	layer.confirm('确认取消置顶该专家？', { title:['取消置顶专家信息提示','font-size:20px; text-align:center']}, function(index)
+	{
+		layer.close(index);
+		window.location.href="/backend/expertCancelTop/"+obj.getAttribute("value");
+	});
+}
+
+function  pushTop(obj)
+{
+    // alert(obj.getAttribute("value"));
+    layer = layui.layer;
+ 	layer.confirm('确认置顶该专家？', { title:['置顶专家信息提示','font-size:20px; text-align:center']}, function(index)
+	{
+		layer.close(index);
+
+		var data={
+					id: obj.getAttribute("value")
+				};
+		$.ajax({
+					url: '/api/expertPushTop',
+					type: 'post',
+					dataType:'json',
+					data: data,
+					success: function (data) {
+						if(data.count>2){
+							alert("置顶项只能为3个，请先取消一个置顶项");
+						}
+				     	window.location.href="/backend/expertAdmin";
+				    },
+				    error: function(data) {
+				     	
+					}
+				});
+
+		//window.location.href="/backend/pptPushTop/"+obj.getAttribute("value");
 	});
 }
 </script>

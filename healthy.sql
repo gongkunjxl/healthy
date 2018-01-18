@@ -86,6 +86,7 @@ CREATE TABLE `hea_article` (
   `themeId` int(11) DEFAULT '1',
   `province` varchar(64) DEFAULT '北京',
   `ctime` int(11) DEFAULT NULL,
+  `is_top` tinyint(4) DEFAULT '0' COMMENT '置顶状态：0是未置顶，1是置顶',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -122,6 +123,7 @@ CREATE TABLE `hea_audio` (
   `language` varchar(50) DEFAULT NULL COMMENT '语言',
   `province` varchar(200) DEFAULT NULL COMMENT '制作省份',
   `listen_num` int(11) DEFAULT '0' COMMENT '播放量',
+  `is_top` tinyint(4) DEFAULT '0' COMMENT '置顶状态：0是未置顶，1是置顶',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8 COMMENT='音频表';
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -210,6 +212,7 @@ CREATE TABLE `hea_expert` (
   `work` varchar(1024) DEFAULT NULL COMMENT '工作经历',
   `ctime` int(11) DEFAULT NULL,
   `header` varchar(64) DEFAULT NULL,
+  `is_top` tinyint(4) DEFAULT '0' COMMENT '置顶状态：0是未置顶，1是置顶',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -243,6 +246,7 @@ CREATE TABLE `hea_picture` (
   `province` varchar(64) DEFAULT '北京',
   `ctime` int(11) DEFAULT NULL,
   `index` varchar(256) DEFAULT NULL,
+  `is_top` tinyint(4) DEFAULT '0' COMMENT '置顶状态：0是未置顶，1是置顶',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -279,6 +283,7 @@ CREATE TABLE `hea_ppt` (
   `province` varchar(200) DEFAULT NULL COMMENT '制作省份',
   `reader_num` int(11) DEFAULT '0' COMMENT '播放量',
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `is_top` tinyint(4) DEFAULT '0' COMMENT '置顶状态：0是未置顶，1是置顶',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8 COMMENT='ppt表';
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -416,6 +421,7 @@ CREATE TABLE `hea_video` (
   `ctime` int(11) DEFAULT NULL,
   `videoAddr` varchar(256) DEFAULT NULL,
   `covAddr` varchar(256) DEFAULT NULL,
+  `is_top` tinyint(4) DEFAULT '0' COMMENT '置顶状态：0是未置顶，1是置顶',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;

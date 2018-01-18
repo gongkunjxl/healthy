@@ -212,7 +212,7 @@ layui.use(['form', 'layedit', 'laydate'], function(){
 					if(data.status == "200"){
 						ppt_id = data.id;
 				     	alert("添加成功");
-				     	alert(ppt_id)
+				     	window.history.go(-1);
 					}else{
 						alert("Sorry error");
 					}
