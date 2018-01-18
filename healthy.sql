@@ -1,81 +1,103 @@
--- MySQL dump 10.13  Distrib 5.7.17, for macos10.12 (x86_64)
+-- phpMyAdmin SQL Dump
+-- version 4.4.15.10
+-- https://www.phpmyadmin.net
 --
--- Host: localhost    Database: healthy
--- ------------------------------------------------------
--- Server version	5.7.16
+-- Host: localhost
+-- Generation Time: 2018-01-18 06:26:18
+-- 服务器版本： 5.5.56-MariaDB
+-- PHP Version: 5.4.16
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Table structure for table `ci_sessions`
+-- Database: `healthy`
 --
 
-DROP TABLE IF EXISTS `ci_sessions`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `ci_sessions` (
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ci_sessions`
+--
+
+CREATE TABLE IF NOT EXISTS `ci_sessions` (
   `id` varchar(128) NOT NULL,
   `ip_address` varchar(45) NOT NULL,
   `timestamp` int(10) unsigned NOT NULL DEFAULT '0',
-  `data` blob NOT NULL,
-  KEY `ci_sessions_timestamp` (`timestamp`)
+  `data` blob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `ci_sessions`
+-- 转存表中的数据 `ci_sessions`
 --
 
-LOCK TABLES `ci_sessions` WRITE;
-/*!40000 ALTER TABLE `ci_sessions` DISABLE KEYS */;
-INSERT INTO `ci_sessions` VALUES ('fkqo610kfifia7pfcl7ba2g52veaceg8','127.0.0.1',1515549582,'__ci_last_regenerate|i:1515549017;count|i:222;userid|i:0;'),('nc3av1lcsme6b8j9la7jg70ettrjlcsn','127.0.0.1',1515550067,'__ci_last_regenerate|i:1515549590;count|i:222;'),('8cdff3ho70bs32grdeofqu2rflrvj8ph','127.0.0.1',1515550516,'__ci_last_regenerate|i:1515550072;count|i:222;'),('p4s0fhfrtb0motftil56l9c0r8hj1ca0','127.0.0.1',1515552175,'__ci_last_regenerate|i:1515550540;count|i:222;'),('gftr8d4ndcsgoq8j26hgegn22qfoc4i4','127.0.0.1',1515551344,'__ci_last_regenerate|i:1515551344;count|i:222;'),('07v0jpfufsp1794lb1pmnf4tntob5t3p','127.0.0.1',1515553095,'__ci_last_regenerate|i:1515552197;count|i:222;'),('pfnur9kshlr8rvlqko8jal6474badpqo','127.0.0.1',1515553150,'__ci_last_regenerate|i:1515553099;count|i:222;'),('bhmpi7uch5ms4i7obd94g46drud1fg9r','127.0.0.1',1515555060,'__ci_last_regenerate|i:1515553155;count|i:222;'),('34s4hm5m7e901sngmu26mmdegbdlcfjq','127.0.0.1',1515555670,'__ci_last_regenerate|i:1515555064;count|i:222;'),('ohr531dfd0fccb0blau4e5159gc6m027','127.0.0.1',1515556046,'__ci_last_regenerate|i:1515555675;count|i:222;'),('h6e3e32e13djosjcfpciubk0739l03nt','127.0.0.1',1515556220,'__ci_last_regenerate|i:1515556051;count|i:222;'),('k1noojv7b4q00gb4rkiba2auptkm3spj','127.0.0.1',1515561103,'__ci_last_regenerate|i:1515560597;count|i:222;userid|i:0;'),('7a7rbu82ojgsnhg07tekf603gfaajsp5','127.0.0.1',1515561625,'__ci_last_regenerate|i:1515561111;userid|i:0;'),('jqnmmentqvm75mt77ns74fsar322b461','127.0.0.1',1515565302,'__ci_last_regenerate|i:1515561722;userid|i:0;count|i:222;theme|s:1:\"0\";type|s:1:\"0\";media|s:1:\"1\";language|s:1:\"0\";province|s:1:\"0\";search|s:1:\"0\";'),('m3biag14rh7jv0q94mg52fdkfaej9tau','127.0.0.1',1515568901,'__ci_last_regenerate|i:1515565526;userid|i:0;count|i:222;theme|i:0;type|i:0;media|i:0;language|i:0;province|i:0;search|i:0;'),('6be7lmkhc9b06p60snqqoh6iqb11rhc9','127.0.0.1',1515570176,'__ci_last_regenerate|i:1515569169;userid|i:0;count|i:222;theme|s:1:\"2\";type|s:1:\"2\";media|s:1:\"0\";language|s:1:\"0\";province|s:1:\"0\";search|s:1:\"0\";'),('o2jubq70vt56pe97oso8cdp6j19a2sun','127.0.0.1',1515570238,'__ci_last_regenerate|i:1515570194;count|i:222;'),('743oqo5ssnovmr9ppeet5a4pu6hqj7dc','127.0.0.1',1515570301,'__ci_last_regenerate|i:1515570244;count|i:222;'),('eff2l974k34dkuvigre87h77vaq3m2ej','127.0.0.1',1515570490,'__ci_last_regenerate|i:1515570306;count|i:222;theme|i:0;type|i:0;media|i:0;language|i:0;province|i:0;search|i:0;userid|s:3:\"131\";username|s:11:\"18916294857\";nickname|s:8:\"xiaogong\";'),('r7j9mb69tdnjfr1ao0op6e0rmj940cvt','127.0.0.1',1515571498,'__ci_last_regenerate|i:1515570505;count|i:222;userid|i:0;theme|s:1:\"1\";type|s:1:\"0\";media|s:1:\"3\";language|s:1:\"0\";province|s:1:\"0\";search|s:1:\"0\";username|s:0:\"\";nickname|s:0:\"\";'),('8l9gsv6sbjad42ump3qrpv5doqbicpp9','127.0.0.1',1515574383,'__ci_last_regenerate|i:1515570978;count|i:222;userid|i:0;theme|s:1:\"1\";type|s:1:\"1\";media|s:1:\"3\";language|s:1:\"1\";province|s:6:\"北京\";search|s:1:\"0\";'),('u2psen24mojr81cn1gi5fsjh12h10v1f','127.0.0.1',1515573933,'__ci_last_regenerate|i:1515571516;count|i:222;theme|i:0;type|i:0;media|i:0;language|i:0;province|i:0;search|i:0;userid|i:0;'),('132hb98g1eq6t350nrakt1b4sd0c13rr','127.0.0.1',1515574363,'__ci_last_regenerate|i:1515573963;count|i:222;userid|i:0;theme|s:1:\"1\";type|s:1:\"1\";media|s:1:\"3\";language|s:1:\"1\";province|s:6:\"北京\";search|s:1:\"0\";'),('ic3esdduaj7ovkrac433v32c3c373s5r','127.0.0.1',1515574643,'__ci_last_regenerate|i:1515574626;count|i:222;theme|i:0;type|i:0;media|s:1:\"1\";language|i:0;province|i:0;search|i:0;userid|i:0;'),('d9ujtdvjn9o0sj60pag80shu13nh8f7h','127.0.0.1',1515820991,'__ci_last_regenerate|i:1515820044;count|i:222;userid|i:0;theme|i:0;type|i:0;media|i:0;language|i:0;province|i:0;search|i:0;'),('42hl038afa346aul14ln9r2mp5i734gm','127.0.0.1',1515821254,'__ci_last_regenerate|i:1515821251;count|i:222;userid|i:0;theme|i:0;type|i:0;media|i:0;language|i:0;province|i:0;search|i:0;'),('1k6m567b7dv49rnkk072uf6rro702f69','127.0.0.1',1515825145,'__ci_last_regenerate|i:1515825141;count|i:222;userid|i:0;theme|i:0;type|i:0;media|i:0;language|i:0;province|i:0;search|i:0;'),('rq03sudeicjhl95p7buh3a1u7tr6740q','127.0.0.1',1515825274,'__ci_last_regenerate|i:1515825269;count|i:222;'),('dsob3db9vrr48iaq8gshsl0vsled0en5','127.0.0.1',1515831770,'__ci_last_regenerate|i:1515830987;count|i:222;userid|i:0;theme|i:0;type|i:0;media|i:0;language|i:0;province|i:0;search|i:0;'),('fibg9oj8naejvj5rlvcoifr7qikka6as','127.0.0.1',1515831818,'__ci_last_regenerate|i:1515831775;count|i:222;userid|i:0;theme|i:0;type|i:0;media|i:0;language|i:0;province|i:0;search|i:0;'),('7c79sfee5e8scpijf51fksm2qpqnu4sr','127.0.0.1',1515833477,'__ci_last_regenerate|i:1515831823;count|i:222;userid|i:0;theme|i:0;type|i:0;media|i:0;language|i:0;province|i:0;search|i:0;'),('otf75suu6rv4agsurne0jp3g8ohoqvqn','127.0.0.1',1515853938,'__ci_last_regenerate|i:1515850481;count|i:222;userid|i:0;theme|i:0;type|i:0;media|i:0;language|i:0;province|i:0;search|i:0;adminId|s:1:\"1\";adminName|s:4:\"demo\";adminPassword|s:7:\"demo123\";'),('lm0p2jugp0hv0ivc6iivsdookhigh57t','127.0.0.1',1515854396,'__ci_last_regenerate|i:1515854136;count|i:222;userid|i:0;theme|i:0;type|i:0;media|i:0;language|i:0;province|i:0;search|i:0;adminId|s:1:\"1\";adminName|s:4:\"demo\";adminPassword|s:7:\"demo123\";'),('35bc3ndb6hs6jaehr1phlnb8ncjop68v','127.0.0.1',1515856117,'__ci_last_regenerate|i:1515854471;adminId|s:1:\"1\";adminName|s:4:\"demo\";adminPassword|s:7:\"demo123\";count|i:223;userid|i:0;theme|s:1:\"1\";type|s:1:\"0\";media|s:1:\"5\";language|s:1:\"0\";province|s:1:\"0\";search|s:1:\"0\";'),('v2go2jgr68trcsvgr4i0ddjh9n85pctk','127.0.0.1',1515856427,'__ci_last_regenerate|i:1515856128;count|i:223;theme|i:0;type|i:0;media|s:1:\"5\";language|i:0;province|i:0;search|i:0;userid|i:0;'),('fhufmve4f54gt9c1pg39vrl492uulja0','127.0.0.1',1515857623,'__ci_last_regenerate|i:1515856433;count|i:223;userid|i:0;theme|i:0;type|i:0;media|s:1:\"5\";language|i:0;province|i:0;search|i:0;');
-/*!40000 ALTER TABLE `ci_sessions` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
+('l24n4f601uab53o3l7ilj9ekq7v9u1v4', '166.111.131.62', 1515994299, 0x5f5f63695f6c6173745f726567656e65726174657c693a313531353939323838333b636f756e747c693a3232363b7573657269647c693a303b7468656d657c693a303b747970657c693a303b6d656469617c693a303b6c616e67756167657c693a303b70726f76696e63657c693a303b7365617263687c693a303b61646d696e49647c733a313a2231223b61646d696e4e616d657c733a343a2264656d6f223b61646d696e50617373776f72647c733a373a2264656d6f333231223b),
+('1csbcgn9snmsoq3bjalqrl2kkamriri5', '182.50.120.66', 1515993128, 0x5f5f63695f6c6173745f726567656e65726174657c693a313531353939323839363b636f756e747c693a3232363b7573657269647c693a303b7468656d657c693a303b747970657c693a303b6d656469617c733a313a2236223b6c616e67756167657c693a303b70726f76696e63657c693a303b7365617263687c693a303b61646d696e49647c733a313a2232223b61646d696e4e616d657c733a373a22676f6e676b756e223b61646d696e50617373776f72647c733a373a22676f6e676b756e223b),
+('1ijjdita025nnhck7u3b4o3otsqjregi', '166.111.131.62', 1515997062, 0x5f5f63695f6c6173745f726567656e65726174657c693a313531353939343331383b61646d696e49647c733a313a2231223b61646d696e4e616d657c733a343a2264656d6f223b61646d696e50617373776f72647c733a373a2264656d6f333231223b636f756e747c693a3232363b),
+('1vtba3lmtkl3dor3j535iv7olq4fcpcl', '182.50.120.66', 1516002217, 0x5f5f63695f6c6173745f726567656e65726174657c693a313531353939373137363b636f756e747c693a3232383b7573657269647c693a303b7468656d657c693a303b747970657c693a303b6d656469617c733a313a2236223b6c616e67756167657c693a303b70726f76696e63657c693a303b7365617263687c693a303b61646d696e49647c733a313a2232223b61646d696e4e616d657c733a373a22676f6e676b756e223b61646d696e50617373776f72647c733a373a22676f6e676b756e223b),
+('hu1s1k369p4fmcfmc9tem6943e2gssbv', '166.111.131.62', 1515998676, 0x5f5f63695f6c6173745f726567656e65726174657c693a313531353939383136353b61646d696e49647c733a313a2231223b61646d696e4e616d657c733a343a2264656d6f223b61646d696e50617373776f72647c733a373a2264656d6f333231223b636f756e747c693a3232373b7573657269647c693a303b7468656d657c693a303b747970657c693a303b6d656469617c693a303b6c616e67756167657c693a303b70726f76696e63657c693a303b7365617263687c693a303b),
+('ujmga1m036oc6g9su1stbqu7ekt77199', '124.65.160.94', 1515998508, 0x5f5f63695f6c6173745f726567656e65726174657c693a313531353939383530383b636f756e747c693a3232373b7573657269647c693a303b7468656d657c693a303b747970657c693a303b6d656469617c693a303b6c616e67756167657c693a303b70726f76696e63657c693a303b7365617263687c693a303b),
+('on8c28gcdq7s6va96pttfajce5rnf2hu', '124.65.160.94', 1515998579, 0x5f5f63695f6c6173745f726567656e65726174657c693a313531353939383531303b636f756e747c693a3232373b7573657269647c693a303b7468656d657c693a303b747970657c693a303b6d656469617c693a303b6c616e67756167657c693a303b70726f76696e63657c693a303b7365617263687c693a303b),
+('baarkjc3i45i0daiamvf0galsmlm9b4q', '182.50.120.66', 1516003780, 0x5f5f63695f6c6173745f726567656e65726174657c693a313531363030323236313b636f756e747c693a3233303b7573657269647c693a303b7468656d657c693a303b747970657c693a303b6d656469617c733a313a2236223b6c616e67756167657c693a303b70726f76696e63657c693a303b7365617263687c693a303b61646d696e49647c733a313a2232223b61646d696e4e616d657c733a373a22676f6e676b756e223b61646d696e50617373776f72647c733a373a22676f6e676b756e223b),
+('o08np8tqe95h3soobc1gqerild9bm0os', '106.11.225.225', 1516005525, 0x5f5f63695f6c6173745f726567656e65726174657c693a313531363030353532353b636f756e747c693a3233303b7573657269647c693a303b7468656d657c693a303b747970657c693a303b6d656469617c693a303b6c616e67756167657c693a303b70726f76696e63657c693a303b7365617263687c693a303b),
+('ckg9kdtfkv04uh8v7nvo5qtpm1i2e82s', '182.50.120.66', 1516009280, 0x5f5f63695f6c6173745f726567656e65726174657c693a313531363030393038373b636f756e747c693a3232373b7573657269647c693a303b7468656d657c693a303b747970657c693a303b6d656469617c733a313a2236223b6c616e67756167657c693a303b70726f76696e63657c693a303b7365617263687c693a303b61646d696e49647c733a313a2232223b61646d696e4e616d657c733a373a22676f6e676b756e223b61646d696e50617373776f72647c733a373a22676f6e676b756e223b),
+('k7n255l3l07jvaamc9ac5nn7h4o2hh31', '34.235.160.108', 1516024762, 0x5f5f63695f6c6173745f726567656e65726174657c693a313531363032343736323b636f756e747c693a3232373b7573657269647c693a303b7468656d657c693a303b747970657c693a303b6d656469617c693a303b6c616e67756167657c693a303b70726f76696e63657c693a303b7365617263687c693a303b),
+('v5472ongpns5hv0ainm357f08o2li5ju', '222.35.246.16', 1516069030, 0x5f5f63695f6c6173745f726567656e65726174657c693a313531363036393033303b636f756e747c693a3232373b7573657269647c693a303b7468656d657c693a303b747970657c693a303b6d656469617c693a303b6c616e67756167657c693a303b70726f76696e63657c693a303b7365617263687c693a303b),
+('qienosogf861qojreu3ca3qqkrkn68op', '123.151.77.121', 1516089254, 0x5f5f63695f6c6173745f726567656e65726174657c693a313531363038383333303b636f756e747c693a3232373b7573657269647c693a303b7468656d657c693a303b747970657c693a303b6d656469617c733a313a2232223b6c616e67756167657c693a303b70726f76696e63657c693a303b7365617263687c693a303b),
+('bgrfp4f45ktr6levhco5bv1tve4paq5l', '106.121.18.31', 1516088460, 0x5f5f63695f6c6173745f726567656e65726174657c693a313531363038383432373b636f756e747c693a3232373b7573657269647c693a303b7468656d657c693a303b747970657c693a303b6d656469617c693a303b6c616e67756167657c693a303b70726f76696e63657c693a303b7365617263687c693a303b),
+('cqh5ppfs63c9piu5h0nhos36evjhk1rc', '106.11.227.173', 1516092319, 0x5f5f63695f6c6173745f726567656e65726174657c693a313531363039323331393b636f756e747c693a3232373b7573657269647c693a303b7468656d657c693a303b747970657c693a303b6d656469617c693a303b6c616e67756167657c693a303b70726f76696e63657c693a303b7365617263687c693a303b),
+('adpmds3lt7cv167hqlkj5lcioqkb29rv', '210.12.31.250', 1516157123, 0x5f5f63695f6c6173745f726567656e65726174657c693a313531363135373132333b636f756e747c693a3232373b7573657269647c693a303b7468656d657c693a303b747970657c693a303b6d656469617c693a303b6c616e67756167657c693a303b70726f76696e63657c693a303b7365617263687c693a303b),
+('b238rji9poces68dstgdacik791p93rh', '58.247.212.69', 1516157183, 0x5f5f63695f6c6173745f726567656e65726174657c693a313531363135373138333b636f756e747c693a3232373b7573657269647c693a303b7468656d657c693a303b747970657c693a303b6d656469617c693a303b6c616e67756167657c693a303b70726f76696e63657c693a303b7365617263687c693a303b),
+('5i5vpfprggv3j31le3jvb0gmg00ukdfu', '124.65.160.94', 1516157468, 0x5f5f63695f6c6173745f726567656e65726174657c693a313531363135373332373b636f756e747c693a3232373b7573657269647c693a303b7468656d657c733a313a2231223b747970657c733a313a2231223b6d656469617c733a313a2230223b6c616e67756167657c733a313a2230223b70726f76696e63657c733a313a2230223b7365617263687c733a313a2230223b),
+('3i0l84a5cq870k3c6vnla55f15lvjdfd', '101.227.139.172', 1516161663, 0x5f5f63695f6c6173745f726567656e65726174657c693a313531363136313636333b636f756e747c693a3232373b7573657269647c693a303b7468656d657c693a303b747970657c693a303b6d656469617c693a303b6c616e67756167657c693a303b70726f76696e63657c693a303b7365617263687c693a303b),
+('aisc03t7btnnk25436jssvke25h21spt', '124.65.160.94', 1516162228, 0x5f5f63695f6c6173745f726567656e65726174657c693a313531363136313636343b636f756e747c693a3232373b7573657269647c693a303b7468656d657c693a303b747970657c693a303b6d656469617c693a303b6c616e67756167657c693a303b70726f76696e63657c693a303b7365617263687c693a303b),
+('u1cm336p15u30adj31apss6ks8rn3oeu', '117.61.141.158', 1516161708, 0x5f5f63695f6c6173745f726567656e65726174657c693a313531363136313730383b636f756e747c693a3232373b7573657269647c693a303b7468656d657c693a303b747970657c693a303b6d656469617c693a303b6c616e67756167657c693a303b70726f76696e63657c693a303b7365617263687c693a303b),
+('80svqjoo95rd1081pu47d3q8r5j5sup0', '117.61.1.170', 1516161876, 0x5f5f63695f6c6173745f726567656e65726174657c693a313531363136313837363b636f756e747c693a3232373b7573657269647c693a303b7468656d657c693a303b747970657c693a303b6d656469617c693a303b6c616e67756167657c693a303b70726f76696e63657c693a303b7365617263687c693a303b),
+('1jfgleio473f57etg9kml0n2alqm0gaj', '124.65.160.94', 1516162573, 0x5f5f63695f6c6173745f726567656e65726174657c693a313531363136323232333b636f756e747c693a3232373b7573657269647c693a303b7468656d657c693a303b747970657c693a303b6d656469617c733a313a2235223b6c616e67756167657c693a303b70726f76696e63657c693a303b7365617263687c693a303b61646d696e49647c733a313a2231223b61646d696e4e616d657c733a343a2264656d6f223b61646d696e50617373776f72647c733a373a2264656d6f333231223b),
+('hcfoe1c43bu7jhs46midmcr9hbclmaoi', '124.65.160.94', 1516169118, 0x5f5f63695f6c6173745f726567656e65726174657c693a313531363136383137343b636f756e747c693a3232383b7573657269647c693a303b7468656d657c693a303b747970657c693a303b6d656469617c693a303b6c616e67756167657c693a303b70726f76696e63657c693a303b7365617263687c693a303b61646d696e49647c733a313a2231223b61646d696e4e616d657c733a343a2264656d6f223b61646d696e50617373776f72647c733a373a2264656d6f333231223b),
+('a5fmpohuu62dtorp3q8qco756pc708mt', '166.111.131.62', 1516169222, 0x5f5f63695f6c6173745f726567656e65726174657c693a313531363136383436393b636f756e747c693a3232383b7573657269647c693a303b7468656d657c693a303b747970657c693a303b6d656469617c693a303b6c616e67756167657c693a303b70726f76696e63657c693a303b7365617263687c693a303b61646d696e49647c733a313a2231223b61646d696e4e616d657c733a343a2264656d6f223b61646d696e50617373776f72647c733a373a2264656d6f333231223b),
+('nr617c031oo131ngef8m99pdj2ppd8mm', '124.65.160.94', 1516169116, 0x5f5f63695f6c6173745f726567656e65726174657c693a313531363136393131363b636f756e747c693a3232383b7573657269647c693a303b7468656d657c693a303b747970657c693a303b6d656469617c693a303b6c616e67756167657c693a303b70726f76696e63657c693a303b7365617263687c693a303b),
+('8r2bq3aegae1srfq6oe9scii45jchrd7', '166.111.131.62', 1516169285, 0x5f5f63695f6c6173745f726567656e65726174657c693a313531363136393238353b636f756e747c693a3232383b7573657269647c693a303b7468656d657c693a303b747970657c693a303b6d656469617c693a303b6c616e67756167657c693a303b70726f76696e63657c693a303b7365617263687c693a303b),
+('p9td0g125ijf3h0a99s2l6cn0inbcapf', '106.11.227.6', 1516177507, 0x5f5f63695f6c6173745f726567656e65726174657c693a313531363137373530373b636f756e747c693a3232383b7573657269647c693a303b7468656d657c693a303b747970657c693a303b6d656469617c693a303b6c616e67756167657c693a303b70726f76696e63657c693a303b7365617263687c693a303b),
+('ul7pt2f5ve22gp72enqpp65lmss66qb8', '124.65.160.94', 1516255623, 0x5f5f63695f6c6173745f726567656e65726174657c693a313531363235343537373b636f756e747c693a3232393b7573657269647c733a333a22313937223b7468656d657c693a303b747970657c693a303b6d656469617c733a313a2231223b6c616e67756167657c693a303b70726f76696e63657c693a303b7365617263687c693a303b61646d696e49647c733a313a2231223b61646d696e4e616d657c733a343a2264656d6f223b61646d696e50617373776f72647c733a373a2264656d6f333231223b757365726e616d657c733a31313a223138393131383830313838223b6e69636b6e616d657c733a373a226865616c746879223b75736572547970657c733a313a2232223b),
+('l26s1k805fg2k96btqva2jneg8di37b2', '166.111.131.62', 1516255534, 0x5f5f63695f6c6173745f726567656e65726174657c693a313531363235353332323b636f756e747c693a3232393b7573657269647c733a333a22313936223b7468656d657c693a303b747970657c693a303b6d656469617c693a303b6c616e67756167657c693a303b70726f76696e63657c693a303b7365617263687c693a303b61646d696e49647c733a313a2231223b61646d696e4e616d657c733a343a2264656d6f223b61646d696e50617373776f72647c733a373a2264656d6f333231223b757365726e616d657c733a31313a223138393131323930303132223b6e69636b6e616d657c733a373a226865616c746879223b75736572547970657c733a313a2232223b);
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `hea_admin`
+-- 表的结构 `hea_admin`
 --
 
-DROP TABLE IF EXISTS `hea_admin`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `hea_admin` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `hea_admin` (
+  `id` int(11) NOT NULL,
   `username` varchar(45) DEFAULT NULL,
   `password` varchar(45) DEFAULT NULL,
-  `ctime` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `ctime` int(11) DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `hea_admin`
+-- 转存表中的数据 `hea_admin`
 --
 
-LOCK TABLES `hea_admin` WRITE;
-/*!40000 ALTER TABLE `hea_admin` DISABLE KEYS */;
-INSERT INTO `hea_admin` VALUES (1,'demo','demo123',1512191518),(2,'gongkun','gongkun',1512191518);
-/*!40000 ALTER TABLE `hea_admin` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `hea_admin` (`id`, `username`, `password`, `ctime`) VALUES
+(1, 'demo', 'demo321', 1512191518),
+(2, 'gongkun', 'gongkun', 1512191518);
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `hea_article`
+-- 表的结构 `hea_article`
 --
 
-DROP TABLE IF EXISTS `hea_article`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `hea_article` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `hea_article` (
+  `id` int(11) NOT NULL,
   `name` varchar(256) DEFAULT NULL,
   `author` varchar(64) DEFAULT NULL,
   `title` varchar(64) DEFAULT NULL,
@@ -86,30 +108,67 @@ CREATE TABLE `hea_article` (
   `themeId` int(11) DEFAULT '1',
   `province` varchar(64) DEFAULT '北京',
   `ctime` int(11) DEFAULT NULL,
-  `is_top` tinyint(4) DEFAULT '0' COMMENT '置顶状态：0是未置顶，1是置顶',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `is_top` tinyint(4) DEFAULT '0' COMMENT '置顶状态：0是未置顶，1是置顶'
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `hea_article`
+-- 转存表中的数据 `hea_article`
 --
 
-LOCK TABLES `hea_article` WRITE;
-/*!40000 ALTER TABLE `hea_article` DISABLE KEYS */;
-INSERT INTO `hea_article` VALUES (1,'慢性疾病讲座','刘晓明','教授',124,2,1,1,1,'北京',1513230848),(2,'慢性疾病讲座','刘晓燕','教授',100,2,2,2,1,'北京',1513230848),(3,'慢性疾病讲座','刘晓燕','教授',100,2,2,2,1,'北京',1513230848),(5,'慢性疾病讲座','刘晓燕','教授',100,2,1,1,1,'北京',1513230848),(6,'慢性疾病讲座','刘晓燕','教授',100,2,1,2,1,'北京',1513230848),(7,'慢性疾病讲座','刘晓燕','教授',100,2,1,2,1,'北京',1513230848),(8,'慢性疾病讲座','刘晓燕','教授',100,2,1,1,1,'北京',1513230848),(9,'慢性疾病讲座','刘晓燕','教授',100,2,1,4,2,'北京',1513230848),(10,'慢性疾病讲座','刘晓燕','教授',100,2,1,1,1,'北京',1513230848),(11,'慢性疾病讲座','刘晓燕','教授',100,2,1,1,1,'北京',1513230848),(12,'慢性疾病讲座','刘晓燕','教授',100,2,1,4,2,'北京',1513230848),(13,'慢性疾病讲座','刘晓燕','教授',100,2,1,1,1,'北京',1513230848),(14,'慢性疾病讲座','刘晓燕','教授',100,2,1,4,2,'北京',1513230848),(15,'慢性疾病讲座','刘晓燕','教授',100,2,1,1,1,'北京',1513230848),(16,'慢性疾病讲座','刘晓燕','教授',100,2,1,5,2,'北京',1513230848),(17,'慢性疾病讲座','刘晓燕','教授',100,2,1,1,1,'北京',1513230848),(18,'慢性疾病讲座','刘晓燕','教授',100,2,1,1,1,'北京',1513230848),(19,'慢性疾病讲座','刘晓燕','教授',100,2,1,1,1,'北京',1513230848),(20,'慢性疾病讲座','刘晓燕','教授',100,2,1,1,1,'北京',1513230848),(21,'慢性疾病讲座','刘晓燕','教授',100,2,1,1,1,'北京',1513230848),(22,'慢性疾病讲座','刘晓燕','教授',100,2,1,1,1,'北京',1513230848),(23,'慢性疾病讲座','刘晓燕','教授',100,2,1,1,1,'北京',1513230848),(24,'慢性疾病讲座','刘晓燕','教授',100,2,1,1,1,'北京',1513230848),(25,'慢性疾病讲座','刘晓燕','教授',100,2,1,1,1,'北京',1513230848),(26,'慢性疾病讲座','刘晓燕','教授',100,2,1,1,1,'北京',1513230848),(27,'慢性疾病讲座','刘晓燕','教授',100,2,1,1,1,'北京',1513230848),(28,'慢性疾病讲座','刘晓燕','教授',100,2,1,1,1,'北京',1513230848),(29,'慢性疾病讲座','刘晓燕','教授',100,2,1,1,1,'北京',1513230848),(30,'慢性疾病讲座','刘晓燕','教授',100,2,1,1,1,'北京',1513230848),(31,'慢性疾病讲座','刘晓燕','教授',100,2,1,1,1,'北京',1513230848),(32,'慢性疾病讲座','刘晓燕','教授',100,2,1,1,1,'北京',1513230848),(33,'慢性疾病讲座','刘晓燕','教授',100,2,1,1,1,'北京',1513230848),(34,'慢性疾病讲座','刘晓燕','教授',100,2,1,1,1,'北京',1513230848),(35,'慢性疾病讲座','刘晓燕','教授',100,2,1,4,2,'北京',1513230848),(36,'慢性疾病讲座','刘晓燕','教授',100,2,1,1,1,'北京',1513230848),(37,'慢性疾病讲座','刘晓燕','教授',100,2,1,4,2,'北京',1513230848),(38,'慢性疾病讲座','刘晓燕','教授',100,2,1,1,1,'北京',1513230848),(39,'慢性疾病讲座','刘晓燕','教授',100,2,1,1,1,'北京',1513230848),(40,'慢性疾病讲座','刘晓燕','教授',100,2,1,5,1,'北京',1513230848),(41,'慢性疾病讲座','刘晓燕','教授',100,2,1,1,1,'北京',1513230848),(42,'心脏病讲座','刘备','教授',10,2,1,2,1,'浙江',1513268286),(43,'慢性病讲座','曹操','主任医师',10,2,2,5,2,'天津',1513268340),(44,'心理将康讲座','王晓云','讲师',12,3,1,5,2,'江苏',1513426702);
-/*!40000 ALTER TABLE `hea_article` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `hea_article` (`id`, `name`, `author`, `title`, `read`, `page`, `language`, `type`, `themeId`, `province`, `ctime`, `is_top`) VALUES
+(1, '慢性疾病讲座', '刘晓明', '教授', 124, 2, 1, 1, 1, '北京', 1513230848, 0),
+(2, '慢性疾病讲座', '刘晓燕', '教授', 100, 2, 2, 2, 1, '北京', 1513230848, 0),
+(3, '慢性疾病讲座', '刘晓燕', '教授', 100, 2, 2, 2, 1, '北京', 1513230848, 0),
+(5, '慢性疾病讲座', '刘晓燕', '教授', 100, 2, 1, 1, 1, '北京', 1513230848, 0),
+(6, '慢性疾病讲座', '刘晓燕', '教授', 101, 2, 1, 2, 1, '北京', 1513230848, 0),
+(7, '慢性疾病讲座', '刘晓燕', '教授', 100, 2, 1, 2, 1, '北京', 1513230848, 0),
+(8, '慢性疾病讲座', '刘晓燕', '教授', 100, 2, 1, 1, 1, '北京', 1513230848, 0),
+(9, '慢性疾病讲座', '刘晓燕', '教授', 101, 2, 1, 4, 2, '北京', 1513230848, 0),
+(10, '慢性疾病讲座', '刘晓燕', '教授', 100, 2, 1, 1, 1, '北京', 1513230848, 0),
+(11, '慢性疾病讲座', '刘晓燕', '教授', 100, 2, 1, 1, 1, '北京', 1513230848, 0),
+(12, '慢性疾病讲座', '刘晓燕', '教授', 100, 2, 1, 4, 2, '北京', 1513230848, 0),
+(13, '慢性疾病讲座', '刘晓燕', '教授', 100, 2, 1, 1, 1, '北京', 1513230848, 0),
+(14, '慢性疾病讲座', '刘晓燕', '教授', 100, 2, 1, 4, 2, '北京', 1513230848, 0),
+(15, '慢性疾病讲座', '刘晓燕', '教授', 100, 2, 1, 1, 1, '北京', 1513230848, 0),
+(16, '慢性疾病讲座', '刘晓燕', '教授', 100, 2, 1, 5, 2, '北京', 1513230848, 1),
+(17, '慢性疾病讲座', '刘晓燕', '教授', 100, 2, 1, 1, 1, '北京', 1513230848, 0),
+(18, '慢性疾病讲座', '刘晓燕', '教授', 100, 2, 1, 1, 1, '北京', 1513230848, 0),
+(19, '慢性疾病讲座', '刘晓燕', '教授', 100, 2, 1, 1, 1, '北京', 1513230848, 0),
+(20, '慢性疾病讲座', '刘晓燕', '教授', 100, 2, 1, 1, 1, '北京', 1513230848, 0),
+(21, '慢性疾病讲座', '刘晓燕', '教授', 100, 2, 1, 1, 1, '北京', 1513230848, 0),
+(22, '慢性疾病讲座', '刘晓燕', '教授', 100, 2, 1, 1, 1, '北京', 1513230848, 0),
+(23, '慢性疾病讲座', '刘晓燕', '教授', 100, 2, 1, 1, 1, '北京', 1513230848, 0),
+(24, '慢性疾病讲座', '刘晓燕', '教授', 100, 2, 1, 1, 1, '北京', 1513230848, 0),
+(25, '慢性疾病讲座', '刘晓燕', '教授', 100, 2, 1, 1, 1, '北京', 1513230848, 0),
+(26, '慢性疾病讲座', '刘晓燕', '教授', 100, 2, 1, 1, 1, '北京', 1513230848, 0),
+(27, '慢性疾病讲座', '刘晓燕', '教授', 100, 2, 1, 1, 1, '北京', 1513230848, 0),
+(28, '慢性疾病讲座', '刘晓燕', '教授', 100, 2, 1, 1, 1, '北京', 1513230848, 0),
+(29, '慢性疾病讲座', '刘晓燕', '教授', 100, 2, 1, 1, 1, '北京', 1513230848, 0),
+(30, '慢性疾病讲座', '刘晓燕', '教授', 100, 2, 1, 1, 1, '北京', 1513230848, 0),
+(31, '慢性疾病讲座', '刘晓燕', '教授', 100, 2, 1, 1, 1, '北京', 1513230848, 0),
+(32, '慢性疾病讲座', '刘晓燕', '教授', 100, 2, 1, 1, 1, '北京', 1513230848, 0),
+(33, '慢性疾病讲座', '刘晓燕', '教授', 100, 2, 1, 1, 1, '北京', 1513230848, 0),
+(34, '慢性疾病讲座', '刘晓燕', '教授', 100, 2, 1, 1, 1, '北京', 1513230848, 0),
+(35, '慢性疾病讲座', '刘晓燕', '教授', 100, 2, 1, 4, 2, '北京', 1513230848, 0),
+(36, '慢性疾病讲座', '刘晓燕', '教授', 100, 2, 1, 1, 1, '北京', 1513230848, 0),
+(37, '慢性疾病讲座', '刘晓燕', '教授', 100, 2, 1, 4, 2, '北京', 1513230848, 0),
+(38, '慢性疾病讲座', '刘晓燕', '教授', 100, 2, 1, 1, 1, '北京', 1513230848, 0),
+(39, '慢性疾病讲座', '刘晓燕', '教授', 100, 2, 1, 1, 1, '北京', 1513230848, 0),
+(40, '慢性疾病讲座', '刘晓燕', '教授', 100, 2, 1, 5, 1, '北京', 1513230848, 0),
+(41, '慢性疾病讲座', '刘晓燕', '教授', 100, 2, 1, 1, 1, '北京', 1513230848, 0),
+(42, '心脏病讲座', '刘备', '教授', 10, 2, 1, 2, 1, '浙江', 1513268286, 0),
+(43, '慢性病讲座', '曹操', '主任医师', 10, 2, 2, 5, 2, '天津', 1513268340, 1),
+(44, '心理将康讲座', '王晓云', '讲师', 11, 3, 1, 5, 2, '江苏', 1513426702, 0),
+(45, '慢性疾病', '刘晓明', '主任医师', 44, 19, 2, 5, 2, '北京', 1515836235, 1);
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `hea_audio`
+-- 表的结构 `hea_audio`
 --
 
-DROP TABLE IF EXISTS `hea_audio`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `hea_audio` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `hea_audio` (
+  `id` int(11) NOT NULL,
   `name` varchar(300) NOT NULL DEFAULT '' COMMENT '名称',
   `author` varchar(200) DEFAULT NULL COMMENT '作者',
   `title` varchar(64) DEFAULT NULL COMMENT '职级',
@@ -123,80 +182,124 @@ CREATE TABLE `hea_audio` (
   `language` varchar(50) DEFAULT NULL COMMENT '语言',
   `province` varchar(200) DEFAULT NULL COMMENT '制作省份',
   `listen_num` int(11) DEFAULT '0' COMMENT '播放量',
-  `is_top` tinyint(4) DEFAULT '0' COMMENT '置顶状态：0是未置顶，1是置顶',
-  PRIMARY KEY (`id`)
+  `is_top` tinyint(4) DEFAULT '0' COMMENT '置顶状态：0是未置顶，1是置顶'
 ) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8 COMMENT='音频表';
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `hea_audio`
+-- 转存表中的数据 `hea_audio`
 --
 
-LOCK TABLES `hea_audio` WRITE;
-/*!40000 ALTER TABLE `hea_audio` DISABLE KEYS */;
-INSERT INTO `hea_audio` VALUES (19,'测试3','罗小艳','教授','测试3',0,'header/tmp_header.jpeg','audio/audio2.mp3','2017-12-24 18:52:51','1','2','1','北京',0),(20,'测试4','罗小艳','教授','测试测试2',0,'audio/8361f67cfd0517b8f706bbc5ef6b9acb.jpeg','audio/audio2.mp3','2017-12-24 19:03:04','1','2','1','北京',1),(21,'测试','罗小艳','教授','测试',0,'audio/0a556945af7e3aff590dffdc9e52d781.jpeg','audio/audio2.mp3','2017-12-24 20:07:15','1','2','1','北京',0),(22,'测试','罗小艳','教授','测试',0,'audio/0a556945af7e3aff590dffdc9e52d781.jpeg','audio/audio2.mp3','2017-12-24 20:07:15','1','2','1','北京',0),(23,'测试','罗小艳','教授','测试',0,'audio/0a556945af7e3aff590dffdc9e52d781.jpeg','audio/audio2.mp3','2017-12-24 20:07:15','1','2','1','北京',0),(24,'测试','罗小艳','教授','测试',0,'audio/0a556945af7e3aff590dffdc9e52d781.jpeg','audio/audio2.mp3','2017-12-24 20:07:15','1','2','1','北京',0),(25,'测试','罗小艳','教授','测试',0,'audio/0a556945af7e3aff590dffdc9e52d781.jpeg','audio/audio2.mp3','2017-12-24 20:07:15','1','2','1','北京',0),(26,'测试','罗小艳','教授','测试',0,'audio/0a556945af7e3aff590dffdc9e52d781.jpeg','audio/audio2.mp3','2017-12-24 20:07:15','1','2','1','北京',0),(27,'测试','罗小艳','教授','测试',0,'audio/0a556945af7e3aff590dffdc9e52d781.jpeg','audio/audio2.mp3','2017-12-24 20:07:15','1','2','1','北京',0),(28,'测试','罗小艳','教授','测试',0,'audio/0a556945af7e3aff590dffdc9e52d781.jpeg','audio/audio2.mp3','2017-12-24 20:07:15','1','2','1','北京',0),(29,'测试','罗小艳','教授','测试',0,'audio/0a556945af7e3aff590dffdc9e52d781.jpeg','audio/audio2.mp3','2017-12-24 20:07:15','1','2','1','北京',0),(30,'测试','罗小艳','教授','测试',0,'audio/0a556945af7e3aff590dffdc9e52d781.jpeg','audio/audio2.mp3','2017-12-24 20:07:15','1','2','1','北京',0),(31,'测试','罗小艳','教授','测试',0,'audio/0a556945af7e3aff590dffdc9e52d781.jpeg','audio/audio2.mp3','2017-12-24 20:07:15','1','2','1','北京',0),(32,'测试','罗小艳','教授','测试',0,'audio/0a556945af7e3aff590dffdc9e52d781.jpeg','audio/audio2.mp3','2017-12-24 20:07:15','1','2','1','北京',0),(33,'测试','罗小艳','教授','测试',0,'audio/0a556945af7e3aff590dffdc9e52d781.jpeg','audio/audio2.mp3','2017-12-24 20:07:15','1','2','1','北京',0),(34,'测试','罗小艳','教授','测试',0,'audio/0a556945af7e3aff590dffdc9e52d781.jpeg','audio/audio2.mp3','2017-12-24 20:07:15','1','2','1','北京',0),(35,'测试','罗小艳','教授','测试',0,'audio/0a556945af7e3aff590dffdc9e52d781.jpeg','audio/audio2.mp3','2017-12-24 20:07:15','1','2','1','北京',0),(36,'测试','罗小艳','教授','测试',0,'audio/0a556945af7e3aff590dffdc9e52d781.jpeg','audio/audio2.mp3','2017-12-24 20:07:15','1','2','1','北京',0),(37,'测试','罗小艳','教授','测试',0,'audio/0a556945af7e3aff590dffdc9e52d781.jpeg','audio/audio2.mp3','2017-12-24 20:07:15','1','2','1','北京',0),(38,'测试','罗小艳','教授','测试',0,'audio/0a556945af7e3aff590dffdc9e52d781.jpeg','audio/audio2.mp3','2017-12-24 20:07:15','1','2','1','北京',0),(39,'测试','罗小艳','教授','测试',0,'audio/0a556945af7e3aff590dffdc9e52d781.jpeg','audio/audio2.mp3','2017-12-24 20:07:15','1','2','1','北京',0),(40,'测试','罗小艳','教授','测试',0,'audio/0a556945af7e3aff590dffdc9e52d781.jpeg','audio/audio2.mp3','2017-12-24 20:07:15','1','2','1','北京',0),(41,'测试','罗小艳','教授','测试',0,'audio/0a556945af7e3aff590dffdc9e52d781.jpeg','audio/audio2.mp3','2017-12-24 20:07:15','1','2','1','北京',0),(42,'测试','罗小艳','教授','测试',0,'audio/0a556945af7e3aff590dffdc9e52d781.jpeg','audio/audio2.mp3','2017-12-24 20:07:15','1','2','1','北京',0),(43,'测试','罗小艳','教授','测试',0,'audio/0a556945af7e3aff590dffdc9e52d781.jpeg','audio/audio2.mp3','2017-12-24 20:07:15','1','2','1','北京',0),(44,'测试','罗小艳','教授','测试',0,'audio/0a556945af7e3aff590dffdc9e52d781.jpeg','audio/audio2.mp3','2017-12-24 20:07:15','1','2','1','北京',0);
-/*!40000 ALTER TABLE `hea_audio` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `hea_audio` (`id`, `name`, `author`, `title`, `description`, `seconds`, `pic_url`, `source_url`, `create_time`, `themeId`, `type`, `language`, `province`, `listen_num`, `is_top`) VALUES
+(19, '测试3', '罗小艳', '教授', '测试3', 0, 'header/tmp_header.jpeg', 'audio/audio2.mp3', '2017-12-24 10:52:51', '1', '2', '1', '北京', 0, 0),
+(20, '测试4', '罗小艳', '教授', '测试测试2', 0, 'audio/8361f67cfd0517b8f706bbc5ef6b9acb.jpeg', 'audio/audio2.mp3', '2017-12-24 11:03:04', '1', '2', '1', '北京', 5, 0),
+(21, '测试', '罗小艳', '教授', '测试', 0, 'audio/0a556945af7e3aff590dffdc9e52d781.jpeg', 'audio/audio2.mp3', '2017-12-24 12:07:15', '1', '2', '1', '北京', 0, 1),
+(22, '测试', '罗小艳', '教授', '测试', 0, 'audio/0a556945af7e3aff590dffdc9e52d781.jpeg', 'audio/audio2.mp3', '2017-12-24 12:07:15', '1', '2', '1', '北京', 0, 0),
+(23, '测试', '罗小艳', '教授', '测试', 0, 'audio/0a556945af7e3aff590dffdc9e52d781.jpeg', 'audio/audio2.mp3', '2017-12-24 12:07:15', '1', '2', '1', '北京', 0, 1),
+(24, '测试', '罗小艳', '教授', '测试', 0, 'audio/0a556945af7e3aff590dffdc9e52d781.jpeg', 'audio/audio2.mp3', '2017-12-24 12:07:15', '1', '2', '1', '北京', 0, 0),
+(25, '测试', '罗小艳', '教授', '测试', 0, 'audio/0a556945af7e3aff590dffdc9e52d781.jpeg', 'audio/audio2.mp3', '2017-12-24 12:07:15', '1', '2', '1', '北京', 0, 0),
+(26, '测试', '罗小艳', '教授', '测试', 0, 'audio/0a556945af7e3aff590dffdc9e52d781.jpeg', 'audio/audio2.mp3', '2017-12-24 12:07:15', '1', '2', '1', '北京', 0, 0),
+(27, '测试', '罗小艳', '教授', '测试', 0, 'audio/0a556945af7e3aff590dffdc9e52d781.jpeg', 'audio/audio2.mp3', '2017-12-24 12:07:15', '1', '2', '1', '北京', 0, 0),
+(28, '测试', '罗小艳', '教授', '测试', 0, 'audio/0a556945af7e3aff590dffdc9e52d781.jpeg', 'audio/audio2.mp3', '2017-12-24 12:07:15', '1', '2', '1', '北京', 0, 0),
+(29, '测试', '罗小艳', '教授', '测试', 0, 'audio/0a556945af7e3aff590dffdc9e52d781.jpeg', 'audio/audio2.mp3', '2017-12-24 12:07:15', '1', '2', '1', '北京', 0, 0),
+(30, '测试', '罗小艳', '教授', '测试', 0, 'audio/0a556945af7e3aff590dffdc9e52d781.jpeg', 'audio/audio2.mp3', '2017-12-24 12:07:15', '1', '2', '1', '北京', 0, 0),
+(31, '测试', '罗小艳', '教授', '测试', 0, 'audio/0a556945af7e3aff590dffdc9e52d781.jpeg', 'audio/audio2.mp3', '2017-12-24 12:07:15', '1', '2', '1', '北京', 0, 0),
+(32, '测试', '罗小艳', '教授', '测试', 0, 'audio/0a556945af7e3aff590dffdc9e52d781.jpeg', 'audio/audio2.mp3', '2017-12-24 12:07:15', '1', '2', '1', '北京', 0, 0),
+(33, '测试', '罗小艳', '教授', '测试', 0, 'audio/0a556945af7e3aff590dffdc9e52d781.jpeg', 'audio/audio2.mp3', '2017-12-24 12:07:15', '1', '2', '1', '北京', 0, 0),
+(34, '测试', '罗小艳', '教授', '测试', 0, 'audio/0a556945af7e3aff590dffdc9e52d781.jpeg', 'audio/audio2.mp3', '2017-12-24 12:07:15', '1', '2', '1', '北京', 0, 0),
+(35, '测试', '罗小艳', '教授', '测试', 0, 'audio/0a556945af7e3aff590dffdc9e52d781.jpeg', 'audio/audio2.mp3', '2017-12-24 12:07:15', '1', '2', '1', '北京', 0, 0),
+(36, '测试', '罗小艳', '教授', '测试', 0, 'audio/0a556945af7e3aff590dffdc9e52d781.jpeg', 'audio/audio2.mp3', '2017-12-24 12:07:15', '1', '2', '1', '北京', 0, 0),
+(37, '测试', '罗小艳', '教授', '测试', 0, 'audio/0a556945af7e3aff590dffdc9e52d781.jpeg', 'audio/audio2.mp3', '2017-12-24 12:07:15', '1', '2', '1', '北京', 0, 0),
+(38, '测试', '罗小艳', '教授', '测试', 0, 'audio/0a556945af7e3aff590dffdc9e52d781.jpeg', 'audio/audio2.mp3', '2017-12-24 12:07:15', '1', '2', '1', '北京', 0, 0),
+(39, '测试', '罗小艳', '教授', '测试', 0, 'audio/0a556945af7e3aff590dffdc9e52d781.jpeg', 'audio/audio2.mp3', '2017-12-24 12:07:15', '1', '2', '1', '北京', 0, 1),
+(40, '测试', '罗小艳', '教授', '测试', 0, 'audio/0a556945af7e3aff590dffdc9e52d781.jpeg', 'audio/audio2.mp3', '2017-12-24 12:07:15', '1', '2', '1', '北京', 0, 0),
+(41, '测试', '罗小艳', '教授', '测试', 0, 'audio/0a556945af7e3aff590dffdc9e52d781.jpeg', 'audio/audio2.mp3', '2017-12-24 12:07:15', '1', '2', '1', '北京', 0, 0),
+(42, '测试', '罗小艳', '教授', '测试', 0, 'audio/0a556945af7e3aff590dffdc9e52d781.jpeg', 'audio/audio2.mp3', '2017-12-24 12:07:15', '1', '2', '1', '北京', 0, 0),
+(43, '测试', '罗小艳', '教授', '测试', 0, 'audio/0a556945af7e3aff590dffdc9e52d781.jpeg', 'audio/audio2.mp3', '2017-12-24 12:07:15', '1', '2', '1', '北京', 0, 0),
+(44, '测试', '罗小艳', '教授', '测试', 0, 'audio/0a556945af7e3aff590dffdc9e52d781.jpeg', 'audio/audio2.mp3', '2017-12-24 12:07:15', '1', '2', '1', '北京', 0, 0);
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `hea_city`
+-- 表的结构 `hea_city`
 --
 
-DROP TABLE IF EXISTS `hea_city`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `hea_city` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(64) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE IF NOT EXISTS `hea_city` (
+  `id` int(11) NOT NULL,
+  `name` varchar(64) DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `hea_city`
+-- 转存表中的数据 `hea_city`
 --
 
-LOCK TABLES `hea_city` WRITE;
-/*!40000 ALTER TABLE `hea_city` DISABLE KEYS */;
-INSERT INTO `hea_city` VALUES (1,'北京'),(2,'天津'),(3,'上海'),(4,'重庆'),(5,'江苏'),(6,'浙江'),(7,'安徽'),(8,'广东'),(9,'河北'),(10,'河南'),(11,'山东'),(12,'湖北'),(13,'湖南'),(14,'江西'),(15,'福建'),(16,'四川'),(17,'广西'),(18,'山西'),(19,'辽宁'),(20,'吉林'),(21,'黑龙江'),(22,'贵州'),(23,'陕西'),(24,'云南'),(25,'海南'),(26,'内蒙古'),(27,'甘肃'),(28,'青海'),(29,'宁夏'),(30,'新疆'),(31,'西藏'),(32,'香港'),(33,'澳门'),(34,'台湾');
-/*!40000 ALTER TABLE `hea_city` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `hea_city` (`id`, `name`) VALUES
+(1, '北京'),
+(2, '天津'),
+(3, '上海'),
+(4, '重庆'),
+(5, '江苏'),
+(6, '浙江'),
+(7, '安徽'),
+(8, '广东'),
+(9, '河北'),
+(10, '河南'),
+(11, '山东'),
+(12, '湖北'),
+(13, '湖南'),
+(14, '江西'),
+(15, '福建'),
+(16, '四川'),
+(17, '广西'),
+(18, '山西'),
+(19, '辽宁'),
+(20, '吉林'),
+(21, '黑龙江'),
+(22, '贵州'),
+(23, '陕西'),
+(24, '云南'),
+(25, '海南'),
+(26, '内蒙古'),
+(27, '甘肃'),
+(28, '青海'),
+(29, '宁夏'),
+(30, '新疆'),
+(31, '西藏'),
+(32, '香港'),
+(33, '澳门'),
+(34, '台湾');
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `hea_code`
+-- 表的结构 `hea_code`
 --
 
-DROP TABLE IF EXISTS `hea_code`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `hea_code` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `hea_code` (
+  `id` int(11) NOT NULL,
   `phone` varchar(45) DEFAULT NULL,
   `code` varchar(10) DEFAULT NULL,
-  `ctime` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `ctime` int(11) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `hea_code`
+-- 转存表中的数据 `hea_code`
 --
 
-LOCK TABLES `hea_code` WRITE;
-/*!40000 ALTER TABLE `hea_code` DISABLE KEYS */;
-INSERT INTO `hea_code` VALUES (1,'18916294857','0741',1512820886),(2,'18916294857','9148',1512821181),(3,'15608504858','2323',1512824251),(4,'15608504858','1802',1512826460);
-/*!40000 ALTER TABLE `hea_code` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `hea_code` (`id`, `phone`, `code`, `ctime`) VALUES
+(1, '18916294857', '0741', 1512820886),
+(2, '18916294857', '9148', 1512821181),
+(3, '15608504858', '2323', 1512824251),
+(4, '15608504858', '1802', 1512826460),
+(5, '15711232520', '7822', 1515828880);
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `hea_expert`
+-- 表的结构 `hea_expert`
 --
 
-DROP TABLE IF EXISTS `hea_expert`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `hea_expert` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `hea_expert` (
+  `id` int(11) NOT NULL,
   `userId` int(10) unsigned DEFAULT NULL,
   `name` varchar(45) DEFAULT NULL COMMENT '姓名',
   `sex` int(2) DEFAULT NULL COMMENT '性别 1:男 2:女',
@@ -212,30 +315,85 @@ CREATE TABLE `hea_expert` (
   `work` varchar(1024) DEFAULT NULL COMMENT '工作经历',
   `ctime` int(11) DEFAULT NULL,
   `header` varchar(64) DEFAULT NULL,
-  `is_top` tinyint(4) DEFAULT '0' COMMENT '置顶状态：0是未置顶，1是置顶',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `is_top` tinyint(4) DEFAULT '0' COMMENT '置顶状态：0是未置顶，1是置顶'
+) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `hea_expert`
+-- 转存表中的数据 `hea_expert`
 --
 
-LOCK TABLES `hea_expert` WRITE;
-/*!40000 ALTER TABLE `hea_expert` DISABLE KEYS */;
-INSERT INTO `hea_expert` VALUES (1,132,'王晓丽',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作  1974年10月至1997年12月任职武汉市第五医院中医科  1966年退休至今',1512827674,'header_1.jpg'),(2,133,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(3,134,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_3.jpg'),(5,135,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(7,136,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(8,137,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(9,138,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(11,139,'李晓燕',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(12,140,'李晓燕',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(13,141,'李晓燕',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(14,142,'李晓燕',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(15,143,'李晓燕',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(16,144,'李晓燕',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(17,145,'李晓燕',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(18,146,'李晓燕',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(19,147,'李晓燕',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(20,148,'李晓燕',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(21,149,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(22,150,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(23,151,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(24,152,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(25,153,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(26,154,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(27,155,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(28,156,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(29,157,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(30,158,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(31,159,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(32,160,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(33,161,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(34,162,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(35,163,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(36,164,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(37,165,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(38,166,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(39,167,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(40,168,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(41,169,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(42,170,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(43,171,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(44,172,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(45,173,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(46,174,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(47,175,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(48,176,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(49,177,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(50,178,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(51,179,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(52,180,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(53,181,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(54,182,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(55,183,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(56,184,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(64,185,'周又芳',2,'汉','武汉中医院','主任医师','中医','本科','武汉中医院','周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今',1512827674,'header_2.jpg'),(65,186,'李晓明',1,'蒙古族','北京大学','主任医师','医学管理','博士','北京协和医院','李晓明、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作  1974年10月至1997年12月任职武汉市第五医院中医科  1966年退休至今',1513230122,'header.jpg'),(66,187,'李晓明',1,'蒙古族','北京大学','主任医师','医学管理','博士','北京协和医院','李晓明、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作  1974年10月至1997年12月任职武汉市第五医院中医科  1966年退休至今',1513230127,'header.jpg'),(67,188,'李晓霞',1,'蒙古族','北京大学','主任医师','医学','硕士','北京医学院','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作  1974年10月至1997年12月任职武汉市第五医院中医科  1966年退休至今',1514037366,'header.jpg'),(68,189,'李晓霞',2,'回族','北京大学','主任医师','医学','硕士','北京医学院','李晓霞、男、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作  1974年10月至1997年12月任职武汉市第五医院中医科  1966年退休至今',1513230651,'header.jpg'),(70,190,'诸葛亮',1,'回族','北京大学','主任医师','医学管理','硕士','北医三院','诸葛亮、男、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。','1963年8月至1974年10月、湖北省蓟县人民医院工作  1974年10月至1997年12月任职武汉市第五医院中医科  1966年退休至今',1513230848,'header_70.jpg'),(71,192,'刘坤',1,'回族','中科院','主任医生','医学管理','博士后','协和医院','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。','1963年8月至1974年10月、湖北省蓟县人民医院工作  1974年10月至1997年12月任职武汉市第五医院中医科  1966年退休至今',1514037776,'header_71.jpg');
-/*!40000 ALTER TABLE `hea_expert` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `hea_expert` (`id`, `userId`, `name`, `sex`, `nation`, `school`, `title`, `major`, `record`, `address`, `introduce`, `study`, `education`, `work`, `ctime`, `header`, `is_top`) VALUES
+(1, 132, '王晓丽', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作  1974年10月至1997年12月任职武汉市第五医院中医科  1966年退休至今', 1512827674, 'header_1.jpg', 0),
+(2, 133, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(3, 134, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_3.jpg', 0),
+(5, 135, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(7, 136, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(8, 137, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(9, 138, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(11, 139, '李晓燕', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(12, 140, '李晓燕', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(13, 141, '李晓燕', 2, '汉族', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今 123', 1515829173, 'header_13.jpg', 1),
+(14, 142, '李晓燕', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(15, 143, '李晓燕', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(16, 144, '李晓燕', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(17, 145, '李晓燕', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(18, 146, '李晓燕', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(19, 147, '李晓燕', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(20, 148, '李晓燕', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(21, 149, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(22, 150, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(23, 151, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(24, 152, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(25, 153, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(26, 154, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(27, 155, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(28, 156, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(29, 157, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(30, 158, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(31, 159, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(32, 160, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(33, 161, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(34, 162, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(35, 163, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(36, 164, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(37, 165, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(38, 166, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(39, 167, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(40, 168, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(41, 169, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(42, 170, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(43, 171, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(44, 172, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(45, 173, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(46, 174, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(47, 175, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(48, 176, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(49, 177, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(50, 178, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(51, 179, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(52, 180, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(53, 181, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(54, 182, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(55, 183, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(56, 184, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(64, 185, '周又芳', 2, '汉', '武汉中医院', '主任医师', '中医', '本科', '武汉中医院', '周又芳、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作 \n1974年10月至1997年12月任职武汉市第五医院中医科 \n1966年退休至今', 1512827674, 'header_2.jpg', 0),
+(65, 186, '李晓明', 1, '蒙古族', '北京大学', '主任医师', '医学管理', '博士', '北京协和医院', '李晓明、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作  1974年10月至1997年12月任职武汉市第五医院中医科  1966年退休至今', 1513230122, 'header.jpg', 0),
+(66, 187, '李晓明', 1, '蒙古族', '北京大学', '主任医师', '医学管理', '博士', '北京协和医院', '李晓明、女、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作  1974年10月至1997年12月任职武汉市第五医院中医科  1966年退休至今', 1513230127, 'header.jpg', 0),
+(67, 188, '李晓霞', 1, '蒙古族', '北京大学', '主任医师', '医学', '硕士', '北京医学院', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作  1974年10月至1997年12月任职武汉市第五医院中医科  1966年退休至今', 1514037366, 'header.jpg', 1),
+(68, 189, '李晓霞', 2, '回族', '北京大学', '主任医师', '医学', '硕士', '北京医学院', '李晓霞、男、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作  1974年10月至1997年12月任职武汉市第五医院中医科  1966年退休至今', 1513230651, 'header.jpg', 0),
+(70, 190, '诸葛亮', 1, '回族', '北京大学', '主任医师', '医学管理', '硕士', '北医三院', '诸葛亮、男、武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。武汉市中医院名医堂妇科主任医师、自1963年中医学院本科毕业后一直从事临床医疗工作、同时也参加“西学中”及进修实习生的教学工作、直至1997年退休。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作  1974年10月至1997年12月任职武汉市第五医院中医科  1966年退休至今', 1513230848, 'header_70.jpg', 0),
+(71, 192, '刘坤', 1, '回族', '中科院', '主任医生', '医学管理', '博士后', '协和医院', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1963年8月至1974年10月、湖北省蓟县人民医院工作  1974年10月至1997年12月任职武汉市第五医院中医科  1966年退休至今', 1514037776, 'header_71.jpg', 0),
+(72, 196, '刘晓明', 1, '维吾尔族', '北京大学', '主任医师', '医学管理', '本科', '北医三院', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。积累五十余年的临床实践经验、对妇、幼、儿科的常规疑难杂症尤其是妇科方面有很深的造诣。', '1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。1958年进入武汉中医院、本科学习五年、于1963年7月毕业、分配至湖北省蓟春县人民医院工作、1976年选派至湖北省首届医师学习班学习一年、1978年参加汉阳卫生局奉办的高级医师提高班进修一年。', '1963年8月至1974年10月、湖北省蓟县人民医院工作  1974年10月至1997年12月任职武汉市第五医院中医科  1966年退休至今', 1516255525, 'header_72.jpg', 1),
+(73, 197, '', 1, '', '', '', '', '', '', '', '', '', '', 1516254854, 'header.jpg', 0);
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `hea_picture`
+-- 表的结构 `hea_picture`
 --
 
-DROP TABLE IF EXISTS `hea_picture`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `hea_picture` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `hea_picture` (
+  `id` int(11) NOT NULL,
   `name` varchar(256) DEFAULT NULL,
   `author` varchar(64) DEFAULT NULL,
   `title` varchar(64) DEFAULT NULL,
@@ -246,30 +404,68 @@ CREATE TABLE `hea_picture` (
   `province` varchar(64) DEFAULT '北京',
   `ctime` int(11) DEFAULT NULL,
   `index` varchar(256) DEFAULT NULL,
-  `is_top` tinyint(4) DEFAULT '0' COMMENT '置顶状态：0是未置顶，1是置顶',
-  PRIMARY KEY (`id`)
+  `is_top` tinyint(4) DEFAULT '0' COMMENT '置顶状态：0是未置顶，1是置顶'
 ) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `hea_picture`
+-- 转存表中的数据 `hea_picture`
 --
 
-LOCK TABLES `hea_picture` WRITE;
-/*!40000 ALTER TABLE `hea_picture` DISABLE KEYS */;
-INSERT INTO `hea_picture` VALUES (1,'冬季保暖小知识讲座','刘晓燕','教授',12,1,1,1,'北京',1513477056,'index.png'),(2,'冬季保暖小知识讲座','刘晓燕','教授',12,1,2,1,'北京',1513477056,'index.png'),(3,'冬季保暖小知识讲座','刘晓燕','教授',12,1,2,1,'北京',1513477056,'index.png'),(4,'冬季保暖小知识讲座','刘晓燕','教授',12,1,3,1,'北京',1513477056,'index.png'),(5,'冬季保暖小知识讲座','刘晓燕','教授',12,1,3,1,'北京',1513477056,'index.png'),(6,'冬季保暖小知识讲座','刘晓燕','教授',12,1,2,1,'北京',1513477056,'index.png'),(7,'冬季保暖小知识讲座','刘晓燕','教授',12,1,1,1,'北京',1513477056,'index.png'),(8,'冬季保暖小知识讲座','刘晓燕','教授',12,1,1,1,'北京',1513477056,'index.png'),(9,'冬季保暖小知识讲座','刘晓燕','教授',12,1,1,1,'北京',1513477056,'index.png'),(10,'冬季保暖小知识讲座','刘晓燕','教授',12,1,1,1,'北京',1513477056,'index.jpg'),(11,'冬季保暖小知识讲座','刘晓燕','教授',12,1,4,2,'北京',1513477056,'index.jpg'),(12,'冬季保暖小知识讲座','刘晓燕','教授',12,1,4,2,'北京',1513477056,'index.jpg'),(13,'冬季保暖小知识讲座','刘晓燕','教授',12,1,1,1,'北京',1513477056,'index.jpg'),(14,'冬季保暖小知识讲座','刘晓燕','教授',12,1,1,1,'北京',1513477056,'index.jpg'),(15,'冬季保暖小知识讲座','刘晓燕','教授',12,1,1,1,'北京',1513477056,'index.jpg'),(16,'冬季保暖小知识讲座','刘晓燕','教授',12,1,1,1,'北京',1513477056,'index.jpg'),(17,'冬季保暖小知识讲座','刘晓燕','教授',12,1,1,1,'北京',1513477056,'index.jpg'),(18,'冬季保暖小知识讲座','刘晓燕','教授',12,1,1,1,'北京',1513477056,'index.jpg'),(19,'冬季保暖小知识讲座','刘晓燕','教授',12,1,1,1,'北京',1513477056,'index.jpg'),(20,'冬季保暖小知识讲座','刘晓燕','教授',12,1,1,1,'北京',1513477056,'index.jpg'),(21,'冬季保暖小知识讲座','刘晓燕','教授',12,1,1,1,'北京',1513477056,'index.jpg'),(22,'冬季保暖小知识讲座','刘晓燕','教授',12,1,1,1,'北京',1513477056,'index.jpg'),(23,'冬季保暖小知识讲座','刘晓燕','教授',12,1,1,1,'北京',1513477056,'index.jpg'),(24,'冬季保暖小知识讲座','刘晓燕','教授',12,1,1,1,'北京',1513477056,'index.jpg'),(25,'冬季保暖小知识讲座','刘晓燕','教授',12,2,4,2,'天津',1513477056,'index.jpg'),(26,'冬季保暖小知识讲座','小盆友','教授',13,2,4,2,'天津',1513477182,'index.png'),(27,'冬季保暖小知识讲座','刘晓燕','教授',12,1,1,1,'北京',1513477182,'index.png'),(28,'冬季保暖小知识讲座','刘晓燕','教授',12,1,1,1,'北京',1513477182,'index.png'),(29,'冬季保暖小知识讲座','刘晓燕','教授',12,1,1,1,'北京',1513477182,'index.jpg'),(31,'冬季保暖小知识讲座','刘晓燕','教授',12,1,1,1,'北京',1513477182,'index.jpg'),(32,'冬季保暖小知识讲座','刘晓燕','教授',12,1,1,1,'北京',1513477182,'index.jpg'),(34,'冬季保暖小知识讲座','刘晓燕','教授',12,1,1,1,'北京',1513477182,'index.jpg'),(35,'冬季保暖小知识讲座','刘晓燕','教授',12,1,1,1,'北京',1513477182,'index.jpg'),(36,'冬季保暖小知识讲座','刘晓燕','教授',12,1,1,1,'北京',1513477182,'index.jpg'),(37,'冬季保暖小知识讲座','刘晓燕','教授',12,1,1,1,'北京',1513477182,'index.jpg'),(38,'冬季保暖小知识讲座','刘晓燕','教授',12,1,1,1,'北京',1513477182,'index.jpg'),(39,'冬季保暖小知识讲座','刘晓燕','教授',12,1,1,1,'北京',1513477182,'index.jpg'),(40,'冬季保暖小知识讲座','刘晓燕','教授',12,1,1,1,'北京',1513477182,'index.jpg'),(41,'冬季保暖小知识讲座','刘晓燕','教授',12,1,1,1,'北京',1513477182,'index.jpg'),(42,'冬季保暖小知识讲座','刘晓燕','教授',12,1,1,1,'北京',1513477182,'index.jpg'),(43,'冬季保暖小知识讲座','刘晓燕','教授',12,1,1,1,'北京',1513477182,'index.jpg'),(44,'冬季保暖小知识讲座','刘晓燕','教授',12,1,1,1,'北京',1513477182,'index.jpg'),(45,'冬季保暖小知识讲座','刘晓燕','教授',12,1,1,1,'北京',1513477182,'index.jpg'),(46,'相册这个真是搞死我了','龚坤','程序猿',278,1,4,2,'浙江',1513515980,'index.png'),(58,'test the index','index','主任',30,1,2,1,'北京',1515855540,'f302ffb106cd4e0251590070fddeeb2e.png');
-/*!40000 ALTER TABLE `hea_picture` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `hea_picture` (`id`, `name`, `author`, `title`, `read`, `language`, `type`, `themeId`, `province`, `ctime`, `index`, `is_top`) VALUES
+(1, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 1, 1, 1, '北京', 1513477056, 'index.png', 0),
+(2, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 1, 2, 1, '北京', 1513477056, 'index.png', 0),
+(3, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 1, 2, 1, '北京', 1513477056, 'index.png', 0),
+(4, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 1, 3, 1, '北京', 1513477056, 'index.png', 0),
+(5, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 1, 3, 1, '北京', 1513477056, 'index.png', 0),
+(6, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 1, 2, 1, '北京', 1513477056, 'index.png', 0),
+(7, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 1, 1, 1, '北京', 1513477056, 'index.png', 0),
+(8, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 1, 1, 1, '北京', 1513477056, 'index.png', 0),
+(9, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 1, 1, 1, '北京', 1513477056, 'index.png', 0),
+(10, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 1, 1, 1, '北京', 1513477056, 'index.jpg', 0),
+(11, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 1, 4, 2, '北京', 1513477056, 'index.jpg', 0),
+(12, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 1, 4, 2, '北京', 1513477056, 'index.jpg', 0),
+(13, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 1, 1, 1, '北京', 1513477056, 'index.jpg', 0),
+(14, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 1, 1, 1, '北京', 1513477056, 'index.jpg', 0),
+(15, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 1, 1, 1, '北京', 1513477056, 'index.jpg', 0),
+(16, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 1, 1, 1, '北京', 1513477056, 'index.jpg', 0),
+(17, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 1, 1, 1, '北京', 1513477056, 'index.jpg', 0),
+(18, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 1, 1, 1, '北京', 1513477056, 'index.jpg', 0),
+(19, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 1, 1, 1, '北京', 1513477056, 'index.jpg', 0),
+(20, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 1, 1, 1, '北京', 1513477056, 'index.jpg', 0),
+(21, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 1, 1, 1, '北京', 1513477056, 'index.jpg', 0),
+(22, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 1, 1, 1, '北京', 1513477056, 'index.jpg', 0),
+(23, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 1, 1, 1, '北京', 1513477056, 'index.jpg', 0),
+(24, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 1, 1, 1, '北京', 1513477056, 'index.jpg', 0),
+(25, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 2, 4, 2, '天津', 1513477056, 'index.jpg', 0),
+(26, '冬季保暖小知识讲座', '小盆友', '教授', 13, 2, 4, 2, '天津', 1513477182, 'index.png', 0),
+(27, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 1, 1, 1, '北京', 1513477182, 'index.png', 0),
+(28, '冬季保暖小知识讲座', '刘晓燕', '教授', 13, 1, 1, 1, '北京', 1513477182, 'index.png', 0),
+(29, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 1, 1, 1, '北京', 1513477182, 'index.jpg', 0),
+(31, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 1, 1, 1, '北京', 1513477182, 'index.jpg', 0),
+(32, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 1, 1, 1, '北京', 1513477182, 'index.jpg', 0),
+(34, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 1, 1, 1, '北京', 1513477182, 'index.jpg', 0),
+(35, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 1, 1, 1, '北京', 1513477182, 'index.jpg', 0),
+(36, '冬季保暖小知识讲座', '刘晓燕', '教授', 13, 1, 1, 1, '北京', 1513477182, 'index.jpg', 0),
+(37, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 1, 1, 1, '北京', 1513477182, 'index.jpg', 1),
+(38, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 1, 1, 1, '北京', 1513477182, 'index.jpg', 0),
+(39, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 1, 1, 1, '北京', 1513477182, 'index.jpg', 0),
+(40, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 1, 1, 1, '北京', 1513477182, 'index.jpg', 0),
+(41, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 1, 1, 1, '北京', 1513477182, 'index.jpg', 0),
+(42, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 1, 1, 1, '北京', 1513477182, 'index.jpg', 0),
+(43, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 1, 1, 1, '北京', 1513477182, 'index.jpg', 0),
+(44, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 1, 1, 1, '北京', 1513477182, 'index.jpg', 0),
+(45, '冬季保暖小知识讲座', '刘晓燕', '教授', 12, 1, 1, 1, '北京', 1513477182, 'index.jpg', 0),
+(46, '相册这个真是搞死我了', '龚坤', '程序猿', 278, 1, 4, 2, '浙江', 1513515980, 'index.png', 1),
+(58, 'test the index', 'index', '主任', 31, 1, 2, 1, '北京', 1515855540, 'f302ffb106cd4e0251590070fddeeb2e.png', 1);
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `hea_ppt`
+-- 表的结构 `hea_ppt`
 --
 
-DROP TABLE IF EXISTS `hea_ppt`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `hea_ppt` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `hea_ppt` (
+  `id` int(11) NOT NULL,
   `name` varchar(300) NOT NULL DEFAULT '' COMMENT '名称',
   `author_id` int(11) DEFAULT NULL COMMENT '作者ID',
   `author` varchar(100) NOT NULL COMMENT '作者',
@@ -283,132 +479,228 @@ CREATE TABLE `hea_ppt` (
   `province` varchar(200) DEFAULT NULL COMMENT '制作省份',
   `reader_num` int(11) DEFAULT '0' COMMENT '播放量',
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `is_top` tinyint(4) DEFAULT '0' COMMENT '置顶状态：0是未置顶，1是置顶',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8 COMMENT='ppt表';
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `is_top` tinyint(4) DEFAULT '0' COMMENT '置顶状态：0是未置顶，1是置顶'
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 COMMENT='ppt表';
 
 --
--- Dumping data for table `hea_ppt`
+-- 转存表中的数据 `hea_ppt`
 --
 
-LOCK TABLES `hea_ppt` WRITE;
-/*!40000 ALTER TABLE `hea_ppt` DISABLE KEYS */;
-INSERT INTO `hea_ppt` VALUES (17,'测试',NULL,'李教授','测试1',29,'ppt/test','ppt/0cfac3451c0099f47cdeebfc6980f7bf.pptx','1','2','1','上海',3,'2017-12-24 10:28:28'),(18,'测试',NULL,'李教授','测试1',29,'ppt/test','ppt/0cfac3451c0099f47cdeebfc6980f7bf.pptx','1','2','1','上海',0,'2017-12-24 10:28:28'),(19,'测试',NULL,'李教授','测试1',29,'ppt/test','ppt/0cfac3451c0099f47cdeebfc6980f7bf.pptx','1','2','1','上海',0,'2017-12-24 10:28:28'),(20,'测试',NULL,'李教授','测试1',29,'ppt/test','ppt/0cfac3451c0099f47cdeebfc6980f7bf.pptx','1','2','1','上海',0,'2017-12-24 10:28:28'),(21,'测试',NULL,'李教授','测试1',29,'ppt/test','ppt/0cfac3451c0099f47cdeebfc6980f7bf.pptx','1','2','1','上海',0,'2017-12-24 10:28:28'),(22,'测试',NULL,'李教授','测试1',29,'ppt/test','ppt/0cfac3451c0099f47cdeebfc6980f7bf.pptx','1','2','1','上海',0,'2017-12-24 10:28:28'),(23,'测试',NULL,'李教授','测试1',29,'ppt/test','ppt/0cfac3451c0099f47cdeebfc6980f7bf.pptx','1','2','1','上海',0,'2017-12-24 10:28:28'),(24,'测试',NULL,'李教授','测试1',29,'ppt/test','ppt/0cfac3451c0099f47cdeebfc6980f7bf.pptx','1','2','1','上海',0,'2017-12-24 10:28:28'),(25,'测试',NULL,'李教授','测试1',29,'ppt/test','ppt/0cfac3451c0099f47cdeebfc6980f7bf.pptx','1','2','1','上海',0,'2017-12-24 10:28:28'),(26,'测试',NULL,'李教授','测试1',29,'ppt/test','ppt/0cfac3451c0099f47cdeebfc6980f7bf.pptx','1','2','1','上海',0,'2017-12-24 10:28:28'),(27,'测试',NULL,'李教授','测试1',29,'ppt/test','ppt/0cfac3451c0099f47cdeebfc6980f7bf.pptx','1','2','1','上海',0,'2017-12-24 10:28:28'),(28,'测试',NULL,'李教授','测试1',29,'ppt/test','ppt/0cfac3451c0099f47cdeebfc6980f7bf.pptx','1','2','1','上海',0,'2017-12-24 10:28:28'),(29,'测试',NULL,'李教授','测试1',29,'ppt/test','ppt/0cfac3451c0099f47cdeebfc6980f7bf.pptx','1','2','1','上海',0,'2017-12-24 10:28:28'),(30,'测试',NULL,'李教授','测试1',29,'ppt/test','ppt/0cfac3451c0099f47cdeebfc6980f7bf.pptx','1','2','1','上海',0,'2017-12-24 10:28:28'),(31,'测试',NULL,'李教授','测试1',29,'ppt/test','ppt/0cfac3451c0099f47cdeebfc6980f7bf.pptx','1','2','1','上海',0,'2017-12-24 10:28:28'),(32,'测试',NULL,'李教授','测试1',29,'ppt/test','ppt/0cfac3451c0099f47cdeebfc6980f7bf.pptx','1','2','1','上海',0,'2017-12-24 10:28:28'),(33,'测试',NULL,'李教授','测试1',29,'ppt/test','ppt/0cfac3451c0099f47cdeebfc6980f7bf.pptx','1','2','1','上海',0,'2017-12-24 10:28:28'),(34,'测试',NULL,'李教授','测试1',29,'ppt/test','ppt/0cfac3451c0099f47cdeebfc6980f7bf.pptx','1','2','1','上海',0,'2017-12-24 10:28:28');
-/*!40000 ALTER TABLE `hea_ppt` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `hea_ppt` (`id`, `name`, `author_id`, `author`, `description`, `page_count`, `pic_url`, `source_url`, `themeId`, `type`, `language`, `province`, `reader_num`, `create_time`, `is_top`) VALUES
+(17, '测试', NULL, '李教授', '测试1', 29, 'ppt/test', 'ppt/0cfac3451c0099f47cdeebfc6980f7bf.pptx', '1', '2', '1', '上海', 5, '2017-12-24 02:28:28', 1),
+(18, '测试', NULL, '李教授', '测试1', 29, 'ppt/test', 'ppt/0cfac3451c0099f47cdeebfc6980f7bf.pptx', '1', '2', '1', '上海', 1, '2017-12-24 02:28:28', 1),
+(19, '测试', NULL, '李教授', '测试1', 29, 'ppt/test', 'ppt/0cfac3451c0099f47cdeebfc6980f7bf.pptx', '1', '2', '1', '上海', 0, '2017-12-24 02:28:28', 0),
+(20, '测试', NULL, '李教授', '测试1', 29, 'ppt/test', 'ppt/0cfac3451c0099f47cdeebfc6980f7bf.pptx', '1', '2', '1', '上海', 0, '2017-12-24 02:28:28', 0),
+(21, '测试', NULL, '李教授', '测试1', 29, 'ppt/test', 'ppt/0cfac3451c0099f47cdeebfc6980f7bf.pptx', '1', '2', '1', '上海', 0, '2017-12-24 02:28:28', 0),
+(22, '测试', NULL, '李教授', '测试1', 29, 'ppt/test', 'ppt/0cfac3451c0099f47cdeebfc6980f7bf.pptx', '1', '2', '1', '上海', 0, '2017-12-24 02:28:28', 0),
+(23, '测试', NULL, '李教授', '测试1', 29, 'ppt/test', 'ppt/0cfac3451c0099f47cdeebfc6980f7bf.pptx', '1', '2', '1', '上海', 0, '2017-12-24 02:28:28', 0),
+(24, '测试', NULL, '李教授', '测试1', 29, 'ppt/test', 'ppt/0cfac3451c0099f47cdeebfc6980f7bf.pptx', '1', '2', '1', '上海', 0, '2017-12-24 02:28:28', 0),
+(25, '测试', NULL, '李教授', '测试1', 29, 'ppt/test', 'ppt/0cfac3451c0099f47cdeebfc6980f7bf.pptx', '1', '2', '1', '上海', 0, '2017-12-24 02:28:28', 0),
+(26, '测试', NULL, '李教授', '测试1', 29, 'ppt/test', 'ppt/0cfac3451c0099f47cdeebfc6980f7bf.pptx', '1', '2', '1', '上海', 0, '2017-12-24 02:28:28', 0),
+(27, '测试', NULL, '李教授', '测试1', 29, 'ppt/test', 'ppt/0cfac3451c0099f47cdeebfc6980f7bf.pptx', '1', '2', '1', '上海', 0, '2017-12-24 02:28:28', 0),
+(28, '测试', NULL, '李教授', '测试1', 29, 'ppt/test', 'ppt/0cfac3451c0099f47cdeebfc6980f7bf.pptx', '1', '2', '1', '上海', 0, '2017-12-24 02:28:28', 0),
+(29, '测试', NULL, '李教授', '测试1', 29, 'ppt/test', 'ppt/0cfac3451c0099f47cdeebfc6980f7bf.pptx', '1', '2', '1', '上海', 0, '2017-12-24 02:28:28', 0),
+(30, '测试', NULL, '李教授', '测试1', 29, 'ppt/test', 'ppt/0cfac3451c0099f47cdeebfc6980f7bf.pptx', '1', '2', '1', '上海', 0, '2017-12-24 02:28:28', 0),
+(31, '测试', NULL, '李教授', '测试1', 29, 'ppt/test', 'ppt/0cfac3451c0099f47cdeebfc6980f7bf.pptx', '1', '2', '1', '上海', 0, '2017-12-24 02:28:28', 0),
+(32, '测试', NULL, '李教授', '测试1', 29, 'ppt/test', 'ppt/0cfac3451c0099f47cdeebfc6980f7bf.pptx', '1', '2', '1', '上海', 0, '2017-12-24 02:28:28', 0),
+(33, '测试', NULL, '李教授', '测试1', 29, 'ppt/test', 'ppt/0cfac3451c0099f47cdeebfc6980f7bf.pptx', '1', '2', '1', '上海', 0, '2017-12-24 02:28:28', 1),
+(34, '测试', NULL, '李教授', '测试1', 29, 'ppt/test', 'ppt/0cfac3451c0099f47cdeebfc6980f7bf.pptx', '1', '2', '1', '上海', 0, '2017-12-24 02:28:28', 0),
+(35, '线上测试', NULL, '不知啊', '线上测试', 29, 'ppt/35', 'ppt/8831e5bad538df2a700b87375a56fb0c.pptx', '1', '2', '1', '杭州', 1, '2018-01-15 05:10:49', 0),
+(40, '乱码测试', NULL, '乱码', '乱码测试', 29, 'ppt/40', 'ppt/0ea18fd8d8ac1fe1edc363e6f7b9a467.pptx', '1', '2', '1', '杭州', 1, '2018-01-15 09:39:00', 0);
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `hea_signature`
+-- 表的结构 `hea_signature`
 --
 
-DROP TABLE IF EXISTS `hea_signature`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `hea_signature` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `hea_signature` (
+  `id` int(11) NOT NULL,
   `signature` varchar(1024) DEFAULT NULL,
-  `ctime` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `ctime` int(11) DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `hea_signature`
+-- 转存表中的数据 `hea_signature`
 --
 
-LOCK TABLES `hea_signature` WRITE;
-/*!40000 ALTER TABLE `hea_signature` DISABLE KEYS */;
-INSERT INTO `hea_signature` VALUES (1,'a7HOCghJTnzukKOp6A/P+wm0cmRzZWNyZXRJZD1BS0lEQUZFVzFRT2haZWZkVENiQnNVek1kamRMdEZQTnJVbHImY3VycmVudFRpbWVTdGFtcD0xNTE0NjE1NzIzJmV4cGlyZVRpbWU9MTUxNDcwMjEyMyZyYW5kb209MTA0NzkwMzQ5MQ==',1514615723);
-/*!40000 ALTER TABLE `hea_signature` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `hea_signature` (`id`, `signature`, `ctime`) VALUES
+(1, 'hIl74oIlv0SZWbRr1Nn60N9IRedzZWNyZXRJZD1BS0lEQUZFVzFRT2haZWZkVENiQnNVek1kamRMdEZQTnJVbHImY3VycmVudFRpbWVTdGFtcD0xNTE2MTY5MDI4JmV4cGlyZVRpbWU9MTUxNjI1NTQyOCZyYW5kb209MTk0ODUwMTY4OA==', 1516169028);
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `hea_theme`
+-- 表的结构 `hea_theme`
 --
 
-DROP TABLE IF EXISTS `hea_theme`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `hea_theme` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(128) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE IF NOT EXISTS `hea_theme` (
+  `id` int(11) NOT NULL,
+  `name` varchar(128) DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `hea_theme`
+-- 转存表中的数据 `hea_theme`
 --
 
-LOCK TABLES `hea_theme` WRITE;
-/*!40000 ALTER TABLE `hea_theme` DISABLE KEYS */;
-INSERT INTO `hea_theme` VALUES (1,'慢性疾病'),(2,'健康生活方式');
-/*!40000 ALTER TABLE `hea_theme` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `hea_theme` (`id`, `name`) VALUES
+(1, '慢性疾病'),
+(2, '健康生活方式');
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `hea_type`
+-- 表的结构 `hea_type`
 --
 
-DROP TABLE IF EXISTS `hea_type`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `hea_type` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `hea_type` (
+  `id` int(11) NOT NULL,
   `name` varchar(64) DEFAULT NULL,
-  `themeId` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `themeId` int(11) DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `hea_type`
+-- 转存表中的数据 `hea_type`
 --
 
-LOCK TABLES `hea_type` WRITE;
-/*!40000 ALTER TABLE `hea_type` DISABLE KEYS */;
-INSERT INTO `hea_type` VALUES (1,'高血脂',1),(2,'脑卒中',1),(3,'高血压',1),(4,'情绪管理',2),(5,'膳食平衡',2);
-/*!40000 ALTER TABLE `hea_type` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `hea_type` (`id`, `name`, `themeId`) VALUES
+(1, '高血脂', 1),
+(2, '脑卒中', 1),
+(3, '高血压', 1),
+(4, '情绪管理', 2),
+(5, '膳食平衡', 2);
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `hea_user`
+-- 表的结构 `hea_user`
 --
 
-DROP TABLE IF EXISTS `hea_user`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `hea_user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `hea_user` (
+  `id` int(11) NOT NULL,
   `username` varchar(45) DEFAULT NULL,
   `password` varchar(64) DEFAULT NULL,
   `nickname` varchar(45) DEFAULT NULL,
   `type` int(11) DEFAULT NULL COMMENT '1:user 2:expert',
-  `ctime` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=195 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `ctime` int(11) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=198 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `hea_user`
+-- 转存表中的数据 `hea_user`
 --
 
-LOCK TABLES `hea_user` WRITE;
-/*!40000 ALTER TABLE `hea_user` DISABLE KEYS */;
-INSERT INTO `hea_user` VALUES (7,'18916294856','123456','朱晓燕',1,1506636000),(12,'18916294842','654321','user_727',1,1506636000),(18,'18916294848','654321','user_7897',1,1506636000),(81,'13910001110','001110','艾薇',1,1506636000),(82,'13910001111','001111','张雁霏',1,1506636000),(83,'13910001112','001112','张奇荃',1,1506636000),(84,'13910001113','001113','张申萱',1,1506636000),(85,'13910001114','001114','张鑫竹',1,1506636000),(86,'13910001115','001115','张焕乔',1,1506636000),(87,'13910001116','001116','张素翠',1,1506636000),(88,'13910001117','001117','张国群',1,1506636000),(89,'13910001118','001118','孙松雪',1,1506636000),(90,'13910001119','001119','张妤遥　',1,1506636000),(91,'13910001120','001120','刘雨娟',1,1506636000),(92,'13910001121','001121','张责丽',1,1506636000),(101,'13910001130','001130','王珍雁',1,1506636000),(108,'13910001137','001137','王利龄',1,1506636000),(109,'13910001138','001138','王利纯',1,1506636000),(110,'13910001139','001139','王望雪',1,1506636000),(111,'13910001140','001140','王仪满',1,1506636000),(112,'13910001141','001141','王筱丽',1,1506636000),(113,'13910001142','001142','李秀贞',1,1506636000),(114,'13910001143','001143','王方懿',1,1506636000),(115,'13910001144','001144','陈　淑',1,1506636000),(116,'13910001145','001145','刘满方',1,1506636000),(117,'13910001146','001146','姜　露',1,1506636000),(118,'13910001147','001147','孙永强',1,1506636000),(119,'13910001148','001148','赵怀礼',1,1506636000),(120,'13910001149','001149','赵　缘',1,1506636000),(121,'13910001150','001150','孙晨羽',1,1506636000),(122,'13910001151','001151','程　彪',1,1506636000),(123,'13910001152','001152','金　荣',1,1506636000),(124,'13910001153','001153','梁　斯',1,1506636000),(125,'13910001154','001154','王储群',1,1506636000),(126,'13910001155','001155','孙源泳',1,1506636000),(127,'13910001156','001156','孙天祯',1,1506636000),(128,'18910001135','123456','fuck123',1,NULL),(129,'18910111135','123456','fuck123',1,NULL),(130,'15608504858','123456','gongkun',1,1512827674),(131,'18916294857','123456','xiaogong',1,1512874804),(132,'18916294820','123456','xiaogong',2,1512874804),(133,'18916294821','123456','xiaogong',2,1512874804),(134,'18916294822','123456','xiaogong',2,1512874804),(135,'18916294823','123456','xiaogong',2,1512874804),(136,'18916294824','123456','xiaogong',2,1512874804),(137,'18916294825','123456','xiaogong',2,1512874804),(138,'18916294826','123456','xiaogong',2,1512874804),(139,'18916294827','123456','xiaogong',2,1512874804),(140,'18916294828','123456','xiaogong',2,1512874804),(141,'18916294829','123456','xiaogong',2,1512874804),(142,'18916294830','123456','xiaogong',2,1512874804),(143,'18916294831','123456','xiaogong',2,1512874804),(144,'18916294832','123456','xiaogong',2,1512874804),(145,'18916294833','123456','xiaogong',2,1512874804),(146,'18916294834','123456','xiaogong',2,1512874804),(147,'18916294835','123456','xiaogong',2,1512874804),(148,'18916294836','123456','xiaogong',2,1512874804),(149,'18916294837','123456','xiaogong',2,1512874804),(150,'18916294838','123456','xiaogong',2,1512874804),(151,'18916294839','123456','xiaogong',2,1512874804),(152,'18916294840','123456','xiaogong',2,1512874804),(153,'18916294841','123456','xiaogong',2,1512874804),(154,'18916294842','123456','xiaogong',2,1512874804),(155,'18916294843','123456','xiaogong',2,1512874804),(156,'18916294844','123456','xiaogong',2,1512874804),(157,'18916294845','123456','xiaogong',2,1512874804),(158,'18916294846','123456','xiaogong',2,1512874804),(159,'18916294847','123456','xiaogong',2,1512874804),(160,'18916294848','123456','xiaogong',2,1512874804),(161,'18916294849','123456','xiaogong',2,1512874804),(162,'18916294850','123456','xiaogong',2,1512874804),(163,'18916294851','123456','xiaogong',2,1512874804),(164,'18916294852','123456','xiaogong',2,1512874804),(165,'18916294853','123456','xiaogong',2,1512874804),(166,'18916294854','123456','xiaogong',2,1512874804),(167,'18916294855','123456','xiaogong',2,1512874804),(168,'18916294856','123456','xiaogong',2,1512874804),(169,'18916294859','123456','xiaogong',2,1512874804),(170,'18916294860','123456','xiaogong',2,1512874804),(171,'18916294861','123456','xiaogong',2,1512874804),(172,'18916294862','123456','xiaogong',2,1512874804),(173,'18916294863','123456','xiaogong',2,1512874804),(174,'18916294864','123456','xiaogong',2,1512874804),(175,'18916294865','123456','xiaogong',2,1512874804),(176,'18916294866','123456','xiaogong',2,1512874804),(177,'18916294867','123456','xiaogong',2,1512874804),(178,'18916294868','123456','xiaogong',2,1512874804),(179,'18916294869','123456','xiaogong',2,1512874804),(180,'18916294870','123456','xiaogong',2,1512874804),(181,'18916294871','123456','xiaogong',2,1512874804),(182,'18916294872','123456','xiaogong',2,1512874804),(183,'18916294873','123456','xiaogong',2,1512874804),(184,'18916294874','123456','xiaogong',2,1512874804),(185,'18916294875','123456','xiaogong',2,1512874804),(186,'18916294876','123456','xiaogong',2,1512874804),(187,'18916294877','123456','xiaogong',2,1512874804),(188,'18916294878','654321','xiaogong',2,1512874804),(189,'18916294879','123456','xiaogong',2,1512874804),(190,'18916294880','123451','xiaogong',2,1512874804),(192,'18916294881','123456','healthy',2,1514031764),(194,'18916294882','123456','healthy',NULL,1514035343);
-/*!40000 ALTER TABLE `hea_user` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `hea_user` (`id`, `username`, `password`, `nickname`, `type`, `ctime`) VALUES
+(7, '18916294856', '123456', '朱晓燕', 1, 1506636000),
+(12, '18916294842', '654321', 'user_727', 1, 1506636000),
+(18, '18916294848', '654321', 'user_7897', 1, 1506636000),
+(81, '13910001110', '001110', '艾薇', 1, 1506636000),
+(82, '13910001111', '001111', '张雁霏', 1, 1506636000),
+(83, '13910001112', '001112', '张奇荃', 1, 1506636000),
+(84, '13910001113', '001113', '张申萱', 1, 1506636000),
+(85, '13910001114', '001114', '张鑫竹', 1, 1506636000),
+(86, '13910001115', '001115', '张焕乔', 1, 1506636000),
+(87, '13910001116', '001116', '张素翠', 1, 1506636000),
+(88, '13910001117', '001117', '张国群', 1, 1506636000),
+(89, '13910001118', '001118', '孙松雪', 1, 1506636000),
+(90, '13910001119', '001119', '张妤遥　', 1, 1506636000),
+(91, '13910001120', '001120', '刘雨娟', 1, 1506636000),
+(92, '13910001121', '001121', '张责丽', 1, 1506636000),
+(101, '13910001130', '001130', '王珍雁', 1, 1506636000),
+(108, '13910001137', '001137', '王利龄', 1, 1506636000),
+(109, '13910001138', '001138', '王利纯', 1, 1506636000),
+(110, '13910001139', '001139', '王望雪', 1, 1506636000),
+(111, '13910001140', '001140', '王仪满', 1, 1506636000),
+(112, '13910001141', '001141', '王筱丽', 1, 1506636000),
+(113, '13910001142', '001142', '李秀贞', 1, 1506636000),
+(114, '13910001143', '001143', '王方懿', 1, 1506636000),
+(115, '13910001144', '001144', '陈　淑', 1, 1506636000),
+(116, '13910001145', '001145', '刘满方', 1, 1506636000),
+(117, '13910001146', '001146', '姜　露', 1, 1506636000),
+(118, '13910001147', '001147', '孙永强', 1, 1506636000),
+(119, '13910001148', '001148', '赵怀礼', 1, 1506636000),
+(120, '13910001149', '001149', '赵　缘', 1, 1506636000),
+(121, '13910001150', '001150', '孙晨羽', 1, 1506636000),
+(122, '13910001151', '001151', '程　彪', 1, 1506636000),
+(123, '13910001152', '001152', '金　荣', 1, 1506636000),
+(124, '13910001153', '001153', '梁　斯', 1, 1506636000),
+(125, '13910001154', '001154', '王储群', 1, 1506636000),
+(126, '13910001155', '001155', '孙源泳', 1, 1506636000),
+(127, '13910001156', '001156', '孙天祯', 1, 1506636000),
+(128, '18910001135', '123456', 'fuck123', 1, NULL),
+(129, '18910111135', '123456', 'fuck123', 1, NULL),
+(130, '15608504858', '123456', 'gongkun', 1, 1512827674),
+(131, '18916294857', '123456', 'xiaogong', 1, 1512874804),
+(132, '18916294820', '123456', 'xiaogong', 2, 1512874804),
+(133, '18916294821', '123456', 'xiaogong', 2, 1512874804),
+(134, '18916294822', '123456', 'xiaogong', 2, 1512874804),
+(135, '18916294823', '123456', 'xiaogong', 2, 1512874804),
+(136, '18916294824', '123456', 'xiaogong', 2, 1512874804),
+(137, '18916294825', '123456', 'xiaogong', 2, 1512874804),
+(138, '18916294826', '123456', 'xiaogong', 2, 1512874804),
+(139, '18916294827', '123456', 'xiaogong', 2, 1512874804),
+(140, '18916294828', '123456', 'xiaogong', 2, 1512874804),
+(141, '18916294829', '123456', 'xiaogong', 2, 1512874804),
+(142, '18916294830', '123456', 'xiaogong', 2, 1512874804),
+(143, '18916294831', '123456', 'xiaogong', 2, 1512874804),
+(144, '18916294832', '123456', 'xiaogong', 2, 1512874804),
+(145, '18916294833', '123456', 'xiaogong', 2, 1512874804),
+(146, '18916294834', '123456', 'xiaogong', 2, 1512874804),
+(147, '18916294835', '123456', 'xiaogong', 2, 1512874804),
+(148, '18916294836', '123456', 'xiaogong', 2, 1512874804),
+(149, '18916294837', '123456', 'xiaogong', 2, 1512874804),
+(150, '18916294838', '123456', 'xiaogong', 2, 1512874804),
+(151, '18916294839', '123456', 'xiaogong', 2, 1512874804),
+(152, '18916294840', '123456', 'xiaogong', 2, 1512874804),
+(153, '18916294841', '123456', 'xiaogong', 2, 1512874804),
+(154, '18916294842', '123456', 'xiaogong', 2, 1512874804),
+(155, '18916294843', '123456', 'xiaogong', 2, 1512874804),
+(156, '18916294844', '123456', 'xiaogong', 2, 1512874804),
+(157, '18916294845', '123456', 'xiaogong', 2, 1512874804),
+(158, '18916294846', '123456', 'xiaogong', 2, 1512874804),
+(159, '18916294847', '123456', 'xiaogong', 2, 1512874804),
+(160, '18916294848', '123456', 'xiaogong', 2, 1512874804),
+(161, '18916294849', '123456', 'xiaogong', 2, 1512874804),
+(162, '18916294850', '123456', 'xiaogong', 2, 1512874804),
+(163, '18916294851', '123456', 'xiaogong', 2, 1512874804),
+(164, '18916294852', '123456', 'xiaogong', 2, 1512874804),
+(165, '18916294853', '123456', 'xiaogong', 2, 1512874804),
+(166, '18916294854', '123456', 'xiaogong', 2, 1512874804),
+(167, '18916294855', '123456', 'xiaogong', 2, 1512874804),
+(168, '18916294856', '123456', 'xiaogong', 2, 1512874804),
+(169, '18916294859', '123456', 'xiaogong', 2, 1512874804),
+(170, '18916294860', '123456', 'xiaogong', 2, 1512874804),
+(171, '18916294861', '123456', 'xiaogong', 2, 1512874804),
+(172, '18916294862', '123456', 'xiaogong', 2, 1512874804),
+(173, '18916294863', '123456', 'xiaogong', 2, 1512874804),
+(174, '18916294864', '123456', 'xiaogong', 2, 1512874804),
+(175, '18916294865', '123456', 'xiaogong', 2, 1512874804),
+(176, '18916294866', '123456', 'xiaogong', 2, 1512874804),
+(177, '18916294867', '123456', 'xiaogong', 2, 1512874804),
+(178, '18916294868', '123456', 'xiaogong', 2, 1512874804),
+(179, '18916294869', '123456', 'xiaogong', 2, 1512874804),
+(180, '18916294870', '123456', 'xiaogong', 2, 1512874804),
+(181, '18916294871', '123456', 'xiaogong', 2, 1512874804),
+(182, '18916294872', '123456', 'xiaogong', 2, 1512874804),
+(183, '18916294873', '123456', 'xiaogong', 2, 1512874804),
+(184, '18916294874', '123456', 'xiaogong', 2, 1512874804),
+(185, '18916294875', '123456', 'xiaogong', 2, 1512874804),
+(186, '18916294876', '123456', 'xiaogong', 2, 1512874804),
+(187, '18916294877', '123456', 'xiaogong', 2, 1512874804),
+(188, '18916294878', '654321', 'xiaogong', 2, 1512874804),
+(189, '18916294879', '123456', 'xiaogong', 2, 1512874804),
+(190, '18916294880', '123451', 'xiaogong', 2, 1512874804),
+(192, '18916294881', '123456', 'healthy', 2, 1514031764),
+(195, '15711232520', '654321', 'healthy123', 1, 1515828919),
+(196, '18911290012', '123456', 'healthy', 2, 1515832740),
+(197, '18911880188', '18911880188', 'healthy', 2, 1516254854);
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `hea_video`
+-- 表的结构 `hea_video`
 --
 
-DROP TABLE IF EXISTS `hea_video`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `hea_video` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `hea_video` (
+  `id` int(11) NOT NULL,
   `videoId` varchar(256) DEFAULT NULL,
   `name` varchar(256) DEFAULT NULL,
   `author` varchar(64) DEFAULT NULL,
@@ -421,55 +713,237 @@ CREATE TABLE `hea_video` (
   `ctime` int(11) DEFAULT NULL,
   `videoAddr` varchar(256) DEFAULT NULL,
   `covAddr` varchar(256) DEFAULT NULL,
-  `is_top` tinyint(4) DEFAULT '0' COMMENT '置顶状态：0是未置顶，1是置顶',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `is_top` tinyint(4) DEFAULT '0' COMMENT '置顶状态：0是未置顶，1是置顶'
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `hea_video`
+-- 转存表中的数据 `hea_video`
 --
 
-LOCK TABLES `hea_video` WRITE;
-/*!40000 ALTER TABLE `hea_video` DISABLE KEYS */;
-INSERT INTO `hea_video` VALUES (1,'4564972818825976127','管理胆固醇预防心梗讲座','刘晓燕','教授',100,1,3,1,'河南',1513230848,'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4','http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png'),(2,'4564972818825976127','管理胆固醇预防心梗讲座','刘晓燕','教授',100,1,2,2,'北京',1513230848,'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4','http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png'),(3,'4564972818825976127','管理胆固醇预防心梗讲座','刘晓燕','教授',100,1,2,2,'北京',1513230848,'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4','http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png'),(5,'4564972818825976127','管理胆固醇预防心梗讲座','刘晓燕','教授',100,1,2,1,'北京',1513230848,'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4','http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png'),(6,'4564972818825976127','管理胆固醇预防心梗讲座','刘晓燕','教授',100,1,2,1,'北京',1513230848,'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4','http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png'),(7,'4564972818825976127','管理胆固醇预防心梗讲座','刘晓燕','教授',100,1,2,1,'北京',1513230848,'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4','http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png'),(8,'4564972818825976127','管理胆固醇预防心梗讲座','刘晓燕','教授',100,1,2,1,'北京',1513230848,'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4','http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png'),(9,'4564972818825976127','管理胆固醇预防心梗讲座','刘晓燕','教授',100,1,2,1,'北京',1513230848,'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4','http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png'),(10,'4564972818825976127','管理胆固醇预防心梗讲座','刘晓燕','教授',100,1,2,1,'北京',1513230848,'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4','http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png'),(11,'4564972818825976127','管理胆固醇预防心梗讲座','刘晓燕','教授',100,1,2,1,'北京',1513230848,'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4','http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png'),(12,'4564972818825976127','管理胆固醇预防心梗讲座','刘晓燕','教授',100,1,2,1,'北京',1513230848,'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4','http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png'),(13,'4564972818825976127','管理胆固醇预防心梗讲座','刘晓燕','教授',100,1,2,1,'北京',1513230848,'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4','http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png'),(14,'4564972818825976127','管理胆固醇预防心梗讲座','刘晓燕','教授',100,1,2,1,'北京',1513230848,'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4','http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png'),(15,'4564972818825976127','管理胆固醇预防心梗讲座','刘晓燕','教授',100,1,2,1,'北京',1513230848,'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4','http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png'),(16,'4564972818825976127','管理胆固醇预防心梗讲座','刘晓燕','教授',100,1,2,1,'北京',1513230848,'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4','http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png'),(17,'4564972818825976127','管理胆固醇预防心梗讲座','刘晓燕','教授',100,1,2,1,'北京',1513230848,'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4','http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png'),(18,'4564972818825976127','管理胆固醇预防心梗讲座','刘晓燕','教授',100,1,2,1,'北京',1513230848,'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4','http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png'),(19,'4564972818825976127','管理胆固醇预防心梗讲座','刘晓燕','教授',100,1,2,1,'北京',1513230848,'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4','http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png'),(20,'4564972818825976127','管理胆固醇预防心梗讲座','刘晓燕','教授',100,1,2,1,'北京',1513230848,'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4','http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png'),(21,'4564972818825976127','管理胆固醇预防心梗讲座','刘晓燕','教授',100,1,2,1,'北京',1513230848,'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4','http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png'),(22,'4564972818825976127','管理胆固醇预防心梗讲座','刘晓燕','教授',100,1,2,1,'北京',1513230848,'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4','http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png'),(23,'4564972818825976127','管理胆固醇预防心梗讲座','刘晓燕','教授',100,1,2,1,'北京',1513230848,'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4','http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png'),(24,'4564972818825976127','管理胆固醇预防心梗讲座','刘晓燕','教授',100,1,2,1,'北京',1513230848,'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4','http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png'),(25,'4564972818825976127','管理胆固醇预防心梗讲座','刘晓燕','教授',100,1,2,1,'北京',1513230848,'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4','http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png'),(26,'4564972818825976127','管理胆固醇预防心梗讲座','刘晓燕','教授',100,1,2,1,'北京',1513230848,'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4','http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png'),(27,'4564972818825976127','管理胆固醇预防心梗讲座','刘晓燕','教授',100,1,2,1,'北京',1513230848,'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4','http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png'),(28,'4564972818825976127','管理胆固醇预防心梗讲座','刘晓燕','教授',100,1,2,1,'北京',1513230848,'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4','http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png'),(29,'4564972818825976127','管理胆固醇预防心梗讲座','刘晓燕','教授',100,1,2,1,'北京',1513230848,'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4','http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png'),(30,'4564972818825976127','管理胆固醇预防心梗讲座','刘晓燕','教授',100,1,2,1,'北京',1513230848,'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4','http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png'),(31,'4564972818825976127','管理胆固醇预防心梗讲座','刘晓燕','教授',100,1,2,1,'北京',1513230848,'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4','http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png'),(32,'4564972818835963168','冬季保暖小知识','刘晓明','主任医师',10,1,2,1,'江苏',1514618847,'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4','http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png');
-/*!40000 ALTER TABLE `hea_video` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `hea_video` (`id`, `videoId`, `name`, `author`, `title`, `read`, `language`, `type`, `themeId`, `province`, `ctime`, `videoAddr`, `covAddr`, `is_top`) VALUES
+(1, '4564972818825976127', '管理胆固醇预防心梗讲座', '刘晓燕', '教授', 101, 1, 3, 1, '河南', 1513230848, 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4', 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png', 1),
+(2, '4564972818825976127', '管理胆固醇预防心梗讲座', '刘晓燕', '教授', 100, 1, 2, 2, '北京', 1513230848, 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4', 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png', 1),
+(3, '4564972818825976127', '管理胆固醇预防心梗讲座', '刘晓燕', '教授', 100, 1, 2, 2, '北京', 1513230848, 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4', 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png', 0),
+(5, '4564972818825976127', '管理胆固醇预防心梗讲座', '刘晓燕', '教授', 100, 1, 2, 1, '北京', 1513230848, 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4', 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png', 0),
+(6, '4564972818825976127', '管理胆固醇预防心梗讲座', '刘晓燕', '教授', 100, 1, 2, 1, '北京', 1513230848, 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4', 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png', 0),
+(7, '4564972818825976127', '管理胆固醇预防心梗讲座', '刘晓燕', '教授', 100, 1, 2, 1, '北京', 1513230848, 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4', 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png', 0),
+(8, '4564972818825976127', '管理胆固醇预防心梗讲座', '刘晓燕', '教授', 100, 1, 2, 1, '北京', 1513230848, 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4', 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png', 0),
+(9, '4564972818825976127', '管理胆固醇预防心梗讲座', '刘晓燕', '教授', 100, 1, 2, 1, '北京', 1513230848, 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4', 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png', 0),
+(10, '4564972818825976127', '管理胆固醇预防心梗讲座', '刘晓燕', '教授', 100, 1, 2, 1, '北京', 1513230848, 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4', 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png', 0),
+(11, '4564972818825976127', '管理胆固醇预防心梗讲座', '刘晓燕', '教授', 100, 1, 2, 1, '北京', 1513230848, 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4', 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png', 0),
+(12, '4564972818825976127', '管理胆固醇预防心梗讲座', '刘晓燕', '教授', 100, 1, 2, 1, '北京', 1513230848, 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4', 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png', 0),
+(13, '4564972818825976127', '管理胆固醇预防心梗讲座', '刘晓燕', '教授', 100, 1, 2, 1, '北京', 1513230848, 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4', 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png', 0),
+(14, '4564972818825976127', '管理胆固醇预防心梗讲座', '刘晓燕', '教授', 100, 1, 2, 1, '北京', 1513230848, 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4', 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png', 0),
+(15, '4564972818825976127', '管理胆固醇预防心梗讲座', '刘晓燕', '教授', 100, 1, 2, 1, '北京', 1513230848, 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4', 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png', 0),
+(16, '4564972818825976127', '管理胆固醇预防心梗讲座', '刘晓燕', '教授', 100, 1, 2, 1, '北京', 1513230848, 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4', 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png', 0),
+(17, '4564972818825976127', '管理胆固醇预防心梗讲座', '刘晓燕', '教授', 100, 1, 2, 1, '北京', 1513230848, 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4', 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png', 0),
+(18, '4564972818825976127', '管理胆固醇预防心梗讲座', '刘晓燕', '教授', 100, 1, 2, 1, '北京', 1513230848, 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4', 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png', 0),
+(19, '4564972818825976127', '管理胆固醇预防心梗讲座', '刘晓燕', '教授', 100, 1, 2, 1, '北京', 1513230848, 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4', 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png', 0),
+(20, '4564972818825976127', '管理胆固醇预防心梗讲座', '刘晓燕', '教授', 100, 1, 2, 1, '北京', 1513230848, 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4', 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png', 0),
+(21, '4564972818825976127', '管理胆固醇预防心梗讲座', '刘晓燕', '教授', 100, 1, 2, 1, '北京', 1513230848, 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4', 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png', 0),
+(22, '4564972818825976127', '管理胆固醇预防心梗讲座', '刘晓燕', '教授', 100, 1, 2, 1, '北京', 1513230848, 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4', 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png', 0),
+(23, '4564972818825976127', '管理胆固醇预防心梗讲座', '刘晓燕', '教授', 100, 1, 2, 1, '北京', 1513230848, 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4', 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png', 0),
+(24, '4564972818825976127', '管理胆固醇预防心梗讲座', '刘晓燕', '教授', 100, 1, 2, 1, '北京', 1513230848, 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4', 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png', 0),
+(25, '4564972818825976127', '管理胆固醇预防心梗讲座', '刘晓燕', '教授', 100, 1, 2, 1, '北京', 1513230848, 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4', 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png', 0),
+(26, '4564972818825976127', '管理胆固醇预防心梗讲座', '刘晓燕', '教授', 100, 1, 2, 1, '北京', 1513230848, 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4', 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png', 0),
+(27, '4564972818825976127', '管理胆固醇预防心梗讲座', '刘晓燕', '教授', 100, 1, 2, 1, '北京', 1513230848, 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4', 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png', 0),
+(28, '4564972818825976127', '管理胆固醇预防心梗讲座', '刘晓燕', '教授', 100, 1, 2, 1, '北京', 1513230848, 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4', 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png', 0),
+(29, '4564972818825976127', '管理胆固醇预防心梗讲座', '刘晓燕', '教授', 100, 1, 2, 1, '北京', 1513230848, 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4', 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png', 0),
+(30, '4564972818825976127', '管理胆固醇预防心梗讲座', '刘晓燕', '教授', 100, 1, 2, 1, '北京', 1513230848, 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4', 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png', 0),
+(31, '4564972818825976127', '管理胆固醇预防心梗讲座', '刘晓燕', '教授', 100, 1, 2, 1, '北京', 1513230848, 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4', 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png', 0),
+(32, '4564972818835963168', '冬季保暖小知识', '刘晓明', '主任医师', 11, 1, 2, 1, '江苏', 1514618847, 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/Agmd1AUMawgA.mp4', 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/98dc567c4564972818835963168/4564972818835963169.png', 0),
+(33, '4564972819038278474', '23123123', '123231123', '1231231231', 11111, 1, 1, 1, '北京', 1516169075, 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/cfb2dcb74564972819038278474/jEqfPeYIh5wA.mp4', 'http://1255767271.vod2.myqcloud.com/cf20188avodgzp1255767271/cfb2dcb74564972819038278474/4564972819038278475.jpg', 1);
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- 表的结构 `user`
 --
 
-DROP TABLE IF EXISTS `user`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(11) NOT NULL,
   `userName` varchar(45) DEFAULT NULL,
   `password` varchar(64) DEFAULT NULL,
   `phoneNum` varchar(45) DEFAULT NULL,
-  `time` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `time` int(11) DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `user`
+-- 转存表中的数据 `user`
 --
 
-LOCK TABLES `user` WRITE;
-/*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'demo','demo123','18916294857',1512191518),(2,'gongkun','gongkun123','18916294857',1512191518);
-/*!40000 ALTER TABLE `user` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+INSERT INTO `user` (`id`, `userName`, `password`, `phoneNum`, `time`) VALUES
+(1, 'demo', 'demo123', '18916294857', 1512191518),
+(2, 'gongkun', 'gongkun123', '18916294857', 1512191518);
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `ci_sessions`
+--
+ALTER TABLE `ci_sessions`
+  ADD KEY `ci_sessions_timestamp` (`timestamp`);
+
+--
+-- Indexes for table `hea_admin`
+--
+ALTER TABLE `hea_admin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `hea_article`
+--
+ALTER TABLE `hea_article`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `hea_audio`
+--
+ALTER TABLE `hea_audio`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `hea_city`
+--
+ALTER TABLE `hea_city`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `hea_code`
+--
+ALTER TABLE `hea_code`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `hea_expert`
+--
+ALTER TABLE `hea_expert`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `hea_picture`
+--
+ALTER TABLE `hea_picture`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `hea_ppt`
+--
+ALTER TABLE `hea_ppt`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `hea_signature`
+--
+ALTER TABLE `hea_signature`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `hea_theme`
+--
+ALTER TABLE `hea_theme`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `hea_type`
+--
+ALTER TABLE `hea_type`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `hea_user`
+--
+ALTER TABLE `hea_user`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `hea_video`
+--
+ALTER TABLE `hea_video`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `hea_admin`
+--
+ALTER TABLE `hea_admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `hea_article`
+--
+ALTER TABLE `hea_article`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=46;
+--
+-- AUTO_INCREMENT for table `hea_audio`
+--
+ALTER TABLE `hea_audio`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=45;
+--
+-- AUTO_INCREMENT for table `hea_city`
+--
+ALTER TABLE `hea_city`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=35;
+--
+-- AUTO_INCREMENT for table `hea_code`
+--
+ALTER TABLE `hea_code`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `hea_expert`
+--
+ALTER TABLE `hea_expert`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=74;
+--
+-- AUTO_INCREMENT for table `hea_picture`
+--
+ALTER TABLE `hea_picture`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=59;
+--
+-- AUTO_INCREMENT for table `hea_ppt`
+--
+ALTER TABLE `hea_ppt`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=41;
+--
+-- AUTO_INCREMENT for table `hea_signature`
+--
+ALTER TABLE `hea_signature`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `hea_theme`
+--
+ALTER TABLE `hea_theme`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `hea_type`
+--
+ALTER TABLE `hea_type`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `hea_user`
+--
+ALTER TABLE `hea_user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=198;
+--
+-- AUTO_INCREMENT for table `hea_video`
+--
+ALTER TABLE `hea_video`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=34;
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2018-01-13 23:37:32

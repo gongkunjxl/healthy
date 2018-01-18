@@ -14,7 +14,7 @@ if(isset($_SESSION['userid']) && $_SESSION['userid']>0){
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <title>健康网站首页</title>
+  <title>健康科普资源库</title>
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
   <link rel="stylesheet" href="/static/layui/css/layui.css">
   <link rel="stylesheet" href="/static/video/assets/hivideo.css">
@@ -52,7 +52,10 @@ if(isset($_SESSION['userid']) && $_SESSION['userid']>0){
 <div class="div-layout">
 <div class="nav">
   <div class="layui-container">
-    <img class="logo" src="/static/images/head_logo.png"   alt="logo">
+    <div class="logo">
+        <img src="/static/images/head_logo.png">
+    </div>
+    <!-- <img class="logo" src="/static/images/head_logo.png"   alt="logo"> -->
     <ul class="layui-nav">
         <h1>健康科普资源库</h1>
         <li class="layui-nav-item">
