@@ -15,7 +15,7 @@ if(isset($_SESSION['userid']) && $_SESSION['userid']>0){
     <head>
         <meta charset="utf-8">
 
-        <title>reveal.js – The HTML Presentation Framework</title>
+        <title><?php echo $data['name']; ?></title>
 
         <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
         <meta name="author" content="Hakim El Hattab">

@@ -40,8 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    <label class="layui-form-label">类型</label>
 		    <div class="layui-input-block" style="width: 40%;">
 		     <select id="type" name="type" lay-filter="type|required">
-		     	<option value="1">慢性病</option>   
-		     	<option value="2" selected="">冠心病</option>  
+		     	  
 		     </select>
 		    </div>
 		  </div>
