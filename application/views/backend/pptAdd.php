@@ -59,11 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    <label class="layui-form-label">制作省市</label>
 		    <div class="layui-input-block" style="width: 40%;">
 		     <select id="city" name="city" lay-filter="city|required">
-		        <option value="杭州" selected="">杭州</option>
-		        <option value="宁波">宁波</option>
-		        <option value="温州">温州</option>
-		        <option value="温州">台州</option>
-		        <option value="温州">绍兴</option>
+		        
 		     </select>
 		    </div>
 		  </div>
@@ -134,7 +130,12 @@ $.getJSON("/static/js/lifeTheme.json",function(data){
 	}
 });
 
-
+var provinceObj = document.getElementById("city");
+var innerHTML = '';
+for(value in province){
+	innerHTML=innerHTML+'<option value="'+province[value]+'">'+province[value]+"</option>";
+}
+provinceObj.innerHTML = innerHTML;
 
 var ppt_id = 0;
 var url = "";
