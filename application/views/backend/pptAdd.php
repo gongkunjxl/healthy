@@ -92,42 +92,15 @@ var sickData,lifeData;
 $.ajaxSettings.async = false;
 $.getJSON("/static/js/sickTheme.json",function(data){ 
 	sickData = data; 
-	var themeId = '';
-		  	var themeRadio = document.getElementsByName("theme");
-		  	for (i=0; i<themeRadio.length; i++) {  
-		        if (themeRadio[i].checked) {  
-		           themeId = themeRadio[i];
-		           break;
-		        }  
-		    }
-	if(themeId == 1){
-		var typeObj = document.getElementById("type");
-		var innerHTML = '';
-		for(value in sickData){
-			innerHTML=innerHTML+'<option value="'+sickData[value].id+'">'+sickData[value].name+"</option>";
-		}
-		typeObj.innerHTML = innerHTML;
+	var typeObj = document.getElementById("type");
+	var innerHTML = '';
+	for(value in sickData){
+		innerHTML=innerHTML+'<option value="'+sickData[value].id+'">'+sickData[value].name+"</option>";
 	}
+	typeObj.innerHTML = innerHTML;
 }); 
 $.getJSON("/static/js/lifeTheme.json",function(data){ 
 	lifeData = data; 
-	var themeId = '';
-		  	var themeRadio = document.getElementsByName("theme");
-		  	for (i=0; i<themeRadio.length; i++) {  
-		        if (themeRadio[i].checked) {  
-		           themeId = themeRadio[i];
-		           break;
-		        }  
-		    }
-	
-	if(themeId == 2){
-		var typeObj = document.getElementById("type");
-		var innerHTML = '';
-		for(value in lifeData){
-			innerHTML=innerHTML+'<option value="'+lifeData[value].id+'">'+lifeData[value].name+"</option>";
-		}
-		typeObj.innerHTML = innerHTML;
-	}
 });
 
 var provinceObj = document.getElementById("city");
