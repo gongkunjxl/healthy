@@ -11,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		   <div class="layui-form-item" >
 		    <label class="layui-form-label">幻灯片名称</label>
 		    <div class="layui-input-block" style="width: 40%;">
-		      <input type="text" id="name" lay-verify="title|required" autocomplete="off" placeholder="请输入音频名称" class="layui-input">
+		      <input type="text" id="name" lay-verify="title|required" autocomplete="off" placeholder="请输入幻灯片名称" class="layui-input">
 		    </div>
 		  </div>
 		  <div class="layui-form-item layui-form-text">
