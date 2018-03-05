@@ -1410,7 +1410,7 @@ class Api extends MY_Controller {
         }
         //audio
         $orderby = "create_time";
-        $select_field="id,name,author,description,source_url,themeId,type,language,province,reader_num,date_format(create_time,'%Y-%m-%d') as create_time";
+        $select_field="id,name,author,description,page_count,source_url,themeId,type,language,province,reader_num,date_format(create_time,'%Y-%m-%d') as create_time";
         $ppt_data=$this->Common->get_limit_order( $this->ppt_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field);
         echo json_encode($ppt_data);
     }
