@@ -120,9 +120,13 @@ layui.use(['layer', 'form'], function(){
 				     		html = html+'<a href="/main/powerpointinfo/'+data[i].id+'">'+
 				     		'<div class="powerpoint-show">'+
 			  				'<div class="content-show">'+
-			  				'<div class="powerpoint-img">'+
-							'<img src="/static/images/image1.png" style="width: 100%;height: 100%;">'+
-							'</div>'+
+			  				'<div class="powerpoint-img">';
+			  				if (true) {
+			  					html = html+ '<img src="' + data[i].pic_url + "/1" + '" style="width: 100%;height: 100%;">';
+			  				}else{
+			  					html = html+ '<img src="/static/images/image1.png" style="width: 100%;height: 100%;">';
+			  				}
+							html = html+ '</div>'+
 							'<div class="show-right">'+
 							'<h2>'+data[i].name+'</h2>'+
 		 					'<p>'+data[i].author+'</p>'+
