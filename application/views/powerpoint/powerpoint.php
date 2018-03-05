@@ -121,7 +121,9 @@ layui.use(['layer', 'form'], function(){
 				     		'<div class="powerpoint-show">'+
 			  				'<div class="content-show">'+
 			  				'<div class="powerpoint-img">';
+			  				alert(data[i].page_count)
 			  				if (parseInt(data[i].page_count) > 0) {
+			  					alert(1)
 			  					html = html+ '<img src="/' + data[i].pic_url + "/1.jpeg" + '" style="width: 100%;height: 100%;">';
 			  				}else{
 			  					html = html+ '<img src="/static/images/image1.png" style="width: 100%;height: 100%;">';
