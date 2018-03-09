@@ -718,7 +718,6 @@ class Main extends MY_Controller {
 		$head_data['language'] = $language;
 		$head_data['province'] = $province;
 		$head_data['search'] = $search;
-		$head_data['page_count'] = $page_count;
 		$re_head['head_data'] = $head_data;
 		//赋值
 		$_SESSION['theme'] = $theme;
