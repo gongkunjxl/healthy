@@ -62,7 +62,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 				<div class="video-label">
 					<h3><?php echo $value['name']; ?></h3>
-					<span class="left-label"><?php echo $value['type']; ?></span>
+					<span class="left-label"><?php echo $value['type_data']; ?></span>
 					<span class="right-label"><?php echo $value['read'];?>人观看</span>
 				</div>
 		  </div>		
