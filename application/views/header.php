@@ -59,10 +59,10 @@ if(isset($_SESSION['userid']) && $_SESSION['userid']>0){
     <ul class="layui-nav">
         <h1>健康科普资源库</h1>
         <li class="layui-nav-item">
-          <a style="text-decoration: none;" href="/main/index">首页</a>
+          <a style="text-decoration: none; font-size: 16px;" href="/main/index">首页</a>
         </li>
         <li class="layui-nav-item" style="padding-right:10px;">
-          <a style="text-decoration: none;">慢性疾病</a>
+          <a style="text-decoration: none; font-size: 16px;">慢性疾病</a>
           <dl class="layui-nav-child">
             <dd style="line-height: 36px;"><a style="text-decoration: none;" href="/main/searchIndex/1/1">高血脂</a></dd>
             <dd style="line-height: 36px;"><a style="text-decoration: none;" href="/main/searchIndex/1/2">脑卒中</a></dd>
@@ -70,7 +70,7 @@ if(isset($_SESSION['userid']) && $_SESSION['userid']>0){
           </dl>
         </li>
         <li class="layui-nav-item" style="margin-left: 1%;">
-          <a style="text-decoration: none; padding-right: 20px;">健康生活方式</a>
+          <a style="text-decoration: none; padding-right: 20px; font-size: 16px;">健康生活方式</a>
           <dl class="layui-nav-child">
             <dd style="line-height: 36px;"><a style="text-decoration: none;" href="/main/searchIndex/2/4">情绪管理</a></dd>
             <dd style="line-height: 36px;"><a style="text-decoration: none;" href="/main/searchIndex/2/5">膳食平衡</a></dd>
