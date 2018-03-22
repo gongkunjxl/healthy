@@ -12,7 +12,7 @@ html body .div-layout{
     height: auto;
     position: relative; 
     min-height: 100%;
-    padding-bottom: 240px;
+    /*padding-bottom: 40px;*/
 }
 .nav{height:100px;background:#009ACD; border: 0.1px;padding: 0.1px;}
 .nav .logo{
@@ -820,10 +820,10 @@ html body .div-layout{
     height: 200px;
     background-color: #009ACD;
     border:0.1px;
-    margin-top: 100px;
+    margin-top: 40px;
     padding: 0;
     bottom: 0px;
-    position: absolute;
+    /*position: absolute;*/
 }
 .footer .layui-container .footer-content{
     width: 30%;

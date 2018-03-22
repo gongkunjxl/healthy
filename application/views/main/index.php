@@ -180,7 +180,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 	<div class="about-line"></div>
 	<div class="about-content">
-		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;中华预防医学健康传播分会、中华医学心血管病分会、国家心血管病中心防治资讯部、中华疾病预防控制中心慢病z红心、中国心血管健康联盟5加专业机构联合发布《“管理胆固醇、防心梗”核心提示》、呼吁公众及高危人群从监测血脂、管理“坏胆固醇”、识别心梗前兆等方面入手、防止心梗的发生。</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;“中国健康知识传播激励计划”正式创办于2005年，是由国家卫生计生委疾病预防控制局、宣传司、中国健康教育中心和中国记协办公室联合发起并指导的全国健康知识传播战略平台，旨在对媒体、大众进行慢性疾病防控的健康知识教育，帮助公众防范慢性疾病及相关危险因素，得到中华医学会相关分会、中国医师协会、中华预防医学会、中国营养学会、中国疾病预防控制中心等权威机构专家的积极参与，保障了健康知识传播的准确性和科学性。</p>
 	</div>
 	<?php endif; ?>
 	<!-- <div style="height: 100px; margin-top:40px;width: 100%; background-color: #F5F5F5;border: 1px;padding: 0.1px;">
