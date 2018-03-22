@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-<?php echo var_dump($picture_data); ?>
+<!-- <?php// echo var_dump($picture_data); ?> -->
 
 <link rel="stylesheet" href="/static/css/viewer.css">
 <!-- expert -->
