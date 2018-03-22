@@ -109,7 +109,7 @@ layui.use(['laypage', 'layer'], function(){
 				     		'<td>'+theme+'</td>'+
 				     		'<td>'+new Date(parseInt(data[i].ctime) * 1000).toLocaleString()+'</td>'+
 				     		'<td>\
-								<a class="layui-btn layui-btn-xs" href="/backend/articleEdit/'+data[i].id+'" >详情</a>\
+								<a class="layui-btn layui-btn-xs" href="/backend/videoEdit/'+data[i].id+'" >详情</a>\
 								<a class="layui-btn layui-btn-danger layui-btn-xs" onclick="delClick(this);" value="'+data[i].id+'" >删除</a>\
 		  						</td>';
 
