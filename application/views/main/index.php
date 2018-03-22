@@ -1,13 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-<!-- <?php //echo var_dump($count); ?> -->
-<!-- <?php //echo var_dump($expert_data); ?> -->
-<!-- <?php //echo var_dump($video_data); ?> -->
-<!-- <?php //echo var_dump($audio_data); ?> -->
-<!-- <?php //echo var_dump($article_data); ?> -->
-<!-- <?php //echo var_dump($picture_data); ?> -->
-<!-- <?php //echo var_dump($ppt_data); ?> -->
+<?php echo var_dump($picture_data); ?>
+
+<link rel="stylesheet" href="/static/css/viewer.css">
 <!-- expert -->
 <?php if(count($expert_data)>0): ?>
 <div class="index-back">
@@ -127,18 +123,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 	<div class="picture-line"></div>
 	<div class="picture-content">
-	  	  	<?php foreach($picture_data as $value ):?>
-			  <div class="content">
-				<div class="content-show" id="layer-photos-show1">
-					<a href="/main/pictureinfo/<?php echo $value['id'];?>">
-						<img src="/picture/<?php echo $value['id'];?>/<?php echo $value['index'];?>">
+	  	<?php foreach($picture_data as $value ):?>
+		<div class="content">
+			<div class="content-show">
+				<!-- <a href="/main/pictureinfo/<?php //echo $value['id'];?>"> -->
+				<a id="<?php echo 'picture'.$value['id'];?>" onclick="displayPic('<?php echo 'picture'.$value['id'];?>');">
+					<img src="/picture/<?php echo $value['id'];?>/<?php echo $value['index'];?>">
+					<?php foreach($value['pics'] as $pic_value ):?>
+						<img style="display: none;" src="<?php echo $pic_value;?>">
+					<?php endforeach;?>
 					<div class="label-word">
 						<p><?php echo $value['name'];?></p>
 					</div>
-					</a>
-				</div>
-			  </div>
-			<?php endforeach; ?>
+				</a>
+			</div>
+		</div>
+	   <?php endforeach; ?>
 	</div>
 	<?php endif; ?>
 
@@ -183,26 +183,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;“中国健康知识传播激励计划”正式创办于2005年，是由国家卫生计生委疾病预防控制局、宣传司、中国健康教育中心和中国记协办公室联合发起并指导的全国健康知识传播战略平台，旨在对媒体、大众进行慢性疾病防控的健康知识教育，帮助公众防范慢性疾病及相关危险因素，得到中华医学会相关分会、中国医师协会、中华预防医学会、中国营养学会、中国疾病预防控制中心等权威机构专家的积极参与，保障了健康知识传播的准确性和科学性。</p>
 	</div>
 	<?php endif; ?>
-	<!-- <div style="height: 100px; margin-top:40px;width: 100%; background-color: #F5F5F5;border: 1px;padding: 0.1px;">
-		<a style="margin-top: 50px; margin-left: 60px;" href="/main/testdemo">测试按钮</a>
-		<a style="margin-top: 50px; margin-left: 60px;" href="/backend/index">后台测试</a>
-		<a style="margin-top: 50px; margin-left: 60px;" href="/main/message">短信测试</a>
-		<a style="margin-top: 50px; margin-left: 60px;" href="/main/uploadVideo">视频测试</a>
-	</div>
-	<div style="height: 100px; margin-top:40px;width: 100%; background-color: #F5F5F5;border: 1px;padding: 0.1px;">
-		<a style="margin-top: 50px; margin-left: 10px;" href="/main/expert">专家页面</a>
-		<a style="margin-top: 50px; margin-left: 50px;" href="/main/expertInfo">专家详情</a>
-		<a style="margin-top: 50px; margin-left: 50px;" href="/main/article">文章列表</a>
-		<a style="margin-top: 50px; margin-left: 50px;" href="/main/articleInfo">文章详情</a>
-		<a style="margin-top: 50px; margin-left: 50px;" href="/main/audio">音频列表</a>
-		<a style="margin-top: 50px; margin-left: 50px;" href="/main/audioinfo">音频详情</a>
-		<a style="margin-top: 50px; margin-left: 50px;" href="/main/video">视频列表</a>
-		<a style="margin-top: 50px; margin-left: 50px;" href="/main/videoInfo">视频详情</a>
-		<a style="margin-top: 50px; margin-left: 50px;" href="/main/picture">图片列表</a>
-		<a style="margin-top: 50px; margin-left: 50px;" href="/main/pictureInfo">图片详情</a>
-		<a style="margin-top: 50px; margin-left: 50px;" href="/main/powerpoint">ppt列表</a>
-		<a style="margin-top: 50px; margin-left: 50px;" href="/main/powerpointInfo">ppt详情</a>
-	</div> -->
 </div>
 
 <!-- audio -->
@@ -224,6 +204,63 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 	// audio.play();
 </script>
+<script type="text/javascript">
+	function displayPic(picId){
+		var galley = document.getElementById(picId);
+		var viewer = new Viewer(galley, {
+        url: 'data-original',
+        toolbar: {
+          oneToOne: true,
+          prev: function() {
+            viewer.prev(true);
+          },
+          play: true,
+          next: function() {
+            viewer.next(true);
+          },
+          download: function() {
+            const a = document.createElement('a');
+            a.href = viewer.image.src;
+            a.download = viewer.image.alt;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+          },
+        },
+       });
+    }	
+</script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/js/viewer.js"></script>
+ <!--  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      var galley = document.getElementById('layer-photos-show1');
+      var viewer = new Viewer(galley, {
+        url: 'data-original',
+        toolbar: {
+          oneToOne: true,
+          prev: function() {
+            viewer.prev(true);
+          },
+          play: true,
+          next: function() {
+            viewer.next(true);
+          },
+          download: function() {
+            const a = document.createElement('a');
+
+            a.href = viewer.image.src;
+            a.download = viewer.image.alt;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+          },
+        },
+      });
+    });
+  </script> -->
 
 <!-- the flex 
 <script type="text/javascript">

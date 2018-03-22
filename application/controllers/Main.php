@@ -81,6 +81,12 @@ class Main extends MY_Controller {
         //picture
         $select_field='id,name,author,index';
     	$picture_data=$this->Common->get_limit_order( $this->picture_table,$where,$start,4,$orderby,$order_type,$select_field);
+    	
+    	//get all the all pictures
+    	foreach ($picture_data as $key => $value) {
+    		$pic_id = $value['id'];
+    		$picture_data[$key]['pics'] = $this->pictureInfo($pic_id);
+    	}
     	$re_data['picture_data'] = $picture_data;
 
     	$orderby = "is_top,create_time";
@@ -1120,24 +1126,25 @@ class Main extends MY_Controller {
 	        }
 	       closedir($handle); 
 	    }
-	    $re_data['picture'] = json_encode($pic_name);
-	   	$re_data['data'] = $data;
+	    // $re_data['picture'] = json_encode($pic_name);
+	   	// $re_data['data'] = $data;
 	   	$count = intval($data['read']) + 1;
 		$updae_data = array('read' => $count);
 		$this->Common->update($this->picture_table,$where,$updae_data);
+		return $pic_name;
 	    // get the recomand 3 pictures
-	    $page=1;
-    	$where=array();
-    	$start=intval($page-1)*intval($this->pic_page);
-    	$orderby='is_top,ctime';
-    	$order_type='desc';
-    	$select_field='*';
-    	$data=$this->Common->get_limit_order( $this->picture_table,$where,$start,$this->pic_page,$orderby,$order_type,$select_field);
+	    // $page=1;
+    	// $where=array();
+    	// $start=intval($page-1)*intval($this->pic_page);
+    	// $orderby='is_top,ctime';
+    	// $order_type='desc';
+    	// $select_field='*';
+    	// $data=$this->Common->get_limit_order( $this->picture_table,$where,$start,$this->pic_page,$orderby,$order_type,$select_field);
 
-    	$re_data['reData'] =$data;
-		$this->load->view('header2');
-		$this->load->view('picture/pictureInfo',$re_data);
-		$this->load->view('footer');
+  //   	$re_data['reData'] =$data;
+		// $this->load->view('header2');
+		// $this->load->view('picture/pictureInfo',$re_data);
+		// $this->load->view('footer');
 
 	}
 
