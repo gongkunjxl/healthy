@@ -225,7 +225,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	// audio.play();
 </script>
 
-<!-- the flex -->
+<!-- the flex 
 <script type="text/javascript">
 	 layui.use('util', function(){
 	  var util = layui.util;  //固定块
@@ -292,7 +292,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         });  
 
 </script>
-
+-->
 
 
 
