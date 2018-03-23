@@ -40,6 +40,9 @@
     overflow: auto;
     border-bottom: 1.5px solid #bfcace;
 }
+.video-content .video-list-content a:hover{
+    color: #009ACD;
+}
 .video-content .video-list-content .content{
     height: 130px;
     width: 100%;

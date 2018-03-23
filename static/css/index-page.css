@@ -420,8 +420,11 @@ html body .div-layout{
     font-size: 16px;
     min-width: 100px;
 }
-.article-content .article-show .article-label p a{
+.article-content .article-show .article-label a{
       font-size: 14px;
+}
+.article-content .article-show .article-label a:hover{
+    color: #009ACD;
 }
 /* audio */
 .audio-title{
@@ -826,21 +829,25 @@ html body .div-layout{
     /*position: absolute;*/
 }
 .footer .layui-container .footer-content{
-    width: 30%;
-    margin-left: 3%;
+    width: 40%;
+    margin-left: 5%;
     height: 200px;
-    float: left;
+    float: right;
     padding: 0.1px;
+    text-align: center;
     /*background-color: #fff0f5;*/
 }
 .footer .layui-container .footer-content ul{
     text-align: left;
     margin-left: 5%;
-    margin-top: 30px;
+    margin-top: 20px;
     font-size: 16px;
     font-weight: 300;
     color: #fff;
     line-height: 30px;
+}
+.footer .layui-container .footer-content ul li{
+    font-size: 14px;
 }
 
 
