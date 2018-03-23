@@ -35,6 +35,10 @@ html{-webkit-text-size-adjust:none;}
     border: 0;
     margin-top: 20px;
 }
+.audio-content a:hover{
+    color: #009ACD;
+    text-decoration: none;
+}
 .audio-content .audio-show{
     margin-top: 30px;
     width: 40%;

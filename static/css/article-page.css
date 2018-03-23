@@ -45,6 +45,10 @@ html{-webkit-text-size-adjust:none;}
     background-color: #fff;
     border-bottom: 2px solid #EBEBEB;
 }
+.article-content .article-show a:hover{
+    color: #009ACD;
+    text-decoration: none;
+}
 .article-content .article-show .content-show{
     width: 100%;
     height: 100px;
