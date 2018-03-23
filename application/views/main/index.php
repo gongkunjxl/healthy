@@ -104,7 +104,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<audio loop="loop" src="/<?php echo $value['source_url']; ?>" id="<?php echo 'media'.$i; $i=$i+1; ?>" preload="preload"></audio>
 						</div>
 					 </div>
-					 <p class="pcalss1" style="text-align: center;"><?php echo $value['author'].$value['title'].$value['name']; ?></p>
+					 <p class="pcalss1" style="text-align: center;"><?php echo $value['name']; ?></p>
 					 <!-- <div class="label-detail" style="display: none;overflow: right;white-space:nowrap;">刘小光教授讲解讲述秋冬季节疾病预防注意事项小光教授讲解讲述秋冬季节疾病预防注意事项</div> -->
 				</div>
 			  </div>
