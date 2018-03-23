@@ -36,6 +36,9 @@ if(isset($_SESSION['userid']) && $_SESSION['userid']>0){
 
 <!-- select -->
 <script type="text/javascript" src="/static/js/province.js"></script>
+<!-- picture -->
+<link rel="stylesheet" href="/static/css/viewer.css">
+<script src="/static/js/viewer.js"></script>
 <style type="text/css">
         .main-wrap{
             margin: 0 auto;

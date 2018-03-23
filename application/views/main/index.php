@@ -2,8 +2,6 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <!-- <?php// echo var_dump($picture_data); ?> -->
-
-<link rel="stylesheet" href="/static/css/viewer.css">
 <!-- expert -->
 <?php if(count($expert_data)>0): ?>
 <div class="index-back">
@@ -230,10 +228,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
        });
     }	
 </script>
-
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
-  <script src="/static/js/viewer.js"></script>
+  
  <!--  <script>
     window.addEventListener('DOMContentLoaded', function () {
       var galley = document.getElementById('layer-photos-show1');

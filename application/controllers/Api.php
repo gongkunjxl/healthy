@@ -251,7 +251,43 @@ class Api extends MY_Controller {
         //picture
         $select_field='*';
         $picture_data=$this->Common->get_limit_order( $this->picture_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field,$like);
+        //get all the data
+        foreach ($picture_data as $key => $value) {
+            $pic_id = $value['id'];
+            $picture_data[$key]['pics'] = $this->pictureInfo($pic_id);
+        }
         echo json_encode($picture_data);
+    }
+    /*
+     * get the picture detail info by gongkun
+    */
+   public function pictureInfo($id=0)
+    {
+        $where = array('id' => $id);
+        $data = $this->Common->get_one($this->picture_table,$where);
+
+        $dir = 'picture/'.$data['id'];
+        $pic_name = array();
+        $i=0;
+        if(is_dir($dir)){
+            if($handle = opendir($dir)){  
+                while (($file = readdir($handle)) !== false ) {  
+                    if($file != ".." && $file != "." && $file != ".DS_Store"){  
+                        if($file == $data['index']){
+                            continue;
+                        }else{
+                            $pic_name[$i] = "/picture/".$id."/".$file;
+                        }
+                        $i=$i+1;
+                    }  
+                }
+            }
+           closedir($handle); 
+        }
+        $count = intval($data['read']) + 1;
+        $updae_data = array('read' => $count);
+        $this->Common->update($this->picture_table,$where,$updae_data);
+        return $pic_name;
     }
     /*
      * get the picture detail info by gongkun

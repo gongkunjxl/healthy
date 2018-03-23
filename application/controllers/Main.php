@@ -1073,6 +1073,12 @@ class Main extends MY_Controller {
     	//picture
     	$select_field='*';
     	$picture_data=$this->Common->get_limit_order( $this->picture_table,$where,$start,$this->per_page,$orderby,$order_type,$select_field,$like);
+    	///get all the all pictures
+    	foreach ($picture_data as $key => $value) {
+    		$pic_id = $value['id'];
+    		$picture_data[$key]['pics'] = $this->pictureInfo($pic_id);
+    	}
+
     	$tmp_data=$this->Common->get_limit_order( $this->picture_table,$where,$start,'',$orderby,$order_type,$select_field,$like);
     	
         $re_data['count'] = count($tmp_data);
@@ -1110,13 +1116,7 @@ class Main extends MY_Controller {
 	            while (($file = readdir($handle)) !== false ) {  
 	                if($file != ".." && $file != "." && $file != ".DS_Store"){  
 	                    if($file == $data['index']){
-	                    	if($i>0){
-		                       	$tmp_name = $pic_name[0];
-		                       	$pic_name[0] = "/picture/".$id."/".$file;
-		                       	$pic_name[$i] = $tmp_name;
-		                    }else{
-		                       	$pic_name[$i] = "/picture/".$id."/".$file;
-		                    }
+	                    	continue;
 	                    }else{
 	                    	$pic_name[$i] = "/picture/".$id."/".$file;
 	                    }
@@ -1126,26 +1126,10 @@ class Main extends MY_Controller {
 	        }
 	       closedir($handle); 
 	    }
-	    // $re_data['picture'] = json_encode($pic_name);
-	   	// $re_data['data'] = $data;
 	   	$count = intval($data['read']) + 1;
 		$updae_data = array('read' => $count);
 		$this->Common->update($this->picture_table,$where,$updae_data);
 		return $pic_name;
-	    // get the recomand 3 pictures
-	    // $page=1;
-    	// $where=array();
-    	// $start=intval($page-1)*intval($this->pic_page);
-    	// $orderby='is_top,ctime';
-    	// $order_type='desc';
-    	// $select_field='*';
-    	// $data=$this->Common->get_limit_order( $this->picture_table,$where,$start,$this->pic_page,$orderby,$order_type,$select_field);
-
-  //   	$re_data['reData'] =$data;
-		// $this->load->view('header2');
-		// $this->load->view('picture/pictureInfo',$re_data);
-		// $this->load->view('footer');
-
 	}
 
 
