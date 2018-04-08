@@ -1,6 +1,17 @@
  <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
+  <style type="text/css">
+
+  .pdfShow canvas {
+                margin: 20px auto;
+                display: block;
+            }
+        </style>
+<link rel="resource" type="application/l10n" href="/static/pdf/web/locale/locale.properties"/>
+    <script src="/static/pdf/web/l10n.js"></script>
+    <!-- This snippet is used in production (included from viewer.html) -->
+    <script src="/static/pdf/build/pdf.js"></script>
 <link rel="stylesheet" href="/static/css/articleinfo-page.css">
 <div class="layui-container">
 	<!-- <?php //var_dump($data); ?> -->
@@ -34,12 +45,46 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 </div>
 
-<script type="text/javascript"> 
+<script type="text/javascript">
+	PDFJS.imageResourcesPath = './images/';
+  PDFJS.workerSrc = '/static/pdf/build/pdf.worker.js';
+  PDFJS.cMapUrl = '/static/pdf/web/cmaps/';
+  PDFJS.cMapPacked = true; 
 	window.onload = function (){
 		var pdfId = "<?php echo $data['id']; ?>";
 		var m_url = '/article/'+pdfId+".pdf";
-	    var success = new PDFObject({ url:m_url  ,pdfOpenParams: { scrollbars: '0', toolbar: '0', statusbar: '0'}}).embed("pdfShow");
+		showPdf(m_url);
 	};
+
+	function showall(url, page, id) {
+            PDFJS.getDocument(url).then(function getPdfHelloWorld(pdf) {
+                pdf.getPage(page).then(function getPageHelloWorld(page) {
+                    var scale = 1.4;
+                    var viewport = page.getViewport(scale);
+                    var canvas = document.getElementById(id);
+                    var context = canvas.getContext('2d');
+                    canvas.height = viewport.height;
+                    canvas.width = viewport.width;
+                    var renderContext = {
+                        canvasContext: context,
+                        viewport: viewport
+                    };
+                    page.render(renderContext);
+                });
+            });
+        }
+
+        function showPdf(url) {
+            
+            PDFJS.getDocument(url).then(function getPdfHelloWorld(pdf) {
+                pages = pdf.numPages+1;
+                for(var i = 1; i < pdf.numPages; i++) {
+                    var id = 'page-id-' + i;
+                    $("#pdfShow").append('<canvas id="' + id + '"></canvas>');
+                    showall(url, i, id);
+                }
+            });
+        }
 </script>
 <!-- 流加载 -->
 <script>
@@ -105,7 +150,8 @@ layui.use('flow', function(){
 	{
 		// alert(value);
 		var m_url = "/article/"+value
- 		var success = new PDFObject({ url: m_url ,pdfOpenParams: { scrollbars: '0', toolbar: '0', statusbar: '0'}}).embed("pdfShow");
+		$("#pdfShow").empty();
+		showPdf(m_url);
 		// 删除
        	// document.getElementById("video-item").innerHTML="";  
 	}

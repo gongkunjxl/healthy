@@ -291,7 +291,7 @@ class Main extends MY_Controller {
            //theme
             $type_where = array('id' => $value['type']);
             $type_data = $this->Common->get_one($this->type_table,$type_where);
-            $video_data[$key]['type'] = $type_data['name'];
+            $video_data[$key]['type_data'] = $type_data['name'];
         }
     	$re_data['video_data'] = $video_data;
 
@@ -337,6 +337,10 @@ class Main extends MY_Controller {
 	    //         }
     	// 	}
     	// }
+	foreach ($picture_data as $key => $value) {
+    		$pic_id = $value['id'];
+    		$picture_data[$key]['pics'] = $this->pictureInfo($pic_id);
+    	}
     	$re_data['picture_data'] = $picture_data;
 
     	$orderby = "is_top,create_time";

@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<a href="/main/videoInfo/<?php echo $value['id']; ?>">
 				<div class="content">
 					<div class="video-show">
-						<video poster="<?php echo $value['covAddr']; ?>"   controls preload "> 
+						<video poster="<?php echo $value['covAddr']; ?>" > 
 						</video>
 					</div>
 					<div class="video-label">
@@ -92,7 +92,7 @@ function formatDateTime(timeStamp) {
 				     		html = html +'<div class="video-list-content">'+
 				     		'<a href="/main/videoInfo/'+data[i].id+'">'+
 				     		'<div class="content"><div class="video-show">'+
-							' <video poster="'+data[i].covAddr+'"   controls preload "></video></div><div class="video-label">'+
+							' <video poster="'+data[i].covAddr+'"  "></video></div><div class="video-label">'+
 							'<h2>'+data[i].name+'</h2>'+
 							'<div class="author">'+data[i].author+' &nbsp;&nbsp;'+data[i].title+'</p></div><div>'+
 							'<p class="left-label">'+formatDateTime(data[i].ctime)+'</p>'+
