@@ -1601,7 +1601,7 @@ class Api extends MY_Controller {
             $topwhere = array('is_top' => 1);
             $count=$this->Common->get_count($this->picture_table,$topwhere,'');
                 
-            if ($count >2) {
+            if ($count >7) {
                 $re_data['count'] = $count;
             }else{
                 $postinfo= $this->Common->html_filter_array($_POST);

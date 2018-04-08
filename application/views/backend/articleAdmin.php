@@ -174,7 +174,7 @@ function  pushTop(obj)
 					dataType:'json',
 					data: data,
 					success: function (data) {
-						if(data.count>2){
+						if(data.count>7){
 							alert("置顶项只能为3个，请先取消一个置顶项");
 						}
 				     	window.location.href="/backend/articleAdmin";

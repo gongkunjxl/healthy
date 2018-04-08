@@ -14,7 +14,7 @@ html body .div-layout{
     min-height: 100%;
     /*padding-bottom: 40px;*/
 }
-.nav{height:100px;background:#009ACD; border: 0.1px;padding: 0.1px;}
+.nav{height:50px;background:#009ACD; border: 0.1px;padding: 0.1px;margin-bottom: 50px;}
 .nav .logo{
     height: 80px; 
     margin-top: 5px; 
@@ -48,7 +48,7 @@ html body .div-layout{
 .nav .right-nav{
     width: 180px;
     height: 60px;
-    margin-top: 40px;
+    margin-top: 15px;
     float: right;
 }
 .nav .right-nav  .login-icon{
@@ -58,7 +58,6 @@ html body .div-layout{
     float: left;
 }
 .nav .right-nav  .login-word{
-    margin-top: 10px;
     font-size: 16px;
     padding-left: 20px;
     float: left;

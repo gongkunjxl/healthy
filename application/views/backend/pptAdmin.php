@@ -89,8 +89,9 @@ layui.use(['laypage', 'layer'], function(){
 				     	obj.innerHTML="";
 				     	var html='<tr>';
 				     	for (var i = 0; i < data.length; i++) {
+						var theme = "慢性病";
 				     		if(data[i].language == 1){ language = "中文";} else{language = "English";}
-				     		if(data[i].theme == 1){ theme = "慢性病";}else{ theme = "健康生活";}
+				     		if(data[i].themeId == 1){ theme = "慢性病";}else{ theme = "健康生活";}
 				     		html=html+
 				     		'<td>'+data[i].name+'</td>'+
 				     		'<td>'+data[i].description+'</td>'+

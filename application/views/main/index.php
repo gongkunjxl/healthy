@@ -79,7 +79,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<a target="_blank" href="/main/articleinfo/<?php echo $value['id']; ?>">
 						<div class="radius">●</div>
 						<p><?php echo $value['name']; ?></p>
-						<div class="time"><?php echo date("Y-m-d",$value['ctime']);?></div>
+						<div class="time"></div>
 						</a>
 					</div>
 				</div>

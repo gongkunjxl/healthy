@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script type="text/javascript">
  var songsList = [];
  var song = {
-        "musicURL":'/static/audio/detail/mix/1.mp3',
+        "musicURL":"/<?php echo $data['source_url']; ?>",
         "oga":'/static/audio/detail/mix/1.ogg',
         "title":"<?php echo $data['name']; ?>",
         "artist":"<?php echo $data['author']; ?>",
@@ -24,8 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         "coverURL":'/static/audio/detail/mix/1.png',
         "description": "<?php echo $data['description']; ?>"
  };
- songsList.push(song);
-
+songsList.push(song);
  $(document).ready(function(){
     
     if(!window.localStorage){
