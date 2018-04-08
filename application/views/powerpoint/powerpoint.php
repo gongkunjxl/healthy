@@ -1,5 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+if(isset($_SESSION['userid']) && $_SESSION['userid']>0){
+   $userid = $_SESSION['userid'];
+}else{
+  $userid=0; 
+}
 ?>
 <link rel="stylesheet" href="/static/css/powerpoint-page.css">
 <script type="text/javascript" src="/static/js/province.js"></script>
@@ -8,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="powerpoint-title">
 		<h2>慢性疾病</h2>
 	</div>
-	
+	<!-- <?php //var_dump($data); ?> -->
 	<div class="powerpoint-content" id="pptList">
 		<?php if(count($data)>0): ?>
   	  	<?php foreach($data as $value ):?>
@@ -23,6 +28,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		 					<p><?php echo $value['author']; ?></p>
 		 					<span class="left-date"><?php echo $value['create_time']; ?></span>
 		 					<span class="right-date"><?php echo $value['reader_num']; ?>次浏览</span>
+		 					<div class="download">
+		 						<?php if($userid>0):?>
+					    	 		<a href="/<?php echo $value['source_url']; ?>" class="layui-btn layui-btn-primary ayui-btn-sm">下载</a>
+					    	 	<?php else:?>
+					    	 		<a href="/main/login" class="layui-btn layui-btn-primary ayui-btn-sm">下载</a>
+					    	 	<?php endif;?>
+		 					</div>
 						</div>
 			  		</div>
 				</div>
@@ -85,7 +97,7 @@ layui.use(['layer', 'form'], function(){
 
 <!-- the page -->
 <script type="text/javascript">
-
+	var userId = "<?php echo $userid; ?>";
 	layui.use(['laypage', 'layer'], function(){
 	  var laypage = layui.laypage
 	  ,layer = layui.layer;
@@ -110,13 +122,18 @@ layui.use(['layer', 'form'], function(){
 					dataType:'json',
 					data: data,
 					success: function (data) {
-				     	// alert(JSON.stringify(data));
+				     	 //alert(JSON.stringify(data));
 				     	// alert(data.length);
 				     	//渲染页面
 				     	var obj=document.getElementById('pptList');
-				     	// obj.innerHTML="";
 				     	var html='';
 				     	for (var i = 0; i < data.length; i++) {
+				     		var tmppt = '';
+				     		if(userId>0){
+				     			tmppt = '<a href="/'+data[i].source_url+'" class="layui-btn layui-btn-primary ayui-btn-sm">下载</a>';
+				     		}else{
+				     			tmppt = '<a href="/main/login" class="layui-btn layui-btn-primary ayui-btn-sm">下载</a>';
+				     		}
 				     		html = html+'<a href="/main/powerpointinfo/'+data[i].id+'">'+
 				     		'<div class="powerpoint-show">'+
 			  				'<div class="content-show">'+
@@ -132,6 +149,7 @@ layui.use(['layer', 'form'], function(){
 		 					'<p>'+data[i].author+'</p>'+
 		 					'<span class="left-date">'+data[i].create_time+'</span>'+
 		 					'<span class="right-date">'+data[i].reader_num+'次浏览'+'</span>'+
+		 					'<div class="download">'+tmppt+'</div>'+
 							'</div></div></div>'+
 				     		'</a>';
 				     	}

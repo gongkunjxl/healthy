@@ -1,5 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+if(isset($_SESSION['userid']) && $_SESSION['userid']>0){
+   $userid = $_SESSION['userid'];
+}else{
+  $userid=0; 
+}
 ?>
 <!-- <?php// echo var_dump($picture_data); ?> -->
 <!-- expert -->
@@ -163,7 +168,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="point-label">
 					<h3><?php echo $value['name']; ?></h3>
 					<span class="left-label"><?php echo $value['type']; ?></span>
-					<span class="right-label"><?php echo $value['reader_num']; ?>人观看</span>
+					<?php if($userid>0):?>
+		    	 		<span class="last-label" onclick="location.href='/<?php echo $value['source_url']; ?>'">下载</span>
+		    	 	<?php else:?>
+		    	 		<span class="last-label" onclick="location.href='/main/login'">下载</span>
+		    	 	<?php endif;?>
+					
+					<span class="mid-label"><?php echo $value['reader_num']; ?>人观看</span>
+
 				</div>
 			</div>
 		 </a>	

@@ -82,6 +82,15 @@ html{-webkit-text-size-adjust:none;}
     float: right;
     background-color: #fff;
 }
+.powerpoint-content .powerpoint-show .content-show .show-right .download{
+    margin-top: 35px;
+}
+.powerpoint-content .powerpoint-show .content-show .show-right .download a{
+    text-decoration: none;
+    height: 30px;
+    line-height: 30px;
+    border: 0;
+}
 .powerpoint-content .powerpoint-show .content-show .show-right h2{
     padding-top: 20px;
     font-size: 18px;

@@ -756,7 +756,7 @@ html body .div-layout{
 }
 .point-content .content .point-label .left-label{
     font-size: 14px;
-    width: 40%;
+    width: 30%;
     margin-top: 10px;
     margin-left: 10px;
     font-weight: 400;
@@ -766,9 +766,9 @@ html body .div-layout{
     word-wrap: normal;
     float: left;
 }
-.point-content .content .point-label .right-label{
+.point-content .content .point-label .mid-label{
     font-size: 14px;
-    width: 40%;
+    width: 30%;
     margin-top: 10px;
     text-align: center;
     font-weight: 400;
@@ -777,6 +777,21 @@ html body .div-layout{
     white-space: nowrap;
     word-wrap: normal;
     float: right;
+}
+.point-content .content .point-label .last-label{
+    font-size: 14px;
+    width: 30%;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: 400;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    float: right;
+}
+.point-content .content .point-label .last-label a{
+    text-decoration: none;
 }
 /* about us*/
 .about-title{
