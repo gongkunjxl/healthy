@@ -1,9 +1,13 @@
  <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+if(isset($_SESSION['userid']) && $_SESSION['userid']>0){
+   $userid = $_SESSION['userid'];
+}else{
+  $userid=0; 
+}
 ?>
 <link rel="stylesheet" href="/static/css/articleinfo-page.css">
 <div class="layui-container">
-	<!-- <?php //var_dump($data); ?> -->
  	<div class="layui-row">
 	  <div class="layui-col-md9">
 	  	<div class="article-show">
@@ -27,6 +31,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    		</div>
 		    		</a> -->
 		    	 </div>
+		    	 <div style="margin-top: 40px; margin-left: 80px;">
+		    	 	<?php if($userid>0):?>
+		    	 		<a style="text-decoration: none;" id="downpdf" href="/article/<?php echo $data['id']; ?>" class="layui-btn layui-btn-primary">文章下载</a>
+		    	 	<?php else:?>
+		    	 		<a style="text-decoration: none;" href="/main/login" class="layui-btn layui-btn-primary">文章下载</a>
+		    	 	<?php endif;?>
+		    	 </div>
+		    	 
 		    </div>
 	    </div>
 	  </div>
@@ -104,7 +116,13 @@ layui.use('flow', function(){
 	function articleClick(value)
 	{
 		// alert(value);
-		var m_url = "/article/"+value
+		var m_url = "/article/"+value;
+		var userId = "<?php echo $userid; ?>";
+		// alert(userId);
+		if(userId>0){
+			var download = document.getElementById("downpdf");
+			download.setAttribute("href",m_url);
+		}
  		var success = new PDFObject({ url: m_url ,pdfOpenParams: { scrollbars: '0', toolbar: '0', statusbar: '0'}}).embed("pdfShow");
 		// 删除
        	// document.getElementById("video-item").innerHTML="";  

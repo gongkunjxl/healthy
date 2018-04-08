@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<a href="/main/videoInfo/<?php echo $value['id']; ?>">
 				<div class="content">
 					<div class="video-show">
-						<video poster="<?php echo $value['covAddr']; ?>"   controls preload "> 
+						<video poster="<?php echo $value['covAddr']; ?>" "> 
 						</video>
 					</div>
 					<div class="video-label">
