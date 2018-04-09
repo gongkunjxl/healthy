@@ -56,9 +56,9 @@ if(isset($_SESSION['userid']) && $_SESSION['userid']>0){
 <div class="layui-container" style="display:inline-block;height: 100px;">
     
     <ul style="display: inline;margin-left:auto;margin-right:auto;">
-       <img src="/static/images/激励计划镂空.png" style="float: left;width: 100px;height: 100px;margin-top: 1px;">
-       <p style="font-size:x-large;font-family: cursive;font-weight: bold;color: #00B2EE;margin-top: 20px;margin-bottom: 10px;">中国健康知识传播激励计划</p>
-       <p style="font-size: xx-large;font-family: cursive;font-weight: bolder;color: #009ACD;">健 康 科 普 资 源 库</p>
+       <img src="/static/images/logo.png" style="margin-left: 30px;height: 80px;margin-top: 10px;">
+       <!-- <p style="font-size:x-large;font-family: cursive;font-weight: bold;color: #00B2EE;margin-top: 20px;margin-bottom: 10px;">中国健康知识传播激励计划</p>
+       <p style="font-size: xx-large;font-family: cursive;font-weight: bolder;color: #009ACD;">健 康 科 普 资 源 库</p> -->
     </ul>
     
   </div>
